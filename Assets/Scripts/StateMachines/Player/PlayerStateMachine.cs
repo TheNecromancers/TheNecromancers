@@ -10,7 +10,7 @@ public class PlayerStateMachine : StateMachine
 
     [field: Header("Movement Settings")]
     [field: SerializeField] public float MovementSpeed { get; private set; }
-    [field: SerializeField] public float DefaultRotationSpeed { get; private set; }
+    [field: SerializeField] public float RotationSpeed { get; private set; }
 
     //  [field: SerializeField, Header("Attack Settings")] public Attack[] Attacks { get; private set; }
     //  [field: SerializeField, Header("Attack Settings")] public WeaponDamage Weapon { get; private set; }
@@ -21,8 +21,10 @@ public class PlayerStateMachine : StateMachine
 
     private void Start()
     {
-       /* Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; */
+        /* Cursor.lockState = CursorLockMode.Locked;
+         Cursor.visible = false; */
+
+        Debug.Log("Use WASD for move the character");
 
         MainCameraTransform = Camera.main.transform;
         SwitchState(new PlayerLocomotionState(this));

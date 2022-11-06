@@ -30,7 +30,6 @@ public class PlayerLocomotionState : PlayerBaseState
 
 
         stateMachine.Animator.SetFloat(SpeedHash, stateMachine.Controller.velocity.magnitude, AnimatorDumpTime, deltaTime);
-        Debug.Log(stateMachine.Controller.velocity.magnitude);
         FaceMovementDirection(movement, deltaTime);
     }
 

@@ -901,7 +901,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 1777957428}
   <ForceReceiver>k__BackingField: {fileID: 1777957432}
   <MovementSpeed>k__BackingField: 5
-  <DefaultRotationSpeed>k__BackingField: 6
+  <RotationSpeed>k__BackingField: 6
 --- !u!114 &1777957432
 MonoBehaviour:
   m_ObjectHideFlags: 0

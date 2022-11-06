@@ -39,7 +39,7 @@ public abstract class PlayerBaseState : State
         stateMachine.transform.rotation = Quaternion.Lerp(
             stateMachine.transform.rotation,
             Quaternion.LookRotation(movement),
-            deltaTime * stateMachine.DefaultRotationSpeed);
+            deltaTime * stateMachine.RotationSpeed);
     }
 
 
