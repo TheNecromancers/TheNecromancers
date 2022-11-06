@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MovementValue { get; private set; }
+    public bool IsAttacking { get; private set; }
 
     private Controls controls;
 
@@ -25,5 +26,17 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     public void OnMove(InputAction.CallbackContext context)
     {
         MovementValue = context.ReadValue<Vector2>();
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            IsAttacking = true;
+        }
+        else if (context.canceled)
+        {
+            IsAttacking = false;
+        }
     }
 }

@@ -20,6 +20,12 @@ public class PlayerLocomotionState : PlayerBaseState
     {
         Vector3 movement = CalculateMovement();
 
+        if(stateMachine.InputManager.IsAttacking)
+        {
+            stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
+            return;
+        }
+
         Move(movement * stateMachine.MovementSpeed, deltaTime);
 
         if (stateMachine.InputManager.MovementValue == Vector2.zero)
