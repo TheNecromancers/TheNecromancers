@@ -97,16 +97,16 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6352134752737312462, guid: 8c6ac6b4bf2d9124e84a3ff9b32685a9, type: 3}
+  m_Motion: {fileID: 7400000, guid: 3c93a59056dd9f34799da7055183b26c, type: 2}
   m_Tag: Attack
   m_SpeedParameter: 
   m_MirrorParameter: 
-  m_CycleOffsetParameter: 
+  m_CycleOffsetParameter: Speed
   m_TimeParameter: 
 --- !u!1102 &7066863858946177217
 AnimatorState:
