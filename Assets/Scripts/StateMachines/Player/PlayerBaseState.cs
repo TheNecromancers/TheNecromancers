@@ -42,6 +42,4 @@ public abstract class PlayerBaseState : State
             deltaTime * stateMachine.RotationSpeed);
     }
 
-
-
 }
