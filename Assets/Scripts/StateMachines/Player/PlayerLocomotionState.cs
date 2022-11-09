@@ -8,23 +8,28 @@ public class PlayerLocomotionState : PlayerBaseState
     private const float AnimatorDumpTime = 0.1f;
     private const float CrossFadeDuration = 0.3f;
 
+    Vector3 movement;
+
     public PlayerLocomotionState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {
         stateMachine.Animator.SetFloat(SpeedHash, 0f);
         stateMachine.Animator.CrossFadeInFixedTime(LocomotionTreeHash, CrossFadeDuration);
+
+        stateMachine.InputManager.RollEvent += OnRoll;
     }
 
     public override void Tick(float deltaTime)
     {
-        Vector3 movement = CalculateMovement();
+        movement = CalculateMovement();
 
         if(stateMachine.InputManager.IsAttacking)
         {
             stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
             return;
         }
+
 
         Move(movement * stateMachine.MovementSpeed, deltaTime);
 
@@ -41,6 +46,13 @@ public class PlayerLocomotionState : PlayerBaseState
 
     public override void Exit()
     {
+        stateMachine.InputManager.RollEvent -= OnRoll;
+    }
+
+    void OnRoll()
+    {
+        stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
+        return;
     }
 
 

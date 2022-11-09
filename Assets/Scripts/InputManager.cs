@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
+
+    public event Action RollEvent;
 
     private Controls controls;
 
@@ -38,5 +41,12 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         {
             IsAttacking = false;
         }
+    }
+
+    public void OnRoll(InputAction.CallbackContext context)
+    {
+        if(!context.performed) { return; }
+        
+        RollEvent?.Invoke();
     }
 }

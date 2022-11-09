@@ -11,6 +11,8 @@ public class PlayerStateMachine : StateMachine
     [field: Header("Movement Settings")]
     [field: SerializeField] public float MovementSpeed { get; private set; }
     [field: SerializeField] public float RotationSpeed { get; private set; }
+    [field: SerializeField] public float RollForce { get; private set; }
+    [field: SerializeField] public float RollDuration { get; private set; }
 
     [field: SerializeField, Header("Attack Settings")] public Attack[] Attacks { get; private set; }
 
