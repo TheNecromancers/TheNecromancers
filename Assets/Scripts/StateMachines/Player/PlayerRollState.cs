@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerRollState : PlayerBaseState
 {
-    private readonly int RollHash = Animator.StringToHash("Roll");
+    private readonly int DashBlendTreeHash = Animator.StringToHash("DashBlendTree");
+    private readonly int DirXHash = Animator.StringToHash("DirX");
+    private readonly int DirYHash = Animator.StringToHash("DirY");
+
     private const float CrossFadeDuration = 0.3f;
 
     Vector3 direction;
@@ -17,7 +20,11 @@ public class PlayerRollState : PlayerBaseState
 
     public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(RollHash, CrossFadeDuration);
+        stateMachine.Animator.CrossFadeInFixedTime(DashBlendTreeHash, CrossFadeDuration);
+   
+        stateMachine.Animator.SetFloat(DirXHash, direction.x);
+        stateMachine.Animator.SetFloat(DirYHash, direction.z);
+
         remainingRollTime = stateMachine.RollDuration;
     }
 
@@ -34,7 +41,7 @@ public class PlayerRollState : PlayerBaseState
 
         if (direction == Vector3.zero)
         {
-            Move(stateMachine.transform.forward * stateMachine.RollForce, deltaTime);
+            Move(-stateMachine.transform.forward * stateMachine.RollForce, deltaTime);
             return;
         }
 
