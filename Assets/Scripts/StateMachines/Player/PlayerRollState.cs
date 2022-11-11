@@ -40,7 +40,7 @@ public class PlayerRollState : PlayerBaseState
 
         Move(direction.normalized * stateMachine.RollForce, deltaTime);
 
-        FaceMovementDirection(direction, deltaTime);
+        //FaceMovementDirection(direction, deltaTime);
     }
 
     public override void Exit()
