@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightControls : MonoBehaviour
+public class SpotLightControls : MonoBehaviour
 {
     [Range(0, 179)]
     [SerializeField] float MaxOuterSpotAngle;
@@ -15,7 +15,7 @@ public class LightControls : MonoBehaviour
     [SerializeField] float MinInnerSpotAngle;
 
     [SerializeField] float ModifierSpeed;
-    [SerializeField] float ExpandendLightTimer;
+    [SerializeField] float Timer;
 
     Light Light;
 
@@ -35,6 +35,7 @@ public class LightControls : MonoBehaviour
         InnerSpotAngleDefault = Light.innerSpotAngle;
         OuterSpotAngleDefault = Light.spotAngle;
 
+        // Default non vengono utilizzati al momento
         MinInnerSpotAngle = InnerSpotAngleDefault;
         MinOuterSpotAngle = OuterSpotAngleDefault;
     }
@@ -69,7 +70,7 @@ public class LightControls : MonoBehaviour
         Light.innerSpotAngle += ModifierSpeed * Time.deltaTime;
         Light.spotAngle += ModifierSpeed * Time.deltaTime;
 
-        yield return new WaitForSeconds(ExpandendLightTimer);
+        yield return new WaitForSeconds(Timer);
             Light.innerSpotAngle -= ModifierSpeed * Time.deltaTime;
             Light.spotAngle -= ModifierSpeed * Time.deltaTime;
     }
