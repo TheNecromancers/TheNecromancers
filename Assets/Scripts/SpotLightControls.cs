@@ -42,7 +42,7 @@ public class SpotLightControls : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Q))
         {
             active = true;
         }

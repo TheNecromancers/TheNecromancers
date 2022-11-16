@@ -10,6 +10,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     public bool IsAttacking { get; private set; }
 
     public event Action RollEvent;
+    public event Action InteractEvent;
 
     private Controls controls;
 
@@ -48,5 +49,12 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         if(!context.performed) { return; }
         
         RollEvent?.Invoke();
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        InteractEvent?.Invoke();
     }
 }
