@@ -39,10 +39,13 @@ public class PlayerStateMachine : StateMachine
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, LayerToInteract))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            Debug.Log("Did Hit " + hit.collider.name);
-            if(hit.collider.GetComponent<Door>())
+
+            var iteractableObj = hit.collider.GetComponent<IInteractable>();
+
+            if(iteractableObj != null)
             {
-                hit.collider.GetComponent<Door>().Interact();
+                hit.transform.SendMessage("HitByRay");
+                iteractableObj.Interact();
             }
         }
     }
