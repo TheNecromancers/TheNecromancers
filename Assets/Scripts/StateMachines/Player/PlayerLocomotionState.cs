@@ -39,7 +39,6 @@ public class PlayerLocomotionState : PlayerBaseState
             return;
         }
 
-
         stateMachine.Animator.SetFloat(SpeedHash, stateMachine.Controller.velocity.magnitude, AnimatorDumpTime, deltaTime);
         FaceMovementDirection(movement, deltaTime);
     }
@@ -54,6 +53,4 @@ public class PlayerLocomotionState : PlayerBaseState
         stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
         return;
     }
-
-
 }

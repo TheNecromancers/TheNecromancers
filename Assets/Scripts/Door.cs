@@ -6,25 +6,25 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] float speed = 5f;
-    [SerializeField] bool isOpen = false; 
-    bool shouldMove;
+    [SerializeField] bool isOpen = false;
+    [SerializeField] GameObject InteractiveText;
 
-    void Open()
-    {
-        if (!isOpen)
-            transform.rotation = Quaternion.Lerp(
-             transform.rotation,
-             Quaternion.Euler(transform.rotation.x, -180f, transform.rotation.z), Time.deltaTime * speed);
-        else
-            isOpen = true;
-    }
+    bool shouldMove;
 
     private void Update()
     {
-        if(shouldMove)
+        if (shouldMove)
         {
             Open();
         }
+    }
+
+    void Open()
+    {
+            transform.rotation = Quaternion.Lerp(
+            transform.rotation,
+            Quaternion.Euler(transform.rotation.x, -180f, transform.rotation.z), Time.deltaTime * speed);
+            isOpen = true;
     }
 
     public void Interact()
@@ -32,8 +32,14 @@ public class Door : MonoBehaviour, IInteractable
         shouldMove = true;
     }
 
-    public void HitByRay()
+    public void InteractionDetected(bool value)
     {
-        Debug.Log("Message from raycaster!");
+        if (isOpen)
+        {
+            InteractiveText.SetActive(false);
+            return;
+        }
+
+        InteractiveText.SetActive(value);
     }
 }

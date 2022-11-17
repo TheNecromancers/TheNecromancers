@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerStateMachine : StateMachine
 {
@@ -7,18 +8,17 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
+    [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
 
     [field: Header("Movement Settings")]
     [field: SerializeField] public float MovementSpeed { get; private set; }
     [field: SerializeField] public float RotationSpeed { get; private set; }
     [field: SerializeField] public float RollForce { get; private set; }
     [field: SerializeField] public float RollDuration { get; private set; }
-    [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
 
     [field: SerializeField, Header("Attack Settings")] public Attack[] Attacks { get; private set; }
 
     public Transform MainCameraTransform { get; private set; }
-
 
     private void Start()
     {
@@ -32,21 +32,12 @@ public class PlayerStateMachine : StateMachine
     {
         InputManager.InteractEvent -= OnInteract;
     }
-
+    
     void OnInteract()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, LayerToInteract))
+        if(InteractionDetector.NearestObject)
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-
-            var iteractableObj = hit.collider.GetComponent<IInteractable>();
-
-            if(iteractableObj != null)
-            {
-                hit.transform.SendMessage("HitByRay");
-                iteractableObj.Interact();
-            }
+            InteractionDetector.NearestObject.GetComponent<IInteractable>().Interact();
         }
-    }
+    } 
 }

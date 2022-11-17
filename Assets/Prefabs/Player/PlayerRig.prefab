@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1903390940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1903390941}
+  - component: {fileID: 1903390943}
+  m_Layer: 6
+  m_Name: InteractionDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1903390941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903390940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1, z: 1.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5484786501080859568}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1903390943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903390940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2871d314cb9ee0746b2a28b62899ee16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.5
+  <LayerToInteract>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &870521535751737146
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +402,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7794118, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1274,6 +1322,7 @@ Transform:
   - {fileID: 5446920398286381532}
   - {fileID: 5484786500152539609}
   - {fileID: 8421231087816681572}
+  - {fileID: 1903390941}
   m_Father: {fileID: 2183355579731396388}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 164.508, z: 0}
@@ -1293,13 +1342,11 @@ MonoBehaviour:
   <Controller>k__BackingField: {fileID: 5484786501080859574}
   <Animator>k__BackingField: {fileID: 5484786501080859575}
   <ForceReceiver>k__BackingField: {fileID: 5484786501080859579}
+  <InteractionDetector>k__BackingField: {fileID: 1903390943}
   <MovementSpeed>k__BackingField: 5
   <RotationSpeed>k__BackingField: 6
   <RollForce>k__BackingField: 6
   <RollDuration>k__BackingField: 0.8
-  <LayerToInteract>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 128
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1
