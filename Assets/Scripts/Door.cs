@@ -6,7 +6,7 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] float speed = 5f;
-    [SerializeField] bool isOpen = false;
+    [SerializeField] bool CanInteract = true;
     [SerializeField] GameObject InteractiveText;
 
     bool shouldMove;
@@ -15,16 +15,16 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (shouldMove)
         {
+            CanInteract = false;
             Open();
         }
     }
 
     void Open()
     {
-            transform.rotation = Quaternion.Lerp(
+        transform.rotation = Quaternion.Lerp(
             transform.rotation,
             Quaternion.Euler(transform.rotation.x, -180f, transform.rotation.z), Time.deltaTime * speed);
-            isOpen = true;
     }
 
     public void Interact()
@@ -34,12 +34,17 @@ public class Door : MonoBehaviour, IInteractable
 
     public void InteractionDetected(bool value)
     {
-        if (isOpen)
+        if (!CanInteract)
         {
             InteractiveText.SetActive(false);
             return;
         }
 
         InteractiveText.SetActive(value);
+    }
+
+    public bool IsInteractable()
+    {
+        return CanInteract;
     }
 }

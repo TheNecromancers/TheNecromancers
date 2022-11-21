@@ -8,6 +8,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
+    [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
 
     [field: Header("Movement Settings")]
@@ -28,9 +29,29 @@ public class PlayerStateMachine : StateMachine
         SwitchState(new PlayerLocomotionState(this));
     }
 
-    private void OnDestroy()
+    private void OnEnable()
     {
+        Health.OnTakeDamage += HandleTakeDamage;
+        Health.OnDie += HandleDie;
+
+    }
+
+    private void OnDisable()
+    {
+        Health.OnTakeDamage -= HandleTakeDamage;
+        Health.OnDie -= HandleDie;
         InputManager.InteractEvent -= OnInteract;
+
+    }
+
+    private void HandleTakeDamage()
+    {
+      //  SwitchState(new PlayerImpactState(this));
+    }
+
+    private void HandleDie()
+    {
+     //   SwitchState(new PlayerDeadState(this));
     }
     
     void OnInteract()

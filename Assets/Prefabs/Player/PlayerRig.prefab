@@ -402,7 +402,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7794118, y: 1}
+    m_SensorSize: {x: 1.7771639, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1300,9 +1300,10 @@ GameObject:
   - component: {fileID: 5484786501080859574}
   - component: {fileID: 5484786501080859575}
   - component: {fileID: 5484786501080859579}
+  - component: {fileID: 1456680238}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1437,6 +1438,19 @@ MonoBehaviour:
   Controller: {fileID: 5484786501080859574}
   Agent: {fileID: 0}
   drag: 0.3
+--- !u!114 &1456680238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484786501080859569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316eb6c8ae3c0f34caf3329c6f5335d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &5484786501234757998
 GameObject:
   m_ObjectHideFlags: 0

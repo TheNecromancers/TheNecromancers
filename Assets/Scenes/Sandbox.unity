@@ -108,7 +108,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 20
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: e41ad10bb4734114d995132184c5f2a1, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2fd82325a1090774293efda04ca55f81, type: 2}
 --- !u!1001 &29059190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +133,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -194,6 +198,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -261,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 74
@@ -321,6 +333,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -412,6 +428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -469,6 +489,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -524,6 +548,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
   m_PrefabInstance: {fileID: 2117476515}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &150136542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1903390940, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+  m_PrefabInstance: {fileID: 2183355579111410869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &150136545
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150136542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &162415924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
@@ -544,6 +586,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -606,6 +652,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -666,6 +716,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -732,6 +786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -788,6 +846,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -853,6 +915,10 @@ PrefabInstance:
     - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneWallCorner (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1774085230388008171, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_RootOrder
@@ -930,6 +996,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodenStool (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3932834468617971262, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4458542397530487940, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
       propertyPath: m_RootOrder
       value: 44
@@ -991,6 +1061,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -1062,6 +1136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 65
@@ -1132,6 +1210,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -1183,63 +1265,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
   m_PrefabInstance: {fileID: 49853849}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &400376725
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2018677774944046614, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_Name
-      value: TorchWall_00 (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
 --- !u!4 &413309893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
@@ -1255,6 +1280,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -1321,6 +1350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -1377,6 +1410,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -1438,6 +1475,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -1504,6 +1545,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -1586,6 +1631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1650,6 +1699,10 @@ PrefabInstance:
     - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneWall_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
@@ -1722,6 +1775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWallCorner (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1774085230388008171, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -1787,6 +1844,10 @@ PrefabInstance:
     - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneWallCorner (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1774085230388008171, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_RootOrder
@@ -1858,6 +1919,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1774085230388008171, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_RootOrder
       value: 33
@@ -1919,6 +1984,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -2030,6 +2099,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3932834468617971262, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4043760243774877376, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
       propertyPath: m_Name
       value: WoodenStool (1)
@@ -2058,6 +2131,10 @@ PrefabInstance:
     - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
@@ -2125,6 +2202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WoodenStool (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3932834468617971262, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4458542397530487940, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -2168,6 +2249,14 @@ PrefabInstance:
     - target: {fileID: 4458542397530487940, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780826621497371853, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8840203
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780826621497371853, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
+      propertyPath: m_Center.y
+      value: 0.44201016
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
@@ -2322,6 +2411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 56
@@ -2388,6 +2481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2449,6 +2546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2509,6 +2610,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
   m_PrefabInstance: {fileID: 988421629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &840488772
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.750001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.528334
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018677774944046614, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_Name
+      value: TorchWall_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371078702537333512, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: CanInteract
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
 --- !u!1001 &857151555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2523,6 +2685,10 @@ PrefabInstance:
     - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
@@ -2580,6 +2746,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -2641,6 +2811,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -2706,6 +2880,10 @@ PrefabInstance:
     - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
@@ -2773,6 +2951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
       value: 60
@@ -2838,6 +3020,10 @@ PrefabInstance:
     - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
@@ -2905,6 +3091,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -2976,6 +3166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
       value: 50
@@ -3032,6 +3226,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -3098,6 +3296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -3163,6 +3365,10 @@ PrefabInstance:
     - target: {fileID: 3932834468617971262, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
       propertyPath: m_Name
       value: WoodenStool (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932834468617971262, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4458542397530487940, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
       propertyPath: m_RootOrder
@@ -3286,7 +3492,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1082602215 stripped
 Transform:
@@ -3307,6 +3513,10 @@ PrefabInstance:
     - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
@@ -3374,6 +3584,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
       value: 37
@@ -3430,6 +3644,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -3501,6 +3719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -3563,6 +3785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3623,6 +3849,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -3690,6 +3920,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 71
@@ -3750,6 +3984,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -3812,6 +4050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 76
@@ -3872,6 +4114,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -3952,6 +4198,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -4009,6 +4259,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4064,63 +4318,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
   m_PrefabInstance: {fileID: 218448002}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1416307156
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2018677774944046614, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_Name
-      value: TorchWall_00 (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
 --- !u!1001 &1452964328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4131,6 +4328,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -4182,6 +4383,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+--- !u!114 &1456680238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1456680238, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+  m_PrefabInstance: {fileID: 2183355579111410869}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 316eb6c8ae3c0f34caf3329c6f5335d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1462838356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1774085230388008171, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
@@ -4211,6 +4423,10 @@ PrefabInstance:
     - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneWallCorner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1774085230388008171, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_RootOrder
@@ -4277,6 +4493,10 @@ PrefabInstance:
     - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_Name
       value: Dungeon_StonePillar_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
@@ -4349,6 +4569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -4405,6 +4629,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -4475,6 +4703,10 @@ PrefabInstance:
     - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
@@ -4552,6 +4784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 39
@@ -4608,6 +4844,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -4679,6 +4919,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 63
@@ -4745,6 +4989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
       value: 79
@@ -4810,6 +5058,10 @@ PrefabInstance:
     - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
@@ -4886,6 +5138,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -4943,6 +5199,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -4993,63 +5253,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
---- !u!1001 &1822885135
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.7500005
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2018677774944046614, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_Name
-      value: TorchWall_00 (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
 --- !u!1 &1824154032
 GameObject:
   m_ObjectHideFlags: 0
@@ -5064,7 +5267,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1824154033
 Transform:
@@ -5162,13 +5365,74 @@ Transform:
   - {fileID: 1105530559}
   - {fileID: 543450653675262355}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1828234823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
   m_PrefabInstance: {fileID: 1915211683}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1834063543
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.749999
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.441473
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.365198
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2018677774944046614, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_Name
+      value: TorchWall_00 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371078702537333512, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: CanInteract
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
 --- !u!4 &1845382974 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
@@ -5189,6 +5453,10 @@ PrefabInstance:
     - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_Name
       value: Dungeon_StoneTilePlatform_00 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7319842442119349096, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
       propertyPath: m_RootOrder
@@ -5270,6 +5538,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -5335,6 +5607,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -5395,6 +5671,10 @@ PrefabInstance:
     - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
@@ -5467,6 +5747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 62
@@ -5533,6 +5817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 32
@@ -5593,6 +5881,10 @@ PrefabInstance:
     - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_Name
       value: Dungeon_StonePillar_00 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399425057269283314, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
       propertyPath: m_RootOrder
@@ -5670,6 +5962,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_StoneWall_00 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1678084313257941829, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
       propertyPath: m_RootOrder
       value: 53
@@ -5735,6 +6031,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1429050323128487505, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1774085230388008171, guid: 7422e5d9187233b44a91e5e8b89d150d, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -5795,6 +6095,10 @@ PrefabInstance:
     - target: {fileID: 3932834468617971262, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
       propertyPath: m_Name
       value: WoodenStool
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932834468617971262, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4458542397530487940, guid: 8a21e2d4242bf0b499bea913939ef0f6, type: 3}
       propertyPath: m_RootOrder
@@ -5862,6 +6166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookcaseEmpty_Wide
       objectReference: {fileID: 0}
+    - target: {fileID: 5895650919567671219, guid: d1fd7006f7009b447b52ef8988e49525, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6528636071779591433, guid: d1fd7006f7009b447b52ef8988e49525, type: 3}
       propertyPath: m_RootOrder
       value: 48
@@ -5908,63 +6216,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1fd7006f7009b447b52ef8988e49525, type: 3}
---- !u!1001 &1207705136578732747
+--- !u!1001 &1206357926544443648
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+    - target: {fileID: 5657595093073768484, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
       propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.97
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
+      propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.7500005
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.9526787
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+    - target: {fileID: 5657595093073768485, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2018677774944046614, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
-      propertyPath: m_Name
-      value: TorchWall_00
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 8a08f45f9831bfa42b9b75beb324daef, type: 3}
 --- !u!1001 &1785893184955997787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5975,6 +6283,10 @@ PrefabInstance:
     - target: {fileID: 7249037612742071253, guid: a3c58db42b9fd7b4189e49669e2416a4, type: 3}
       propertyPath: m_Name
       value: WoodenTable_Medium
+      objectReference: {fileID: 0}
+    - target: {fileID: 7249037612742071253, guid: a3c58db42b9fd7b4189e49669e2416a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8057522344142276975, guid: a3c58db42b9fd7b4189e49669e2416a4, type: 3}
       propertyPath: m_RootOrder
@@ -6033,9 +6345,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1903390940, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903390941, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903390941, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1903390943, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183355579548750852, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.123724
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183355579548750852, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183355579548750852, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.123724
+      objectReference: {fileID: 0}
     - target: {fileID: 2183355579731396388, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2183355579731396388, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6080,6 +6420,30 @@ PrefabInstance:
     - target: {fileID: 2183355579731396389, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: m_Name
       value: PlayerRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183355579763040705, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.123724
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183355579763040705, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.0000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183355579763040705, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.123724
+      objectReference: {fileID: 0}
+    - target: {fileID: 4308014618518339681, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484786501080859572, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: <Health>k__BackingField
+      value: 
+      objectReference: {fileID: 1456680238}
+    - target: {fileID: 9060251296552966092, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
@@ -6143,6 +6507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dungeon_WallDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 5264643772069923945, guid: 9134b6d7b9ad32a448c0f5ff1e1da62f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9134b6d7b9ad32a448c0f5ff1e1da62f, type: 3}
 --- !u!1001 &5903926321259592417
@@ -6200,6 +6568,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookcaseFilled_Broken
       objectReference: {fileID: 0}
+    - target: {fileID: 1126636679174945202, guid: 3aaf6aa0aad8605428ef886bc05ea7fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1486859021968889959, guid: 3aaf6aa0aad8605428ef886bc05ea7fb, type: 3}
       propertyPath: m_DynamicOccludee
       value: 0
@@ -6223,13 +6595,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6071324054595262904, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7465646542212300781, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
       propertyPath: m_Name
       value: Dungeon_GearDoor
       objectReference: {fileID: 0}
     - target: {fileID: 7840939940415251799, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7840939940415251799, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6294,5 +6670,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9977163, y: 0.70747215, z: 1.2}
-  m_Center: {x: 0.0005941391, y: 0.35373607, z: 0}
+  m_Size: {x: 1.9977163, y: 0.94174886, z: 1.2}
+  m_Center: {x: 0.0005941391, y: 0.47087443, z: 0}

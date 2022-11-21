@@ -6,22 +6,27 @@ public class Torch : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject Light;
     [SerializeField] GameObject InteractiveText;
-    bool isOn;
+    [SerializeField] bool CanInteract = true;
   
     public void Interact()
     {
         Light.SetActive(true);
-        isOn = true;
+        CanInteract = false;
     }
 
     public void InteractionDetected(bool value)
     {
-        if (isOn)
+        if (!CanInteract)
         {
             InteractiveText.SetActive(false);
             return;
         }
 
         InteractiveText.SetActive(value);
+    }
+
+    public bool IsInteractable()
+    {
+        return CanInteract;
     }
 }
