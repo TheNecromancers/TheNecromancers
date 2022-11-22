@@ -20,8 +20,10 @@ public class EnemyChasingState : EnemyBaseState
     {
         if(!IsInChaseRange())
         {
-            stateMachine.SwitchState(new EnemyIdleState(stateMachine));
+            stateMachine.SwitchState(new EnemyPatrolState(stateMachine));
             return;
+          //  MoveToInitalPosition(deltaTime);
+          //  return;
         } else if(IsInAttackRange())
         {
             stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
@@ -40,18 +42,6 @@ public class EnemyChasingState : EnemyBaseState
         stateMachine.Agent.velocity = Vector3.zero;
     }
 
-    private void MoveToPlayer(float deltaTime)
-    {
-
-        if(stateMachine.Agent.isOnNavMesh)
-        {
-            stateMachine.Agent.destination = stateMachine.Player.transform.position;
-
-            Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
-        }
-
-        stateMachine.Agent.velocity = stateMachine.Controller.velocity;
-    }
 
     private bool IsInAttackRange()
     {

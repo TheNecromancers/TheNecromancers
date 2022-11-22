@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour
 {
-    // This code need a refactor
+    // This code need a refactoring
 
     [SerializeField] float radius;
     [SerializeField] List<Collider> Colliders;
@@ -39,12 +39,9 @@ public class InteractionDetector : MonoBehaviour
             {
                 var interactableObj = collider.GetComponent<IInteractable>();
               
-                if (interactableObj == null) continue;
+                if (interactableObj == null || !interactableObj.IsInteractable()) continue;
 
-                if (interactableObj.IsInteractable())
-                {
-                    NearestObject = collider.gameObject;
-                }
+                NearestObject = collider.gameObject;
             }
         }
     }

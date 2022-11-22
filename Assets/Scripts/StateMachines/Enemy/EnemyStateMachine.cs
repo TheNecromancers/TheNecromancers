@@ -14,24 +14,31 @@ public class EnemyStateMachine : StateMachine
   //  [field: SerializeField] public Target Target { get; private set; }
   //  [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
 
-
     [field: SerializeField] public float MovementSpeed { get; private set; }
 
     [field: SerializeField] public float PlayerChasingRange { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
+    [field: SerializeField] public Vector3 InitialPosition { get; private set; }
+    [field: SerializeField] public List<GameObject> PathWaypoints { get; private set; }
+    [field: SerializeField] public bool IsPatrolling { get; private set; }
 
     public GameObject Player { get; private set; }
+    public Vector3 LastWaypoint { get; set; }
 
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        InitialPosition = transform.position;
 
         Agent.updatePosition = false;
         Agent.updateRotation = false;
 
-        SwitchState(new EnemyIdleState(this));
+        if (IsPatrolling)
+            SwitchState(new EnemyPatrolState(this));
+        else
+            SwitchState(new EnemyIdleState(this));
     }
 
     private void OnEnable()

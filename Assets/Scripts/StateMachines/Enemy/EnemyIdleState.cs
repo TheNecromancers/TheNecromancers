@@ -28,7 +28,7 @@ public class EnemyIdleState : EnemyBaseState
         }
 
 
-        FaceToPlayer();
+       // FaceToPlayer();
 
         stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
     }
