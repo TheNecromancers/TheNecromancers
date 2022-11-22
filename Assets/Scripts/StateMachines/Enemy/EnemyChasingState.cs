@@ -22,8 +22,7 @@ public class EnemyChasingState : EnemyBaseState
         {
             stateMachine.SwitchState(new EnemyPatrolState(stateMachine));
             return;
-          //  MoveToInitalPosition(deltaTime);
-          //  return;
+
         } else if(IsInAttackRange())
         {
             stateMachine.SwitchState(new EnemyAttackingState(stateMachine));

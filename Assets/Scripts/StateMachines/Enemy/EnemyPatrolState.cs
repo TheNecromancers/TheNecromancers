@@ -9,8 +9,9 @@ public class EnemyPatrolState : EnemyBaseState
     private const float CrossFadeduration = 0.1f;
     private const float AnimatorDumpTime = 0.1f;
 
-    Vector3 LastWaypoint;
-    Vector3 NextWaypoint;
+    Vector3 lastWaypoint;
+    Vector3 nextWaypoint;
+    float nextWaypointDistanceSqr;
     int pathIndex = 0;
 
     public EnemyPatrolState(EnemyStateMachine stateMachine) : base(stateMachine) { }
@@ -18,8 +19,7 @@ public class EnemyPatrolState : EnemyBaseState
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
-        NextWaypoint = stateMachine.PathWaypoints[0].transform.position;
-       // LastWaypoint = stateMachine.PathWaypoints[^1].transform.position;
+        nextWaypoint = stateMachine.PathWaypoints[0].transform.position;
     }
 
     public override void Tick(float deltaTime)
@@ -32,26 +32,26 @@ public class EnemyPatrolState : EnemyBaseState
 
         MoveTo(stateMachine.PathWaypoints[pathIndex].transform.position, false, deltaTime);
 
-        if (Vector3.Distance(stateMachine.transform.position, NextWaypoint) < 1f)
+        nextWaypointDistanceSqr = (nextWaypoint - stateMachine.transform.position).sqrMagnitude;
+            
+        if (nextWaypointDistanceSqr <= 1 )
         {
             pathIndex++;
 
-            if (NextWaypoint == stateMachine.PathWaypoints[^1].transform.position)
+            if (nextWaypoint == stateMachine.PathWaypoints[^1].transform.position)
             {
                 pathIndex = 0;
             }
         }
 
-        NextWaypoint = stateMachine.PathWaypoints[pathIndex].transform.position;
-        FaceTo(NextWaypoint);
+        nextWaypoint = stateMachine.PathWaypoints[pathIndex].transform.position;
+
+        FaceTo(nextWaypoint);
         stateMachine.Animator.SetFloat(SpeedHash, 0.3f, AnimatorDumpTime, deltaTime);
     }
 
     public override void Exit()
     {
-        stateMachine.LastWaypoint = LastWaypoint;
+        stateMachine.LastWaypoint = lastWaypoint;
     }
-
-   
-
 }
