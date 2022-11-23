@@ -6,7 +6,7 @@ public class PatrolPath : MonoBehaviour
 {
     const float waypointGizmoRadius = 0.5f;
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         for (int i = 0; i < transform.childCount; i++)
         {

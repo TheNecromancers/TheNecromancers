@@ -52,7 +52,6 @@ public class EnemyPatrolState : EnemyBaseState
 
         FaceTo(nextPosition, deltaTime);
         MoveTo(nextPosition, deltaTime);
-
        
         stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
     }
