@@ -1,3 +1,4 @@
+using ClipperLib;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,27 +34,12 @@ public abstract class EnemyBaseState : State
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
     }
 
-    protected void MoveToInitalPosition(bool isRunning, float deltaTime)
+    protected void MoveTo(Vector3 position, float deltaTime)
     {
-        float desiredSpeed = isRunning ? stateMachine.MovementSpeed : stateMachine.MovementSpeed / 2;
-
-        if (stateMachine.Agent.isOnNavMesh)
-        {
-            stateMachine.Agent.destination = stateMachine.InitialPosition;
-            Move(stateMachine.Agent.desiredVelocity.normalized * (desiredSpeed), deltaTime);
-        }
-
-        stateMachine.Agent.velocity = stateMachine.Controller.velocity;
-    }
-
-    protected void MoveTo(Vector3 position, bool isRunning, float deltaTime)
-    {
-        float desiredSpeed = isRunning ? stateMachine.MovementSpeed : stateMachine.MovementSpeed / 2;
-
         if (stateMachine.Agent.isOnNavMesh)
         {
             stateMachine.Agent.destination = position;
-            Move(stateMachine.Agent.desiredVelocity.normalized * (desiredSpeed), deltaTime);
+            Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
         }
 
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
@@ -66,28 +52,29 @@ public abstract class EnemyBaseState : State
         Vector3 lookPos = stateMachine.Player.transform.position - stateMachine.transform.position;
         lookPos.y = 0f;
 
-        stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+        var targetRotation = Quaternion.LookRotation(lookPos);
+
+        stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, stateMachine.RotationSpeed * Time.deltaTime);
     }
     
-    protected void FaceTo(Vector3 position)
+    protected void FaceTo(Vector3 position, float deltaTime)
     {
         Vector3 lookPos = position - stateMachine.transform.position;
         lookPos.y = 0f;
 
-        stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+        var targetRotation = Quaternion.LookRotation(lookPos);
+
+        // Smoothly rotate towards the target point.
+        stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, stateMachine.RotationSpeed * deltaTime);
     }
 
     protected bool IsInChaseRange()
     {
         if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
 
-        float playerDistanceSqr = (stateMachine.Player.transform.position - stateMachine.transform.position).sqrMagnitude;
-        return playerDistanceSqr <= stateMachine.PlayerChasingRange * stateMachine.PlayerChasingRange;
+        return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.PlayerChasingRange);
     }
 
-    protected void GuardingBehaviour()
-    {
-       
-    }
+  
 
 }

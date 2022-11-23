@@ -20,10 +20,10 @@ public class EnemyChasingState : EnemyBaseState
     {
         if(!IsInChaseRange())
         {
-            stateMachine.SwitchState(new EnemyPatrolState(stateMachine));
+            stateMachine.SwitchState(new EnemySuspicionState(stateMachine));
             return;
-
-        } else if(IsInAttackRange())
+        } 
+        else if(IsInAttackRange())
         {
             stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
             return;
@@ -41,16 +41,11 @@ public class EnemyChasingState : EnemyBaseState
         stateMachine.Agent.velocity = Vector3.zero;
     }
 
-
     private bool IsInAttackRange()
     {
+        if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
 
-        if(stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
-
-        float playerDistanceSqr = (stateMachine.Player.transform.position - stateMachine.transform.position).sqrMagnitude;
-
-        return playerDistanceSqr <= stateMachine.AttackRange * stateMachine.AttackRange;
+        return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.AttackRange);
     }
-
 }
 

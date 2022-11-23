@@ -5,27 +5,35 @@ using UnityEngine.AI;
 
 public class EnemyStateMachine : StateMachine
 {
+    [field: Header("Components")]
     [field: SerializeField] public Animator Animator { get; private set; }
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
-  //  [field: SerializeField] public WeaponDamage Weapon { get; private set; }
-  //  [field: SerializeField] public Target Target { get; private set; }
-  //  [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
+    [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
 
+    //  [field: SerializeField] public WeaponDamage Weapon { get; private set; }
+    //  [field: SerializeField] public Target Target { get; private set; }
+    //  [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
+    [field: Header("Movement")]
     [field: SerializeField] public float MovementSpeed { get; private set; }
-
+    [field: SerializeField] public float RotationSpeed { get; private set; }
+    [field: Header("Chasing And Patrolling")]
     [field: SerializeField] public float PlayerChasingRange { get; private set; }
+    [field: SerializeField] public float SuspicionTime { get; private set; }
+    [field: SerializeField] public float DwellingTime { get; private set; }
+    [field: SerializeField] public PatrolPath PatrolPath { get; private set; }
+
+    [field: Header("Attack")]
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
-    [field: SerializeField] public Vector3 InitialPosition { get; private set; }
-    [field: SerializeField] public List<GameObject> PathWaypoints { get; private set; }
-    [field: SerializeField] public bool IsPatrolling { get; private set; }
+
 
     public GameObject Player { get; private set; }
-    public Vector3 LastWaypoint { get; set; }
+    public int LastWaypointIndex { get; set; }
+    public Vector3 InitialPosition { get; set; }
 
     private void Start()
     {
@@ -35,7 +43,7 @@ public class EnemyStateMachine : StateMachine
         Agent.updatePosition = false;
         Agent.updateRotation = false;
 
-        if (IsPatrolling)
+        if (PatrolPath != null)
             SwitchState(new EnemyPatrolState(this));
         else
             SwitchState(new EnemyIdleState(this));

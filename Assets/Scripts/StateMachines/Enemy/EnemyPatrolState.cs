@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,52 +7,75 @@ public class EnemyPatrolState : EnemyBaseState
 {
     private readonly int LocomotionHash = Animator.StringToHash("Locomotion");
     private readonly int SpeedHash = Animator.StringToHash("Speed");
+
     private const float CrossFadeduration = 0.1f;
     private const float AnimatorDumpTime = 0.1f;
 
-    Vector3 lastWaypoint;
-    Vector3 nextWaypoint;
-    float nextWaypointDistanceSqr;
-    int pathIndex = 0;
+    int currentWaypointIndex = 0;
+    Vector3 nextPosition;
+    float dwellTimeElapsed = 0;
 
     public EnemyPatrolState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
     {
         stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
-        nextWaypoint = stateMachine.PathWaypoints[0].transform.position;
+        currentWaypointIndex = stateMachine.LastWaypointIndex;
     }
 
     public override void Tick(float deltaTime)
     {
-        if(IsInChaseRange())
+        if (IsInChaseRange())
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
             return;
         }
 
-        MoveTo(stateMachine.PathWaypoints[pathIndex].transform.position, false, deltaTime);
+        dwellTimeElapsed += deltaTime;
 
-        nextWaypointDistanceSqr = (nextWaypoint - stateMachine.transform.position).sqrMagnitude;
-            
-        if (nextWaypointDistanceSqr <= 1 )
+        if (AtWaypoint())
         {
-            pathIndex++;
-
-            if (nextWaypoint == stateMachine.PathWaypoints[^1].transform.position)
-            {
-                pathIndex = 0;
-            }
+            dwellTimeElapsed = 0;
+            CycleWaypoint();
         }
 
-        nextWaypoint = stateMachine.PathWaypoints[pathIndex].transform.position;
+        if (dwellTimeElapsed < stateMachine.DwellingTime)
+        {
+            Move(deltaTime);
+            stateMachine.Agent.ResetPath();
+            stateMachine.Agent.velocity = Vector3.zero;
+            stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
+            return;
+        }
 
-        FaceTo(nextWaypoint);
-        stateMachine.Animator.SetFloat(SpeedHash, 0.3f, AnimatorDumpTime, deltaTime);
+        nextPosition = GetCurrentWaypoint();
+
+        FaceTo(nextPosition, deltaTime);
+        MoveTo(nextPosition, deltaTime);
+
+       
+        stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
     }
 
     public override void Exit()
     {
-        stateMachine.LastWaypoint = lastWaypoint;
+        stateMachine.LastWaypointIndex = currentWaypointIndex;
+        stateMachine.Agent.ResetPath();
+        stateMachine.Agent.velocity = Vector3.zero;
+    }
+
+    private bool AtWaypoint()
+    {
+        return CheckDistanceSqr(stateMachine.transform.position, GetCurrentWaypoint(), 1f);
+    }
+
+    private Vector3 GetCurrentWaypoint()
+    {
+        return stateMachine.PatrolPath.GetWaypoint(currentWaypointIndex);
+    }
+
+    private void CycleWaypoint()
+    {
+        currentWaypointIndex = stateMachine.PatrolPath.GetNextIndex(currentWaypointIndex);
     }
 }
