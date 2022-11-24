@@ -18,7 +18,7 @@ public class EnemySuspicionState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (IsInChaseRange())
+        if (IsInViewRange() && IsInChaseRange())
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
             return;
@@ -39,6 +39,7 @@ public class EnemySuspicionState : EnemyBaseState
                 // back to initial pos
                 MoveTo(stateMachine.InitialPosition, deltaTime);
                 FaceTo(stateMachine.InitialPosition, deltaTime);
+
                 stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
 
                 if (CheckDistanceSqr(stateMachine.transform.position, stateMachine.InitialPosition, 1f))

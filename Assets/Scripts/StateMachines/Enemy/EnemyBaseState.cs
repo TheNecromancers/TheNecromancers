@@ -1,7 +1,7 @@
-using ClipperLib;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public abstract class EnemyBaseState : State
 {
@@ -71,6 +71,22 @@ public abstract class EnemyBaseState : State
         var targetRotation = Quaternion.LookRotation(lookPos);
 
         stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, stateMachine.RotationSpeed * deltaTime);
+    }
+
+    protected bool IsInViewRange()
+    {
+        Vector3 toTarget = stateMachine.Player.transform.position - stateMachine.transform.position;
+
+        Vector3 localDirection = stateMachine.transform.InverseTransformDirection(toTarget);
+
+        Debug.DrawRay(stateMachine.transform.position, toTarget, Color.red);
+
+        float angle = Mathf.Atan2(localDirection.z, localDirection.x) * Mathf.Rad2Deg - 90;
+        if (angle < stateMachine.ViewAngle && angle > -stateMachine.ViewAngle)
+        {
+            return true;
+        }
+        return false;
     }
 
     protected bool IsInChaseRange()

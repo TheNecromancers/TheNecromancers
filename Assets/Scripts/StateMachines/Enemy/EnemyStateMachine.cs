@@ -21,6 +21,7 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public float RotationSpeed { get; private set; }
     [field: Header("Chasing And Patrolling")]
     [field: SerializeField] public float PlayerChasingRange { get; private set; }
+    [field: SerializeField] public float ViewAngle { get; private set; }
     [field: SerializeField] public float SuspicionTime { get; private set; }
     [field: SerializeField] public float DwellTime { get; private set; }
     [field: SerializeField] public PatrolPath PatrolPath { get; private set; }

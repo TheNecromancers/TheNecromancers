@@ -25,7 +25,7 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (IsInChaseRange())
+        if (IsInViewRange())
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
             return;
