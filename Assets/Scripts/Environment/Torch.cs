@@ -15,7 +15,7 @@ public class Torch : MonoBehaviour, IInteractable
         if (!isInteractable) return;
 
         InteractiveText.SetActive(true);
-        print("OnStartHover");
+        print(gameObject.name + " OnStartHover");
     }
     public void OnInteract()
     {
@@ -24,13 +24,13 @@ public class Torch : MonoBehaviour, IInteractable
 
         Light.SetActive(true);
         InteractiveText.SetActive(false);
-        print("OnInteract " + gameObject.name);
+        print("Interact with" + gameObject.name);
     }
     public void OnEndHover()
     {
         if (!isInteractable) return;
 
         InteractiveText.SetActive(false);
-        print("OnEndHover");
+        print(gameObject.name + " OnEndHover");
     }
 }

@@ -30,7 +30,7 @@ public class Door : MonoBehaviour, IInteractable
         if (!isInteractable) return;
 
         InteractiveText.SetActive(true);
-        print("OnStartHover");
+        print(gameObject.name + " OnStartHover");
     }
 
     public void OnInteract()
@@ -40,7 +40,7 @@ public class Door : MonoBehaviour, IInteractable
         shouldOpen = true;
         isInteractable = false;
         InteractiveText.SetActive(false);
-        print("OnInteract " + gameObject.name);
+        print("Interact with " + gameObject.name);
     }
 
     public void OnEndHover()
@@ -48,6 +48,6 @@ public class Door : MonoBehaviour, IInteractable
         if (!isInteractable) return;
 
         InteractiveText.SetActive(false);
-        print("OnEndHover");
+        print(gameObject.name + " OnEndHover");
     }
 }

@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour
 {
-    // This code need a refactoring
     [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
     [SerializeField] float radius;
-    [SerializeField] float actionRange;
 
+    public IInteractable currentTarget;
 
-    [field: SerializeField] public IInteractable currentTarget;
-
-    float minSqrDistance = Mathf.Infinity;
+    float minDistanceSqr;
 
     private void Update()
     {
@@ -23,8 +20,8 @@ public class InteractionDetector : MonoBehaviour
     private void DetectInteractable()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius, LayerToInteract);
-        
-        minSqrDistance = radius * radius;
+
+        minDistanceSqr = radius * radius;
 
         for (int i = 0; i < colliders.Length; i++)
         {
@@ -32,11 +29,11 @@ public class InteractionDetector : MonoBehaviour
             {
                 IInteractable interactable = colliders[i].GetComponent<IInteractable>();
 
-                float sqrDistanceToCenter = (transform.position - colliders[i].transform.position).sqrMagnitude;
+                float DistanceToCenterSqr = (transform.position - colliders[i].transform.position).sqrMagnitude;
 
                 if (interactable != null)
                 {
-                    if (sqrDistanceToCenter <= minSqrDistance)
+                    if (DistanceToCenterSqr <= minDistanceSqr)
                     {
                         Debug.Log("Nearest object " + colliders[i].name);
 
@@ -56,36 +53,31 @@ public class InteractionDetector : MonoBehaviour
                     }
                     else
                     {
-                        if (currentTarget != null)
-                        {
-                            currentTarget.OnEndHover();
-                            currentTarget = null;
-                            return;
-                        }
-                    } 
+                        OnCurrentTargetExit(ref currentTarget);
+                    }
                 }
                 else
                 {
-                    if (currentTarget != null)
-                    {
-                        currentTarget.OnEndHover();
-                        currentTarget = null;
-                        return;
-                    }
-                } 
+                    // Maybe useless check
+                    OnCurrentTargetExit(ref currentTarget);
+                }
             }
             else
             {
-                if (currentTarget != null)
-                {
-                    currentTarget.OnEndHover();
-                    currentTarget = null;
-                    return;
-                }
+                OnCurrentTargetExit(ref currentTarget);
             }
         }
     }
 
+    void OnCurrentTargetExit(ref IInteractable currentTarget)
+    {
+        if (currentTarget != null)
+        {
+            currentTarget.OnEndHover();
+            currentTarget = null;
+            return;
+        }
+    }
 
     private void OnDrawGizmos()
     {
