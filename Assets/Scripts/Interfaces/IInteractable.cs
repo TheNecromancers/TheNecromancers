@@ -4,10 +4,11 @@ using UnityEngine;
 
 public interface IInteractable 
 {
-    void Interact();
+    bool IsInteractable { get; }
 
-    bool IsInteractable();
+    void OnStartHover();
+    void OnInteract();
+    void OnEndHover();
 
-    void InteractionDetected(bool Detected);
 }
 

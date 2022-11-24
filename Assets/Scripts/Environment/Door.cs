@@ -6,18 +6,16 @@ using UnityEngine;
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] float speed = 5f;
-    [SerializeField] bool CanInteract = true;
     [SerializeField] GameObject InteractiveText;
 
-    bool shouldMove;
+    private bool isInteractable = true;
+    public bool IsInteractable => isInteractable;
+
+    bool shouldOpen = false;
 
     private void Update()
     {
-        if (shouldMove)
-        {
-            CanInteract = false;
-            Open();
-        }
+       if (shouldOpen)Open();
     }
 
     void Open()
@@ -27,24 +25,29 @@ public class Door : MonoBehaviour, IInteractable
             Quaternion.Euler(transform.rotation.x, -180f, transform.rotation.z), Time.deltaTime * speed);
     }
 
-    public void Interact()
+    public void OnStartHover()
     {
-        shouldMove = true;
+        if (!isInteractable) return;
+
+        InteractiveText.SetActive(true);
+        print("OnStartHover");
     }
 
-    public void InteractionDetected(bool value)
+    public void OnInteract()
     {
-        if (!CanInteract)
-        {
-            InteractiveText.SetActive(false);
-            return;
-        }
+        if (!isInteractable) return;
 
-        InteractiveText.SetActive(value);
+        shouldOpen = true;
+        isInteractable = false;
+        InteractiveText.SetActive(false);
+        print("OnInteract " + gameObject.name);
     }
 
-    public bool IsInteractable()
+    public void OnEndHover()
     {
-        return CanInteract;
+        if (!isInteractable) return;
+
+        InteractiveText.SetActive(false);
+        print("OnEndHover");
     }
 }

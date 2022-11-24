@@ -1,59 +1,93 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour
 {
     // This code need a refactoring
-
-    [SerializeField] float radius;
-    [SerializeField] List<Collider> Colliders;
     [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
-    [field: SerializeField] public GameObject NearestObject { get; private set; }
+    [SerializeField] float radius;
+    [SerializeField] float actionRange;
+
+
+    [field: SerializeField] public IInteractable currentTarget;
+
+    float minSqrDistance = Mathf.Infinity;
 
     private void Update()
     {
-        if(NearestObject != null)
-        {
-            NearestObject.GetComponent<IInteractable>().InteractionDetected(true);
-        }
+        DetectInteractable();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void DetectInteractable()
     {
-        if (LayerToInteract == (LayerToInteract | (1 << other.gameObject.layer)))
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius, LayerToInteract);
+        
+        minSqrDistance = radius * radius;
+
+        for (int i = 0; i < colliders.Length; i++)
         {
-            if(other.GetComponent<IInteractable>().IsInteractable())
+            if (colliders[i] != null)
             {
-                Colliders.Add(other);
+                IInteractable interactable = colliders[i].GetComponent<IInteractable>();
+
+                float sqrDistanceToCenter = (transform.position - colliders[i].transform.position).sqrMagnitude;
+
+                if (interactable != null)
+                {
+                    if (sqrDistanceToCenter <= minSqrDistance)
+                    {
+                        Debug.Log("Nearest object " + colliders[i].name);
+
+                        if (interactable == currentTarget) return;
+                        else if (currentTarget != null)
+                        {
+                            currentTarget.OnEndHover();
+                            currentTarget = interactable;
+                            currentTarget.OnStartHover();
+                            return;
+                        }
+                        else
+                        {
+                            currentTarget = interactable;
+                            currentTarget.OnStartHover();
+                        }
+                    }
+                    else
+                    {
+                        if (currentTarget != null)
+                        {
+                            currentTarget.OnEndHover();
+                            currentTarget = null;
+                            return;
+                        }
+                    } 
+                }
+                else
+                {
+                    if (currentTarget != null)
+                    {
+                        currentTarget.OnEndHover();
+                        currentTarget = null;
+                        return;
+                    }
+                } 
+            }
+            else
+            {
+                if (currentTarget != null)
+                {
+                    currentTarget.OnEndHover();
+                    currentTarget = null;
+                    return;
+                }
             }
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        foreach (Collider collider in Colliders)
-        {
-            float sqrDistanceToCenter = (transform.position - collider.transform.position).sqrMagnitude;
-            if (sqrDistanceToCenter <= radius * radius)
-            {
-                var interactableObj = collider.GetComponent<IInteractable>();
-              
-                if (interactableObj == null || !interactableObj.IsInteractable()) continue;
 
-                NearestObject = collider.gameObject;
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        other?.GetComponent<IInteractable>().InteractionDetected(false);
-        Colliders.Remove(other);
-        NearestObject = null;
-    }
-
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, radius);

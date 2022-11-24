@@ -6,27 +6,31 @@ public class Torch : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject Light;
     [SerializeField] GameObject InteractiveText;
-    [SerializeField] bool CanInteract = true;
-  
-    public void Interact()
+
+    private bool isInteractable = true;
+    public bool IsInteractable => isInteractable;
+
+    public void OnStartHover()
     {
+        if (!isInteractable) return;
+
+        InteractiveText.SetActive(true);
+        print("OnStartHover");
+    }
+    public void OnInteract()
+    {
+        if (!isInteractable) return;
+        isInteractable = false;
+
         Light.SetActive(true);
-        CanInteract = false;
+        InteractiveText.SetActive(false);
+        print("OnInteract " + gameObject.name);
     }
-
-    public void InteractionDetected(bool value)
+    public void OnEndHover()
     {
-        if (!CanInteract)
-        {
-            InteractiveText.SetActive(false);
-            return;
-        }
+        if (!isInteractable) return;
 
-        InteractiveText.SetActive(value);
-    }
-
-    public bool IsInteractable()
-    {
-        return CanInteract;
+        InteractiveText.SetActive(false);
+        print("OnEndHover");
     }
 }

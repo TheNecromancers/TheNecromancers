@@ -56,9 +56,9 @@ public class PlayerStateMachine : StateMachine
     
     void OnInteract()
     {
-        if(InteractionDetector.NearestObject)
+        if (InteractionDetector.currentTarget != null)
         {
-            InteractionDetector.NearestObject.GetComponent<IInteractable>().Interact();
+            InteractionDetector.currentTarget.OnInteract();
         }
     } 
 }
