@@ -39,11 +39,10 @@ public class EnemyPatrolState : EnemyBaseState
             CycleWaypoint();
         }
 
-        if (dwellTimeElapsed < stateMachine.DwellingTime)
+        if (dwellTimeElapsed < stateMachine.DwellTime)
         {
             Move(deltaTime);
-            stateMachine.Agent.ResetPath();
-            stateMachine.Agent.velocity = Vector3.zero;
+            ResetAgentPath();
             stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
             return;
         }
@@ -59,8 +58,7 @@ public class EnemyPatrolState : EnemyBaseState
     public override void Exit()
     {
         stateMachine.LastWaypointIndex = currentWaypointIndex;
-        stateMachine.Agent.ResetPath();
-        stateMachine.Agent.velocity = Vector3.zero;
+        ResetAgentPath();
     }
 
     private bool AtWaypoint()

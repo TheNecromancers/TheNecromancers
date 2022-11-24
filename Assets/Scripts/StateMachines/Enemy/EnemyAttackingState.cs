@@ -22,7 +22,7 @@ public class EnemyAttackingState : EnemyBaseState
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
         }
 
-        FaceToPlayer();
+        FaceToPlayer(deltaTime);
     }
 
     public override void Exit()

@@ -36,35 +36,40 @@ public abstract class EnemyBaseState : State
 
     protected void MoveTo(Vector3 position, float deltaTime)
     {
+        AgentMoveTo(position, deltaTime);
+    }
+
+    private void AgentMoveTo(Vector3 position, float deltaTime)
+    {
         if (stateMachine.Agent.isOnNavMesh)
         {
             stateMachine.Agent.destination = position;
+
             Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
         }
 
         stateMachine.Agent.velocity = stateMachine.Controller.velocity;
     }
 
-    protected void FaceToPlayer()
+    protected void FaceToPlayer(float deltaTime)
     {
-        if(stateMachine.Player == null) { return; }
+        if (stateMachine.Player == null) { return; }
 
-        Vector3 lookPos = stateMachine.Player.transform.position - stateMachine.transform.position;
-        lookPos.y = 0f;
-
-        var targetRotation = Quaternion.LookRotation(lookPos);
-
-        stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, stateMachine.RotationSpeed * Time.deltaTime);
+        SmoothRotation(stateMachine.Player.transform.position, deltaTime);
     }
-    
+  
     protected void FaceTo(Vector3 position, float deltaTime)
     {
-        Vector3 lookPos = position - stateMachine.transform.position;
+        SmoothRotation(position, deltaTime);
+    }
+
+    private void SmoothRotation(Vector3 target, float deltaTime)
+    {
+        Vector3 lookPos = target - stateMachine.transform.position;
         lookPos.y = 0f;
 
         var targetRotation = Quaternion.LookRotation(lookPos);
 
-        // Smoothly rotate towards the target point.
         stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, stateMachine.RotationSpeed * deltaTime);
     }
 
@@ -75,6 +80,11 @@ public abstract class EnemyBaseState : State
         return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.PlayerChasingRange);
     }
 
-  
+
+    protected void ResetAgentPath()
+    {
+        stateMachine.Agent.ResetPath();
+        stateMachine.Agent.velocity = Vector3.zero;
+    }
 
 }

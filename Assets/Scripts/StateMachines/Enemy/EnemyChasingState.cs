@@ -30,15 +30,14 @@ public class EnemyChasingState : EnemyBaseState
         }
 
         MoveToPlayer(deltaTime);
-        FaceToPlayer();
+        FaceToPlayer(deltaTime);
 
         stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
     }
 
     public override void Exit()
     {
-        stateMachine.Agent.ResetPath();
-        stateMachine.Agent.velocity = Vector3.zero;
+        ResetAgentPath();
     }
 
     private bool IsInAttackRange()

@@ -30,7 +30,5 @@ public class EnemyIdleState : EnemyBaseState
         stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
     }
 
-    public override void Exit()
-    {
-    }
+    public override void Exit() { }
 }

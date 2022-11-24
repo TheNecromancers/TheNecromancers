@@ -14,8 +14,6 @@ public class EnemySuspicionState : EnemyBaseState
     public override void Enter()
     {
         suspicionTime = stateMachine.SuspicionTime;
-
-       
     }
 
     public override void Tick(float deltaTime)
@@ -43,17 +41,20 @@ public class EnemySuspicionState : EnemyBaseState
                 FaceTo(stateMachine.InitialPosition, deltaTime);
                 stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
 
-                if (CheckDistanceSqr(stateMachine.transform.position, stateMachine.InitialPosition, 0.5f))
+                if (CheckDistanceSqr(stateMachine.transform.position, stateMachine.InitialPosition, 1f))
                 {
                     stateMachine.SwitchState(new EnemyIdleState(stateMachine));
                     return;
                 }
             }
         }
-    
-            stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
-        }
 
-    public override void Exit() { }
-   
+        stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
+    }
+
+    public override void Exit() 
+    {
+        ResetAgentPath();
+    }
+
 }

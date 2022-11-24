@@ -27,10 +27,9 @@ public abstract class State
         }
     }
 
-    protected bool CheckDistanceSqr(Vector3 A, Vector3 B, float range)
+    protected bool CheckDistanceSqr(Vector3 A, Vector3 B, float accuracy)
     {
         float distanceSqr = (A - B).sqrMagnitude;
-        return distanceSqr <= range * range;
+        return distanceSqr <= accuracy * accuracy;
     }
-
 }
