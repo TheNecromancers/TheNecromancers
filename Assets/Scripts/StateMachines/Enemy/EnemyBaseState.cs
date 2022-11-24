@@ -82,6 +82,7 @@ public abstract class EnemyBaseState : State
         Debug.DrawRay(stateMachine.transform.position, toTarget, Color.red);
 
         float angle = Mathf.Atan2(localDirection.z, localDirection.x) * Mathf.Rad2Deg - 90;
+
         if (angle < stateMachine.ViewAngle && angle > -stateMachine.ViewAngle)
         {
             return true;

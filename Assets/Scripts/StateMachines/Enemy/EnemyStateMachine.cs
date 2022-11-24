@@ -13,9 +13,6 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
 
-    //  [field: SerializeField] public WeaponDamage Weapon { get; private set; }
-    //  [field: SerializeField] public Target Target { get; private set; }
-    //  [field: SerializeField] public Ragdoll Ragdoll { get; private set; }
     [field: Header("Movement")]
     [field: SerializeField] public float MovementSpeed { get; private set; }
     [field: SerializeField] public float RotationSpeed { get; private set; }
@@ -45,9 +42,15 @@ public class EnemyStateMachine : StateMachine
         Agent.updateRotation = false;
 
         if (PatrolPath != null)
+        {
             SwitchState(new EnemyPatrolState(this));
+            return;
+        }
         else
+        {
             SwitchState(new EnemyIdleState(this));
+            return;
+        }
     }
 
     private void OnEnable()
