@@ -29,6 +29,11 @@ public class PlayerLocomotionState : PlayerBaseState
             stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
             return;
         }
+        if (stateMachine.InputManager.IsBlocking)
+        {
+            stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+            return;
+        }
 
 
         Move(movement * stateMachine.MovementSpeed, deltaTime);
