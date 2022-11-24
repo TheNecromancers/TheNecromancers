@@ -269,7 +269,7 @@ MonoBehaviour:
   <SuspicionTime>k__BackingField: 2
   <DwellTime>k__BackingField: 1
   <PatrolPath>k__BackingField: {fileID: 0}
-  <AttackRange>k__BackingField: 2
+  <AttackRange>k__BackingField: 2.5
   <AttackDamage>k__BackingField: 20
   <AttackKnockback>k__BackingField: 10
 --- !u!143 &2384786577753091781
