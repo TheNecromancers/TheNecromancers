@@ -79,12 +79,20 @@ public abstract class EnemyBaseState : State
 
         Vector3 localDirection = stateMachine.transform.InverseTransformDirection(toTarget);
 
-        Debug.DrawRay(stateMachine.transform.position, toTarget, Color.red);
+        RaycastHit hit;
 
+        Debug.DrawRay(stateMachine.transform.position + Vector3.up, toTarget + Vector3.up, Color.red);
+      
         float angle = Mathf.Atan2(localDirection.z, localDirection.x) * Mathf.Rad2Deg - 90;
 
         if (angle < stateMachine.ViewAngle && angle > -stateMachine.ViewAngle)
         {
+            if (Physics.Raycast(stateMachine.transform.position + Vector3.up, toTarget + Vector3.up, out hit, Mathf.Infinity))
+            {
+                Debug.Log(hit.collider.name);
+                if (!hit.collider.CompareTag("Player")) return false;
+                else return true;
+            }
             return true;
         }
         return false;
