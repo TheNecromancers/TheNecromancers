@@ -112,7 +112,6 @@ public abstract class EnemyBaseState : State
         return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.PlayerToNearChasingRange);
     }
 
-
     protected void ResetAgentPath()
     {
         stateMachine.Agent.ResetPath();

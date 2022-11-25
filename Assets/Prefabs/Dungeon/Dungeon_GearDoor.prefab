@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6593066171746003697}
   - component: {fileID: 6593066171746003696}
   - component: {fileID: 6593066171746003703}
+  - component: {fileID: 1042452050}
   m_Layer: 7
   m_Name: Dungeon_GearDoor
   m_TagString: Untagged
@@ -114,8 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  isOpen: 0
-  InteractiveText: {fileID: 6071324054595262904}
+  InteractiveText: {fileID: 6071324052931264246}
 --- !u!54 &6593066171746003703
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,6 +132,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 94
   m_CollisionDetection: 0
+--- !u!208 &1042452050
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7465646542212300781}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1, y: 1.2700001, z: 0.136}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -1, y: 0.18800001, z: 0.036000002}
+  m_TimeToStationary: 0.1
 --- !u!1001 &8331635563017815245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,13 +205,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2872812131388956021, guid: 1825effc36f07184a9664f0fcb169cd0, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872812131843111483, guid: 1825effc36f07184a9664f0fcb169cd0, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1825effc36f07184a9664f0fcb169cd0, type: 3}
---- !u!1 &6071324054595262904 stripped
+--- !u!1 &6071324052931264246 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 2872812131388956021, guid: 1825effc36f07184a9664f0fcb169cd0, type: 3}
+  m_CorrespondingSourceObject: {fileID: 2872812131843111483, guid: 1825effc36f07184a9664f0fcb169cd0, type: 3}
   m_PrefabInstance: {fileID: 8331635563017815245}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6071324054595262911 stripped

@@ -20,7 +20,9 @@ public class PlayerMeleeAttackState : PlayerBaseState
     public override void Enter()
     {
         direction = CalculateMovement();
+        stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
         stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRight.Damage, stateMachine.WeaponRight.Knockback);
+
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
     }
 
@@ -55,6 +57,7 @@ public class PlayerMeleeAttackState : PlayerBaseState
 
     public override void Exit()
     {
+        stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
     }
 
     private void TryApplyForce()

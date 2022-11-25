@@ -54,12 +54,14 @@ public class PlayerStateMachine : StateMachine
 
     private void HandleTakeDamage()
     {
-      //  SwitchState(new PlayerImpactState(this));
+       if (InputManager.IsAttacking) return;
+
+       SwitchState(new PlayerImpactState(this));
     }
 
     private void HandleDie()
     {
-     //   SwitchState(new PlayerDeadState(this));
+        SwitchState(new PlayerDeadState(this));
     }
     
     void OnInteract()

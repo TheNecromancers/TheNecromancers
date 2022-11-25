@@ -2,25 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDeadState : EnemyBaseState
+public class PlayerDeadState : PlayerBaseState
 {
     private readonly int DieHash = Animator.StringToHash("Die");
     private const float CrossFadeduration = 0.1f;
-    public EnemyDeadState(EnemyStateMachine stateMachine) : base(stateMachine) { }
+
+    public PlayerDeadState(PlayerStateMachine stateMachine) : base(stateMachine)
+    {
+    }
 
     public override void Enter()
     {
-        Debug.Log("Nemico Morto");
         stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeduration);
-        stateMachine.WeaponLogic.gameObject.SetActive(false);
+        Debug.Log("Player è morto");
     }
 
     public override void Tick(float deltaTime)
     {
-
     }
 
     public override void Exit()
     {
     }
+   
 }

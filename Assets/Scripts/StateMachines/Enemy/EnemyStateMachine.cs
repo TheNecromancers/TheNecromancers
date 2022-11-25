@@ -25,9 +25,11 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public PatrolPath PatrolPath { get; private set; }
 
     [field: Header("Attack")]
+    [field: SerializeField] public WeaponLogic WeaponLogic { get; private set; }
     [field: SerializeField] public float AttackRange { get; private set; }
     [field: SerializeField] public int AttackDamage { get; private set; }
     [field: SerializeField] public int AttackKnockback { get; private set; }
+    [field: SerializeField] public GameObject RightHandHolder { get; private set; }
 
 
     public GameObject Player { get; private set; }
@@ -38,6 +40,8 @@ public class EnemyStateMachine : StateMachine
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         InitialPosition = transform.position;
+
+        WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
 
         Agent.updatePosition = false;
         Agent.updateRotation = false;
