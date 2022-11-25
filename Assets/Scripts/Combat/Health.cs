@@ -39,6 +39,6 @@ public class Health : MonoBehaviour
             OnDie?.Invoke();
         }
 
-        Debug.Log("Current health " + health + " damage recevied " + damage);
+        Debug.Log("Current health " + health + " damage received " + damage);
     }
 }
