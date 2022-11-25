@@ -7,11 +7,10 @@ public class PlayerImpactState : PlayerBaseState
     private readonly int ImpactHash = Animator.StringToHash("Impact");
     private const float CrossFadeduration = 0.1f;
 
-    private float duration = 1f;
+    private float duration = 0.5f;
 
     public PlayerImpactState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
-        Debug.Log("Player Impact");
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeduration);
     }
 
@@ -19,6 +18,12 @@ public class PlayerImpactState : PlayerBaseState
 
     public override void Tick(float deltaTime)
     {
+        if (stateMachine.InputManager.IsAttacking)
+        {
+            stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, Vector3.zero));
+            return;
+        }
+
         Move(deltaTime);
 
         duration -= deltaTime;
@@ -29,9 +34,6 @@ public class PlayerImpactState : PlayerBaseState
         }
     }
 
-    public override void Exit()
-    {
-    }
-
+    public override void Exit() { }
    
 }

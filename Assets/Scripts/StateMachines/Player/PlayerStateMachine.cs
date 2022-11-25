@@ -56,7 +56,7 @@ public class PlayerStateMachine : StateMachine
     {
        if (InputManager.IsAttacking) return;
 
-       SwitchState(new PlayerImpactState(this));
+        SwitchState(new PlayerImpactState(this));
     }
 
     private void HandleDie()

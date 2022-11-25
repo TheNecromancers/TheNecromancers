@@ -25,10 +25,13 @@ public class EnemyPatrolState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        if (IsInViewRange() && IsInChaseRange())
+        if (IsInChaseRange())
         {
-            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
-            return;
+            if (IsInViewRange() || IsTooNearRange())
+            {
+                stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+                return;
+            }
         }
 
         dwellTimeElapsed += deltaTime;

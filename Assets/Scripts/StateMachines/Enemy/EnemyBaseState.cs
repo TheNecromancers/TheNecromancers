@@ -117,5 +117,4 @@ public abstract class EnemyBaseState : State
         stateMachine.Agent.ResetPath();
         stateMachine.Agent.velocity = Vector3.zero;
     }
-
 }

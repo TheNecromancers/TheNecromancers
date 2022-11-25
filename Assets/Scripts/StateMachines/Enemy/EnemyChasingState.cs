@@ -37,7 +37,7 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void Exit()
     {
-        ResetAgentPath();
+        ResetAgentPath(); // This cause an error IDK Why
     }
 
     private bool IsInAttackRange()
