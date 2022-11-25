@@ -19,10 +19,8 @@ public class PlayerMeleeAttackState : PlayerBaseState
 
     public override void Enter()
     {
-        //stateMachine.CurrentWeapon.gameObject.SetActive(true);
         direction = CalculateMovement();
 
-        //stateMachine.Weapon.SetAttack(attack.Damage, attack.Knockback);
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
     }
 
@@ -57,7 +55,6 @@ public class PlayerMeleeAttackState : PlayerBaseState
 
     public override void Exit()
     {
-        //stateMachine.CurrentWeapon.gameObject.SetActive(false);
     }
 
     private void TryApplyForce()

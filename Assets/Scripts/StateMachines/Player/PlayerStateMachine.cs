@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlayerStateMachine : StateMachine
 {
@@ -16,14 +15,21 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float RotationSpeed { get; private set; }
     [field: SerializeField] public float RollForce { get; private set; }
     [field: SerializeField] public float RollDuration { get; private set; }
-
-    [field: SerializeField, Header("Attack Settings")] public Attack[] Attacks { get; private set; }
+    [field: Header("Attack Settings")]
+    [field: SerializeField] public Weapon WeaponRight { get; private set; } = null;
+    [field: SerializeField] public Weapon WeaponLeft { get; private set; } = null;
+    [field: SerializeField, ] public Attack[] Attacks { get; private set; }
+    [field: SerializeField] public GameObject RightHandHolder { get; private set; }
+    [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
 
     public Transform MainCameraTransform { get; private set; }
 
     private void Start()
     {
         InputManager.InteractEvent += OnInteract;
+
+        WeaponRight?.Equip(RightHandHolder.transform);
+        WeaponLeft?.Equip(LeftHandHolder.transform);
 
         MainCameraTransform = Camera.main.transform;
         SwitchState(new PlayerLocomotionState(this));
@@ -33,7 +39,6 @@ public class PlayerStateMachine : StateMachine
     {
         Health.OnTakeDamage += HandleTakeDamage;
         Health.OnDie += HandleDie;
-
     }
 
     private void OnDisable()
