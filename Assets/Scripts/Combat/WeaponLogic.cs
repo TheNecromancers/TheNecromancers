@@ -19,11 +19,7 @@ public class WeaponLogic : MonoBehaviour
     {
         if (!((LayerToInteract.value & (1 << other.transform.gameObject.layer)) > 0)) { return; }
 
-        Debug.Log("Second enter " + other.name);
-
         if (alreadyCollidedWith.Contains(other)) { return; }
-
-        Debug.Log("Third enter " + other.name);
 
         alreadyCollidedWith.Add(other);
 
@@ -38,7 +34,6 @@ public class WeaponLogic : MonoBehaviour
             forceReceiver.AddForce(direction * knockback);
         }
     }
-
 
     private void OnTriggerExit(Collider other)
     {

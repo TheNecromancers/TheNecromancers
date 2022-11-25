@@ -316,7 +316,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7786561, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1254,14 +1254,14 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.8
-    <Force>k__BackingField: 1.5
+    <Force>k__BackingField: 5
     <ForceTime>k__BackingField: 0.1
     <Knockback>k__BackingField: 10
   - <AnimationName>k__BackingField: Attack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
     <ComboAttackTime>k__BackingField: 0.8
-    <Force>k__BackingField: 1
+    <Force>k__BackingField: 3
     <ForceTime>k__BackingField: 0.1
     <Knockback>k__BackingField: 10
   - <AnimationName>k__BackingField: Attack3

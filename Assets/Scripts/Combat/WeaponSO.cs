@@ -13,12 +13,4 @@ public class WeaponSO : ScriptableObject
     {
         Instantiate(WeaponPrefab, handTransform);
     }
-
-    private List<Collider> alreadyCollidedWith = new List<Collider>();
-    private void OnEnable()
-    {
-        alreadyCollidedWith.Clear();
-    }
-
-
 }
