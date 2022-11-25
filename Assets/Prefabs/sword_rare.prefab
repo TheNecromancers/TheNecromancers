@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1223227363533477789}
   - component: {fileID: 2834485292776052792}
   - component: {fileID: 50359912356424946}
+  - component: {fileID: -7431453083251535844}
+  - component: {fileID: 6361415219067994114}
   m_Layer: 6
   m_Name: sword_rare
   m_TagString: Untagged
@@ -86,3 +88,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &-7431453083251535844
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995682199206300967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.122917265
+  m_Height: 1.8952779
+  m_Direction: 1
+  m_Center: {x: 0.000012785196, y: 0.735974, z: 0.003073752}
+--- !u!114 &6361415219067994114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995682199206300967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18f330fe3a5bb64f9ce283585e904e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerMaskToInteract:
+    serializedVersion: 2
+    m_Bits: 256

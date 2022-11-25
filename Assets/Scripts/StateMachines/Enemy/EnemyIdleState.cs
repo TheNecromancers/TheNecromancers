@@ -21,10 +21,13 @@ public class EnemyIdleState : EnemyBaseState
     {
         Move(deltaTime);
 
-        if(IsInViewRange() && IsInChaseRange())
+        if(IsInChaseRange())
         {
-            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
-            return;
+            if(IsInViewRange() || IsTooNearRange())
+            {
+                stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+                return;
+            }
         }
 
         stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);

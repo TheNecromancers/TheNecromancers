@@ -89,7 +89,7 @@ public abstract class EnemyBaseState : State
         {
             if (Physics.Raycast(stateMachine.transform.position + Vector3.up, toTarget + Vector3.up, out hit, Mathf.Infinity))
             {
-                Debug.Log(hit.collider.name);
+               // Debug.Log(hit.collider.name);
                 if (!hit.collider.CompareTag("Player")) return false;
                 else return true;
             }
@@ -103,6 +103,13 @@ public abstract class EnemyBaseState : State
         if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
 
         return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.PlayerChasingRange);
+    }
+
+    protected bool IsTooNearRange()
+    {
+        if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
+
+        return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.PlayerToNearChasingRange);
     }
 
 

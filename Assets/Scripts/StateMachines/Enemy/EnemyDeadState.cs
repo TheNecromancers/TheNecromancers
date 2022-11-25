@@ -8,7 +8,8 @@ public class EnemyDeadState : EnemyBaseState
 
     public override void Enter()
     {
-     //   stateMachine.Ragdoll.ToggleRagdoll(true);
+        Debug.Log("Nemico Morto");
+        //   stateMachine.Ragdoll.ToggleRagdoll(true);
     //        stateMachine.Weapon.gameObject.SetActive(false);
     //      GameObject.Destroy(stateMachine.Target);
     }

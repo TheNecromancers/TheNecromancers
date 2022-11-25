@@ -18,6 +18,7 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public float RotationSpeed { get; private set; }
     [field: Header("Chasing And Patrolling")]
     [field: SerializeField] public float PlayerChasingRange { get; private set; }
+    [field: SerializeField] public float PlayerToNearChasingRange { get; private set; }
     [field: SerializeField] public float ViewAngle { get; private set; }
     [field: SerializeField] public float SuspicionTime { get; private set; }
     [field: SerializeField] public float DwellTime { get; private set; }
@@ -41,16 +42,7 @@ public class EnemyStateMachine : StateMachine
         Agent.updatePosition = false;
         Agent.updateRotation = false;
 
-        if (PatrolPath != null)
-        {
-            SwitchState(new EnemyPatrolState(this));
-            return;
-        }
-        else
-        {
-            SwitchState(new EnemyIdleState(this));
-            return;
-        }
+        GoToGuardPosition();
     }
 
     private void OnEnable()
@@ -75,10 +67,27 @@ public class EnemyStateMachine : StateMachine
         SwitchState(new EnemyDeadState(this));
     }
 
+    public void GoToGuardPosition()
+    {
+        if(PatrolPath != null)
+        {
+            SwitchState(new EnemyPatrolState(this));
+            return;
+        }
+        else
+        {
+            SwitchState(new EnemyIdleState(this));
+            return;
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, PlayerChasingRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, PlayerToNearChasingRange);
     }
 
 }

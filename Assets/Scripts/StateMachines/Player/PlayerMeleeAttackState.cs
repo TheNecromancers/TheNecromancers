@@ -20,7 +20,7 @@ public class PlayerMeleeAttackState : PlayerBaseState
     public override void Enter()
     {
         direction = CalculateMovement();
-
+        stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRight.Damage, stateMachine.WeaponRight.Knockback);
         stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
     }
 

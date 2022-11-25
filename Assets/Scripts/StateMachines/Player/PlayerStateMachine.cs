@@ -16,11 +16,12 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public float RollForce { get; private set; }
     [field: SerializeField] public float RollDuration { get; private set; }
     [field: Header("Attack Settings")]
-    [field: SerializeField] public Weapon WeaponRight { get; private set; } = null;
-    [field: SerializeField] public Weapon WeaponLeft { get; private set; } = null;
-    [field: SerializeField, ] public Attack[] Attacks { get; private set; }
+    [field: SerializeField] public WeaponSO WeaponRight { get; private set; } = null;
+    [field: SerializeField] public WeaponSO WeaponLeft { get; private set; } = null;
+    [field: SerializeField] public Attack[] Attacks { get; private set; }
     [field: SerializeField] public GameObject RightHandHolder { get; private set; }
     [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
+    [field: SerializeField] public WeaponLogic WeaponLogic { get; private set; } = null;
 
     public Transform MainCameraTransform { get; private set; }
 
@@ -30,6 +31,8 @@ public class PlayerStateMachine : StateMachine
 
         WeaponRight?.Equip(RightHandHolder.transform);
         WeaponLeft?.Equip(LeftHandHolder.transform);
+
+        WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
 
         MainCameraTransform = Camera.main.transform;
         SwitchState(new PlayerLocomotionState(this));

@@ -13,6 +13,7 @@ public class EnemyImpactState : EnemyBaseState
 
     public override void Enter()
     {
+        Debug.Log("Impact");
         stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeduration);
     }
 
@@ -24,7 +25,7 @@ public class EnemyImpactState : EnemyBaseState
 
         if(duration <= 0)
         {
-            stateMachine.SwitchState(new EnemyIdleState(stateMachine));
+            stateMachine.GoToGuardPosition();
         }
     }
 
