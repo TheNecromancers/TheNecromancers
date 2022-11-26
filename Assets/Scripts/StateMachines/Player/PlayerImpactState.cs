@@ -30,7 +30,8 @@ public class PlayerImpactState : PlayerBaseState
 
         if (duration <= 0)
         {
-            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+            ReturnToLocomotion();
+            return;
         }
     }
 

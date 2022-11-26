@@ -42,4 +42,29 @@ public abstract class PlayerBaseState : State
             deltaTime * stateMachine.RotationSpeed);
     }
 
+    protected void FaceOnTarget(float deltaTime)
+    {
+        if (stateMachine.Targeter.CurrentTarget == null) { return; }
+
+        Vector3 lookPos = stateMachine.Targeter.CurrentTarget.transform.position - stateMachine.transform.position;
+        lookPos.y = 0f;
+
+        stateMachine.transform.rotation = Quaternion.Lerp(
+            stateMachine.transform.rotation,
+            Quaternion.LookRotation(lookPos),
+            deltaTime * stateMachine.RotationSpeed);
+    }
+
+    protected void ReturnToLocomotion()
+    {
+        if (stateMachine.Targeter.CurrentTarget != null)
+        {
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+        }
+        else
+        {
+            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+        }
+    }
+
 }

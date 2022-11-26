@@ -17,6 +17,7 @@ public class PlayerMeleeAttackState : PlayerBaseState
         this.direction = direction;
     }
 
+
     public override void Enter()
     {
         direction = CalculateMovement();
@@ -30,6 +31,7 @@ public class PlayerMeleeAttackState : PlayerBaseState
     public override void Tick(float deltaTime)
     {
         Move(deltaTime);
+        FaceOnTarget(deltaTime);
 
         float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
 
@@ -47,12 +49,12 @@ public class PlayerMeleeAttackState : PlayerBaseState
         }
         else
         {
-            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+            ReturnToLocomotion();
         }
 
         previousFrameTime = normalizedTime;
 
-        if (direction != Vector3.zero)
+        if (direction != Vector3.zero && stateMachine.Targeter.CurrentTarget == null)
             FaceMovementDirection(direction, deltaTime);
     }
 

@@ -18,6 +18,7 @@ public class PlayerLocomotionState : PlayerBaseState
         stateMachine.Animator.CrossFadeInFixedTime(LocomotionTreeHash, CrossFadeDuration);
 
         stateMachine.InputManager.RollEvent += OnRoll;
+        stateMachine.InputManager.TargetEvent += OnTarget;
     }
 
     public override void Tick(float deltaTime)
@@ -51,11 +52,20 @@ public class PlayerLocomotionState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputManager.RollEvent -= OnRoll;
+        stateMachine.InputManager.TargetEvent -= OnTarget;
+
     }
 
     void OnRoll()
     {
         stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
         return;
+    }
+
+    private void OnTarget()
+    {
+        if (!stateMachine.Targeter.SelectTarget()) { return; }
+
+        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
     }
 }

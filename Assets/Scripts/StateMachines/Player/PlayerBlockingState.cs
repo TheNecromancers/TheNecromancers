@@ -21,7 +21,7 @@ public class PlayerBlockingState : PlayerBaseState
 
         if (!stateMachine.InputManager.IsBlocking)
         {
-            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+            ReturnToLocomotion();
             return;
         }
     }

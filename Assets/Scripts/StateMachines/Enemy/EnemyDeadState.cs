@@ -13,6 +13,7 @@ public class EnemyDeadState : EnemyBaseState
         Debug.Log("Nemico Morto");
         stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeduration);
         stateMachine.WeaponLogic.gameObject.SetActive(false);
+        GameObject.Destroy(stateMachine.Target);
     }
 
     public override void Tick(float deltaTime)

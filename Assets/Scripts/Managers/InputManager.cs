@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public event Action RollEvent;
     public event Action InteractEvent;
+    public event Action TargetEvent;
 
     private Controls controls;
 
@@ -69,5 +70,11 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         if (!context.performed) { return; }
 
         InteractEvent?.Invoke();
+    }
+
+    public void OnTarget(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        TargetEvent?.Invoke();
     }
 }

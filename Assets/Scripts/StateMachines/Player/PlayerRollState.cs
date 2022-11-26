@@ -32,7 +32,7 @@ public class PlayerRollState : PlayerBaseState
 
         if (remainingRollTime <= 0f)
         {
-            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+            ReturnToLocomotion();
             return;
         }
 

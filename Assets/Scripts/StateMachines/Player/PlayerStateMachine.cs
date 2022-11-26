@@ -9,9 +9,11 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
+    [field: SerializeField] public Targeter Targeter { get; private set; }
 
     [field: Header("Movement Settings")]
     [field: SerializeField] public float MovementSpeed { get; private set; }
+    [field: SerializeField] public float TargetingMovementSpeed { get; private set; }
     [field: SerializeField] public float RotationSpeed { get; private set; }
     [field: SerializeField] public float RollForce { get; private set; }
     [field: SerializeField] public float RollDuration { get; private set; }

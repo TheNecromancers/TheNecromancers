@@ -12,6 +12,8 @@ public class EnemyStateMachine : StateMachine
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
     [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
+    [field: SerializeField] public Target Target { get; private set; }
+
 
     [field: Header("Movement")]
     [field: SerializeField] public float MovementSpeed { get; private set; }
