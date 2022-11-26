@@ -57,6 +57,7 @@ public class Targeter : MonoBehaviour
         if (closestTarget == null) { return false; }
 
         CurrentTarget = closestTarget;
+        CurrentTarget.ImageVis.enabled = true;
 
         return true;
     }
@@ -65,7 +66,9 @@ public class Targeter : MonoBehaviour
     {
         if (CurrentTarget == null) { return; }
 
+        CurrentTarget.ImageVis.enabled = false;
         CurrentTarget = null;
+
     }
 
     public void RemoveTarget(Target target)
@@ -76,7 +79,7 @@ public class Targeter : MonoBehaviour
         }
 
         target.OnDestroyed -= RemoveTarget;
+        CurrentTarget.ImageVis.enabled = false;
         targets.Remove(target);
     }
-
 }
