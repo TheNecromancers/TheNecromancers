@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b987349cdb5c7ee48b89bd13c1827e13, type: 3}
+  m_Name: Shield_Common
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8630294717913105590, guid: 00759bdd62c0cfe428de8c59f3bb3c61, type: 3}
+  type: 1
+  description: Common Shield
+  atkBonus: 0
+  defenceBonus: 0
