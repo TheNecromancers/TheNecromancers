@@ -1,6 +1,7 @@
 using UnityEngine;
 using TheNecromancers.Gameplay.Player;
 using TheNecromancers.Combat;
+using TheNecromancers.StateMachine.Enemy;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -62,7 +63,11 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (InputManager.IsAttacking) return;
 
-            SwitchState(new PlayerImpactState(this));
+            int balanceAccuracy = Random.Range(1, 7);
+
+            Debug.Log("have lost balance " + balanceAccuracy);
+            if (balanceAccuracy > 3)
+                SwitchState(new PlayerImpactState(this));
         }
 
         private void HandleDie()
