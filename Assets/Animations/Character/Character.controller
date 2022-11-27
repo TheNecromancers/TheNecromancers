@@ -284,7 +284,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TargetingBlendTree
+  m_Name: Targeting
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -338,7 +338,7 @@ AnimatorStateMachine:
     m_Position: {x: 530, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1416995809703196878}
-    m_Position: {x: 310, y: 190, z: 0}
+    m_Position: {x: 320, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7144042058192143963}
     m_Position: {x: 530, y: 90, z: 0}

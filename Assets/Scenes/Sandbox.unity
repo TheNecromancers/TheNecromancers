@@ -15939,6 +15939,18 @@ PrefabInstance:
       propertyPath: <Attacks>k__BackingField.Array.data[2].<ComboAttackTime>k__BackingField
       value: 0.65
       objectReference: {fileID: 0}
+    - target: {fileID: 7567206026013558717, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567206026013558719, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 503
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567206026606520360, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
 --- !u!1001 &4378523548150275374

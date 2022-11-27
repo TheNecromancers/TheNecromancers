@@ -4,7 +4,7 @@ namespace TheNecromancers.StateMachine.Player
 {
     public class PlayerTargetingState : PlayerBaseState
     {
-        private readonly int TargetingBlendTree = Animator.StringToHash("TargetingBlendTree");
+        private readonly int TargetingBlendTreeHash = Animator.StringToHash("Targeting");
         private readonly int TargetingForwardHash = Animator.StringToHash("TargetingForward");
         private readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
 
@@ -16,7 +16,7 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Enter()
         {
-            stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTree, CrossFadeDuration);
+            stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, CrossFadeDuration);
 
             stateMachine.InputManager.TargetEvent += OnTarget;
             stateMachine.InputManager.RollEvent += OnRoll;
