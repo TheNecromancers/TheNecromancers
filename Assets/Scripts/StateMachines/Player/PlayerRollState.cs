@@ -49,9 +49,6 @@ namespace TheNecromancers.StateMachine.Player
             FaceMovementDirection(direction, deltaTime);
         }
 
-        public override void Exit()
-        {
-
-        }
+        public override void Exit() { }
     }
 }
