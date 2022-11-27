@@ -9374,7 +9374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3281762963110296123, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: maxHealth
-      value: 9999
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}

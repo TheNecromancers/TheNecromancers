@@ -33,6 +33,9 @@ namespace TheNecromancers.StateMachine.Player
 
         private void Start()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
             WeaponRight?.Equip(RightHandHolder.transform);
             WeaponLeft?.Equip(LeftHandHolder.transform);
 
