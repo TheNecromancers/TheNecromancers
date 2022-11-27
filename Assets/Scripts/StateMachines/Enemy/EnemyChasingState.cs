@@ -38,7 +38,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Exit()
         {
-            ResetAgentPath(); // This cause an error IDK why -Pietro
+            ResetAgentPath(); 
         }
 
         private bool IsInAttackRange()

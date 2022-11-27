@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Enemy
@@ -26,14 +24,11 @@ namespace TheNecromancers.StateMachine.Enemy
 
             if (IsPlayingAnimation(stateMachine.Animator)) { return; }
 
-
             if (GetNormalizedTime(stateMachine.Animator, "Attack") >= 1)
             {
                 stateMachine.SwitchState(new EnemyChasingState(stateMachine));
                 return;
             }
-
-            //FaceToPlayer(deltaTime);
         }
 
         public override void Exit()

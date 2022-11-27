@@ -7,7 +7,6 @@ namespace TheNecromancers.Combat
     {
         private Camera mainCamera;
         private List<Target> targets = new List<Target>();
-
         public Target CurrentTarget { get; private set; }
 
         private void Start()
@@ -65,8 +64,6 @@ namespace TheNecromancers.Combat
         public void Cancel()
         {
             if (CurrentTarget == null) { return; }
-
-            CurrentTarget.ImageVis.enabled = false;
             CurrentTarget = null;
         }
 

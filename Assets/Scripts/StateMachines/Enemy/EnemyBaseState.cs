@@ -89,8 +89,7 @@ namespace TheNecromancers.StateMachine.Enemy
             {
                 if (Physics.Raycast(stateMachine.transform.position + Vector3.up, toTarget + Vector3.up, out hit, Mathf.Infinity))
                 {
-                    Debug.Log(!hit.collider == stateMachine.Player);
-                    if (!hit.collider.CompareTag("Player")) return false;
+                    if (!hit.collider == stateMachine.Player) return false;
                     else return true;
                 }
                 return true;
@@ -114,8 +113,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         protected void ResetAgentPath()
         {
-            stateMachine.Agent.ResetPath();
             stateMachine.Agent.velocity = Vector3.zero;
+            stateMachine.Agent.ResetPath();
         }
     }
 }

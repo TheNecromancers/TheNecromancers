@@ -44,8 +44,8 @@ namespace TheNecromancers.StateMachine.Enemy
             if (dwellTimeElapsed < stateMachine.DwellTime)
             {
                 Move(deltaTime);
-                ResetAgentPath();
                 stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
+                ResetAgentPath();
                 return;
             }
 
@@ -60,7 +60,7 @@ namespace TheNecromancers.StateMachine.Enemy
         public override void Exit()
         {
             stateMachine.LastWaypointIndex = currentWaypointIndex;
-            ResetAgentPath();
+           // ResetAgentPath();
         }
 
         private bool AtWaypoint()

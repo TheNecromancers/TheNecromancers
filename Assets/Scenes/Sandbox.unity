@@ -4584,7 +4584,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77951, y: 1}
+    m_SensorSize: {x: 1.7793103, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12960,7 +12960,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.77951, y: 1}
+    m_SensorSize: {x: 1.7793103, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17444,6 +17444,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4892560463454723132, guid: c6ae6d2170fbccf479ddd9d6b2bb45e4, type: 3}
+      propertyPath: m_AutoRepath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4892560463454723133, guid: c6ae6d2170fbccf479ddd9d6b2bb45e4, type: 3}
       propertyPath: <Target>k__BackingField
       value: 
@@ -17950,19 +17954,19 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.8
-    <Force>k__BackingField: 5
+    <Force>k__BackingField: 7
     <ForceTime>k__BackingField: 0.1
   - <AnimationName>k__BackingField: Attack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
     <ComboAttackTime>k__BackingField: 0.8
-    <Force>k__BackingField: 3
+    <Force>k__BackingField: 5
     <ForceTime>k__BackingField: 0.1
   - <AnimationName>k__BackingField: Attack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: -1
     <ComboAttackTime>k__BackingField: 0.8
-    <Force>k__BackingField: 1
+    <Force>k__BackingField: 5
     <ForceTime>k__BackingField: 0.1
   <RightHandHolder>k__BackingField: {fileID: 5560014123741619625}
   <LeftHandHolder>k__BackingField: {fileID: 3322214741515443356}
