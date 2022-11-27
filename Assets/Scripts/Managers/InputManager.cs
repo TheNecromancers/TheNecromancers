@@ -18,6 +18,9 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         controls = new Controls();
         controls.Player.SetCallbacks(this);
 

@@ -1,7 +1,6 @@
 using UnityEngine;
 using TheNecromancers.Gameplay.Player;
 using TheNecromancers.Combat;
-using TheNecromancers.StateMachine.Enemy;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -22,6 +21,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public float RotationSpeed { get; private set; }
         [field: SerializeField] public float RollForce { get; private set; }
         [field: SerializeField] public float RollDuration { get; private set; }
+
         [field: Header("Attack Settings")]
         [field: SerializeField] public WeaponSO WeaponRight { get; private set; } = null;
         [field: SerializeField] public WeaponSO WeaponLeft { get; private set; } = null;
@@ -31,14 +31,10 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public WeaponLogic WeaponLogic { get; private set; } = null;
         [field: SerializeField] public float InvulnerableCooldown { get; private set; }
 
-
         public Transform MainCameraTransform { get; private set; }
 
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-
             WeaponRight?.Equip(RightHandHolder.transform);
             WeaponLeft?.Equip(LeftHandHolder.transform);
 

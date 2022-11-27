@@ -1,19 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Player
 {
     public class PlayerImpactState : PlayerBaseState
     {
-        private readonly int ImpactHash = Animator.StringToHash("Impact");
+        private readonly int HitHash = Animator.StringToHash("Hit");
         private const float CrossFadeduration = 0.1f;
 
         private float duration = 0.5f;
 
         public PlayerImpactState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
-            stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeduration);
+            stateMachine.Animator.CrossFadeInFixedTime(HitHash, CrossFadeduration);
         }
 
         public override void Enter() { }
@@ -36,7 +34,6 @@ namespace TheNecromancers.StateMachine.Player
                 return;
             }
         }
-
         public override void Exit() { }
 
     }

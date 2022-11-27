@@ -13,9 +13,10 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Enter()
         {
-            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
-            stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, stateMachine.AttackKnockback);
             stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
+
+            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+            stateMachine.WeaponLogic.SetAttack(stateMachine.CurrentWeapon.Damage, stateMachine.CurrentWeapon.Knockback, true);
         }
 
         public override void Tick(float deltaTime)

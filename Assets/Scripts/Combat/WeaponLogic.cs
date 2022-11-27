@@ -41,10 +41,22 @@ namespace TheNecromancers.Combat
         {
             alreadyCollidedWith.Clear();
         }
+
         public void SetAttack(int damage, float knockback)
         {
             this.damage = damage;
             this.knockback = knockback;
+        }
+
+        public void SetAttack(int damage, float knockback, bool isEnemy)
+        {
+            this.damage = damage;
+            this.knockback = knockback;
+
+            if(isEnemy)
+            {
+                LayerToInteract.value = 1 << LayerMask.NameToLayer("Player");
+            }
         }
     }
 }
