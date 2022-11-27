@@ -6,11 +6,9 @@ using UnityEngine;
 public class InteractionDetector : MonoBehaviour
 {
     [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
-    [SerializeField] float radius;
+    [SerializeField] float InteractionRange;
 
     public IInteractable currentTarget;
-
-    float minDistanceSqr;
 
     private void Update()
     {
@@ -19,25 +17,19 @@ public class InteractionDetector : MonoBehaviour
 
     private void DetectInteractable()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, radius, LayerToInteract);
-
-        minDistanceSqr = radius * radius;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, InteractionRange, LayerToInteract);
 
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i] != null)
             {
-                IInteractable interactable = colliders[i].GetComponent<IInteractable>();
-
-                float DistanceToCenterSqr = (transform.position - colliders[i].transform.position).sqrMagnitude;
-
-                if (interactable != null)
+                if (colliders[i].TryGetComponent<IInteractable>(out IInteractable interactable))
                 {
-                    if (DistanceToCenterSqr <= minDistanceSqr)
+                    if (CheckDistanceSqr(transform.position, colliders[i].transform.position, InteractionRange))
                     {
-                        Debug.Log("Nearest object " + colliders[i].name);
+                        Debug.Log("Nearest object to interact " + colliders[i].name);
 
-                        if (interactable == currentTarget) return;
+                        if (interactable == currentTarget) { return; }
                         else if (currentTarget != null)
                         {
                             currentTarget.OnEndHover();
@@ -58,7 +50,7 @@ public class InteractionDetector : MonoBehaviour
                 }
                 else
                 {
-                    // Maybe useless check
+                    // Maybe useless check, should can be removed
                     OnCurrentTargetExit(ref currentTarget);
                 }
             }
@@ -79,9 +71,15 @@ public class InteractionDetector : MonoBehaviour
         }
     }
 
+    private bool CheckDistanceSqr(Vector3 A, Vector3 B, float accuracy)
+    {
+        float distanceSqr = (A - B).sqrMagnitude;
+        return distanceSqr <= accuracy * accuracy;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, InteractionRange);
     }
 }
