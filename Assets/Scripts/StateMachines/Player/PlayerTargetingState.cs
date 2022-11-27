@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -18,10 +16,11 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Enter()
         {
+            stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTree, CrossFadeDuration);
+
             stateMachine.InputManager.TargetEvent += OnTarget;
             stateMachine.InputManager.RollEvent += OnRoll;
-
-            stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTree, CrossFadeDuration);
+            stateMachine.Health.OnTakeDamage += HandleTakeDamage;
         }
 
         public override void Tick(float deltaTime)
@@ -47,9 +46,7 @@ namespace TheNecromancers.StateMachine.Player
             }
 
             Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
-
             UpdateAnimator(deltaTime);
-
             FaceOnTarget(deltaTime);
         }
 
@@ -57,6 +54,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             stateMachine.InputManager.TargetEvent -= OnTarget;
             stateMachine.InputManager.RollEvent -= OnRoll;
+            stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
 
         private void OnTarget()
@@ -65,7 +63,6 @@ namespace TheNecromancers.StateMachine.Player
 
             stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
         }
-
 
         private Vector3 CalculateMovement(float deltaTime)
         {

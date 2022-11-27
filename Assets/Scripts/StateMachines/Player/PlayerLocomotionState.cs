@@ -1,3 +1,4 @@
+using TheNecromancers.Combat;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Player
@@ -21,6 +22,7 @@ namespace TheNecromancers.StateMachine.Player
 
             stateMachine.InputManager.RollEvent += OnRoll;
             stateMachine.InputManager.TargetEvent += OnTarget;
+            stateMachine.Health.OnTakeDamage += HandleTakeDamage;
         }
 
         public override void Tick(float deltaTime)
@@ -55,7 +57,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             stateMachine.InputManager.RollEvent -= OnRoll;
             stateMachine.InputManager.TargetEvent -= OnTarget;
-
+            stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
 
         void OnRoll()

@@ -27,7 +27,6 @@ namespace TheNecromancers.StateMachine.Player
             remainingRollTime = stateMachine.RollDuration;
         }
 
-
         public override void Tick(float deltaTime)
         {
             remainingRollTime -= deltaTime;

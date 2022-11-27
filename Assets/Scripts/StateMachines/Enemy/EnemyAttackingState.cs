@@ -7,6 +7,8 @@ namespace TheNecromancers.StateMachine.Enemy
         private readonly int AttackHash = Animator.StringToHash("Attack");
         private const float TransitionDuration = 0.1f;
 
+        float timeBetweenAttacks = 0f;
+
         public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
         public override void Enter()
@@ -18,7 +20,16 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Tick(float deltaTime)
         {
+            timeBetweenAttacks += deltaTime;
+            
+            if(timeBetweenAttacks < stateMachine.AttackRate) {
+                FaceToPlayer(deltaTime);
+                return; 
+            }
+
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
+
+            timeBetweenAttacks = 0f;
 
             FaceToPlayer(deltaTime);
 

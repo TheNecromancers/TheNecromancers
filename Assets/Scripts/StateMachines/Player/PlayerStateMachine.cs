@@ -29,13 +29,10 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
         [field: SerializeField] public WeaponLogic WeaponLogic { get; private set; } = null;
-
         public Transform MainCameraTransform { get; private set; }
 
         private void Start()
         {
-            InputManager.InteractEvent += OnInteract;
-
             WeaponRight?.Equip(RightHandHolder.transform);
             WeaponLeft?.Equip(LeftHandHolder.transform);
 
@@ -47,27 +44,14 @@ namespace TheNecromancers.StateMachine.Player
 
         private void OnEnable()
         {
-            Health.OnTakeDamage += HandleTakeDamage;
             Health.OnDie += HandleDie;
+            InputManager.InteractEvent += HandleInteract;
         }
 
         private void OnDisable()
         {
-            Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDie -= HandleDie;
-            InputManager.InteractEvent -= OnInteract;
-
-        }
-
-        private void HandleTakeDamage()
-        {
-            if (InputManager.IsAttacking) return;
-
-            int balanceAccuracy = Random.Range(1, 7);
-
-            Debug.Log("have lost balance " + balanceAccuracy);
-            if (balanceAccuracy > 3)
-                SwitchState(new PlayerImpactState(this));
+            InputManager.InteractEvent -= HandleInteract;
         }
 
         private void HandleDie()
@@ -75,7 +59,7 @@ namespace TheNecromancers.StateMachine.Player
             SwitchState(new PlayerDeadState(this));
         }
 
-        void OnInteract()
+        void HandleInteract()
         {
             if (InteractionDetector.currentTarget != null)
             {

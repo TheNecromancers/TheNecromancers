@@ -19,6 +19,8 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Enter()
         {
+            stateMachine.InputManager.TargetEvent += OnTarget;
+
             direction = CalculateMovement();
 
             stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
@@ -60,6 +62,7 @@ namespace TheNecromancers.StateMachine.Player
         public override void Exit()
         {
             stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
+            stateMachine.InputManager.TargetEvent -= OnTarget;
         }
 
         private void TryApplyForce()
@@ -90,6 +93,12 @@ namespace TheNecromancers.StateMachine.Player
                     direction
                     )
                 );
+        }
+        private void OnTarget()
+        {
+            if (!stateMachine.Targeter.SelectTarget()) { return; }
+
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
     }
 }
