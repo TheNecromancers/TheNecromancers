@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TheNecromancers.Combat;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -39,7 +38,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Exit()
         {
-            ResetAgentPath(); // This cause an error IDK Why
+            ResetAgentPath(); // This cause an error IDK why -Pietro
         }
 
         private bool IsInAttackRange()

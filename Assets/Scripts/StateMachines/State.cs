@@ -1,44 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine
 {
-
-public abstract class State
-{
-    public abstract void Enter();
-    public abstract void Tick(float deltaTime);
-    public abstract void Exit();
-
-    protected float GetNormalizedTime(Animator animator, string tag)
+    public abstract class State
     {
-        AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
-        AnimatorStateInfo nextInfo = animator.GetNextAnimatorStateInfo(0);
+        public abstract void Enter();
+        public abstract void Tick(float deltaTime);
+        public abstract void Exit();
 
-        if (animator.IsInTransition(0) && nextInfo.IsTag(tag))
+        protected float GetNormalizedTime(Animator animator, string tag)
         {
-            return nextInfo.normalizedTime;
+            AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
+            AnimatorStateInfo nextInfo = animator.GetNextAnimatorStateInfo(0);
+
+            if (animator.IsInTransition(0) && nextInfo.IsTag(tag))
+            {
+                return nextInfo.normalizedTime;
+            }
+            else if (!animator.IsInTransition(0) && currentInfo.IsTag(tag))
+            {
+                return currentInfo.normalizedTime;
+            }
+            else
+            {
+                return 0f;
+            }
         }
-        else if (!animator.IsInTransition(0) && currentInfo.IsTag(tag))
+
+        protected bool IsPlayingAnimation(Animator animator)
         {
-            return currentInfo.normalizedTime;
+            return animator.IsInTransition(0) || animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f;
         }
-        else
+
+        protected bool CheckDistanceSqr(Vector3 A, Vector3 B, float accuracy)
         {
-            return 0f;
+            float distanceSqr = (A - B).sqrMagnitude;
+            return distanceSqr <= accuracy * accuracy;
         }
     }
-
-    protected bool IsPlayingAnimation(Animator animator)
-    {
-        return animator.IsInTransition(0) || animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f;
-    }
-
-    protected bool CheckDistanceSqr(Vector3 A, Vector3 B, float accuracy)
-    {
-        float distanceSqr = (A - B).sqrMagnitude;
-        return distanceSqr <= accuracy * accuracy;
-    }
-}
 }

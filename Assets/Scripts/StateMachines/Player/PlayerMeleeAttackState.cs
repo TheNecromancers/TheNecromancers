@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TheNecromancers.Combat;
 
 namespace TheNecromancers.StateMachine.Player
 {

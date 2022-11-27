@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Enemy
@@ -59,6 +57,5 @@ namespace TheNecromancers.StateMachine.Enemy
         {
             ResetAgentPath();
         }
-
     }
 }

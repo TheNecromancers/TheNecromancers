@@ -1,5 +1,6 @@
 using UnityEngine;
-using TheNecromancers.Gameplay;
+using TheNecromancers.Gameplay.Player;
+using TheNecromancers.Combat;
 
 namespace TheNecromancers.StateMachine.Player
 {

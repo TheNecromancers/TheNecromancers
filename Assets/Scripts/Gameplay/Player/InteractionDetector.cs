@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace TheNecromancers.Gameplay
+namespace TheNecromancers.Gameplay.Player
 {
     public class InteractionDetector : MonoBehaviour
     {

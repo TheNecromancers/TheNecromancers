@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using TheNecromancers.Gameplay.AI;
+using TheNecromancers.Combat;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -14,10 +16,10 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
         [field: SerializeField] public Target Target { get; private set; }
 
-
         [field: Header("Movement")]
         [field: SerializeField] public float MovementSpeed { get; private set; }
         [field: SerializeField] public float RotationSpeed { get; private set; }
+
         [field: Header("Chasing And Patrolling")]
         [field: SerializeField] public float PlayerChasingRange { get; private set; }
         [field: SerializeField] public float PlayerToNearChasingRange { get; private set; }
@@ -32,7 +34,6 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public int AttackDamage { get; private set; }
         [field: SerializeField] public int AttackKnockback { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
-
 
         public GameObject Player { get; private set; }
         public int LastWaypointIndex { get; set; }
@@ -89,9 +90,11 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void OnDrawGizmosSelected()
         {
+            // Draw Chasing Range
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, PlayerChasingRange);
 
+            // Draw Too Near Range
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, PlayerToNearChasingRange);
         }

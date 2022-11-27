@@ -1,4 +1,5 @@
 using UnityEngine;
+using TheNecromancers.Combat;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -88,7 +89,7 @@ namespace TheNecromancers.StateMachine.Enemy
             {
                 if (Physics.Raycast(stateMachine.transform.position + Vector3.up, toTarget + Vector3.up, out hit, Mathf.Infinity))
                 {
-                    // Debug.Log(hit.collider.name);
+                    Debug.Log(!hit.collider == stateMachine.Player);
                     if (!hit.collider.CompareTag("Player")) return false;
                     else return true;
                 }
