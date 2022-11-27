@@ -71,10 +71,7 @@ namespace TheNecromancers.StateMachine.Player
 
         protected void HandleTakeDamage()
         {
-            int balanceAccuracy = Random.Range(1, 7);
-
-            Debug.Log("have lost balance " + balanceAccuracy);
-            if (balanceAccuracy > 3)
+         
                 stateMachine.SwitchState(new PlayerImpactState(stateMachine));
         }
     }
