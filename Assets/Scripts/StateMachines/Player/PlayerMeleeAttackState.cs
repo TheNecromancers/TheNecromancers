@@ -24,7 +24,7 @@ namespace TheNecromancers.StateMachine.Player
             direction = CalculateMovement();
 
             stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
-            stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRight.Damage, stateMachine.WeaponRight.Knockback);
+            stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRightHand.Damage, stateMachine.WeaponRightHand.Knockback);
 
             stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
         }

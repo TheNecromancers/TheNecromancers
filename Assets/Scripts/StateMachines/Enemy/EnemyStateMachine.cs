@@ -30,9 +30,9 @@ namespace TheNecromancers.StateMachine.Enemy
 
         [field: Header("Attack")]
         [field: SerializeField] public WeaponSO CurrentWeapon { get; private set; }
-        [field: SerializeField] public WeaponLogic WeaponLogic { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; }
         [field: SerializeField] public float AttackRate { get; private set; }
+        public WeaponLogic WeaponLogic { get; private set; }
        // [field: SerializeField] public int AttackDamage { get; private set; }
        // [field: SerializeField] public float AttackKnockback { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
@@ -47,7 +47,6 @@ namespace TheNecromancers.StateMachine.Enemy
             InitialPosition = transform.position;
 
             CurrentWeapon?.Equip(RightHandHolder.transform);
-
             WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
 
             Agent.updatePosition = false;

@@ -23,21 +23,20 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public float RollDuration { get; private set; }
 
         [field: Header("Attack Settings")]
-        [field: SerializeField] public WeaponSO WeaponRight { get; private set; } = null;
-        [field: SerializeField] public WeaponSO WeaponLeft { get; private set; } = null;
+        [field: SerializeField] public WeaponSO WeaponRightHand { get; private set; } = null;
+        [field: SerializeField] public WeaponSO WeaponLeftHand { get; private set; } = null;
         [field: SerializeField] public Attack[] Attacks { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
-        [field: SerializeField] public WeaponLogic WeaponLogic { get; private set; } = null;
         [field: SerializeField] public float InvulnerableCooldown { get; private set; }
+        public WeaponLogic WeaponLogic { get; private set; } = null;
 
         public Transform MainCameraTransform { get; private set; }
 
         private void Start()
         {
-            WeaponRight?.Equip(RightHandHolder.transform);
-            WeaponLeft?.Equip(LeftHandHolder.transform);
-
+            WeaponRightHand?.Equip(RightHandHolder.transform);
+            WeaponLeftHand?.Equip(LeftHandHolder.transform);
             WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
 
             MainCameraTransform = Camera.main.transform;
