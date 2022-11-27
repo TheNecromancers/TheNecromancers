@@ -1,4 +1,6 @@
+using ClipperLib;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,6 +8,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
+    float timeElapsed = 0;
     public bool IsBlocking { get; private set; }
 
     public event Action RollEvent;
@@ -34,9 +37,9 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            IsAttacking = true;
+            StartCoroutine(HandleAttackClick());
         }
         else if (context.canceled)
         {
@@ -74,5 +77,12 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     {
         if (!context.performed) { return; }
         TargetEvent?.Invoke();
+    }
+
+    IEnumerator HandleAttackClick()
+    {
+        IsAttacking = true;
+        yield return new WaitForSeconds(0.1f);
+        IsAttacking = false;
     }
 }
