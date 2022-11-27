@@ -69,7 +69,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (alreadyAppliedForce) { return; }
 
-            if (direction == Vector3.zero)
+            if (direction == Vector3.zero || stateMachine.Targeter.CurrentTarget != null)
             {
                 stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.Force);
             }
