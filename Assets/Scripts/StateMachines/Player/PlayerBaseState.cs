@@ -71,8 +71,7 @@ namespace TheNecromancers.StateMachine.Player
 
         protected void HandleTakeDamage()
         {
-         
-                stateMachine.SwitchState(new PlayerImpactState(stateMachine));
+            stateMachine.SwitchState(new PlayerImpactState(stateMachine));
         }
     }
 }
