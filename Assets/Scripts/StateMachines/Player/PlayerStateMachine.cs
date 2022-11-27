@@ -15,7 +15,6 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
         [field: SerializeField] public Targeter Targeter { get; private set; }
-        [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
 
         [field: Header("Movement Settings")]
         [field: SerializeField] public float MovementSpeed { get; private set; }

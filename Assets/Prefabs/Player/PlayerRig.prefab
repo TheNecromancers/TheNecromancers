@@ -1245,6 +1245,7 @@ MonoBehaviour:
   <RightHandHolder>k__BackingField: {fileID: 8537708602381893583}
   <LeftHandHolder>k__BackingField: {fileID: 1535669656241227514}
   <WeaponLogic>k__BackingField: {fileID: 0}
+  <InvulnerableCooldown>k__BackingField: 3
 --- !u!114 &7567206025322239334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,6 +1324,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 300
+  TimeInvulnerable: 1.5
+  LowHealthTimeInvulnerable: 2.5
+  HealthPercentage: 50
 --- !u!1 &7567206026013558717
 GameObject:
   m_ObjectHideFlags: 0
