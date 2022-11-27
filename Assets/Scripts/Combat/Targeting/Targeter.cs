@@ -57,7 +57,7 @@ namespace TheNecromancers.Combat
             if (closestTarget == null) { return false; }
 
             CurrentTarget = closestTarget;
-            CurrentTarget.ImageVis.enabled = true;
+
 
             return true;
         }
@@ -68,7 +68,6 @@ namespace TheNecromancers.Combat
 
             CurrentTarget.ImageVis.enabled = false;
             CurrentTarget = null;
-
         }
 
         public void RemoveTarget(Target target)
@@ -79,8 +78,12 @@ namespace TheNecromancers.Combat
             }
 
             target.OnDestroyed -= RemoveTarget;
-            CurrentTarget.ImageVis.enabled = false;
             targets.Remove(target);
+
+            if (targets.Count > 0)
+            {
+                CurrentTarget = targets[0];
+            }
         }
     }
 }

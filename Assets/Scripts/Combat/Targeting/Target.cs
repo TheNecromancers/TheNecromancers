@@ -8,8 +8,6 @@ namespace TheNecromancers.Combat
     {
         public Image ImageVis;
         public event Action<Target> OnDestroyed;
-        public event Action<Target> OnSelected;
-
 
         private void OnDestroy()
         {
