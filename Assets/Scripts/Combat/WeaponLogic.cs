@@ -33,6 +33,7 @@ namespace TheNecromancers.Combat
             {
                 Vector3 direction = (other.transform.position - transform.position).normalized;
                 forceReceiver.AddForce(direction * knockback);
+                return;
             }
         }
 

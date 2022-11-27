@@ -13,16 +13,12 @@ namespace TheNecromancers.StateMachine.Enemy
             Debug.Log("Nemico Morto");
             stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeduration);
             stateMachine.WeaponLogic.gameObject.SetActive(false);
+            stateMachine.Controller.enabled = false;
             GameObject.Destroy(stateMachine.Target);
         }
 
-        public override void Tick(float deltaTime)
-        {
+        public override void Tick(float deltaTime) { }
 
-        }
-
-        public override void Exit()
-        {
-        }
+        public override void Exit() { }
     }
 }

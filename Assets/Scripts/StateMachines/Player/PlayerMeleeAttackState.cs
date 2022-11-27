@@ -17,7 +17,6 @@ namespace TheNecromancers.StateMachine.Player
             this.direction = direction;
         }
 
-
         public override void Enter()
         {
             direction = CalculateMovement();

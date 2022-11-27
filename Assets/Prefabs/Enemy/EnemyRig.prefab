@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 9162149195452815328}
   - component: {fileID: 2384786577753091785}
   - component: {fileID: 6164538177038451968}
+  - component: {fileID: 1730034064}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -236,7 +237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2384786577753091778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.38, y: 2.26, z: -18.73}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -262,6 +263,7 @@ MonoBehaviour:
   <ForceReceiver>k__BackingField: {fileID: 2384786577753091784}
   <Agent>k__BackingField: {fileID: 9162149195452815328}
   <CooldownManager>k__BackingField: {fileID: 6164538177038451968}
+  <Target>k__BackingField: {fileID: 1730034064}
   <MovementSpeed>k__BackingField: 3
   <RotationSpeed>k__BackingField: 6
   <PlayerChasingRange>k__BackingField: 10
@@ -273,7 +275,7 @@ MonoBehaviour:
   <WeaponLogic>k__BackingField: {fileID: 0}
   <AttackRange>k__BackingField: 2.5
   <AttackDamage>k__BackingField: 20
-  <AttackKnockback>k__BackingField: 10
+  <AttackKnockback>k__BackingField: 3
   <RightHandHolder>k__BackingField: {fileID: 4494702058520462447}
 --- !u!143 &2384786577753091781
 CharacterController:
@@ -373,6 +375,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 578765e9db85b9b468f364c261de5144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1730034064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2384786577753091778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434e3c83b47b3f941b4739aba9fc0948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2632530700989185480
@@ -1069,6 +1083,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6078411624225708117}
     m_Modifications:
+    - target: {fileID: 432555032608000089, guid: 2891c60c084f06f4197f979f744c1c23, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 575449015688141411, guid: 2891c60c084f06f4197f979f744c1c23, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 575449015688141411, guid: 2891c60c084f06f4197f979f744c1c23, type: 3}
+      propertyPath: LayerToInteract.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 6318434697520294486, guid: 2891c60c084f06f4197f979f744c1c23, type: 3}
       propertyPath: m_Name
       value: sword_common
