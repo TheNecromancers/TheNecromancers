@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5f85b3e4682574b87637f415874ce3, type: 3}
   m_Name: Shield Common
   m_EditorClassIdentifier: 
-  WeaponPrefab: {fileID: 0}
+  WeaponPrefab: {fileID: 4101988474563711924, guid: 060698a2584f77e4ab1402ce2c4e9191, type: 3}
   <Damage>k__BackingField: 0
+  <Knockback>k__BackingField: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6270082356128111543
+--- !u!1 &4214597414847622612
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,47 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6649597844418560269}
-  - component: {fileID: 7775400535649849000}
-  - component: {fileID: 5477277503223134818}
-  - component: {fileID: -6698478329807067415}
+  - component: {fileID: 3546183008160970606}
+  - component: {fileID: 475491762207127755}
+  - component: {fileID: 2413294384556149761}
+  - component: {fileID: 5340853774559993327}
+  - component: {fileID: 327564756513774104}
   m_Layer: 9
-  m_Name: shield_rare
+  m_Name: axe_common
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6649597844418560269
+--- !u!4 &3546183008160970606
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6270082356128111543}
-  m_LocalRotation: {x: 0.35199693, y: 0.63130933, z: 0.61396295, w: 0.31716916}
-  m_LocalPosition: {x: 0.15, y: 0.101, z: 0.214}
+  m_GameObject: {fileID: 4214597414847622612}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -146.501, y: -86.912994, z: -89.882996}
---- !u!33 &7775400535649849000
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &475491762207127755
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6270082356128111543}
-  m_Mesh: {fileID: 8763595074360597229, guid: c5dddbfee41d0f84eb8e73a88fbcf318, type: 3}
---- !u!23 &5477277503223134818
+  m_GameObject: {fileID: 4214597414847622612}
+  m_Mesh: {fileID: -8022749394610967820, guid: c4ec02ccfce89b54f93619768ca0af19, type: 3}
+--- !u!23 &2413294384556149761
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6270082356128111543}
+  m_GameObject: {fileID: 4214597414847622612}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,9 +63,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -905690159841262435, guid: c5dddbfee41d0f84eb8e73a88fbcf318, type: 3}
-  - {fileID: -8848810374240701247, guid: c5dddbfee41d0f84eb8e73a88fbcf318, type: 3}
-  - {fileID: -382652638819485698, guid: c5dddbfee41d0f84eb8e73a88fbcf318, type: 3}
+  - {fileID: 1957042476528048658, guid: c4ec02ccfce89b54f93619768ca0af19, type: 3}
+  - {fileID: 963798294112862009, guid: c4ec02ccfce89b54f93619768ca0af19, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,16 +86,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &-6698478329807067415
-BoxCollider:
+--- !u!136 &5340853774559993327
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6270082356128111543}
+  m_GameObject: {fileID: 4214597414847622612}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 0.20375802
+  m_Height: 0.8989864
+  m_Direction: 1
+  m_Center: {x: 0.09622453, y: 0.23886827, z: 0.00000032782555}
+--- !u!114 &327564756513774104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214597414847622612}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7003766, y: 0.87415195, z: 0.36350033}
-  m_Center: {x: -0.000062358864, y: -0.057465862, z: 0.027245559}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e18f330fe3a5bb64f9ce283585e904e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerToInteract:
+    serializedVersion: 2
+    m_Bits: 256

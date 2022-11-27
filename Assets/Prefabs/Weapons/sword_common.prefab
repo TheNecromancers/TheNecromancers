@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5525752441839848323}
   - component: {fileID: 432555032608000089}
   - component: {fileID: 575449015688141411}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sword_common
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6318434697520294486}
-  m_LocalRotation: {x: 0, y: 0.49383563, z: 0, w: 0.8695553}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 59.186, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &7731446737936351049
 MeshFilter:
   m_ObjectHideFlags: 0
