@@ -7,7 +7,7 @@ namespace TheNecromancers.Gameplay.Player
         [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
         [SerializeField] float InteractionRange;
 
-        public IInteractable currentTarget;
+        public IInteractable CurrentTarget;
 
         private void Update()
         {
@@ -28,34 +28,34 @@ namespace TheNecromancers.Gameplay.Player
                         {
                             Debug.Log("Nearest object to interact " + colliders[i].name);
 
-                            if (interactable == currentTarget) { return; }
-                            else if (currentTarget != null)
+                            if (interactable == CurrentTarget) { return; }
+                            else if (CurrentTarget != null)
                             {
-                                currentTarget.OnEndHover();
-                                currentTarget = interactable;
-                                currentTarget.OnStartHover();
+                                CurrentTarget.OnEndHover();
+                                CurrentTarget = interactable;
+                                CurrentTarget.OnStartHover();
                                 return;
                             }
                             else
                             {
-                                currentTarget = interactable;
-                                currentTarget.OnStartHover();
+                                CurrentTarget = interactable;
+                                CurrentTarget.OnStartHover();
                             }
                         }
                         else
                         {
-                            OnCurrentTargetExit(ref currentTarget);
+                            OnCurrentTargetExit(ref CurrentTarget);
                         }
                     }
                     else
                     {
                         // Maybe useless check, should can be removed
-                        OnCurrentTargetExit(ref currentTarget);
+                        OnCurrentTargetExit(ref CurrentTarget);
                     }
                 }
                 else
                 {
-                    OnCurrentTargetExit(ref currentTarget);
+                    OnCurrentTargetExit(ref CurrentTarget);
                 }
             }
         }
