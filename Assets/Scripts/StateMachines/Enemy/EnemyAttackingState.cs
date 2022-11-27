@@ -2,40 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackingState : EnemyBaseState
+namespace TheNecromancers.StateMachine.Enemy
 {
-    private readonly int AttackHash = Animator.StringToHash("Attack");
-    private const float TransitionDuration = 0.1f;
-
-    public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
-
-    public override void Enter()
+    public class EnemyAttackingState : EnemyBaseState
     {
-        stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
-        stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, stateMachine.AttackKnockback);
-        stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
-    }
+        private readonly int AttackHash = Animator.StringToHash("Attack");
+        private const float TransitionDuration = 0.1f;
 
-    public override void Tick(float deltaTime)
-    {
-        if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
+        public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
-        FaceToPlayer(deltaTime);
-
-        if (IsPlayingAnimation(stateMachine.Animator)) { return; }
-
-
-        if (GetNormalizedTime(stateMachine.Animator, "Attack") >= 1)
+        public override void Enter()
         {
-            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
-            return;
+            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+            stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, stateMachine.AttackKnockback);
+            stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
         }
 
-        //FaceToPlayer(deltaTime);
-    }
+        public override void Tick(float deltaTime)
+        {
+            if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
 
-    public override void Exit()
-    {
-        stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
+            FaceToPlayer(deltaTime);
+
+            if (IsPlayingAnimation(stateMachine.Animator)) { return; }
+
+
+            if (GetNormalizedTime(stateMachine.Animator, "Attack") >= 1)
+            {
+                stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+                return;
+            }
+
+            //FaceToPlayer(deltaTime);
+        }
+
+        public override void Exit()
+        {
+            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
+        }
     }
 }

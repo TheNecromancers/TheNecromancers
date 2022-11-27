@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBlockingState : PlayerBaseState
+namespace TheNecromancers.StateMachine.Player
+{
+    public class PlayerBlockingState : PlayerBaseState
 {
     private readonly int BlockHash = Animator.StringToHash("Block");
 
@@ -30,5 +32,6 @@ public class PlayerBlockingState : PlayerBaseState
     {
     }
 
-  
+}
+
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace TheNecromancers.StateMachine
+{
+
 public abstract class State
 {
     public abstract void Enter();
@@ -37,4 +40,5 @@ public abstract class State
         float distanceSqr = (A - B).sqrMagnitude;
         return distanceSqr <= accuracy * accuracy;
     }
+}
 }

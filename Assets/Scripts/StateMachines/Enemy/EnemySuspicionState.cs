@@ -2,60 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySuspicionState : EnemyBaseState
+namespace TheNecromancers.StateMachine.Enemy
 {
-    private readonly int SpeedHash = Animator.StringToHash("Speed");
-
-    private const float AnimatorDumpTime = 0.1f;
-
-    private float suspicionTime;
-    public EnemySuspicionState(EnemyStateMachine stateMachine) : base(stateMachine) { }
-
-    public override void Enter()
+    public class EnemySuspicionState : EnemyBaseState
     {
-        suspicionTime = stateMachine.SuspicionTime;
-    }
+        private readonly int SpeedHash = Animator.StringToHash("Speed");
 
-    public override void Tick(float deltaTime)
-    {
-        if (IsInViewRange() && IsInChaseRange())
+        private const float AnimatorDumpTime = 0.1f;
+
+        private float suspicionTime;
+        public EnemySuspicionState(EnemyStateMachine stateMachine) : base(stateMachine) { }
+
+        public override void Enter()
         {
-            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
-            return;
+            suspicionTime = stateMachine.SuspicionTime;
         }
 
-        suspicionTime -= deltaTime;
-        Move(deltaTime);
-
-        if (suspicionTime < 0)
+        public override void Tick(float deltaTime)
         {
-            if (stateMachine.PatrolPath != null)
+            if (IsInViewRange() && IsInChaseRange())
             {
-                stateMachine.SwitchState(new EnemyPatrolState(stateMachine));
+                stateMachine.SwitchState(new EnemyChasingState(stateMachine));
                 return;
             }
-            else
+
+            suspicionTime -= deltaTime;
+            Move(deltaTime);
+
+            if (suspicionTime < 0)
             {
-                // back to initial pos
-                MoveTo(stateMachine.InitialPosition, deltaTime);
-                FaceTo(stateMachine.InitialPosition, deltaTime);
-
-                stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
-
-                if (CheckDistanceSqr(stateMachine.transform.position, stateMachine.InitialPosition, 1f))
+                if (stateMachine.PatrolPath != null)
                 {
-                    stateMachine.SwitchState(new EnemyIdleState(stateMachine));
+                    stateMachine.SwitchState(new EnemyPatrolState(stateMachine));
                     return;
                 }
+                else
+                {
+                    // back to initial pos
+                    MoveTo(stateMachine.InitialPosition, deltaTime);
+                    FaceTo(stateMachine.InitialPosition, deltaTime);
+
+                    stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
+
+                    if (CheckDistanceSqr(stateMachine.transform.position, stateMachine.InitialPosition, 1f))
+                    {
+                        stateMachine.SwitchState(new EnemyIdleState(stateMachine));
+                        return;
+                    }
+                }
             }
+
+            stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
         }
 
-        stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
-    }
+        public override void Exit()
+        {
+            ResetAgentPath();
+        }
 
-    public override void Exit() 
-    {
-        ResetAgentPath();
     }
-
 }

@@ -2,105 +2,108 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTargetingState : PlayerBaseState
+namespace TheNecromancers.StateMachine.Player
 {
-    private readonly int TargetingBlendTree = Animator.StringToHash("TargetingBlendTree");
-    private readonly int TargetingForwardHash = Animator.StringToHash("TargetingForward");
-    private readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
-
-    private const float CrossFadeDuration = 0.1f;
-
-    Vector3 movement;
-
-    public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
-
-    public override void Enter()
+    public class PlayerTargetingState : PlayerBaseState
     {
-        stateMachine.InputManager.TargetEvent += OnTarget;
-        stateMachine.InputManager.RollEvent += OnRoll;
+        private readonly int TargetingBlendTree = Animator.StringToHash("TargetingBlendTree");
+        private readonly int TargetingForwardHash = Animator.StringToHash("TargetingForward");
+        private readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
 
-        stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTree, CrossFadeDuration);
-    }
+        private const float CrossFadeDuration = 0.1f;
 
-    public override void Tick(float deltaTime)
-    {
-        movement = CalculateMovement();
+        Vector3 movement;
 
-        if (stateMachine.InputManager.IsAttacking)
+        public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+
+        public override void Enter()
         {
-            stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
-            return;
+            stateMachine.InputManager.TargetEvent += OnTarget;
+            stateMachine.InputManager.RollEvent += OnRoll;
+
+            stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTree, CrossFadeDuration);
         }
 
-        if (stateMachine.InputManager.IsBlocking)
+        public override void Tick(float deltaTime)
         {
-            stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
-            return;
+            movement = CalculateMovement();
+
+            if (stateMachine.InputManager.IsAttacking)
+            {
+                stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
+                return;
+            }
+
+            if (stateMachine.InputManager.IsBlocking)
+            {
+                stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+                return;
+            }
+
+            if (stateMachine.Targeter.CurrentTarget == null)
+            {
+                stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+                return;
+            }
+
+            Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
+
+            UpdateAnimator(deltaTime);
+
+            FaceOnTarget(deltaTime);
         }
 
-        if (stateMachine.Targeter.CurrentTarget == null)
+        public override void Exit()
         {
+            stateMachine.InputManager.TargetEvent -= OnTarget;
+            stateMachine.InputManager.RollEvent -= OnRoll;
+        }
+
+        private void OnTarget()
+        {
+            stateMachine.Targeter.Cancel();
+
             stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+        }
+
+
+        private Vector3 CalculateMovement(float deltaTime)
+        {
+            Vector3 movement = new Vector3();
+
+            movement += -stateMachine.transform.right * stateMachine.InputManager.MovementValue.x;
+            movement += -stateMachine.transform.forward * stateMachine.InputManager.MovementValue.y;
+
+            return movement;
+        }
+
+        private void UpdateAnimator(float deltaTime)
+        {
+            if (stateMachine.InputManager.MovementValue.y == 0)
+            {
+                stateMachine.Animator.SetFloat(TargetingForwardHash, 0f, 0.1f, deltaTime);
+            }
+            else
+            {
+                float value = stateMachine.InputManager.MovementValue.y > 0 ? 1f : -1f;
+                stateMachine.Animator.SetFloat(TargetingForwardHash, value, 0.1f, deltaTime);
+            }
+
+            if (stateMachine.InputManager.MovementValue.x == 0)
+            {
+                stateMachine.Animator.SetFloat(TargetingRightHash, 0f, 0.1f, deltaTime);
+            }
+            else
+            {
+                float value = stateMachine.InputManager.MovementValue.x > 0 ? 1f : -1f;
+                stateMachine.Animator.SetFloat(TargetingRightHash, value, 0.1f, deltaTime);
+            }
+        }
+
+        void OnRoll()
+        {
+            stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
             return;
         }
-
-        Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
-
-        UpdateAnimator(deltaTime);
-
-        FaceOnTarget(deltaTime);
-    }
-
-    public override void Exit()
-    {
-        stateMachine.InputManager.TargetEvent -= OnTarget;
-        stateMachine.InputManager.RollEvent -= OnRoll;
-    }
-
-    private void OnTarget()
-    {
-        stateMachine.Targeter.Cancel();
-
-        stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
-    }
-
-
-    private Vector3 CalculateMovement(float deltaTime)
-    {
-        Vector3 movement = new Vector3();
-
-        movement += -stateMachine.transform.right * stateMachine.InputManager.MovementValue.x;
-        movement += -stateMachine.transform.forward * stateMachine.InputManager.MovementValue.y;
-
-        return movement;
-    }
-
-    private void UpdateAnimator(float deltaTime)
-    {
-        if (stateMachine.InputManager.MovementValue.y == 0)
-        {
-            stateMachine.Animator.SetFloat(TargetingForwardHash, 0f, 0.1f, deltaTime);
-        }
-        else
-        {
-            float value = stateMachine.InputManager.MovementValue.y > 0 ? 1f : -1f;
-            stateMachine.Animator.SetFloat(TargetingForwardHash, value, 0.1f, deltaTime);
-        }
-
-        if (stateMachine.InputManager.MovementValue.x == 0)
-        {
-            stateMachine.Animator.SetFloat(TargetingRightHash, 0f, 0.1f, deltaTime);
-        }
-        else
-        {
-            float value = stateMachine.InputManager.MovementValue.x > 0 ? 1f : -1f;
-            stateMachine.Animator.SetFloat(TargetingRightHash, value, 0.1f, deltaTime);
-        }
-    }
-
-    void OnRoll()
-    {
-        stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
-        return;
     }
 }

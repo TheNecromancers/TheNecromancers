@@ -1,71 +1,74 @@
 using UnityEngine;
 
-public class PlayerLocomotionState : PlayerBaseState
+namespace TheNecromancers.StateMachine.Player
 {
-    private readonly int LocomotionTreeHash = Animator.StringToHash("Locomotion");
-    private readonly int SpeedHash = Animator.StringToHash("Speed");
-
-    private const float AnimatorDumpTime = 0.1f;
-    private const float CrossFadeDuration = 0.3f;
-
-    Vector3 movement;
-
-    public PlayerLocomotionState(PlayerStateMachine stateMachine) : base(stateMachine) { }
-
-    public override void Enter()
+    public class PlayerLocomotionState : PlayerBaseState
     {
-        stateMachine.Animator.SetFloat(SpeedHash, 0f);
-        stateMachine.Animator.CrossFadeInFixedTime(LocomotionTreeHash, CrossFadeDuration);
+        private readonly int LocomotionTreeHash = Animator.StringToHash("Locomotion");
+        private readonly int SpeedHash = Animator.StringToHash("Speed");
 
-        stateMachine.InputManager.RollEvent += OnRoll;
-        stateMachine.InputManager.TargetEvent += OnTarget;
-    }
+        private const float AnimatorDumpTime = 0.1f;
+        private const float CrossFadeDuration = 0.3f;
 
-    public override void Tick(float deltaTime)
-    {
-        movement = CalculateMovement();
+        Vector3 movement;
 
-        if(stateMachine.InputManager.IsAttacking)
+        public PlayerLocomotionState(PlayerStateMachine stateMachine) : base(stateMachine) { }
+
+        public override void Enter()
         {
-            stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
-            return;
-        }
-        if (stateMachine.InputManager.IsBlocking)
-        {
-            stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
-            return;
+            stateMachine.Animator.SetFloat(SpeedHash, 0f);
+            stateMachine.Animator.CrossFadeInFixedTime(LocomotionTreeHash, CrossFadeDuration);
+
+            stateMachine.InputManager.RollEvent += OnRoll;
+            stateMachine.InputManager.TargetEvent += OnTarget;
         }
 
-
-        Move(movement * stateMachine.MovementSpeed, deltaTime);
-
-        if (stateMachine.InputManager.MovementValue == Vector2.zero)
+        public override void Tick(float deltaTime)
         {
-            stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
+            movement = CalculateMovement();
+
+            if (stateMachine.InputManager.IsAttacking)
+            {
+                stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
+                return;
+            }
+            if (stateMachine.InputManager.IsBlocking)
+            {
+                stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+                return;
+            }
+
+
+            Move(movement * stateMachine.MovementSpeed, deltaTime);
+
+            if (stateMachine.InputManager.MovementValue == Vector2.zero)
+            {
+                stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
+                return;
+            }
+
+            stateMachine.Animator.SetFloat(SpeedHash, stateMachine.Controller.velocity.magnitude, AnimatorDumpTime, deltaTime);
+            FaceMovementDirection(movement, deltaTime);
+        }
+
+        public override void Exit()
+        {
+            stateMachine.InputManager.RollEvent -= OnRoll;
+            stateMachine.InputManager.TargetEvent -= OnTarget;
+
+        }
+
+        void OnRoll()
+        {
+            stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
             return;
         }
 
-        stateMachine.Animator.SetFloat(SpeedHash, stateMachine.Controller.velocity.magnitude, AnimatorDumpTime, deltaTime);
-        FaceMovementDirection(movement, deltaTime);
-    }
+        private void OnTarget()
+        {
+            if (!stateMachine.Targeter.SelectTarget()) { return; }
 
-    public override void Exit()
-    {
-        stateMachine.InputManager.RollEvent -= OnRoll;
-        stateMachine.InputManager.TargetEvent -= OnTarget;
-
-    }
-
-    void OnRoll()
-    {
-        stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
-        return;
-    }
-
-    private void OnTarget()
-    {
-        if (!stateMachine.Targeter.SelectTarget()) { return; }
-
-        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+        }
     }
 }

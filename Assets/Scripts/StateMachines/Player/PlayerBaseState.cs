@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace TheNecromancers.StateMachine.Player
+{
+
 public abstract class PlayerBaseState : State
 {
     protected PlayerStateMachine stateMachine;
@@ -67,4 +70,5 @@ public abstract class PlayerBaseState : State
         }
     }
 
+}
 }

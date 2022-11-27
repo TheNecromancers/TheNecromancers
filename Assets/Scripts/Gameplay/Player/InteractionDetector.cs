@@ -1,85 +1,86 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
-public class InteractionDetector : MonoBehaviour
+namespace TheNecromancers.Gameplay
 {
-    [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
-    [SerializeField] float InteractionRange;
-
-    public IInteractable currentTarget;
-
-    private void Update()
+    public class InteractionDetector : MonoBehaviour
     {
-        DetectInteractable();
-    }
+        [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
+        [SerializeField] float InteractionRange;
 
-    private void DetectInteractable()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, InteractionRange, LayerToInteract);
+        public IInteractable currentTarget;
 
-        for (int i = 0; i < colliders.Length; i++)
+        private void Update()
         {
-            if (colliders[i] != null)
-            {
-                if (colliders[i].TryGetComponent<IInteractable>(out IInteractable interactable))
-                {
-                    if (CheckDistanceSqr(transform.position, colliders[i].transform.position, InteractionRange))
-                    {
-                        Debug.Log("Nearest object to interact " + colliders[i].name);
+            DetectInteractable();
+        }
 
-                        if (interactable == currentTarget) { return; }
-                        else if (currentTarget != null)
+        private void DetectInteractable()
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, InteractionRange, LayerToInteract);
+
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i] != null)
+                {
+                    if (colliders[i].TryGetComponent<IInteractable>(out IInteractable interactable))
+                    {
+                        if (CheckDistanceSqr(transform.position, colliders[i].transform.position, InteractionRange))
                         {
-                            currentTarget.OnEndHover();
-                            currentTarget = interactable;
-                            currentTarget.OnStartHover();
-                            return;
+                            Debug.Log("Nearest object to interact " + colliders[i].name);
+
+                            if (interactable == currentTarget) { return; }
+                            else if (currentTarget != null)
+                            {
+                                currentTarget.OnEndHover();
+                                currentTarget = interactable;
+                                currentTarget.OnStartHover();
+                                return;
+                            }
+                            else
+                            {
+                                currentTarget = interactable;
+                                currentTarget.OnStartHover();
+                            }
                         }
                         else
                         {
-                            currentTarget = interactable;
-                            currentTarget.OnStartHover();
+                            OnCurrentTargetExit(ref currentTarget);
                         }
                     }
                     else
                     {
+                        // Maybe useless check, should can be removed
                         OnCurrentTargetExit(ref currentTarget);
                     }
                 }
                 else
                 {
-                    // Maybe useless check, should can be removed
                     OnCurrentTargetExit(ref currentTarget);
                 }
             }
-            else
+        }
+
+        void OnCurrentTargetExit(ref IInteractable currentTarget)
+        {
+            if (currentTarget != null)
             {
-                OnCurrentTargetExit(ref currentTarget);
+                currentTarget.OnEndHover();
+                currentTarget = null;
+                return;
             }
         }
-    }
 
-    void OnCurrentTargetExit(ref IInteractable currentTarget)
-    {
-        if (currentTarget != null)
+        private bool CheckDistanceSqr(Vector3 A, Vector3 B, float accuracy)
         {
-            currentTarget.OnEndHover();
-            currentTarget = null;
-            return;
+            float distanceSqr = (A - B).sqrMagnitude;
+            return distanceSqr <= accuracy * accuracy;
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(transform.position, InteractionRange);
         }
     }
-
-    private bool CheckDistanceSqr(Vector3 A, Vector3 B, float accuracy)
-    {
-        float distanceSqr = (A - B).sqrMagnitude;
-        return distanceSqr <= accuracy * accuracy;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, InteractionRange);
-    }
 }
+
