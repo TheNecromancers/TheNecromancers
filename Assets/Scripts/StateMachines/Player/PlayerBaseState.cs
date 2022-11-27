@@ -71,6 +71,7 @@ namespace TheNecromancers.StateMachine.Player
 
         protected void HandleTakeDamage()
         {
+            stateMachine.Health.SetInvulnerable();
             stateMachine.SwitchState(new PlayerImpactState(stateMachine));
         }
     }

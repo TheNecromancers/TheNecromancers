@@ -2228,6 +2228,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8337608632950047507, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
+      propertyPath: <AttackKnockback>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
 --- !u!1001 &341722967
@@ -9376,6 +9380,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8337608632950047507, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
+      propertyPath: <AttackKnockback>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
 --- !u!1001 &1265458073
@@ -15879,6 +15887,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2673446625226816509, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: maxHealth
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673446625226816509, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: HealthPercentage
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673446625226816509, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: TimeInvulnerable
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673446625226816509, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: LowHealthTimeInvulnerable
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4275371654345822710, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: m_Name
       value: PlayerRig
@@ -15928,28 +15952,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7567206025322239335, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
-      propertyPath: <Attacks>k__BackingField.Array.data[0].<ComboAttackTime>k__BackingField
-      value: 0.75
+      propertyPath: <CooldownManager>k__BackingField
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7567206025322239335, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
-      propertyPath: <Attacks>k__BackingField.Array.data[1].<ComboAttackTime>k__BackingField
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7567206025322239335, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
-      propertyPath: <Attacks>k__BackingField.Array.data[2].<ComboAttackTime>k__BackingField
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 7567206026013558717, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7567206026013558719, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 503
-      objectReference: {fileID: 0}
-    - target: {fileID: 7567206026606520360, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: <InvulnerableCooldown>k__BackingField
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}

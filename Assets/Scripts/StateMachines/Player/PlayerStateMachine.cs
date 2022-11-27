@@ -15,6 +15,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
         [field: SerializeField] public Targeter Targeter { get; private set; }
+        [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
 
         [field: Header("Movement Settings")]
         [field: SerializeField] public float MovementSpeed { get; private set; }
@@ -29,6 +30,9 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
         [field: SerializeField] public WeaponLogic WeaponLogic { get; private set; } = null;
+        [field: SerializeField] public float InvulnerableCooldown { get; private set; }
+
+
         public Transform MainCameraTransform { get; private set; }
 
         private void Start()

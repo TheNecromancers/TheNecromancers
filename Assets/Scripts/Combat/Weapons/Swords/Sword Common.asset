@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponPrefab: {fileID: 6318434697520294486, guid: 2891c60c084f06f4197f979f744c1c23, type: 3}
   <Damage>k__BackingField: 17
-  <Knockback>k__BackingField: 3.5
+  <Knockback>k__BackingField: 4.5

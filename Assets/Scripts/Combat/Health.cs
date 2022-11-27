@@ -1,11 +1,18 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 namespace TheNecromancers.Combat
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] private int maxHealth = 100;
+        [SerializeField] int maxHealth = 100;
+
+        [Header("Invulnerable Settings (Only On Player)")]
+        [SerializeField] float TimeInvulnerable;
+        [SerializeField] float LowHealthTimeInvulnerable;
+        [Tooltip("Percentage on MaxHealth")]
+        [SerializeField] int HealthPercentage;
 
         private int health;
         private bool isInvulnerable;
@@ -20,9 +27,10 @@ namespace TheNecromancers.Combat
             health = maxHealth;
         }
 
-        public void SetInvulnerable(bool isInvulnerable)
+        public void SetInvulnerable()
         {
-            this.isInvulnerable = isInvulnerable;
+            if(gameObject.CompareTag("Player"))
+                StartCoroutine(HandleInvulnerable());
         }
 
         public void DealDamage(int damage)
@@ -40,6 +48,18 @@ namespace TheNecromancers.Combat
             }
 
             Debug.Log("Current health " + health + " damage received " + damage);
+        }
+
+        IEnumerator HandleInvulnerable()
+        {
+            if(health < (maxHealth * HealthPercentage / 100))
+            {
+                TimeInvulnerable = LowHealthTimeInvulnerable;
+            }
+
+            isInvulnerable = true;
+            yield return new WaitForSeconds(TimeInvulnerable);
+            isInvulnerable = false;
         }
     }
 }
