@@ -316,7 +316,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786561, y: 1}
+    m_SensorSize: {x: 1.7782456, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1243,6 +1243,7 @@ MonoBehaviour:
   <ForceReceiver>k__BackingField: {fileID: 5484786501080859579}
   <Health>k__BackingField: {fileID: 1456680238}
   <InteractionDetector>k__BackingField: {fileID: 1903390943}
+  <AbilitySystemManager>k__BackingField: {fileID: 7182505979372251289}
   <MovementSpeed>k__BackingField: 5.25
   <RotationSpeed>k__BackingField: 8
   <RollForce>k__BackingField: 6
@@ -1363,7 +1364,7 @@ GameObject:
   - component: {fileID: 5484786501234757997}
   - component: {fileID: 5484786501234757996}
   - component: {fileID: 2683438410401190322}
-  - component: {fileID: 1131623808}
+  - component: {fileID: 7182505979372251289}
   m_Layer: 6
   m_Name: TopPointLight
   m_TagString: Untagged
@@ -1468,7 +1469,7 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
---- !u!114 &1131623808
+--- !u!114 &7182505979372251289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1477,14 +1478,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5484786501234757998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41eda590696eea64e824aa058b469393, type: 3}
+  m_Script: {fileID: 11500000, guid: 704419d4c5acf674bb258c55a0d55448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxRange: 30
+  MaxRange: 90
   MinRange: 15
-  MaxIntensity: 30
+  MaxIntensity: 90
   MinIntensity: 15
-  ModifierSpeed: 50
+  ModifierSpeed: 15
   Timer: 1
 --- !u!1 &5770411117661063125
 GameObject:

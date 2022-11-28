@@ -71,6 +71,24 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CombactAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e60aa6a-fa88-46eb-9b66-7678b765bbbb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ExplorationAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a4b5faf-9732-46e2-bd79-8ef04b38bc0a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +245,50 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Block"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43124dd3-2e1d-44aa-8023-5b141c00bb94"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""CombactAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7e2f7760-9ab2-435e-96d2-45849eea60e9"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CombactAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""327819c7-9b35-4487-8ac5-904c39b89158"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""ExplorationAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f1932b8b-9d98-4611-98bd-6a3b256aa745"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ExplorationAbility"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -268,6 +330,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
+        m_Player_CombactAbility = m_Player.FindAction("CombactAbility", throwIfNotFound: true);
+        m_Player_ExplorationAbility = m_Player.FindAction("ExplorationAbility", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -332,6 +396,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Roll;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Block;
+    private readonly InputAction m_Player_CombactAbility;
+    private readonly InputAction m_Player_ExplorationAbility;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -341,6 +407,8 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Roll => m_Wrapper.m_Player_Roll;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Block => m_Wrapper.m_Player_Block;
+        public InputAction @CombactAbility => m_Wrapper.m_Player_CombactAbility;
+        public InputAction @ExplorationAbility => m_Wrapper.m_Player_ExplorationAbility;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -365,6 +433,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Block.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
                 @Block.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
                 @Block.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+                @CombactAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCombactAbility;
+                @CombactAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCombactAbility;
+                @CombactAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCombactAbility;
+                @ExplorationAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplorationAbility;
+                @ExplorationAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplorationAbility;
+                @ExplorationAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplorationAbility;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -384,6 +458,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Block.started += instance.OnBlock;
                 @Block.performed += instance.OnBlock;
                 @Block.canceled += instance.OnBlock;
+                @CombactAbility.started += instance.OnCombactAbility;
+                @CombactAbility.performed += instance.OnCombactAbility;
+                @CombactAbility.canceled += instance.OnCombactAbility;
+                @ExplorationAbility.started += instance.OnExplorationAbility;
+                @ExplorationAbility.performed += instance.OnExplorationAbility;
+                @ExplorationAbility.canceled += instance.OnExplorationAbility;
             }
         }
     }
@@ -413,5 +493,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnRoll(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
+        void OnCombactAbility(InputAction.CallbackContext context);
+        void OnExplorationAbility(InputAction.CallbackContext context);
     }
 }

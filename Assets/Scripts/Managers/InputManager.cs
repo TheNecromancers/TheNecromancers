@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public event Action RollEvent;
     public event Action InteractEvent;
+    public event Action CombactAbilityEvent;
+    public event Action ExplorationAbilityEvent;
 
     private Controls controls;
 
@@ -70,4 +72,20 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
         InteractEvent?.Invoke();
     }
+
+    public void OnCombactAbility(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        CombactAbilityEvent?.Invoke();
+    }
+
+    public void OnExplorationAbility(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        ExplorationAbilityEvent?.Invoke();
+    }
+
+
 }

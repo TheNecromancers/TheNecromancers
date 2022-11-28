@@ -9,6 +9,7 @@ public class PlayerStateMachine : StateMachine
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
     [field: SerializeField] public Health Health { get; private set; }
     [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
+    [field: SerializeField] public AbilitySystemManager AbilitySystemManager { get; private set; }
 
     [field: Header("Movement Settings")]
     [field: SerializeField] public float MovementSpeed { get; private set; }
@@ -28,6 +29,8 @@ public class PlayerStateMachine : StateMachine
     private void Start()
     {
         InputManager.InteractEvent += OnInteract;
+        InputManager.CombactAbilityEvent += OnCombactAbility;
+        InputManager.ExplorationAbilityEvent += OnExplorationAbility;
 
         WeaponRight?.Equip(RightHandHolder.transform);
         WeaponLeft?.Equip(LeftHandHolder.transform);
@@ -49,6 +52,8 @@ public class PlayerStateMachine : StateMachine
         Health.OnTakeDamage -= HandleTakeDamage;
         Health.OnDie -= HandleDie;
         InputManager.InteractEvent -= OnInteract;
+        InputManager.CombactAbilityEvent -= OnCombactAbility;
+        InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
 
     }
 
@@ -71,4 +76,20 @@ public class PlayerStateMachine : StateMachine
             InteractionDetector.currentTarget.OnInteract();
         }
     } 
+
+    void OnCombactAbility()
+    {
+        if (AbilitySystemManager != null)
+        {
+            AbilitySystemManager.OnCombactAbility();
+        }
+    }
+
+    void OnExplorationAbility()
+    {
+        if (AbilitySystemManager != null)
+        {
+            AbilitySystemManager.OnExplorationAbility();
+        }
+    }
 }
