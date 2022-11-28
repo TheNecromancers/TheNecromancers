@@ -28,7 +28,6 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public Attack[] Attacks { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
-        [field: SerializeField] public float InvulnerableCooldown { get; private set; }
         public WeaponLogic WeaponLogic { get; private set; } = null;
 
         public Transform MainCameraTransform { get; private set; }
