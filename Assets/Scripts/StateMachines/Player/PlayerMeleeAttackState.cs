@@ -76,7 +76,6 @@ namespace TheNecromancers.StateMachine.Player
             else
             {
                 stateMachine.ForceReceiver.AddForce(direction * attack.Force);
-
             }
 
             alreadyAppliedForce = true;

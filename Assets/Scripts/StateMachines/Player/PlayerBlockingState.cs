@@ -7,7 +7,7 @@ namespace TheNecromancers.StateMachine.Player
         private readonly int BlockHash = Animator.StringToHash("Block");
 
         private const float CrossFadeDuration = 0.1f;
-        private float remainingBlockTime = 0.5f;
+        private float remainingBlockTime = 0.65f;
         public PlayerBlockingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
         public override void Enter()
