@@ -27,6 +27,11 @@ namespace TheNecromancers.Combat
             health = maxHealth;
         }
 
+        public void SetInvulnerable(bool value)
+        {
+            isInvulnerable = value;
+        }
+
         public void SetInvulnerable()
         {
             if(gameObject.CompareTag("Player"))

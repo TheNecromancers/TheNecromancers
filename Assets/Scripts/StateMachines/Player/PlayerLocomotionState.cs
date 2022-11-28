@@ -61,6 +61,7 @@ namespace TheNecromancers.StateMachine.Player
 
         void OnBlock()
         {
+            Debug.Log("Blocco!");
             stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
             return;
         }

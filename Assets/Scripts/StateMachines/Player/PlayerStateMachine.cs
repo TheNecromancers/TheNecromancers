@@ -71,12 +71,13 @@ namespace TheNecromancers.StateMachine.Player
         void Parry()
         {
             Debug.Log("Parry");
+            Health.SetInvulnerable(true);
         }
 
         void EndParry()
         {
             Debug.Log("End Parry");
-
+            Health.SetInvulnerable(false);
         }
     }
 }

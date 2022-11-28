@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Player
@@ -9,6 +7,7 @@ namespace TheNecromancers.StateMachine.Player
         private readonly int BlockHash = Animator.StringToHash("Block");
 
         private const float CrossFadeDuration = 0.1f;
+        private float remainingBlockTime = 0.5f;
         public PlayerBlockingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
         public override void Enter()
@@ -20,7 +19,9 @@ namespace TheNecromancers.StateMachine.Player
         {
             Move(deltaTime);
 
-            if (!IsPlayingAnimation(stateMachine.Animator))
+            remainingBlockTime -= deltaTime;
+
+            if (remainingBlockTime <= 0f)
             {
                 ReturnToLocomotion();
                 return;
@@ -28,7 +29,5 @@ namespace TheNecromancers.StateMachine.Player
         }
 
         public override void Exit() { }
-
-      
     }
 }

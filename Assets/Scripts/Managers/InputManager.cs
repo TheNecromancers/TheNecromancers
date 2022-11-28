@@ -8,7 +8,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
-    public bool IsBlocking { get; private set; }
 
     public event Action RollEvent;
     public event Action InteractEvent;

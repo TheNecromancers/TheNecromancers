@@ -38,12 +38,6 @@ namespace TheNecromancers.StateMachine.Player
                 return;
             }
 
-            if (stateMachine.InputManager.IsBlocking)
-            {
-                stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
-                return;
-            }
-
             if (stateMachine.Targeter.CurrentTarget == null)
             {
                 stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
@@ -104,6 +98,7 @@ namespace TheNecromancers.StateMachine.Player
         }
         void OnBlock()
         {
+            Debug.Log("Blocco!");
             stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
             return;
         }

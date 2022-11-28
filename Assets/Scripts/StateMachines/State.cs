@@ -29,7 +29,16 @@ namespace TheNecromancers.StateMachine
 
         protected bool IsPlayingAnimation(Animator animator)
         {
-            return animator.IsInTransition(0) || animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f;
+            AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+            return (animator.IsInTransition(0) || currentInfo.normalizedTime < 1f);
+        }
+
+        protected bool IsPlayingAnimation(Animator animator, string tag)
+        {
+            AnimatorStateInfo currentInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+            return (animator.IsInTransition(0) && currentInfo.IsTag(tag)) || (currentInfo.normalizedTime) < 1f;
         }
 
         protected bool CheckDistanceSqr(Vector3 A, Vector3 B, float accuracy)
