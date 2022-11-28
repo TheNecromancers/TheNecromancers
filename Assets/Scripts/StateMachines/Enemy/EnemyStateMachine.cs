@@ -71,6 +71,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void HandleTakeDamage()
         {
+            if(startingAttack) { return; }
            /* int balanceAccuracy = Random.Range(1, 7);
 
             Debug.Log("have lost balance " + balanceAccuracy);
@@ -106,7 +107,6 @@ namespace TheNecromancers.StateMachine.Enemy
         void EndAttack()
         {
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
-
         }
 
 
