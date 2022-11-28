@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class PlayerDeadState : PlayerBaseState
 {
     private readonly int DieHash = Animator.StringToHash("Die");
