@@ -5,33 +5,30 @@ using UnityEngine;
 namespace TheNecromancers.StateMachine.Player
 {
     public class PlayerBlockingState : PlayerBaseState
-{
-    private readonly int BlockHash = Animator.StringToHash("Block");
-
-    private const float CrossFadeDuration = 0.1f;
-    public PlayerBlockingState(PlayerStateMachine stateMachine) : base(stateMachine)
-    { }
-
-    public override void Enter()
     {
-        stateMachine.Animator.CrossFadeInFixedTime(BlockHash, CrossFadeDuration);
-    }
+        private readonly int BlockHash = Animator.StringToHash("Block");
 
-    public override void Tick(float deltaTime)
-    {
-        Move(deltaTime);
+        private const float CrossFadeDuration = 0.1f;
+        public PlayerBlockingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
-        if (!stateMachine.InputManager.IsBlocking)
+        public override void Enter()
         {
-            ReturnToLocomotion();
-            return;
+            stateMachine.Animator.CrossFadeInFixedTime(BlockHash, CrossFadeDuration);
         }
+
+        public override void Tick(float deltaTime)
+        {
+            Move(deltaTime);
+
+            if (!IsPlayingAnimation(stateMachine.Animator))
+            {
+                ReturnToLocomotion();
+                return;
+            }
+        }
+
+        public override void Exit() { }
+
+      
     }
-
-    public override void Exit()
-    {
-    }
-
-}
-
 }

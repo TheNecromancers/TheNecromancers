@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public event Action RollEvent;
     public event Action InteractEvent;
+    public event Action BlockEvent;
 
     public event Action TargetEvent;
     public event Action NextTargetEvent;
@@ -54,14 +55,9 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public void OnBlock(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            IsBlocking = true;
-        }
-        else if (context.canceled)
-        {
-            IsBlocking = false;
-        }
+        if (!context.performed) { return; }
+
+        BlockEvent?.Invoke();
     }
 
     public void OnRoll(InputAction.CallbackContext context)

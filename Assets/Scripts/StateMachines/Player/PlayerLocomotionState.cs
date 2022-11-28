@@ -22,6 +22,8 @@ namespace TheNecromancers.StateMachine.Player
 
             stateMachine.InputManager.RollEvent += OnRoll;
             stateMachine.InputManager.TargetEvent += OnTarget;
+            stateMachine.InputManager.BlockEvent += OnBlock;
+
             stateMachine.Health.OnTakeDamage += HandleTakeDamage;
         }
 
@@ -32,11 +34,6 @@ namespace TheNecromancers.StateMachine.Player
             if (stateMachine.InputManager.IsAttacking)
             {
                 stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
-                return;
-            }
-            if (stateMachine.InputManager.IsBlocking)
-            {
-                stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
                 return;
             }
 
@@ -57,7 +54,15 @@ namespace TheNecromancers.StateMachine.Player
         {
             stateMachine.InputManager.RollEvent -= OnRoll;
             stateMachine.InputManager.TargetEvent -= OnTarget;
+            stateMachine.InputManager.BlockEvent -= OnBlock;
+
             stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
+        }
+
+        void OnBlock()
+        {
+            stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+            return;
         }
 
         void OnRoll()
