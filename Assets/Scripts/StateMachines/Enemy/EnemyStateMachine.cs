@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TheNecromancers.Gameplay.AI;
 using TheNecromancers.Combat;
+using UnityEditorInternal;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -94,6 +95,18 @@ namespace TheNecromancers.StateMachine.Enemy
                 return;
             }
         }
+
+        void StartAttack()
+        {
+            WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+        }
+
+        void EndAttack()
+        {
+            WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
+
+        }
+
 
         private void OnDrawGizmosSelected()
         {

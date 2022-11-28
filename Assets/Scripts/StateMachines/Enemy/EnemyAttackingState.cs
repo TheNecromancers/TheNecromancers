@@ -27,11 +27,9 @@ namespace TheNecromancers.StateMachine.Enemy
                 return; 
             }
 
-            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
 
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
 
-            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
             timeBetweenAttacks = 0f;
 
             FaceToPlayer(deltaTime);
@@ -45,9 +43,6 @@ namespace TheNecromancers.StateMachine.Enemy
             }
         }
 
-        public override void Exit()
-        {
-            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
-        }
+        public override void Exit() { }
     }
 }
