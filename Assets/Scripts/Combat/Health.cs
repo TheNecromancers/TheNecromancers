@@ -52,7 +52,7 @@ namespace TheNecromancers.Combat
                 OnDie?.Invoke();
             }
 
-            Debug.Log("Current health " + health + " damage received " + damage);
+            Debug.Log(gameObject.name + " Current health " + health + " damage received " + damage);
         }
 
         IEnumerator HandleInvulnerable()
