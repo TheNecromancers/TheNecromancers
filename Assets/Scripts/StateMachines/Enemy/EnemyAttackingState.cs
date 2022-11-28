@@ -15,7 +15,6 @@ namespace TheNecromancers.StateMachine.Enemy
         {
             stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
 
-            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
             stateMachine.WeaponLogic.SetAttack(stateMachine.CurrentWeapon.Damage, stateMachine.CurrentWeapon.Knockback, true);
         }
 
@@ -28,8 +27,11 @@ namespace TheNecromancers.StateMachine.Enemy
                 return; 
             }
 
+            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
 
+            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
             timeBetweenAttacks = 0f;
 
             FaceToPlayer(deltaTime);
