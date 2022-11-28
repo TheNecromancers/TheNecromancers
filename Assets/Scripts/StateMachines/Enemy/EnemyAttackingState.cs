@@ -27,7 +27,6 @@ namespace TheNecromancers.StateMachine.Enemy
                 return; 
             }
 
-
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
 
             timeBetweenAttacks = 0f;

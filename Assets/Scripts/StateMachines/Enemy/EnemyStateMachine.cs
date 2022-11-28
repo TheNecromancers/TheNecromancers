@@ -15,6 +15,7 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field: SerializeField] public NavMeshAgent Agent { get; private set; }
         [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
+        [field: SerializeField] public ParticleFXManager ParticleFXManager { get; private set; }
         [field: SerializeField] public Target Target { get; private set; }
 
         [field: Header("Movement")]
@@ -99,6 +100,7 @@ namespace TheNecromancers.StateMachine.Enemy
         void StartAttack()
         {
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+            ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
         }
 
         void EndAttack()
