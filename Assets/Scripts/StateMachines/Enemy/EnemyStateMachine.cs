@@ -69,11 +69,11 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void HandleTakeDamage()
         {
-            int balanceAccuracy = Random.Range(1, 7);
+           /* int balanceAccuracy = Random.Range(1, 7);
 
             Debug.Log("have lost balance " + balanceAccuracy);
-            if(balanceAccuracy > 3)
-                SwitchState(new EnemyImpactState(this));
+            if(balanceAccuracy > 3)*/
+            SwitchState(new EnemyImpactState(this));
         }
 
         private void HandleDie()

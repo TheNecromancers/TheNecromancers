@@ -7,7 +7,7 @@ namespace TheNecromancers.StateMachine.Enemy
         private readonly int ImpactHash = Animator.StringToHash("Impact");
         private const float CrossFadeduration = 0.1f;
 
-        private float duration = 0.5f;
+        private float duration = 0.9f;
 
         public EnemyImpactState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
