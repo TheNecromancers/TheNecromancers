@@ -19,6 +19,8 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, CrossFadeDuration);
 
             stateMachine.InputManager.TargetEvent += OnTarget;
+            stateMachine.InputManager.NextTargetEvent += OnNextTarget;
+            stateMachine.InputManager.PrevTargetEvent += OnPrevTarget;
             stateMachine.InputManager.RollEvent += OnRoll;
             stateMachine.Health.OnTakeDamage += HandleTakeDamage;
         }
@@ -53,6 +55,8 @@ namespace TheNecromancers.StateMachine.Player
         public override void Exit()
         {
             stateMachine.InputManager.TargetEvent -= OnTarget;
+            stateMachine.InputManager.NextTargetEvent -= OnNextTarget;
+            stateMachine.InputManager.PrevTargetEvent -= OnPrevTarget;
             stateMachine.InputManager.RollEvent -= OnRoll;
             stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
@@ -62,16 +66,6 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.Targeter.Cancel();
 
             stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
-        }
-
-        private Vector3 CalculateMovement(float deltaTime)
-        {
-            Vector3 movement = new Vector3();
-
-            movement += -stateMachine.transform.right * stateMachine.InputManager.MovementValue.x;
-            movement += -stateMachine.transform.forward * stateMachine.InputManager.MovementValue.y;
-
-            return movement;
         }
 
         private void UpdateAnimator(float deltaTime)
@@ -101,6 +95,16 @@ namespace TheNecromancers.StateMachine.Player
         {
             stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
             return;
+        }
+
+        void OnNextTarget()
+        {
+            stateMachine.Targeter.GetNextTarget();
+        }
+        
+        void OnPrevTarget()
+        {
+            stateMachine.Targeter.GetPrevTarget();
         }
     }
 }

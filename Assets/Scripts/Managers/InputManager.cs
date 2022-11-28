@@ -12,7 +12,10 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public event Action RollEvent;
     public event Action InteractEvent;
+
     public event Action TargetEvent;
+    public event Action NextTargetEvent;
+    public event Action PrevTargetEvent;
 
     private Controls controls;
 
@@ -86,5 +89,17 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         IsAttacking = true;
         yield return new WaitForSeconds(0.1f);
         IsAttacking = false;
+    }
+
+    public void OnSelectPrevTarget(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        PrevTargetEvent?.Invoke();
+    }
+
+    public void OnSelectNextTarget(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        NextTargetEvent?.Invoke();
     }
 }

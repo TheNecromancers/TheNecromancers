@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -57,7 +59,6 @@ namespace TheNecromancers.Combat
 
             CurrentTarget = closestTarget;
 
-
             return true;
         }
 
@@ -81,6 +82,23 @@ namespace TheNecromancers.Combat
             {
                 CurrentTarget = targets[0];
             }
+        }
+
+        public void GetNextTarget()
+        {
+            if (targets.IndexOf(CurrentTarget) + 1 == targets.Count) 
+            { 
+                return; 
+            }
+
+            CurrentTarget = targets[targets.IndexOf(CurrentTarget) + 1];
+        }
+
+        public void GetPrevTarget()
+        {
+            if (targets.IndexOf(CurrentTarget) == 0) { return; };
+
+            CurrentTarget = targets[targets.IndexOf(CurrentTarget) - 1];
         }
     }
 }
