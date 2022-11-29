@@ -32,6 +32,7 @@ namespace TheNecromancers.Combat
             if (other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
             {
                 Vector3 direction = (other.transform.position - transform.position).normalized;
+                direction.y = 0;
                 forceReceiver.AddForce(direction * knockback);
                 return;
             }

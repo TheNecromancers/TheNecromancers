@@ -478,8 +478,6 @@ MonoBehaviour:
   <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
   <AttackRange>k__BackingField: 2.5
   <AttackRate>k__BackingField: 1.25
-  <StartAttackFrame>k__BackingField: 0.4
-  <EndAttackFrame>k__BackingField: 0.7
   <RightHandHolder>k__BackingField: {fileID: 3671347887418839197}
 --- !u!143 &3281762963110296119
 CharacterController:
@@ -493,7 +491,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.3
+  m_Radius: 0.6
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.03

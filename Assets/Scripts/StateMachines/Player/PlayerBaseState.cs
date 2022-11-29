@@ -36,6 +36,7 @@ namespace TheNecromancers.StateMachine.Player
 
             return forward * stateMachine.InputManager.MovementValue.y + right * stateMachine.InputManager.MovementValue.x;
         }
+
         protected void FaceMovementDirection(Vector3 movement, float deltaTime)
         {
             stateMachine.transform.rotation = Quaternion.Lerp(
