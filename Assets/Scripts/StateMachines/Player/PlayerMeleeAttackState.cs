@@ -9,10 +9,12 @@ namespace TheNecromancers.StateMachine.Player
         private bool alreadyAppliedForce;
 
         private Attack attack;
+        private int attackIndex;
         private Vector3 direction;
 
         public PlayerMeleeAttackState(PlayerStateMachine stateMachine, int attackIndex, Vector3 direction) : base(stateMachine)
         {
+            this.attackIndex = attackIndex;
             this.attack = stateMachine.Attacks[attackIndex];
             this.direction = direction;
         }
@@ -23,8 +25,7 @@ namespace TheNecromancers.StateMachine.Player
 
             direction = CalculateMovement();
 
-            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
-            stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRightHand.Damage, stateMachine.WeaponRightHand.Knockback);
+            stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRightHand.Damage, stateMachine.WeaponRightHand.Knockbacks[attackIndex]);
 
             stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
         }
@@ -61,7 +62,6 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Exit()
         {
-            stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
             stateMachine.InputManager.TargetEvent -= OnTarget;
         }
 

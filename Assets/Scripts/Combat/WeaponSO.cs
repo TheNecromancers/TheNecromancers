@@ -5,7 +5,7 @@ public class WeaponSO : ScriptableObject
 {
     [SerializeField] GameObject WeaponPrefab = null;
     [field: SerializeField] public int Damage { get; private set; }
-    [field: SerializeField] public float Knockback { get; private set; }
+    [field: SerializeField] public float[] Knockbacks { get; private set; }
 
     public void Equip(Transform handHolder)
     {

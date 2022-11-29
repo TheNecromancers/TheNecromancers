@@ -67,13 +67,28 @@ namespace TheNecromancers.StateMachine.Player
             }
         }
 
-        void Parry()
+        //Animations Events
+        void OnStartAttackAnim()
+        {
+        }
+
+        void OnHitAnim()
+        {
+            WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+        }
+
+        void OnEndAttackAnim()
+        {
+            WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
+        }
+
+        void OnStartParry()
         {
             Debug.Log("Parry");
             Health.SetInvulnerable(true);
         }
 
-        void EndParry()
+        void OnEndParry()
         {
             Debug.Log("End Parry");
             Health.SetInvulnerable(false);

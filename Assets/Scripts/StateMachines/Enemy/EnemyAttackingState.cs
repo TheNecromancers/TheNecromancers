@@ -14,8 +14,7 @@ namespace TheNecromancers.StateMachine.Enemy
         public override void Enter()
         {
             stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
-
-            stateMachine.WeaponLogic.SetAttack(stateMachine.CurrentWeapon.Damage, stateMachine.CurrentWeapon.Knockback, true);
+            stateMachine.WeaponLogic.SetAttack(stateMachine.CurrentWeapon.Damage, stateMachine.CurrentWeapon.Knockbacks[0], true);
 
         }
 
