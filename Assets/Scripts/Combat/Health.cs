@@ -27,6 +27,11 @@ namespace TheNecromancers.Combat
             health = maxHealth;
         }
 
+        public void SetInvulnerable(bool value)
+        {
+            isInvulnerable = value;
+        }
+
         public void SetInvulnerable()
         {
             if(gameObject.CompareTag("Player"))
@@ -47,7 +52,7 @@ namespace TheNecromancers.Combat
                 OnDie?.Invoke();
             }
 
-            Debug.Log("Current health " + health + " damage received " + damage);
+            Debug.Log(gameObject.name + " Current health " + health + " damage received " + damage);
         }
 
         IEnumerator HandleInvulnerable()

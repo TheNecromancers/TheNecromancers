@@ -18,12 +18,6 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Tick(float deltaTime)
         {
-            if (stateMachine.InputManager.IsAttacking)
-            {
-                stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, Vector3.zero));
-                return;
-            }
-
             Move(deltaTime);
 
             duration -= deltaTime;
@@ -35,6 +29,5 @@ namespace TheNecromancers.StateMachine.Player
             }
         }
         public override void Exit() { }
-
     }
 }

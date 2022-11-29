@@ -17,11 +17,14 @@ namespace TheNecromancers.StateMachine.Player
         public override void Enter()
         {
             stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, CrossFadeDuration);
+            
+            stateMachine.InputManager.RollEvent += OnRoll;
+            stateMachine.InputManager.BlockEvent += OnBlock;
 
             stateMachine.InputManager.TargetEvent += OnTarget;
             stateMachine.InputManager.NextTargetEvent += OnNextTarget;
             stateMachine.InputManager.PrevTargetEvent += OnPrevTarget;
-            stateMachine.InputManager.RollEvent += OnRoll;
+
             stateMachine.Health.OnTakeDamage += HandleTakeDamage;
         }
 
@@ -32,12 +35,6 @@ namespace TheNecromancers.StateMachine.Player
             if (stateMachine.InputManager.IsAttacking)
             {
                 stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
-                return;
-            }
-
-            if (stateMachine.InputManager.IsBlocking)
-            {
-                stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
                 return;
             }
 
@@ -54,10 +51,13 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Exit()
         {
+            stateMachine.InputManager.RollEvent -= OnRoll;
+            stateMachine.InputManager.BlockEvent -= OnBlock;
+
             stateMachine.InputManager.TargetEvent -= OnTarget;
             stateMachine.InputManager.NextTargetEvent -= OnNextTarget;
             stateMachine.InputManager.PrevTargetEvent -= OnPrevTarget;
-            stateMachine.InputManager.RollEvent -= OnRoll;
+
             stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
 
@@ -94,6 +94,12 @@ namespace TheNecromancers.StateMachine.Player
         void OnRoll()
         {
             stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
+            return;
+        }
+        void OnBlock()
+        {
+            Debug.Log("Blocco!");
+            stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
             return;
         }
 

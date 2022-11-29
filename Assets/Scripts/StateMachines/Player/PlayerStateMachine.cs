@@ -29,7 +29,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
         public WeaponLogic WeaponLogic { get; private set; } = null;
-
+        public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
         private void Start()
@@ -65,6 +65,18 @@ namespace TheNecromancers.StateMachine.Player
             {
                 InteractionDetector.CurrentTarget.OnInteract();
             }
+        }
+
+        void Parry()
+        {
+            Debug.Log("Parry");
+            Health.SetInvulnerable(true);
+        }
+
+        void EndParry()
+        {
+            Debug.Log("End Parry");
+            Health.SetInvulnerable(false);
         }
     }
 }
