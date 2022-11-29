@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using TheNecromancers.Gameplay.AI;
 using TheNecromancers.Combat;
-using UnityEditorInternal;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -71,7 +70,6 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void HandleTakeDamage()
         {
-            if(startingAttack) { return; }
            /* int balanceAccuracy = Random.Range(1, 7);
 
             Debug.Log("have lost balance " + balanceAccuracy);
