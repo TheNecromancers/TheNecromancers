@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad5f85b3e4682574b87637f415874ce3, type: 3}
-  m_Name: Sword Common
+  m_Name: Axe Rare
   m_EditorClassIdentifier: 
-  WeaponPrefab: {fileID: 6318434697520294486, guid: 2891c60c084f06f4197f979f744c1c23, type: 3}
-  <Damage>k__BackingField: 17
-  <Knockback>k__BackingField: 4
+  inventoryPrefab: {fileID: 0}
+  type: 1
+  description: 
+  WeaponPrefab: {fileID: 2484979932111627691, guid: b5be03d104f81f145afd4d6d13be5337, type: 3}
+  <Damage>k__BackingField: 100
+  <Knockback>k__BackingField: 6

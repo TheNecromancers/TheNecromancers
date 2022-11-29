@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad5f85b3e4682574b87637f415874ce3, type: 3}
-  m_Name: Axe Uncommon
+  m_Script: {fileID: 11500000, guid: 9a626851235c6834bb71db6ecff2e351, type: 3}
+  m_Name: Empty Inventory
   m_EditorClassIdentifier: 
-  WeaponPrefab: {fileID: 9162375442657660279, guid: 552b940b43d22d5478cd4c41df4266fd, type: 3}
-  <Damage>k__BackingField: 30
-  <Knockback>k__BackingField: 5
+  Container: []

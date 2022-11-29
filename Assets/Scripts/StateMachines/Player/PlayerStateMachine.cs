@@ -14,6 +14,8 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
         [field: SerializeField] public Targeter Targeter { get; private set; }
+        [field: SerializeField] public InventoryObject inventoryObject { get; private set; }
+        [field: SerializeField] public DisplayInventory InventoryUIManager { get; private set; }
 
         [field: Header("Movement Settings")]
         [field: SerializeField] public float MovementSpeed { get; private set; }
@@ -44,8 +46,10 @@ namespace TheNecromancers.StateMachine.Player
 
         private void OnEnable()
         {
+            
             Health.OnDie += HandleDie;
             InputManager.InteractEvent += HandleInteract;
+            InputManager.InventoryEvent += InventoryUIManager.HandleInventoryInteraction;
         }
 
         private void OnDisable()

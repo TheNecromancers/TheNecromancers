@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad5f85b3e4682574b87637f415874ce3, type: 3}
-  m_Name: Shield Common
+  m_Name: Axe Common
   m_EditorClassIdentifier: 
-  WeaponPrefab: {fileID: 4101988474563711924, guid: 060698a2584f77e4ab1402ce2c4e9191, type: 3}
-  <Damage>k__BackingField: 0
-  <Knockback>k__BackingField: 0
+  inventoryPrefab: {fileID: 8630294717913105590, guid: 00759bdd62c0cfe428de8c59f3bb3c61, type: 3}
+  type: 1
+  description: 
+  WeaponPrefab: {fileID: 4214597414847622612, guid: f72b1b99abb06314b9a8320e46b73577, type: 3}
+  <Damage>k__BackingField: 20
+  <Knockback>k__BackingField: 5

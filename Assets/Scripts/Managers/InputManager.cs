@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
     public bool IsBlocking { get; private set; }
+    public bool isInventoryOpened{ get; private set; }
 
     public event Action RollEvent;
     public event Action InteractEvent;
@@ -16,6 +17,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     public event Action TargetEvent;
     public event Action NextTargetEvent;
     public event Action PrevTargetEvent;
+    public event Action InventoryEvent;
 
     private Controls controls;
 
@@ -101,5 +103,11 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     {
         if (!context.performed) { return; }
         NextTargetEvent?.Invoke();
+    }
+
+    public void OnInventoryInteraction(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        InventoryEvent?.Invoke();
     }
 }

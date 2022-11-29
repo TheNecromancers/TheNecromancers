@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/New Weapon", order = 0)]
-public class WeaponSO : ScriptableObject
+public class WeaponSO : ItemObject
 {
     [SerializeField] GameObject WeaponPrefab = null;
     [field: SerializeField] public int Damage { get; private set; }
@@ -11,4 +11,6 @@ public class WeaponSO : ScriptableObject
     {
         Instantiate(WeaponPrefab, handHolder);
     }
+
+    
 }

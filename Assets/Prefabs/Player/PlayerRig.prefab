@@ -682,7 +682,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7775736, y: 1}
+    m_SensorSize: {x: 1.7770492, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1216,13 +1216,14 @@ MonoBehaviour:
   <Health>k__BackingField: {fileID: 2673446625226816509}
   <InteractionDetector>k__BackingField: {fileID: 2673446625673487884}
   <Targeter>k__BackingField: {fileID: 4275371654805026455}
+  <inventory>k__BackingField: {fileID: 11400000, guid: c0508c6c3ca3f4441a3410f0062c7362, type: 2}
   <MovementSpeed>k__BackingField: 5.25
   <TargetingMovementSpeed>k__BackingField: 5
   <RotationSpeed>k__BackingField: 8
   <RollForce>k__BackingField: 6
   <RollDuration>k__BackingField: 0.8
-  <WeaponRight>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
-  <WeaponLeft>k__BackingField: {fileID: 11400000, guid: 7b0334a50e8a52349a39addbda4226e1, type: 2}
+  <WeaponRightHand>k__BackingField: {fileID: 0}
+  <WeaponLeftHand>k__BackingField: {fileID: 0}
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1
@@ -1244,8 +1245,6 @@ MonoBehaviour:
     <ForceTime>k__BackingField: 0.1
   <RightHandHolder>k__BackingField: {fileID: 8537708602381893583}
   <LeftHandHolder>k__BackingField: {fileID: 1535669656241227514}
-  <WeaponLogic>k__BackingField: {fileID: 0}
-  <InvulnerableCooldown>k__BackingField: 3
 --- !u!114 &7567206025322239334
 MonoBehaviour:
   m_ObjectHideFlags: 0
