@@ -15733,6 +15733,34 @@ PrefabInstance:
       propertyPath: <AbilitySystemManager>k__BackingField
       value: 
       objectReference: {fileID: 2059766586}
+    - target: {fileID: 5484786501234757997, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: MaxRange
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: MaxHeight
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: MinHeight
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ModifierSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: TimerAfterReachingMax
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1131623808, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
