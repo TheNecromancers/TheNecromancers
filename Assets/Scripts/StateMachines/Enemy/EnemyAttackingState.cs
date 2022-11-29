@@ -15,20 +15,22 @@ namespace TheNecromancers.StateMachine.Enemy
         {
             stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
             stateMachine.WeaponLogic.SetAttack(stateMachine.CurrentWeapon.Damage, stateMachine.CurrentWeapon.Knockbacks[0], true);
-
         }
 
         public override void Tick(float deltaTime)
         {
-            timeBetweenAttacks += deltaTime;
-            
-            if(timeBetweenAttacks < stateMachine.AttackRate) {
-                FaceToPlayer(deltaTime);
-                return; 
-            }
-
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
 
+            timeBetweenAttacks += deltaTime;
+
+            if (timeBetweenAttacks < stateMachine.AttackRate)
+            {
+                Debug.Log("sto aspettando");
+                FaceToPlayer(deltaTime);
+                return;
+            }
+
+            Debug.Log("time between attacks " + timeBetweenAttacks);
 
             timeBetweenAttacks = 0f;
 
@@ -44,5 +46,7 @@ namespace TheNecromancers.StateMachine.Enemy
         }
 
         public override void Exit() { }
+
+        
     }
 }

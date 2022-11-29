@@ -14,6 +14,7 @@ namespace TheNecromancers.StateMachine.Enemy
         public EnemyChasingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
         public override void Enter()
         {
+            stateMachine.Health.OnTakeDamage += HandleTakeDamage;
             stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
         }
 
@@ -38,7 +39,9 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Exit()
         {
-            ResetAgentPath(); 
+            stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
+
+            ResetAgentPath();
         }
 
         private bool IsInAttackRange()

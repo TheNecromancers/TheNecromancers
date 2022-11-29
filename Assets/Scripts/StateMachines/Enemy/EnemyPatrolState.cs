@@ -18,6 +18,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Enter()
         {
+            stateMachine.Health.OnTakeDamage += HandleTakeDamage;
+
             stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
             currentWaypointIndex = stateMachine.LastWaypointIndex;
         }
@@ -59,6 +61,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Exit()
         {
+            stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
+
             stateMachine.LastWaypointIndex = currentWaypointIndex;
            // ResetAgentPath();
         }

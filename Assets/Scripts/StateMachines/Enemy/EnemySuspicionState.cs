@@ -13,6 +13,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Enter()
         {
+            stateMachine.Health.OnTakeDamage += HandleTakeDamage;
+
             suspicionTime = stateMachine.SuspicionTime;
         }
 
@@ -55,6 +57,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Exit()
         {
+            stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
+
             ResetAgentPath();
         }
     }

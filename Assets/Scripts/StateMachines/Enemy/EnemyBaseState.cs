@@ -116,5 +116,9 @@ namespace TheNecromancers.StateMachine.Enemy
             stateMachine.Agent.velocity = Vector3.zero;
             stateMachine.Agent.ResetPath();
         }
+        protected void HandleTakeDamage()
+        {
+            stateMachine.SwitchState(new EnemyImpactState(stateMachine));
+        }
     }
 }

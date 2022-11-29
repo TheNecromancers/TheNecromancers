@@ -14,6 +14,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Enter()
         {
+            stateMachine.Health.OnTakeDamage += HandleTakeDamage;
+
             stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
         }
 
@@ -33,6 +35,10 @@ namespace TheNecromancers.StateMachine.Enemy
             stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
         }
 
-        public override void Exit() { }
+        public override void Exit() 
+        {
+            stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
+
+        }
     }
 }

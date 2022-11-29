@@ -59,19 +59,12 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void OnEnable()
         {
-            Health.OnTakeDamage += HandleTakeDamage;
             Health.OnDie += HandleDie;
         }
 
         private void OnDisable()
         {
-            Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDie -= HandleDie;
-        }
-
-        private void HandleTakeDamage()
-        {
-            SwitchState(new EnemyImpactState(this));
         }
 
         private void HandleDie()
