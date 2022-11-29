@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack2(1h)
+  m_Name: Player@Attack2(1h)
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -5648,7 +5648,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.23333333
-    functionName: OnStartAttack
+    functionName: OnStartAttackAnim
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
