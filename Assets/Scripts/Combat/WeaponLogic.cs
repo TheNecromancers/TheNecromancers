@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace TheNecromancers.Combat
             if (other.TryGetComponent<Health>(out Health health))
             {
                 health.DealDamage(damage);
+                StartCoroutine(RemoveColliders());
             }
 
             if (other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
@@ -62,6 +64,12 @@ namespace TheNecromancers.Combat
             {
                 LayerToInteract.value = 1 << LayerMask.NameToLayer("Enemy");
             }
+        }
+
+        IEnumerator RemoveColliders()
+        {
+            yield return new WaitForSeconds(0.25f);
+            alreadyCollidedWith.Clear();
         }
     }
 }
