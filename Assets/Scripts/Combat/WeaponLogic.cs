@@ -57,6 +57,10 @@ namespace TheNecromancers.Combat
             {
                 LayerToInteract.value = 1 << LayerMask.NameToLayer("Player");
             }
+            else
+            {
+                LayerToInteract.value = 1 << LayerMask.NameToLayer("Enemy");
+            }
         }
     }
 }
