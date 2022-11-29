@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TheNecromancers.Gameplay.AI;
 using TheNecromancers.Combat;
+using UnityEditorInternal;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -33,6 +34,8 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public WeaponSO CurrentWeapon { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; }
         [field: SerializeField] public float AttackRate { get; private set; }
+        [field: SerializeField] public float StartAttackFrame { get; private set; }
+        [field: SerializeField] public float EndAttackFrame { get; private set; }
         public WeaponLogic WeaponLogic { get; private set; }
        // [field: SerializeField] public int AttackDamage { get; private set; }
        // [field: SerializeField] public float AttackKnockback { get; private set; }
@@ -96,13 +99,18 @@ namespace TheNecromancers.StateMachine.Enemy
             }
         }
 
-        void StartAttack()
+        // Animations Events
+        void OnStartAttackAnim()
         {
-            WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
             ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
         }
 
-        void EndAttack()
+        void OnHitAnim()
+        {
+            WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+        }
+
+        void OnEndAttackAnim()
         {
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
         }

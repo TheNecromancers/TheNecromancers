@@ -1,3 +1,4 @@
+using TheNecromancers.Combat;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Enemy
@@ -27,15 +28,15 @@ namespace TheNecromancers.StateMachine.Enemy
                 return; 
             }
 
-            if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
+            /*if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > stateMachine.StartAttackFrame && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < stateMachine.EndAttackFrame) { return; } */
 
             timeBetweenAttacks = 0f;
 
             FaceToPlayer(deltaTime);
 
-            if (IsPlayingAnimation(stateMachine.Animator)) { return; }
+           // if (IsPlayingAnimation(stateMachine.Animator, "Attack")) { return; }
 
-            if (GetNormalizedTime(stateMachine.Animator, "Attack") >= 1)
+            if (IsPlayingAnimation(stateMachine.Animator, "Attack"))
             {
                 stateMachine.SwitchState(new EnemyChasingState(stateMachine));
                 return;
