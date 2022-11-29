@@ -1,4 +1,3 @@
-using TheNecromancers.Combat;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Enemy
@@ -17,6 +16,7 @@ namespace TheNecromancers.StateMachine.Enemy
             stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
 
             stateMachine.WeaponLogic.SetAttack(stateMachine.CurrentWeapon.Damage, stateMachine.CurrentWeapon.Knockback, true);
+
         }
 
         public override void Tick(float deltaTime)
@@ -28,15 +28,16 @@ namespace TheNecromancers.StateMachine.Enemy
                 return; 
             }
 
-            /*if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > stateMachine.StartAttackFrame && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < stateMachine.EndAttackFrame) { return; } */
+            if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
+
 
             timeBetweenAttacks = 0f;
 
             FaceToPlayer(deltaTime);
 
-           // if (IsPlayingAnimation(stateMachine.Animator, "Attack")) { return; }
+            if (IsPlayingAnimation(stateMachine.Animator, "Attack")) { return; }
 
-            if (IsPlayingAnimation(stateMachine.Animator, "Attack"))
+            if (!IsPlayingAnimation(stateMachine.Animator, "Attack"))
             {
                 stateMachine.SwitchState(new EnemyChasingState(stateMachine));
                 return;

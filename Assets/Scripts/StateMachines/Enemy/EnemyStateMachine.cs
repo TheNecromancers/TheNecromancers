@@ -34,8 +34,6 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public WeaponSO CurrentWeapon { get; private set; }
         [field: SerializeField] public float AttackRange { get; private set; }
         [field: SerializeField] public float AttackRate { get; private set; }
-        [field: SerializeField] public float StartAttackFrame { get; private set; }
-        [field: SerializeField] public float EndAttackFrame { get; private set; }
         public WeaponLogic WeaponLogic { get; private set; }
        // [field: SerializeField] public int AttackDamage { get; private set; }
        // [field: SerializeField] public float AttackKnockback { get; private set; }
