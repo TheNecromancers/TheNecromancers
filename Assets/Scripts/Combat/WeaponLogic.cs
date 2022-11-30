@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace TheNecromancers.Combat
@@ -28,7 +29,7 @@ namespace TheNecromancers.Combat
             if (other.TryGetComponent<Health>(out Health health))
             {
                 health.DealDamage(damage);
-                StartCoroutine(RemoveColliders());
+                RemoveColliders();
             }
 
             if (other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
@@ -66,9 +67,9 @@ namespace TheNecromancers.Combat
             }
         }
 
-        IEnumerator RemoveColliders()
+        async void RemoveColliders()
         {
-            yield return new WaitForSeconds(0.25f);
+            await Task.Delay(250);
             alreadyCollidedWith.Clear();
         }
     }

@@ -49,7 +49,5 @@ namespace TheNecromancers.StateMachine.Enemy
         }
 
         public override void Exit() { }
-
-        
     }
 }

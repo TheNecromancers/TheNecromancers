@@ -7,7 +7,7 @@ namespace TheNecromancers.StateMachine.Player
         private readonly int HitHash = Animator.StringToHash("Hit");
         private const float CrossFadeduration = 0.1f;
 
-        private float duration = 0.5f;
+        private float duration = 0.75f;
 
         public PlayerImpactState(PlayerStateMachine stateMachine) : base(stateMachine)
         {

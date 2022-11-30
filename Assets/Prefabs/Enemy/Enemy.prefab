@@ -549,7 +549,7 @@ NavMeshAgent:
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
-  m_AutoRepath: 0
+  m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
@@ -567,8 +567,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  TimeInvulnerable: 0
-  LowHealthTimeInvulnerable: 0
+  TimeInvulnerableInMs: 0
+  LowHealthTimeInvulnerableInMs: 0
   HealthPercentage: 0
 --- !u!114 &6422003366852383218
 MonoBehaviour:
