@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6593066171746003703}
   - component: {fileID: 1042452050}
   m_Layer: 7
-  m_Name: Dungeon_GearDoor
+  m_Name: GearDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

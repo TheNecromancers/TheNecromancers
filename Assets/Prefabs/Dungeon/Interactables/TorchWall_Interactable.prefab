@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 2371078702537333519}
   - component: {fileID: 2371078702537333518}
   m_Layer: 7
-  m_Name: TorchWall_00
+  m_Name: TorchWall_Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
