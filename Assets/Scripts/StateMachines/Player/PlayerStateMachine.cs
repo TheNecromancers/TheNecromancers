@@ -81,7 +81,7 @@ public class PlayerStateMachine : StateMachine
     {
         if (AbilitySystemManager != null)
         {
-            AbilitySystemManager.OnCombactAbility();
+            AbilitySystemManager.OnCombactAbility(transform.position);
         }
     }
 

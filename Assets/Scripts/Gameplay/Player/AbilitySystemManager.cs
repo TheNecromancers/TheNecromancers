@@ -19,6 +19,19 @@ public class AbilitySystemManager : MonoBehaviour
     [SerializeField] float TimerAfterReachingMax;
     [SerializeField] float ExplorationCooldown;
 
+    [field: Header("Repulsion Ability")]
+    [SerializeField] float MaxRepulsionIntensity;
+    [SerializeField] float MinRepulsionIntensity;
+
+    [SerializeField] float RepulsionSpeed;
+    [SerializeField] float RepulsionCooldown;
+
+    [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
+    [SerializeField] float Radius;
+    [SerializeField] float KnockbackForce;
+
+
+    private bool repulsionRunning;
     private bool explorationRunning;
     private float intensityWeight;
     private float heightWeight;
@@ -36,10 +49,15 @@ public class AbilitySystemManager : MonoBehaviour
         Light.intensity = MinIntensity;
         Light.transform.localPosition = new Vector3(Light.transform.localPosition.x, MinHeight, Light.transform.localPosition.z);
         explorationRunning = false;
+        repulsionRunning = false;
     }
-    public void OnCombactAbility()
+    public void OnCombactAbility(Vector3 playerPosition)
     {
-
+        if (!repulsionRunning)
+        {
+            repulsionRunning = true;
+            StartCoroutine(RepulseEnemies(playerPosition));
+        }
     }
 
     private void CalculateWeights()
@@ -48,7 +66,7 @@ public class AbilitySystemManager : MonoBehaviour
         float diffRange = MaxRange - MinRange;
         float diffIntensity = MaxIntensity - MinIntensity;
         float minValue = Mathf.Min(diffHeight, diffRange, diffIntensity);
-        if(minValue == diffHeight)
+        if (minValue == diffHeight)
         {
             heightWeight = 1;
             intensityWeight = diffIntensity / diffHeight;
@@ -69,6 +87,31 @@ public class AbilitySystemManager : MonoBehaviour
 
     }
 
+    private IEnumerator RepulseEnemies(Vector3 playerPosition)
+    {
+        while ( Light.intensity >= MinRepulsionIntensity)
+        {
+            Light.intensity -= RepulsionSpeed/3 * Time.deltaTime;
+        }
+        yield return new WaitForSeconds(0.5f);
+        while (Light.intensity <= MaxRepulsionIntensity)
+        {
+            Light.intensity += RepulsionSpeed * Time.deltaTime;
+        }
+        Collider[] colliders = Physics.OverlapSphere(transform.position, Radius, LayerToInteract);
+        foreach(Collider other in colliders)
+        {
+            if (other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
+            {
+                Vector3 direction = (other.transform.position - playerPosition).normalized;
+                forceReceiver.AddForce(direction * KnockbackForce);
+            }
+        }
+        yield return StartCoroutine(CooldownRepulsionAbility());
+        Light.intensity = MinIntensity;
+
+    }
+
     public void OnExplorationAbility()
     {
         if (!explorationRunning)
@@ -77,6 +120,14 @@ public class AbilitySystemManager : MonoBehaviour
             explorationRunning = true;
             StartCoroutine(ExpandLight());
         }  
+    }
+
+    private IEnumerator CooldownRepulsionAbility()
+    {
+        Debug.Log("Started Cooldown of " + RepulsionCooldown + " Seconds");
+        yield return new WaitForSeconds(RepulsionCooldown);
+        repulsionRunning = false;
+        Debug.Log("Ended Cooldown. Repulsion Ability Available.");
     }
 
     private IEnumerator CooldownExplorationAbility()
@@ -114,5 +165,11 @@ public class AbilitySystemManager : MonoBehaviour
         Light.intensity = Mathf.Clamp(Light.intensity, MinIntensity, MaxIntensity);
         yield return StartCoroutine(CooldownExplorationAbility()); 
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, Radius);
     }
 }
