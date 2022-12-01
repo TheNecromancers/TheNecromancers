@@ -19,6 +19,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Tick(float deltaTime)
         {
+            Move(deltaTime);
+
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) {
                 return; }
 
@@ -30,14 +32,12 @@ namespace TheNecromancers.StateMachine.Enemy
                 return;
             }
 
-
             timeBetweenAttacks = 0f;
 
             FaceToPlayer(deltaTime);
 
             if (IsPlayingAnimation(stateMachine.Animator, "Attack")) { return; }
 
-            stateMachine.Health.OnTakeDamage += HandleTakeDamage;
 
             if (!IsPlayingAnimation(stateMachine.Animator, "Attack"))
             {
@@ -45,7 +45,6 @@ namespace TheNecromancers.StateMachine.Enemy
                 return;
             }
 
-            stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
 
         public override void Exit() { }

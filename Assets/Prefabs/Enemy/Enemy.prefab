@@ -479,6 +479,7 @@ MonoBehaviour:
   <AttackRange>k__BackingField: 2.5
   <AttackRate>k__BackingField: 1.25
   <RightHandHolder>k__BackingField: {fileID: 3671347887418839197}
+  <StunDuration>k__BackingField: 3
 --- !u!143 &3281762963110296119
 CharacterController:
   m_ObjectHideFlags: 0

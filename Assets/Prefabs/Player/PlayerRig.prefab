@@ -279,7 +279,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: -1580535799172915004, guid: 77c4dfd408fc95245bfe8499b402bfe9, type: 3}
   - {fileID: 322813181264140603, guid: 77c4dfd408fc95245bfe8499b402bfe9, type: 3}
-  - {fileID: -2867747967464863736, guid: 77c4dfd408fc95245bfe8499b402bfe9, type: 3}
+  - {fileID: 7575915981058242857, guid: 94058d5f95b7bd64a8f1cdd05780aa53, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -495,7 +495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4275371654385497879}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 6.1237245, y: 5.000001, z: -6.123724}
+  m_LocalPosition: {x: 6.1237245, y: 5.0000005, z: -6.123724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -645,7 +645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4275371654698336982}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 6.1237245, y: 5.000001, z: -6.123724}
+  m_LocalPosition: {x: 6.1237245, y: 5.0000005, z: -6.123724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -682,7 +682,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7818182, y: 1}
+    m_SensorSize: {x: 1.7782178, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1227,13 +1227,13 @@ MonoBehaviour:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
-    <ComboAttackTime>k__BackingField: 0.85
+    <ComboAttackTime>k__BackingField: 0.8
     <Force>k__BackingField: 3
     <ForceTime>k__BackingField: 0.1
   - <AnimationName>k__BackingField: Attack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
-    <ComboAttackTime>k__BackingField: 0.9
+    <ComboAttackTime>k__BackingField: 0.85
     <Force>k__BackingField: 3
     <ForceTime>k__BackingField: 0.1
   - <AnimationName>k__BackingField: Attack3

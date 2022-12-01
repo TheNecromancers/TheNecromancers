@@ -24,6 +24,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         protected void MoveToPlayer(float deltaTime)
         {
+            Move(deltaTime);
             if (stateMachine.Agent.isOnNavMesh)
             {
                 stateMachine.Agent.destination = stateMachine.Player.transform.position;
@@ -41,6 +42,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void AgentMoveTo(Vector3 position, float deltaTime)
         {
+            Move(deltaTime);
+
             if (stateMachine.Agent.isOnNavMesh)
             {
                 stateMachine.Agent.destination = position;
@@ -116,9 +119,6 @@ namespace TheNecromancers.StateMachine.Enemy
             stateMachine.Agent.velocity = Vector3.zero;
             stateMachine.Agent.ResetPath();
         }
-        protected void HandleTakeDamage()
-        {
-            stateMachine.SwitchState(new EnemyImpactState(stateMachine));
-        }
+     
     }
 }

@@ -13,7 +13,6 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Enter()
         {
-            stateMachine.Health.OnTakeDamage += HandleTakeDamage;
 
             suspicionTime = stateMachine.SuspicionTime;
         }
@@ -27,6 +26,7 @@ namespace TheNecromancers.StateMachine.Enemy
             }
 
             suspicionTime -= deltaTime;
+
             Move(deltaTime);
 
             if (suspicionTime < 0)
@@ -39,8 +39,8 @@ namespace TheNecromancers.StateMachine.Enemy
                 else
                 {
                     // back to initial pos
-                    MoveTo(stateMachine.InitialPosition, deltaTime);
                     FaceTo(stateMachine.InitialPosition, deltaTime);
+                    MoveTo(stateMachine.InitialPosition, deltaTime);
 
                     stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
 
@@ -57,8 +57,6 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Exit()
         {
-            stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
-
             ResetAgentPath();
         }
     }

@@ -38,8 +38,10 @@ namespace TheNecromancers.StateMachine.Enemy
        // [field: SerializeField] public int AttackDamage { get; private set; }
        // [field: SerializeField] public float AttackKnockback { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
+        [field: SerializeField] public float StunDuration { get; private set; }
 
         public GameObject Player { get; private set; }
+        public int HitsDamageTaked { get; set; }
         public int LastWaypointIndex { get; set; }
         public Vector3 InitialPosition { get; set; }
 
@@ -60,11 +62,13 @@ namespace TheNecromancers.StateMachine.Enemy
         private void OnEnable()
         {
             Health.OnDie += HandleDie;
+            Health.OnTakeDamage += HandleTakeDamage;
         }
 
         private void OnDisable()
         {
             Health.OnDie -= HandleDie;
+            Health.OnTakeDamage -= HandleTakeDamage;
         }
 
         private void HandleDie()
@@ -84,6 +88,18 @@ namespace TheNecromancers.StateMachine.Enemy
                 SwitchState(new EnemyIdleState(this));
                 return;
             }
+        }
+
+        protected void HandleTakeDamage()
+        {
+            HitsDamageTaked++;
+
+            if (HitsDamageTaked >= 3)
+            {
+                SwitchState(new EnemyStunState(this));
+                HitsDamageTaked = 0;
+            }
+            Debug.Log("Colpi ricevuti " + HitsDamageTaked);
         }
 
         // Animations Events

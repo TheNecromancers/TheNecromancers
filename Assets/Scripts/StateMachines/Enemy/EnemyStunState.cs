@@ -2,14 +2,14 @@ using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
-    public class EnemyImpactState : EnemyBaseState
+    public class EnemyStunState : EnemyBaseState
     {
-        private readonly int ImpactHash = Animator.StringToHash("Impact");
+        private readonly int ImpactHash = Animator.StringToHash("Stun");
         private const float CrossFadeduration = 0.1f;
 
         private float duration;
 
-        public EnemyImpactState(EnemyStateMachine stateMachine) : base(stateMachine) { }
+        public EnemyStunState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
         public override void Enter()
         {

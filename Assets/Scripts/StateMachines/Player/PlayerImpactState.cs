@@ -28,6 +28,7 @@ namespace TheNecromancers.StateMachine.Player
                 return;
             }
         }
+
         public override void Exit() { }
     }
 }
