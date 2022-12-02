@@ -6,9 +6,9 @@ namespace TheNecromancers.StateMachine.Enemy
     {
         private readonly int ImpactHash = Animator.StringToHash("Stun");
         private const float CrossFadeduration = 0.1f;
-
+                                
         private float duration;
-
+                                                                                      
         public EnemyStunState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
         public override void Enter()

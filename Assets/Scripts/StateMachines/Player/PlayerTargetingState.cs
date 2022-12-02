@@ -11,6 +11,8 @@ namespace TheNecromancers.StateMachine.Player
         private const float CrossFadeDuration = 0.1f;
 
         Vector3 movement;
+        float forwardAmount;
+        float rightAmount;
 
         public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
@@ -44,8 +46,13 @@ namespace TheNecromancers.StateMachine.Player
                 return;
             }
 
+            movement.Normalize();
+
+            ConvertDirection(movement);
+
             Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
-            UpdateAnimator(deltaTime);
+
+            UpdateAnimator();
             FaceOnTarget(deltaTime);
         }
 
@@ -61,34 +68,29 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
 
+        void ConvertDirection(Vector3 direction)
+        {
+            if (direction.magnitude > 1)
+            {
+                direction.Normalize();
+            }
+
+            Vector3 localMove = stateMachine.transform.InverseTransformDirection(direction);
+
+            rightAmount = localMove.x;
+            forwardAmount = localMove.z;
+        }
+
         private void OnTarget()
         {
             stateMachine.Targeter.Cancel();
-
             stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
         }
 
-        private void UpdateAnimator(float deltaTime)
+        private void UpdateAnimator()
         {
-            if (stateMachine.InputManager.MovementValue.y == 0)
-            {
-                stateMachine.Animator.SetFloat(TargetingForwardHash, 0f, 0.1f, deltaTime);
-            }
-            else
-            {
-                float value = stateMachine.InputManager.MovementValue.y > 0 ? 1f : -1f;
-                stateMachine.Animator.SetFloat(TargetingForwardHash, value, 0.1f, deltaTime);
-            }
-
-            if (stateMachine.InputManager.MovementValue.x == 0)
-            {
-                stateMachine.Animator.SetFloat(TargetingRightHash, 0f, 0.1f, deltaTime);
-            }
-            else
-            {
-                float value = stateMachine.InputManager.MovementValue.x > 0 ? 1f : -1f;
-                stateMachine.Animator.SetFloat(TargetingRightHash, value, 0.1f, deltaTime);
-            }
+            stateMachine.Animator.SetFloat(TargetingForwardHash, forwardAmount);
+            stateMachine.Animator.SetFloat(TargetingRightHash, rightAmount);
         }
 
         void OnRoll()

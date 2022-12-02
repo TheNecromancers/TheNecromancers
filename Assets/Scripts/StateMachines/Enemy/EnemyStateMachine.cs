@@ -99,7 +99,6 @@ namespace TheNecromancers.StateMachine.Enemy
                 SwitchState(new EnemyStunState(this));
                 HitsDamageTaked = 0;
             }
-            Debug.Log("Colpi ricevuti " + HitsDamageTaked);
         }
 
         // Animations Events
