@@ -1,5 +1,6 @@
 using UnityEngine;
 using TheNecromancers.Combat;
+using TheNecromancers.StateMachine.Player;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -90,12 +91,13 @@ namespace TheNecromancers.StateMachine.Enemy
 
             if (angle < stateMachine.ViewAngle && angle > -stateMachine.ViewAngle)
             {
-                if (Physics.Raycast(stateMachine.transform.position + Vector3.up, toTarget + Vector3.up, out hit, Mathf.Infinity))
+                if (Physics.Raycast(stateMachine.transform.position + (Vector3.up / 2), toTarget + Vector3.up, out hit, Mathf.Infinity))
                 {
-                    if (!hit.collider == stateMachine.Player) return false;
-                    else return true;
+                    if (hit.collider.TryGetComponent<PlayerStateMachine>(out PlayerStateMachine Player))
+                    {
+                        return Player != null;
+                    }
                 }
-                return true;
             }
             return false;
         }

@@ -475,6 +475,9 @@ MonoBehaviour:
   <SuspicionTime>k__BackingField: 2
   <DwellTime>k__BackingField: 1
   <PatrolPath>k__BackingField: {fileID: 0}
+  <PlayerLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
   <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
   <AttackRange>k__BackingField: 2.5
   <AttackRate>k__BackingField: 1.25

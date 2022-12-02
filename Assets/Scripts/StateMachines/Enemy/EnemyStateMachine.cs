@@ -29,6 +29,7 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public float SuspicionTime { get; private set; }
         [field: SerializeField] public float DwellTime { get; private set; }
         [field: SerializeField] public PatrolPath PatrolPath { get; private set; }
+        [field: SerializeField] public LayerMask PlayerLayerMask { get; private set; }
 
         [field: Header("Attack")]
         [field: SerializeField] public WeaponSO CurrentWeapon { get; private set; }
