@@ -16,6 +16,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public Targeter Targeter { get; private set; }
         [field: SerializeField] public InventoryObject inventoryObject { get; private set; }
         [field: SerializeField] public DisplayInventory InventoryUIManager { get; private set; }
+        
 
         [field: Header("Movement Settings")]
         [field: SerializeField] public float MovementSpeed { get; private set; }

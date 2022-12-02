@@ -12,7 +12,7 @@ public class DisplayInventory : MonoBehaviour
     public int X_Space_Between_Items;
     public int ColumnNumber;
     public int Y_Space_Between_Items;
-    Dictionary<InventorySlot,GameObject> itemsDisplayed=new Dictionary<InventorySlot, GameObject>();
+    public Dictionary<InventorySlot,GameObject> itemsDisplayed=new Dictionary<InventorySlot, GameObject>();
 
     // Start is called before the first frame update
     void Start()

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5f85b3e4682574b87637f415874ce3, type: 3}
   m_Name: Sword Common
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 0}
+  inventoryPrefab: {fileID: 6882000034666161159, guid: 4485fdf4a6a58724daf7194ab738ff73, type: 3}
   type: 1
   description: 
   WeaponPrefab: {fileID: 6318434697520294486, guid: 2891c60c084f06f4197f979f744c1c23, type: 3}
   <Damage>k__BackingField: 17
   <Knockback>k__BackingField: 4
+  <WeaponType>k__BackingField: 0

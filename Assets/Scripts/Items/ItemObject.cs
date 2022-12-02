@@ -9,6 +9,12 @@ public enum ItemType
     Equipment,
     Default,
 }
+public enum WeaponType
+{
+    LeftHand,
+    RightHand,
+
+}
 public abstract class ItemObject : ScriptableObject
 {
 

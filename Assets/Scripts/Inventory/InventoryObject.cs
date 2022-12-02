@@ -43,4 +43,6 @@ public class InventorySlot
     {
         amount+= value;
     }
+
+    
 }
