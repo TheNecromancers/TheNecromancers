@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9089975829868591819}
   - component: {fileID: 6467982233983831553}
   - component: {fileID: 666040098293701205}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: tileBrickB_large
   m_TagString: Untagged
   m_Icon: {fileID: 0}

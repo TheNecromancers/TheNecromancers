@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 6022153406263479545}
   - component: {fileID: 8391907961503397939}
   - component: {fileID: 7000924126257230996}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: tileBrickA_medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7222972294919963484
 Transform:
