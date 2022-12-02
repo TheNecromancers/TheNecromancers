@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AbilitySystemManager : MonoBehaviour
 {
+    [SerializeField] AbilityVisualController AbilityController;
+
     [field: Header("Exploration Ability")]
 
     [SerializeField] float MinHeight;
@@ -93,7 +95,6 @@ public class AbilitySystemManager : MonoBehaviour
         {
             Light.intensity -= RepulsionSpeed/3 * Time.deltaTime;
         }
-        yield return new WaitForSeconds(0.5f);
         while (Light.intensity <= MaxRepulsionIntensity)
         {
             Light.intensity += RepulsionSpeed * Time.deltaTime;
@@ -107,8 +108,9 @@ public class AbilitySystemManager : MonoBehaviour
                 forceReceiver.AddForce(direction * KnockbackForce);
             }
         }
-        yield return StartCoroutine(CooldownRepulsionAbility());
+        yield return new WaitForSeconds(1);
         Light.intensity = MinIntensity;
+        yield return StartCoroutine(CooldownRepulsionAbility());
 
     }
 
@@ -124,6 +126,7 @@ public class AbilitySystemManager : MonoBehaviour
 
     private IEnumerator CooldownRepulsionAbility()
     {
+        AbilityController.UseRepulsionAbility(RepulsionCooldown);
         Debug.Log("Started Cooldown of " + RepulsionCooldown + " Seconds");
         yield return new WaitForSeconds(RepulsionCooldown);
         repulsionRunning = false;
@@ -132,6 +135,7 @@ public class AbilitySystemManager : MonoBehaviour
 
     private IEnumerator CooldownExplorationAbility()
     {
+        AbilityController.UseExplorationAbility(ExplorationCooldown);
         Debug.Log("Started Cooldown of " + ExplorationCooldown + " Seconds");
         yield return new WaitForSeconds(ExplorationCooldown);
         explorationRunning = false;
