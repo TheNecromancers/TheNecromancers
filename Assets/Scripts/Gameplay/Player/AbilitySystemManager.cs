@@ -95,6 +95,7 @@ public class AbilitySystemManager : MonoBehaviour
         {
             Light.intensity -= RepulsionSpeed/3 * Time.deltaTime;
         }
+        yield return new WaitForSeconds(0.5f);
         while (Light.intensity <= MaxRepulsionIntensity)
         {
             Light.intensity += RepulsionSpeed * Time.deltaTime;
@@ -108,7 +109,7 @@ public class AbilitySystemManager : MonoBehaviour
                 forceReceiver.AddForce(direction * KnockbackForce);
             }
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         Light.intensity = MinIntensity;
         yield return StartCoroutine(CooldownRepulsionAbility());
 

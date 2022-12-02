@@ -15810,6 +15810,70 @@ PrefabInstance:
       propertyPath: ExplorationColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: RepulsionDarkColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: RepulsionDarkColor.b
+      value: 0.05882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: RepulsionDarkColor.g
+      value: 0.05882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: RepulsionDarkColor.r
+      value: 0.58431375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationDarkColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationDarkColor.b
+      value: 0.4433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationDarkColor.g
+      value: 0.25564796
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationDarkColor.r
+      value: 0.13134566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: RepulsionBrightColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: RepulsionBrightColor.b
+      value: 0.060590927
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: RepulsionBrightColor.g
+      value: 0.060590927
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: RepulsionBrightColor.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationBrightColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationBrightColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationBrightColor.g
+      value: 0.43137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089100477650147375, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: ExplorationBrightColor.r
+      value: 0.05490196
+      objectReference: {fileID: 0}
     - target: {fileID: 5484786501080859572, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: <AbilitySystemManager>k__BackingField
       value: 
@@ -15836,15 +15900,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: MaxRange
-      value: 60
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: MaxHeight
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: MinHeight
       value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: MaxIntensity
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: ModifierSpeed
@@ -15852,7 +15920,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: KnockbackForce
-      value: 8
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: RepulsionSpeed
@@ -15860,7 +15928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: RepulsionCooldown
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: ExplorationCooldown
