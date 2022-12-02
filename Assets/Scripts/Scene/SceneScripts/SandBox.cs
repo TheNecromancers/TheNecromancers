@@ -7,10 +7,10 @@ public class SandBox : MonoBehaviour
 {
     private void Awake()
     {
-        transform.Find("mainMenuBtn").GetComponent<Button_UI>().ClickFunc = () =>
+        transform.Find("testSceneBtn").GetComponent<Button_UI>().ClickFunc = () =>
         {
-            Debug.Log("Parte la scena che vuoi");
-            Loader.Load(Loader.Scene.Loading);
+            Debug.Log("Vado alla Scena di Prova");
+            Loader.Load(Loader.Scene.TestScene);
         };
     }
 }

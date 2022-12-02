@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Loader;
 
 public static class Loader
 {
@@ -16,8 +15,10 @@ public static class Loader
         Loading,
         TestScene
     }
+
     private static Action onLoaderCallback;
     private static AsyncOperation loadingAsyncOperation;
+
     public static void Load(Scene scene)
     {
         onLoaderCallback = () =>

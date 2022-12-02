@@ -4,6 +4,18 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Sandbox.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 3674b57210d23ec4789e475ee949a9e1
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: a4049266577c8c743b814cf7d010517e
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 03f6fd1d618ee244b894ba2a80f262d0
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5216de4682138dd4e9ca56bf82eb885d, type: 2}
