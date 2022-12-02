@@ -24,6 +24,7 @@ public abstract class EnemyBaseState : State
 
     protected void MoveToPlayer(float deltaTime)
     {
+        Move(deltaTime);
         if (stateMachine.Agent.isOnNavMesh)
         {
             stateMachine.Agent.destination = stateMachine.Player.transform.position;
@@ -41,6 +42,7 @@ public abstract class EnemyBaseState : State
 
     private void AgentMoveTo(Vector3 position, float deltaTime)
     {
+        Move(deltaTime);
         if (stateMachine.Agent.isOnNavMesh)
         {
             stateMachine.Agent.destination = position;

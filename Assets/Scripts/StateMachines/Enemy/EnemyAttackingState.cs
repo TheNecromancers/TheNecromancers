@@ -20,6 +20,7 @@ public class EnemyAttackingState : EnemyBaseState
     {
         if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
 
+        Move(deltaTime);
         FaceToPlayer(deltaTime);
 
         if (IsPlayingAnimation(stateMachine.Animator)) { return; }

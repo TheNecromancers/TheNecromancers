@@ -15852,7 +15852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: KnockbackForce
-      value: 20000
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7182505979372251289, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: RepulsionSpeed
