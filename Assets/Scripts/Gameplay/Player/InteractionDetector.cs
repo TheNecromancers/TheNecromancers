@@ -5,29 +5,33 @@ namespace TheNecromancers.Gameplay.Player
     public class InteractionDetector : MonoBehaviour
     {
         [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
-        [SerializeField] float InteractionRange;
+        [field: SerializeField] public float InteractionRange { get; private set; }
+        [field: SerializeField] public Collider[] colliders { get; private set; }
 
         public IInteractable CurrentTarget;
 
         private void Update()
         {
             DetectInteractable();
+
+            Debug.Log("Current Target OnUpdate: " + CurrentTarget);
         }
 
         private void DetectInteractable()
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, InteractionRange, LayerToInteract);
+            colliders = Physics.OverlapSphere(transform.position, InteractionRange, LayerToInteract);
+
+            if(colliders.Length <= 0) { OnCurrentTargetExit(ref CurrentTarget); return; }
 
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i] != null)
                 {
-                    if (colliders[i].TryGetComponent<IInteractable>(out IInteractable interactable))
+                    if (colliders[i].TryGetComponent(out IInteractable interactable))
                     {
                         if (CheckDistanceSqr(transform.position, colliders[i].transform.position, InteractionRange))
                         {
                             Debug.Log("Nearest object to interact " + colliders[i].name);
-
                             if (interactable == CurrentTarget) { return; }
                             else if (CurrentTarget != null)
                             {
@@ -49,13 +53,8 @@ namespace TheNecromancers.Gameplay.Player
                     }
                     else
                     {
-                        // Maybe useless check, should can be removed
                         OnCurrentTargetExit(ref CurrentTarget);
                     }
-                }
-                else
-                {
-                    OnCurrentTargetExit(ref CurrentTarget);
                 }
             }
         }
@@ -66,7 +65,7 @@ namespace TheNecromancers.Gameplay.Player
             {
                 currentTarget.OnEndHover();
                 currentTarget = null;
-                return;
+                Debug.Log("Current target OnTargetExit: " + currentTarget);
             }
         }
 
@@ -78,7 +77,7 @@ namespace TheNecromancers.Gameplay.Player
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.green;
+            Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, InteractionRange);
         }
     }
