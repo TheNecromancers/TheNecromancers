@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 16323
+  controlID: 20546
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 16324
+  controlID: 20547
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 16263
+  controlID: 20548
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -187,8 +187,8 @@ MonoBehaviour:
     y: 0
     width: 317
     height: 620
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -230,18 +230,18 @@ MonoBehaviour:
       m_ExpandedIDs: 60ceffff64ceffff82d3ffffdcd3ffffa2edffff12fbffff72aa0000feaa0000d0ab00002cac00004cac000050ac000090ac0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: PlayerRig
-        m_OriginalName: PlayerRig
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -12700
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 302
     height: 620
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -601,8 +601,8 @@ MonoBehaviour:
     y: 0
     width: 913
     height: 620
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -632,7 +632,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 16325
+  controlID: 20502
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -652,8 +652,8 @@ MonoBehaviour:
     y: 0
     width: 731
     height: 327
-  m_MinSize: {x: 230, y: 250}
-  m_MaxSize: {x: 10000, y: 10000}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 12}
@@ -702,21 +702,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/StateMachines/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/StateMachines/Player
   m_LastFoldersGridSize: 16
   m_LastProjectPath: H:\Unity\Projects\Necromancers\TheNecromancers
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: 22680000
-    m_LastClickedID: 26658
+    scrollPos: {x: 0, y: 306}
+    m_SelectedIDs: 78680000
+    m_LastClickedID: 26744
     m_ExpandedIDs: 00000000226800002468000026680000286800002a6800002c6800002e68000030680000326800003468000036680000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -770,8 +770,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 7ed3ffff
-    m_LastClickedInstanceID: -11394
+    m_SelectedInstanceIDs: 3619ffff
+    m_LastClickedInstanceID: -59082
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000072ab00004a670000d6660000e6660000d49b000068640000
     m_RenameOverlay:
@@ -859,7 +859,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -12704
+  m_LastSelectedObjectID: -11394
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -879,8 +879,8 @@ MonoBehaviour:
     y: 0
     width: 801
     height: 327
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -986,9 +986,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 6b6485e9db4c44e71a56b76f4be17d82, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: a914ae4fcd6f99f4bb3a6aa2e9f18c7c, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 2847548736422558357, guid: 6b6485e9db4c44e71a56b76f4be17d82, type: 2}
+  - m_Target: {fileID: 3100155307174453832, guid: a914ae4fcd6f99f4bb3a6aa2e9f18c7c, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1063,8 +1063,8 @@ MonoBehaviour:
     m_CachedPref: 361
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -11394
-  m_LastVerticalScrollValue: 216
+  m_LastInspectedObjectInstanceID: -59082
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
