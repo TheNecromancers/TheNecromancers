@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class DisplayInventory : MonoBehaviour
 {
@@ -13,12 +14,16 @@ public class DisplayInventory : MonoBehaviour
     public int ColumnNumber;
     public int Y_Space_Between_Items;
     public Dictionary<InventorySlot,GameObject> itemsDisplayed=new Dictionary<InventorySlot, GameObject>();
+    public ItemObject selectedItem=null;
+    public Button useButton;
+
 
     // Start is called before the first frame update
     void Start()
     {
         CreateDisplay();
         gameObject.SetActive(false);
+        useButton.onClick.AddListener(SubmitUse);
         
     }
 
@@ -32,6 +37,8 @@ public class DisplayInventory : MonoBehaviour
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                 itemsDisplayed.Add(inventory.Container[i],obj);
+                obj.GetComponent<ItemDisplayed>().displayInventory = this;
+                obj.GetComponent<ItemDisplayed>().item = inventory.Container[i].item;
             }
     }
     public Vector3 GetPosition(int i)
@@ -60,6 +67,12 @@ public class DisplayInventory : MonoBehaviour
         
     }
 
+
+    public void SubmitUse()
+    {
+        inventory.UseItem(selectedItem);
+    }
+
     public void HandleInventoryInteraction()
     {
         if(this.isActiveAndEnabled)
@@ -69,6 +82,7 @@ public class DisplayInventory : MonoBehaviour
             Cursor.visible=false;
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale=1;
+            selectedItem =null;
         }
         else
         {

@@ -43,6 +43,7 @@ namespace TheNecromancers.StateMachine.Player
 
             MainCameraTransform = Camera.main.transform;
             SwitchState(new PlayerLocomotionState(this));
+            inventoryObject.playerStateMachine=gameObject.GetComponent<PlayerStateMachine>();
         }
 
         private void OnEnable()
@@ -70,6 +71,11 @@ namespace TheNecromancers.StateMachine.Player
             {
                 InteractionDetector.CurrentTarget.OnInteract();
             }
+        }
+
+        private void OnApplicationQuit() 
+        {
+            inventoryObject.playerStateMachine =null;
         }
     }
 }

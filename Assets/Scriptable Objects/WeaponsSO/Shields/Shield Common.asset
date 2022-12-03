@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Shield Common
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 6882000034666161159, guid: 28faf1db934c73b438baa5e332ddbd3e, type: 3}
+  itemPrefab: {fileID: 4101988474563711924, guid: 060698a2584f77e4ab1402ce2c4e9191, type: 3}
   type: 1
   description: 
-  WeaponPrefab: {fileID: 4101988474563711924, guid: 060698a2584f77e4ab1402ce2c4e9191, type: 3}
   <Damage>k__BackingField: 0
   <Knockback>k__BackingField: 0
   <WeaponType>k__BackingField: 0

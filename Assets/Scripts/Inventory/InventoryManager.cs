@@ -11,23 +11,7 @@ public class InventoryManager : MonoBehaviour
     DisplayInventory displayInventory;
 
 
-    public void Equip(WeaponSO weapon)
-    {   
-        inventoryObject.AddItem(weapon,-1);
 
-        if(weapon.WeaponType == WeaponType.LeftHand)
-        {
-            Instantiate(weapon.WeaponPrefab, playerStateMachine.LeftHandHolder.transform);
-            inventoryObject.AddItem(playerStateMachine.WeaponLeftHand,1);
-            
-        }
-        if(weapon.WeaponType == WeaponType.RightHand)
-        {
-            Instantiate(weapon.WeaponPrefab, playerStateMachine.RightHandHolder.transform);
-            inventoryObject.AddItem(playerStateMachine.WeaponRightHand,1);
-
-        }
-    }
     public void Unequip()
     {
 

@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 6505180848010050640}
   - component: {fileID: 5565753783570597293}
   - component: {fileID: 3309864393191743033}
+  - component: {fileID: 6682794064722822201}
   m_Layer: 5
   m_Name: SWORD_1
   m_TagString: Untagged
@@ -393,3 +394,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6682794064722822201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6882000034666161159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5351e7b92ed1314c9c4428c06d68fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
