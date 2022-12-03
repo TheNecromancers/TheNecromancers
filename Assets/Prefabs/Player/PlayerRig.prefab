@@ -1217,30 +1217,30 @@ MonoBehaviour:
   <Health>k__BackingField: {fileID: 2673446625226816509}
   <InteractionDetector>k__BackingField: {fileID: 2673446625673487884}
   <Targeter>k__BackingField: {fileID: 4275371654805026455}
-  <MovementSpeed>k__BackingField: 5.25
-  <TargetingMovementSpeed>k__BackingField: 3
+  <MovementSpeed>k__BackingField: 4.8
+  <TargetingMovementSpeed>k__BackingField: 3.5
   <RotationSpeed>k__BackingField: 8
   <RollForce>k__BackingField: 6
-  <RollDuration>k__BackingField: 0.8
+  <RollDuration>k__BackingField: 0.7
   <WeaponRightHand>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
   <WeaponLeftHand>k__BackingField: {fileID: 11400000, guid: 7b0334a50e8a52349a39addbda4226e1, type: 2}
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
-    <ComboAttackTime>k__BackingField: 0.8
+    <ComboAttackTime>k__BackingField: 0.7
     <Force>k__BackingField: 3
     <ForceTime>k__BackingField: 0.1
   - <AnimationName>k__BackingField: Attack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
-    <ComboAttackTime>k__BackingField: 0.85
+    <ComboAttackTime>k__BackingField: 0.7
     <Force>k__BackingField: 3
     <ForceTime>k__BackingField: 0.1
   - <AnimationName>k__BackingField: Attack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: -1
-    <ComboAttackTime>k__BackingField: 0.95
+    <ComboAttackTime>k__BackingField: 0.5
     <Force>k__BackingField: 4
     <ForceTime>k__BackingField: 0.1
   <RightHandHolder>k__BackingField: {fileID: 8537708602381893583}
