@@ -13,8 +13,6 @@ namespace TheNecromancers.Gameplay.Player
         private void Update()
         {
             DetectInteractable();
-
-            Debug.Log("Current Target OnUpdate: " + CurrentTarget);
         }
 
         private void DetectInteractable()

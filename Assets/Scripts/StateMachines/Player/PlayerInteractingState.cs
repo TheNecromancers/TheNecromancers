@@ -19,7 +19,6 @@ namespace TheNecromancers.StateMachine.Player
         public override void Tick(float deltaTime)
         {
             float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Interact");
-            Debug.Log(normalizedTime);
             if(normalizedTime > 1f)
             {
                 ReturnToLocomotion();
