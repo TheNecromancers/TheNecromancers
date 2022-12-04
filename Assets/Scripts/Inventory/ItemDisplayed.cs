@@ -20,7 +20,7 @@ public class ItemDisplayed : MonoBehaviour
 
     public void SelectItem()
     {
-        displayInventory.selectedItem = null;
+        //displayInventory.selectedItem = null;
         displayInventory.selectedItem = item;
     }
 

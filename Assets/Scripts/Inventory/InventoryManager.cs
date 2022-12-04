@@ -6,12 +6,48 @@ public class InventoryManager : MonoBehaviour
 
 {
 
-    [field: SerializeField] public InventoryObject inventoryObject { get; private set; }
-    [field: SerializeField] public PlayerStateMachine playerStateMachine { get; private set; }
-    DisplayInventory displayInventory;
+    public InventoryObject inventoryObject { get;  set; }
+    public PlayerStateMachine playerStateMachine { get;  set; }
+    public DisplayInventory displayInventory { get;  set; }
 
 
 
+    public void UseItem(ItemObject _item)
+        {
+            if(_item is WeaponSO)
+            {   
+                
+                WeaponSO _tempSO = (WeaponSO)_item;
+                Debug.Log(_tempSO.itemPrefab);
+
+                Equip(_tempSO);
+
+            }
+        }
+    public void Equip(WeaponSO weapon)
+    {   
+
+        //inventoryObject.AddItem(weapon,-1);
+        playerStateMachine.OnWeaponChanged(weapon);
+
+        if(weapon.WeaponType == WeaponType.LeftHand)
+        {
+            //inventoryObject.AddItem(playerStateMachine.WeaponLeftHand,1);
+            Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
+            Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
+
+            
+            
+        }
+        if(weapon.WeaponType == WeaponType.RightHand)
+        {
+            //inventoryObject.AddItem(playerStateMachine.WeaponRightHand,1);
+            Destroy(playerStateMachine.RightHandHolder.transform.GetChild(0).gameObject);
+            Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
+
+
+        }
+    }
     public void Unequip()
     {
 

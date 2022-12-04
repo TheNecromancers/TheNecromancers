@@ -2457,6 +2457,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2018193614770094591, guid: 73708a7ddee287d46a8b3553da8f542e, type: 3}
   m_PrefabInstance: {fileID: 1358211822}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &346238723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7567206025322239330, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+  m_PrefabInstance: {fileID: 4275371654261168742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &346238731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346238723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 233c2845b21b1b54f8e0900a7868f01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &377565379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5372,6 +5389,10 @@ PrefabInstance:
       propertyPath: ColumnNumber
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 293389049597394335, guid: f339a6c0544ec4946b66a630daff9a05, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 346238731}
     - target: {fileID: 293389049597394335, guid: f339a6c0544ec4946b66a630daff9a05, type: 3}
       propertyPath: X_Space_Between_Items
       value: 30
@@ -16699,6 +16720,10 @@ PrefabInstance:
       propertyPath: <inventoryObject>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: c0508c6c3ca3f4441a3410f0062c7362, type: 2}
+    - target: {fileID: 7567206025322239335, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: <InventoryManager>k__BackingField
+      value: 
+      objectReference: {fileID: 346238731}
     - target: {fileID: 7567206025322239335, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: <InventoryUIManager>k__BackingField
       value: 

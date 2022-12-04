@@ -16,6 +16,7 @@ public class DisplayInventory : MonoBehaviour
     public Dictionary<InventorySlot,GameObject> itemsDisplayed=new Dictionary<InventorySlot, GameObject>();
     public ItemObject selectedItem=null;
     public Button useButton;
+    public InventoryManager inventoryManager;
 
 
     // Start is called before the first frame update
@@ -33,7 +34,7 @@ public class DisplayInventory : MonoBehaviour
     {
             for(int i=0; i<inventory.Container.Count;i++)
             {
-                var obj =Instantiate(inventory.Container[i].item.inventoryPrefab,Vector3.zero,Quaternion.identity,transform);
+                GameObject obj =Instantiate(inventory.Container[i].item.inventoryPrefab,Vector3.zero,Quaternion.identity,transform);
                 obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                 itemsDisplayed.Add(inventory.Container[i],obj);
@@ -62,6 +63,8 @@ public class DisplayInventory : MonoBehaviour
 
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                 itemsDisplayed.Add(inventory.Container[i],obj);
+                obj.GetComponent<ItemDisplayed>().displayInventory = this;
+                obj.GetComponent<ItemDisplayed>().item = inventory.Container[i].item;
             }
         }
         
@@ -70,7 +73,7 @@ public class DisplayInventory : MonoBehaviour
 
     public void SubmitUse()
     {
-        inventory.UseItem(selectedItem);
+        inventoryManager.UseItem(selectedItem);
     }
 
     public void HandleInventoryInteraction()

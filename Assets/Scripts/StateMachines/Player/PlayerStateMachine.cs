@@ -16,6 +16,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public Targeter Targeter { get; private set; }
         [field: SerializeField] public InventoryObject inventoryObject { get; private set; }
         [field: SerializeField] public DisplayInventory InventoryUIManager { get; private set; }
+        [field: SerializeField] public InventoryManager InventoryManager { get; private set; }
         
 
         [field: Header("Movement Settings")]
@@ -40,6 +41,9 @@ namespace TheNecromancers.StateMachine.Player
             WeaponRightHand?.Equip(RightHandHolder.transform);
             WeaponLeftHand?.Equip(LeftHandHolder.transform);
             WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+            InventoryManager.inventoryObject = inventoryObject;
+            InventoryManager.displayInventory = InventoryUIManager;
+            InventoryManager.playerStateMachine = this;
 
             MainCameraTransform = Camera.main.transform;
             SwitchState(new PlayerLocomotionState(this));
@@ -75,7 +79,21 @@ namespace TheNecromancers.StateMachine.Player
 
         private void OnApplicationQuit() 
         {
-            inventoryObject.playerStateMachine =null;
+            inventoryObject.Container.Clear();
         }
+
+        public void OnWeaponChanged(WeaponSO _weapon)
+        {
+            WeaponLogic = _weapon.itemPrefab.GetComponent<WeaponLogic>();
+            if(_weapon.WeaponType == WeaponType.LeftHand)
+            {
+                WeaponLeftHand = _weapon;
+            }
+            else if(_weapon.WeaponType == WeaponType.RightHand)
+            {
+                WeaponRightHand = _weapon;
+            }
+        }
+
     }
 }

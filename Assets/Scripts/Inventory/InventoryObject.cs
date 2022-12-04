@@ -27,35 +27,6 @@ public class InventoryObject : ScriptableObject
             Container.Add(new InventorySlot(_item, _amount));
         }
     }
-        public void UseItem(ItemObject _item)
-        {
-            if(_item is WeaponSO)
-            {   
-                
-                WeaponSO _tempSO = (WeaponSO)_item;
-                Debug.Log(_tempSO.itemPrefab);
-
-                Equip(_tempSO);
-
-            }
-        }
-        public void Equip(WeaponSO weapon)
-    {   
-        AddItem(weapon,-1);
-
-        if(weapon.WeaponType == WeaponType.LeftHand)
-        {
-            Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
-            AddItem(playerStateMachine.WeaponLeftHand,1);
-            
-        }
-        if(weapon.WeaponType == WeaponType.RightHand)
-        {
-            Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
-            AddItem(playerStateMachine.WeaponRightHand,1);
-
-        }
-    }
 }
 
 [System.Serializable]

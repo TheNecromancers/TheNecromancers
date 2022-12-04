@@ -26,8 +26,6 @@ public class ItemObject : ScriptableObject
     [TextArea(15,20)]
     public string description;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
