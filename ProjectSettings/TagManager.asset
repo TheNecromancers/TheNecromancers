@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - FxTemporaire
+  - Shield
   layers:
   - Default
   - TransparentFX

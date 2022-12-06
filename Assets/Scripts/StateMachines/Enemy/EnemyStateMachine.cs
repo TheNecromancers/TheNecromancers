@@ -36,8 +36,8 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public float AttackRange { get; private set; }
         [field: SerializeField] public float AttackRate { get; private set; }
         public WeaponLogic WeaponLogic { get; private set; }
-       // [field: SerializeField] public int AttackDamage { get; private set; }
-       // [field: SerializeField] public float AttackKnockback { get; private set; }
+        // [field: SerializeField] public int AttackDamage { get; private set; }
+        // [field: SerializeField] public float AttackKnockback { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public float StunDuration { get; private set; }
 
@@ -46,13 +46,16 @@ namespace TheNecromancers.StateMachine.Enemy
         public int LastWaypointIndex { get; set; }
         public Vector3 InitialPosition { get; set; }
 
+        private void Awake()
+        {
+            CurrentWeapon?.Equip(RightHandHolder.transform);
+            WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+        }
+
         private void Start()
         {
             Player = GameObject.FindGameObjectWithTag("Player");
             InitialPosition = transform.position;
-
-            CurrentWeapon?.Equip(RightHandHolder.transform);
-            WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
 
             Agent.updatePosition = false;
             Agent.updateRotation = false;
@@ -64,12 +67,16 @@ namespace TheNecromancers.StateMachine.Enemy
         {
             Health.OnDie += HandleDie;
             Health.OnTakeDamage += HandleTakeDamage;
+
+                WeaponLogic.OnTakeParry += HandleTakeParry;
         }
 
         private void OnDisable()
         {
             Health.OnDie -= HandleDie;
             Health.OnTakeDamage -= HandleTakeDamage;
+
+                WeaponLogic.OnTakeParry -= HandleTakeParry;
         }
 
         private void HandleDie()
@@ -100,6 +107,13 @@ namespace TheNecromancers.StateMachine.Enemy
                 SwitchState(new EnemyStunState(this));
                 HitsDamageTaked = 0;
             }
+        }
+
+        protected void HandleTakeParry()
+        {
+            Debug.Log("nemico parriato");
+
+            SwitchState(new EnemyStunState(this));
         }
 
         // Animations Events

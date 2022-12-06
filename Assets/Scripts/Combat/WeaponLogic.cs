@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -10,6 +10,8 @@ namespace TheNecromancers.Combat
         [SerializeField] LayerMask LayerToInteract;
         private int damage;
         private float knockback;
+
+        public event Action OnTakeParry;
 
         private List<Collider> alreadyCollidedWith = new List<Collider>();
 
@@ -25,6 +27,15 @@ namespace TheNecromancers.Combat
             if (alreadyCollidedWith.Contains(other)) { return; }
 
             alreadyCollidedWith.Add(other);
+
+            if(other.CompareTag("Shield"))
+            {
+                Debug.Log("ho colpito lo scudo");
+                OnTakeParry?.Invoke();
+                return;
+            }
+
+            //isParried = false;
 
             if (other.TryGetComponent<Health>(out Health health))
             {

@@ -35,8 +35,8 @@ namespace TheNecromancers.StateMachine.Player
         private void Start()
         {
             WeaponRightHand?.Equip(RightHandHolder.transform);
-            WeaponLeftHand?.Equip(LeftHandHolder.transform);
             WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+            WeaponLeftHand?.Equip(LeftHandHolder.transform);
 
             MainCameraTransform = Camera.main.transform;
             SwitchState(new PlayerLocomotionState(this));
@@ -85,13 +85,15 @@ namespace TheNecromancers.StateMachine.Player
 
         void OnStartParry()
         {
-            Debug.Log("Parry");
+            Debug.Log("Start Parry");
+            LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
             Health.SetInvulnerable(true);
         }
 
         void OnEndParry()
         {
             Debug.Log("End Parry");
+            LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
             Health.SetInvulnerable(false);
         }
     }

@@ -1,19 +1,20 @@
 using UnityEngine;
 using System;
-using System.Collections;
 using System.Threading.Tasks;
 
 namespace TheNecromancers.Combat
 {
     public class Health : MonoBehaviour
     {
-        [SerializeField] int maxHealth = 100;
+        [SerializeField] int MaxHealth = 100;
 
-        [Header("Invulnerable Settings (Only On Player)")]
+        [Header("Invulnerable Settings (Player Only)")]
         [Tooltip("Time be expressed in milliseconds")]
         [SerializeField] int TimeInvulnerableInMs;
+
         [Tooltip("Time be expressed in milliseconds")]
         [SerializeField] int LowHealthTimeInvulnerableInMs;
+
         [Tooltip("Percentage on MaxHealth")]
         [SerializeField] int HealthPercentage;
 
@@ -27,7 +28,7 @@ namespace TheNecromancers.Combat
 
         private void Start()
         {
-            health = maxHealth;
+            health = MaxHealth;
         }
 
         public void SetInvulnerable(bool value)
@@ -60,7 +61,7 @@ namespace TheNecromancers.Combat
 
         async void HandleInvulnerable()
         {
-            if(health < (maxHealth * HealthPercentage / 100))
+            if(health < (MaxHealth * HealthPercentage / 100))
             {
                 TimeInvulnerableInMs = LowHealthTimeInvulnerableInMs;
             }
