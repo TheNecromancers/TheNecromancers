@@ -68,7 +68,7 @@ namespace TheNecromancers.StateMachine.Enemy
             Health.OnDie += HandleDie;
             Health.OnTakeDamage += HandleTakeDamage;
 
-                WeaponLogic.OnTakeParry += HandleTakeParry;
+            WeaponLogic.OnTakeParry += HandleTakeParry;
         }
 
         private void OnDisable()
@@ -76,7 +76,7 @@ namespace TheNecromancers.StateMachine.Enemy
             Health.OnDie -= HandleDie;
             Health.OnTakeDamage -= HandleTakeDamage;
 
-                WeaponLogic.OnTakeParry -= HandleTakeParry;
+            WeaponLogic.OnTakeParry -= HandleTakeParry;
         }
 
         private void HandleDie()
@@ -112,6 +112,7 @@ namespace TheNecromancers.StateMachine.Enemy
         protected void HandleTakeParry()
         {
             Debug.Log("nemico parriato");
+            WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
 
             SwitchState(new EnemyStunState(this));
         }

@@ -35,21 +35,21 @@ namespace TheNecromancers.Combat
                 alreadyCollidedWith.Clear();
                 return;
             }
-
-            //isParried = false;
-
-            if (other.TryGetComponent<Health>(out Health health))
+            else
             {
-                health.DealDamage(damage);
-                RemoveColliders();
-            }
+                if (other.TryGetComponent<Health>(out Health health))
+                {
+                    health.DealDamage(damage);
+                    RemoveColliders();
+                }
 
-            if (other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
-            {
-                Vector3 direction = (other.transform.position - transform.position).normalized;
-                direction.y = 0;
-                forceReceiver.AddForce(direction * knockback);
-                return;
+                if (other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
+                {
+                    Vector3 direction = (other.transform.position - transform.position).normalized;
+                    direction.y = 0;
+                    forceReceiver.AddForce(direction * knockback);
+                    return;
+                }
             }
         }
 
