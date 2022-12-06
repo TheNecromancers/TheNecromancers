@@ -13,7 +13,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Enter()
         {
-            Debug.Log("Sono dentro Impact");
+            Debug.Log("Sono dentro Stun");
             stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeduration);
             duration = stateMachine.StunDuration;
         }

@@ -32,6 +32,7 @@ namespace TheNecromancers.Combat
             {
                 Debug.Log("ho colpito lo scudo");
                 OnTakeParry?.Invoke();
+                alreadyCollidedWith.Clear();
                 return;
             }
 
