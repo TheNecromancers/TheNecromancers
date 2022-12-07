@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class StateMachine : MonoBehaviour
+namespace TheNecromancers.StateMachine
 {
-    private State currentState;
-
-    private void Update()
+    public abstract class StateMachine : MonoBehaviour
     {
-        currentState?.Tick(Time.deltaTime);
-    }
+        private State currentState;
 
-    public void SwitchState(State newState)
-    {
-        currentState?.Exit();
-        currentState = newState;
-        currentState?.Enter();
+        private void Update()
+        {
+            currentState?.Tick(Time.deltaTime);
+        }
+
+        public void SwitchState(State newState)
+        {
+            currentState?.Exit();
+            currentState = newState;
+            currentState?.Enter();
+        }
     }
 }

@@ -1,6 +1,6 @@
+using ClipperLib;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,17 +8,27 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 {
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
-    public bool IsBlocking { get; private set; }
 
     public event Action RollEvent;
     public event Action InteractEvent;
+
     public event Action CombactAbilityEvent;
     public event Action ExplorationAbilityEvent;
+
+    public event Action BlockEvent;
+
+    public event Action TargetEvent;
+    public event Action NextTargetEvent;
+    public event Action PrevTargetEvent;
+
 
     private Controls controls;
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         controls = new Controls();
         controls.Player.SetCallbacks(this);
 
@@ -37,9 +47,9 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            IsAttacking = true;
+            StartCoroutine(HandleAttackClick());
         }
         else if (context.canceled)
         {
@@ -49,20 +59,15 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public void OnBlock(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            IsBlocking = true;
-        }
-        else if (context.canceled)
-        {
-            IsBlocking = false;
-        }
+        if (!context.performed) { return; }
+
+        BlockEvent?.Invoke();
     }
 
     public void OnRoll(InputAction.CallbackContext context)
     {
-        if(!context.performed) { return; }
-        
+        if (!context.performed) { return; }
+
         RollEvent?.Invoke();
     }
 
@@ -72,6 +77,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
         InteractEvent?.Invoke();
     }
+
 
     public void OnCombactAbility(InputAction.CallbackContext context)
     {
@@ -87,5 +93,31 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         ExplorationAbilityEvent?.Invoke();
     }
 
+
+
+    public void OnTarget(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        TargetEvent?.Invoke();
+    }
+
+    IEnumerator HandleAttackClick()
+    {
+        IsAttacking = true;
+        yield return new WaitForSeconds(0.1f);
+        IsAttacking = false;
+    }
+
+    public void OnSelectPrevTarget(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        PrevTargetEvent?.Invoke();
+    }
+
+    public void OnSelectNextTarget(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        NextTargetEvent?.Invoke();
+    }
 
 }

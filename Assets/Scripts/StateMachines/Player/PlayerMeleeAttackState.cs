@@ -1,94 +1,106 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TheNecromancers.Combat;
 
-public class PlayerMeleeAttackState : PlayerBaseState
+namespace TheNecromancers.StateMachine.Player
 {
-    private float previousFrameTime;
-    private bool alreadyAppliedForce;
-
-    private Attack attack;
-    private Vector3 direction;
-
-    public PlayerMeleeAttackState(PlayerStateMachine stateMachine, int attackIndex, Vector3 direction) : base(stateMachine)
+    public class PlayerMeleeAttackState : PlayerBaseState
     {
-        this.attack = stateMachine.Attacks[attackIndex];
-        this.direction = direction;
-    }
+        private float previousFrameTime;
+        private bool alreadyAppliedForce;
 
-    public override void Enter()
-    {
-        direction = CalculateMovement();
+        private Attack attack;
+        private int attackIndex;
+        private Vector3 direction;
 
-        stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
-        stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRight.Damage, stateMachine.WeaponRight.Knockback);
-
-        stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
-    }
-
-    public override void Tick(float deltaTime)
-    {
-        Move(deltaTime);
-
-        float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
-
-        if (normalizedTime >= previousFrameTime && normalizedTime < 1f)
+        public PlayerMeleeAttackState(PlayerStateMachine stateMachine, int attackIndex, Vector3 direction) : base(stateMachine)
         {
-            if (normalizedTime >= attack.ForceTime)
+            this.attackIndex = attackIndex;
+            this.attack = stateMachine.Attacks[attackIndex];
+            this.direction = direction;
+        }
+
+        public override void Enter()
+        {
+            stateMachine.InputManager.TargetEvent += OnTarget;
+
+            direction = CalculateMovement();
+
+            stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRightHand.Damage, stateMachine.WeaponRightHand.Knockbacks[attackIndex]);
+
+            stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
+        }
+
+        public override void Tick(float deltaTime)
+        {
+            Move(deltaTime);
+            FaceOnTarget(deltaTime);
+
+            float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
+
+            if (normalizedTime >= previousFrameTime && normalizedTime < 1f)
             {
-                TryApplyForce();
+                if (normalizedTime >= attack.ForceTime)
+                {
+                    TryApplyForce();
+                }
+
+                if (stateMachine.InputManager.IsAttacking)
+                {
+                    TryComboAttack(normalizedTime);
+                }
+            }
+            else
+            {
+                ReturnToLocomotion();
             }
 
-            if (stateMachine.InputManager.IsAttacking)
+            previousFrameTime = normalizedTime;
+
+            if (direction != Vector3.zero && stateMachine.Targeter.CurrentTarget == null)
+                FaceMovementDirection(direction, deltaTime);
+        }
+
+        public override void Exit()
+        {
+            stateMachine.InputManager.TargetEvent -= OnTarget;
+        }
+
+        private void TryApplyForce()
+        {
+            if (alreadyAppliedForce) { return; }
+
+            if (direction == Vector3.zero || stateMachine.Targeter.CurrentTarget != null)
             {
-                TryComboAttack(normalizedTime);
+                stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.Force);
             }
+            else
+            {
+                stateMachine.ForceReceiver.AddForce(direction * attack.Force);
+            }
+
+            alreadyAppliedForce = true;
         }
-        else
+
+        private void TryComboAttack(float normalizedTime)
         {
-            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
+            if (attack.ComboStateIndex == -1) { return; }
+
+            if (normalizedTime < attack.ComboAttackTime) { return; }
+
+            stateMachine.SwitchState
+                (
+                new PlayerMeleeAttackState(
+                    stateMachine,
+                    attack.ComboStateIndex,
+                    direction
+                    )
+                );
         }
-
-        previousFrameTime = normalizedTime;
-
-        if (direction != Vector3.zero)
-            FaceMovementDirection(direction, deltaTime);
-    }
-
-    public override void Exit()
-    {
-        stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
-    }
-
-    private void TryApplyForce()
-    {
-        if (alreadyAppliedForce) { return; }
-
-        if(direction == Vector3.zero)
+        private void OnTarget()
         {
-            stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * attack.Force);
+            if (!stateMachine.Targeter.SelectTarget()) { return; }
+
+            stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
-
-        stateMachine.ForceReceiver.AddForce(direction * attack.Force);
-
-        alreadyAppliedForce = true;
     }
-
-    private void TryComboAttack(float normalizedTime)
-    {
-        if (attack.ComboStateIndex == -1) { return; }
-
-        if (normalizedTime < attack.ComboAttackTime) { return; }
-
-        stateMachine.SwitchState
-            (
-            new PlayerMeleeAttackState(
-                stateMachine,
-                attack.ComboStateIndex,
-                direction
-                )
-            );
-    }
-
 }

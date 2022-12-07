@@ -1,81 +1,82 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrolState : EnemyBaseState
+namespace TheNecromancers.StateMachine.Enemy
 {
-    private readonly int LocomotionHash = Animator.StringToHash("Locomotion");
-    private readonly int SpeedHash = Animator.StringToHash("Speed");
-
-    private const float CrossFadeduration = 0.1f;
-    private const float AnimatorDumpTime = 0.1f;
-
-    int currentWaypointIndex = 0;
-    Vector3 nextPosition;
-    float dwellTimeElapsed = 0;
-
-    public EnemyPatrolState(EnemyStateMachine stateMachine) : base(stateMachine) { }
-
-    public override void Enter()
+    public class EnemyPatrolState : EnemyBaseState
     {
-        stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
-        currentWaypointIndex = stateMachine.LastWaypointIndex;
-    }
+        private readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+        private readonly int SpeedHash = Animator.StringToHash("Speed");
 
-    public override void Tick(float deltaTime)
-    {
-        if (IsInChaseRange())
+        private const float CrossFadeduration = 0.1f;
+        private const float AnimatorDumpTime = 0.1f;
+
+        int currentWaypointIndex = 0;
+        Vector3 nextPosition;
+        float dwellTimeElapsed = 0;
+
+        public EnemyPatrolState(EnemyStateMachine stateMachine) : base(stateMachine) { }
+
+        public override void Enter()
         {
-            if (IsInViewRange() || IsTooNearRange())
+
+            stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
+            currentWaypointIndex = stateMachine.LastWaypointIndex;
+        }
+
+        public override void Tick(float deltaTime)
+        {
+            if (IsInChaseRange())
             {
-                stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+                if (IsInViewRange() || IsTooNearRange())
+                {
+                    stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+                    return;
+                }
+            }
+
+            dwellTimeElapsed += deltaTime;
+
+            if (AtWaypoint())
+            {
+                dwellTimeElapsed = 0;
+                CycleWaypoint();
+            }
+
+            if (dwellTimeElapsed < stateMachine.DwellTime)
+            {
+                Move(deltaTime);
+                stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
+                ResetAgentPath();
                 return;
             }
+
+            nextPosition = GetCurrentWaypoint();
+
+            FaceTo(nextPosition, deltaTime);
+            MoveTo(nextPosition, deltaTime);
+
+            stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
         }
 
-        dwellTimeElapsed += deltaTime;
-
-        if (AtWaypoint())
+        public override void Exit()
         {
-            dwellTimeElapsed = 0;
-            CycleWaypoint();
+            stateMachine.LastWaypointIndex = currentWaypointIndex;
+           // ResetAgentPath();
         }
 
-        if (dwellTimeElapsed < stateMachine.DwellTime)
+        private bool AtWaypoint()
         {
-            Move(deltaTime);
-            ResetAgentPath();
-            stateMachine.Animator.SetFloat(SpeedHash, 0f, AnimatorDumpTime, deltaTime);
-            return;
+            return CheckDistanceSqr(stateMachine.transform.position, GetCurrentWaypoint(), 1f);
         }
 
-        nextPosition = GetCurrentWaypoint();
+        private Vector3 GetCurrentWaypoint()
+        {
+            return stateMachine.PatrolPath.GetWaypoint(currentWaypointIndex);
+        }
 
-        FaceTo(nextPosition, deltaTime);
-        MoveTo(nextPosition, deltaTime);
-       
-        stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
-    }
-
-    public override void Exit()
-    {
-        stateMachine.LastWaypointIndex = currentWaypointIndex;
-        ResetAgentPath();
-    }
-
-    private bool AtWaypoint()
-    {
-        return CheckDistanceSqr(stateMachine.transform.position, GetCurrentWaypoint(), 1f);
-    }
-
-    private Vector3 GetCurrentWaypoint()
-    {
-        return stateMachine.PatrolPath.GetWaypoint(currentWaypointIndex);
-    }
-
-    private void CycleWaypoint()
-    {
-        currentWaypointIndex = stateMachine.PatrolPath.GetNextIndex(currentWaypointIndex);
+        private void CycleWaypoint()
+        {
+            currentWaypointIndex = stateMachine.PatrolPath.GetNextIndex(currentWaypointIndex);
+        }
     }
 }

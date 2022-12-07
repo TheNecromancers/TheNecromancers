@@ -1,42 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttackingState : EnemyBaseState
+namespace TheNecromancers.StateMachine.Enemy
 {
-    private readonly int AttackHash = Animator.StringToHash("Attack");
-    private const float TransitionDuration = 0.1f;
-
-    public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
-
-    public override void Enter()
+    public class EnemyAttackingState : EnemyBaseState
     {
-        stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
-        stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, stateMachine.AttackKnockback);
-        stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
-    }
+        private readonly int AttackHash = Animator.StringToHash("Attack");
+        private const float TransitionDuration = 0.1f;
 
-    public override void Tick(float deltaTime)
-    {
-        if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) { return; }
+        float timeBetweenAttacks = 0f;
 
-        Move(deltaTime);
-        FaceToPlayer(deltaTime);
+        public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
-        if (IsPlayingAnimation(stateMachine.Animator)) { return; }
-
-
-        if (GetNormalizedTime(stateMachine.Animator, "Attack") >= 1)
+        public override void Enter()
         {
-            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
-            return;
+            stateMachine.Animator.CrossFadeInFixedTime(AttackHash, TransitionDuration);
+            stateMachine.WeaponLogic.SetAttack(stateMachine.CurrentWeapon.Damage, stateMachine.CurrentWeapon.Knockbacks[0], true);
         }
 
-        //FaceToPlayer(deltaTime);
-    }
+        public override void Tick(float deltaTime)
+        {
+            Move(deltaTime);
+            FaceToPlayer(deltaTime);
 
-    public override void Exit()
-    {
-        stateMachine.WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
+
+            if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) {
+                return; }
+
+            timeBetweenAttacks += deltaTime;
+
+            if (timeBetweenAttacks < stateMachine.AttackRate)
+            {
+                FaceToPlayer(deltaTime);
+                return;
+            }
+
+            timeBetweenAttacks = 0f;
+
+            FaceToPlayer(deltaTime);
+
+            if (IsPlayingAnimation(stateMachine.Animator, "Attack")) { return; }
+
+
+            if (!IsPlayingAnimation(stateMachine.Animator, "Attack"))
+            {
+                stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+                return;
+            }
+
+        }
+
+        public override void Exit() { }
     }
 }

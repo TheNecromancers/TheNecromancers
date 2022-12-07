@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6649597844418560269}
   - component: {fileID: 7775400535649849000}
   - component: {fileID: 5477277503223134818}
+  - component: {fileID: -6698478329807067415}
   m_Layer: 9
   m_Name: shield_rare
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6270082356128111543}
   m_LocalRotation: {x: 0.35199693, y: 0.63130933, z: 0.61396295, w: 0.31716916}
-  m_LocalPosition: {x: 0.139, y: 0.101, z: 0.214}
+  m_LocalPosition: {x: 0.15, y: 0.101, z: 0.214}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85,3 +86,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-6698478329807067415
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6270082356128111543}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7003766, y: 0.87415195, z: 0.36350033}
+  m_Center: {x: -0.000062358864, y: -0.057465862, z: 0.027245559}

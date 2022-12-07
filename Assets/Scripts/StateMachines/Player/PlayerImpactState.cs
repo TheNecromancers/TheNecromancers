@@ -1,39 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerImpactState : PlayerBaseState
+namespace TheNecromancers.StateMachine.Player
 {
-    private readonly int ImpactHash = Animator.StringToHash("Impact");
-    private const float CrossFadeduration = 0.1f;
-
-    private float duration = 0.5f;
-
-    public PlayerImpactState(PlayerStateMachine stateMachine) : base(stateMachine)
+    public class PlayerImpactState : PlayerBaseState
     {
-        stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeduration);
-    }
+        private readonly int HitHash = Animator.StringToHash("Hit");
+        private const float CrossFadeduration = 0.1f;
 
-    public override void Enter() { }
+        private float duration = 0.75f;
 
-    public override void Tick(float deltaTime)
-    {
-        if (stateMachine.InputManager.IsAttacking)
+        public PlayerImpactState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
-            stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, Vector3.zero));
-            return;
+            stateMachine.Animator.CrossFadeInFixedTime(HitHash, CrossFadeduration);
         }
 
-        Move(deltaTime);
+        public override void Enter() { }
 
-        duration -= deltaTime;
-
-        if (duration <= 0)
+        public override void Tick(float deltaTime)
         {
-            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
-        }
-    }
+            Move(deltaTime);
 
-    public override void Exit() { }
-   
+            duration -= deltaTime;
+
+            if (duration <= 0)
+            {
+                ReturnToLocomotion();
+                return;
+            }
+        }
+
+        public override void Exit() { }
+    }
 }

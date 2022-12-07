@@ -1,34 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBlockingState : PlayerBaseState
+namespace TheNecromancers.StateMachine.Player
 {
-    private readonly int BlockHash = Animator.StringToHash("Block");
-
-    private const float CrossFadeDuration = 0.1f;
-    public PlayerBlockingState(PlayerStateMachine stateMachine) : base(stateMachine)
-    { }
-
-    public override void Enter()
+    public class PlayerBlockingState : PlayerBaseState
     {
-        stateMachine.Animator.CrossFadeInFixedTime(BlockHash, CrossFadeDuration);
-    }
+        private readonly int BlockHash = Animator.StringToHash("Block");
 
-    public override void Tick(float deltaTime)
-    {
-        Move(deltaTime);
+        private const float CrossFadeDuration = 0.1f;
+        private float remainingBlockTime = 0.65f;
+        public PlayerBlockingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
-        if (!stateMachine.InputManager.IsBlocking)
+        public override void Enter()
         {
-            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
-            return;
+            stateMachine.Animator.CrossFadeInFixedTime(BlockHash, CrossFadeDuration);
         }
-    }
 
-    public override void Exit()
-    {
-    }
+        public override void Tick(float deltaTime)
+        {
+            Move(deltaTime);
 
-  
+            remainingBlockTime -= deltaTime;
+
+            if (remainingBlockTime <= 0f)
+            {
+                ReturnToLocomotion();
+                return;
+            }
+        }
+
+        public override void Exit() { }
+    }
 }

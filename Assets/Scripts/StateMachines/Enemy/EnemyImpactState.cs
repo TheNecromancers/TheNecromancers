@@ -1,36 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyImpactState : EnemyBaseState
+namespace TheNecromancers.StateMachine.Enemy
 {
-    private readonly int ImpactHash = Animator.StringToHash("Impact");
-    private const float CrossFadeduration = 0.1f;
-
-    private float duration = 0.5f;
-
-    public EnemyImpactState(EnemyStateMachine stateMachine) : base(stateMachine) { }
-
-    public override void Enter()
+    public class EnemyImpactState : EnemyBaseState
     {
-        stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeduration);
-    }
+        private readonly int ImpactHash = Animator.StringToHash("Impact");
+        private const float CrossFadeduration = 0.1f;
 
-    public override void Tick(float deltaTime)
-    {
-        Move(deltaTime);
+        private float duration;
 
-        duration -= deltaTime;
+        public EnemyImpactState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
-        if(duration <= 0)
+        public override void Enter()
         {
-            stateMachine.GoToGuardPosition();
+            Debug.Log("Sono dentro Impact");
+            stateMachine.Animator.CrossFadeInFixedTime(ImpactHash, CrossFadeduration);
+            duration = stateMachine.StunDuration;
         }
+
+        public override void Tick(float deltaTime)
+        {
+            Move(deltaTime);
+
+            duration -= deltaTime;
+
+            if (duration <= 0)
+            {
+                stateMachine.GoToGuardPosition();
+            }
+        }
+
+        public override void Exit() { }
     }
-
-    public override void Exit() 
-    {
-    }
-
-
 }

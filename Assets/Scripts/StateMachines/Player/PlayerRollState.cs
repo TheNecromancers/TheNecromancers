@@ -2,53 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRollState : PlayerBaseState
+namespace TheNecromancers.StateMachine.Player
 {
-    private readonly int DashBlendTreeHash = Animator.StringToHash("Roll");
-    private readonly int DirXHash = Animator.StringToHash("DirX");
-    private readonly int DirYHash = Animator.StringToHash("DirY");
-
-    private const float CrossFadeDuration = 0.3f;
-
-    Vector3 direction;
-    private float remainingRollTime;
-
-    public PlayerRollState(PlayerStateMachine stateMachine, Vector3 direction) : base(stateMachine) 
+    public class PlayerRollState : PlayerBaseState
     {
-        this.direction = direction;
-    }
+        private readonly int DashBlendTreeHash = Animator.StringToHash("Roll");
+        private readonly int DirXHash = Animator.StringToHash("DirX");
+        private readonly int DirYHash = Animator.StringToHash("DirY");
 
-    public override void Enter()
-    {
-        stateMachine.Animator.CrossFadeInFixedTime(DashBlendTreeHash, CrossFadeDuration);
+        private const float CrossFadeDuration = 0.3f;
 
-        remainingRollTime = stateMachine.RollDuration;
-    }
+        Vector3 direction;
+        private float remainingRollTime;
 
-
-    public override void Tick(float deltaTime)
-    {
-        remainingRollTime -= deltaTime;
-
-        if (remainingRollTime <= 0f)
+        public PlayerRollState(PlayerStateMachine stateMachine, Vector3 direction) : base(stateMachine)
         {
-            stateMachine.SwitchState(new PlayerLocomotionState(stateMachine));
-            return;
+            this.direction = direction;
         }
 
-        if (direction == Vector3.zero)
+        public override void Enter()
         {
-            Move(stateMachine.transform.forward * stateMachine.RollForce, deltaTime);
-            return;
+            stateMachine.Animator.CrossFadeInFixedTime(DashBlendTreeHash, CrossFadeDuration);
+
+            remainingRollTime = stateMachine.RollDuration;
         }
 
-        Move(direction.normalized * stateMachine.RollForce, deltaTime);
+        public override void Tick(float deltaTime)
+        {
+            remainingRollTime -= deltaTime;
 
-        FaceMovementDirection(direction, deltaTime);
-    }
+            if (remainingRollTime <= 0f)
+            {
+                ReturnToLocomotion();
+                return;
+            }
 
-    public override void Exit()
-    {
+            if (direction == Vector3.zero)
+            {
+                Move(stateMachine.transform.forward * stateMachine.RollForce, deltaTime);
+                return;
+            }
 
+            Move(direction.normalized * stateMachine.RollForce, deltaTime);
+
+            FaceMovementDirection(direction, deltaTime);
+        }
+
+        public override void Exit() { }
     }
 }

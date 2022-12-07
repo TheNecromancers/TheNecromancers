@@ -1,44 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Threading.Tasks;
 
-public class Health : MonoBehaviour
+namespace TheNecromancers.Combat
 {
-    [SerializeField] private int maxHealth = 100;
-
-    private int health;
-    private bool isInvulnerable;
-
-    public event Action OnTakeDamage;
-    public event Action OnDie;
-
-    public bool IsDead => health == 0;
-
-    private void Start()
+    public class Health : MonoBehaviour
     {
-        health = maxHealth;
-    }
+        [SerializeField] int MaxHealth = 100;
 
-    public void SetInvulnerable(bool isInvulnerable)
-    {
-        this.isInvulnerable = isInvulnerable;
-    }
+        [Header("Invulnerable Settings (Player Only)")]
+        [Tooltip("Time be expressed in milliseconds")]
+        [SerializeField] int TimeInvulnerableInMs;
 
-    public void DealDamage(int damage)
-    {
-        if (health == 0) { return; }
-        if (isInvulnerable) { return; }
+        [Tooltip("Time be expressed in milliseconds")]
+        [SerializeField] int LowHealthTimeInvulnerableInMs;
 
-        health = Mathf.Max(health - damage, 0);
+        [Tooltip("Percentage on MaxHealth")]
+        [SerializeField] int HealthPercentage;
 
-        OnTakeDamage?.Invoke();
+        private int health;
+        private bool isInvulnerable;
 
-        if (health == 0)
+        public event Action OnTakeDamage;
+        public event Action OnDie;
+
+        public bool IsDead => health == 0;
+
+        private void Start()
         {
-            OnDie?.Invoke();
+            health = MaxHealth;
         }
 
-        Debug.Log("Current health " + health + " damage received " + damage);
+        public void SetInvulnerable(bool value)
+        {
+            isInvulnerable = value;
+        }
+
+        public void SetInvulnerable()
+        {
+            if(gameObject.CompareTag("Player"))
+                HandleInvulnerable();
+        }
+
+        public void DealDamage(int damage)
+        {
+            if (health == 0) { return; }
+            if (isInvulnerable) { return; }
+
+            health = Mathf.Max(health - damage, 0);
+
+            OnTakeDamage?.Invoke();
+
+            if (health == 0)
+            {
+                OnDie?.Invoke();
+            }
+
+            Debug.Log(gameObject.name + " Current health " + health + " damage received " + damage);
+        }
+
+        async void HandleInvulnerable()
+        {
+            if(health < (MaxHealth * HealthPercentage / 100))
+            {
+                TimeInvulnerableInMs = LowHealthTimeInvulnerableInMs;
+            }
+
+            isInvulnerable = true;
+            await Task.Delay(TimeInvulnerableInMs);
+            isInvulnerable = false;
+        }
     }
 }

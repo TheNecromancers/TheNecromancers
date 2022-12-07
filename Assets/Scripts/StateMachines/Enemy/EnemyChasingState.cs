@@ -1,50 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TheNecromancers.Combat;
 
-public class EnemyChasingState : EnemyBaseState
+namespace TheNecromancers.StateMachine.Enemy
 {
-    private readonly int LocomotionHash = Animator.StringToHash("Locomotion");
-    private readonly int SpeedHash = Animator.StringToHash("Speed");
-
-    private const float CrossFadeduration = 0.1f;
-    private const float AnimatorDumpTime = 0.1f;
-
-    public EnemyChasingState(EnemyStateMachine stateMachine) : base(stateMachine) {}
-    public override void Enter()
+    public class EnemyChasingState : EnemyBaseState
     {
-        stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
-    }
+        private readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+        private readonly int SpeedHash = Animator.StringToHash("Speed");
 
-    public override void Tick(float deltaTime)
-    {
-        if(!IsInChaseRange())
+        private const float CrossFadeduration = 0.1f;
+        private const float AnimatorDumpTime = 0.1f;
+
+        public EnemyChasingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
+        public override void Enter()
         {
-            stateMachine.SwitchState(new EnemySuspicionState(stateMachine));
-            return;
-        } 
-        else if(IsInAttackRange())
-        {
-            stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
-            return;
+            stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
         }
 
-        MoveToPlayer(deltaTime);
-        FaceToPlayer(deltaTime);
+        public override void Tick(float deltaTime)
+        {
+            if (!IsInChaseRange())
+            {
+                stateMachine.SwitchState(new EnemySuspicionState(stateMachine));
+                return;
+            }
+            else if (IsInAttackRange())
+            {
+                stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
+                return;
+            }
 
-        stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
-    }
+            MoveToPlayer(deltaTime);
+            FaceToPlayer(deltaTime);
 
-    public override void Exit()
-    {
-        ResetAgentPath(); // This cause an error IDK Why
-    }
+            stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
+        }
 
-    private bool IsInAttackRange()
-    {
-        if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
+        public override void Exit()
+        {
+            ResetAgentPath();
+        }
 
-        return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.AttackRange);
+        private bool IsInAttackRange()
+        {
+            if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
+
+            return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.AttackRange);
+        }
     }
 }
 

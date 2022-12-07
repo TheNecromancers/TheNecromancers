@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - FxTemporaire
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - Interactable
   - Enemy
   - Weapons
-  - 
-  - 
+  - Ground
+  - Walls
   - 
   - 
   - 
