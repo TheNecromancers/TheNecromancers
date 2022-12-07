@@ -11,11 +11,16 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public event Action RollEvent;
     public event Action InteractEvent;
+
+    public event Action CombactAbilityEvent;
+    public event Action ExplorationAbilityEvent;
+
     public event Action BlockEvent;
 
     public event Action TargetEvent;
     public event Action NextTargetEvent;
     public event Action PrevTargetEvent;
+
 
     private Controls controls;
 
@@ -73,6 +78,23 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         InteractEvent?.Invoke();
     }
 
+
+    public void OnCombactAbility(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        CombactAbilityEvent?.Invoke();
+    }
+
+    public void OnExplorationAbility(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+
+        ExplorationAbilityEvent?.Invoke();
+    }
+
+
+
     public void OnTarget(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
@@ -97,4 +119,5 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         if (!context.performed) { return; }
         NextTargetEvent?.Invoke();
     }
+
 }

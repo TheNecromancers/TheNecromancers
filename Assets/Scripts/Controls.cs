@@ -73,15 +73,26 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+
+                    ""name"": ""CombactAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e60aa6a-fa88-46eb-9b66-7678b765bbbb"",
+
                     ""name"": ""Target"",
                     ""type"": ""Button"",
                     ""id"": ""fb569f5d-080b-43d3-97a3-05799733e3c7"",
+
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
+
+                    ""name"": ""ExplorationAbility"",
+                    ""type"": ""Button"",
+                    ""id"": ""8a4b5faf-9732-46e2-bd79-8ef04b38bc0a"",
+
                     ""name"": ""SelectPrevTarget"",
                     ""type"": ""Button"",
                     ""id"": ""91af5022-819e-4942-848e-bcf193af5607"",
@@ -94,6 +105,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""name"": ""SelectNextTarget"",
                     ""type"": ""Button"",
                     ""id"": ""00672b64-705b-40e6-bb4e-d0ffba688414"",
+
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -257,45 +269,81 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+
+                    ""id"": ""43124dd3-2e1d-44aa-8023-5b141c00bb94"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""CombactAbility"",
+
                     ""id"": ""7fe2eb77-c3cb-4d3b-ae27-e42f0ced91b2"",
                     ""path"": ""<Keyboard>/tab"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse & Keyboard"",
                     ""action"": ""Target"",
+
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
+
+                    ""id"": ""7e2f7760-9ab2-435e-96d2-45849eea60e9"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CombactAbility"",
+
                     ""id"": ""4dbb3e84-5716-4a07-8b93-76beeb91d860"",
                     ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Target"",
+
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
+
+                    ""id"": ""327819c7-9b35-4487-8ac5-904c39b89158"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""ExplorationAbility"",
+
                     ""id"": ""d8afbdf7-229d-49e2-bbf6-37ff62ad9279"",
                     ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SelectNextTarget"",
+
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
+
+                    ""id"": ""f1932b8b-9d98-4611-98bd-6a3b256aa745"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ExplorationAbility"",
+
                     ""id"": ""bbaa85b5-63b8-4625-98ad-d66c886c111f"",
                     ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""SelectPrevTarget"",
+
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -339,9 +387,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Roll = m_Player.FindAction("Roll", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
+
+        m_Player_CombactAbility = m_Player.FindAction("CombactAbility", throwIfNotFound: true);
+        m_Player_ExplorationAbility = m_Player.FindAction("ExplorationAbility", throwIfNotFound: true);
+
         m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
         m_Player_SelectPrevTarget = m_Player.FindAction("SelectPrevTarget", throwIfNotFound: true);
         m_Player_SelectNextTarget = m_Player.FindAction("SelectNextTarget", throwIfNotFound: true);
+
     }
 
     public void Dispose()
@@ -406,9 +459,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Roll;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Block;
+
+    private readonly InputAction m_Player_CombactAbility;
+    private readonly InputAction m_Player_ExplorationAbility;
+
     private readonly InputAction m_Player_Target;
     private readonly InputAction m_Player_SelectPrevTarget;
     private readonly InputAction m_Player_SelectNextTarget;
+
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -418,9 +476,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Roll => m_Wrapper.m_Player_Roll;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Block => m_Wrapper.m_Player_Block;
+
+        public InputAction @CombactAbility => m_Wrapper.m_Player_CombactAbility;
+        public InputAction @ExplorationAbility => m_Wrapper.m_Player_ExplorationAbility;
+
         public InputAction @Target => m_Wrapper.m_Player_Target;
         public InputAction @SelectPrevTarget => m_Wrapper.m_Player_SelectPrevTarget;
         public InputAction @SelectNextTarget => m_Wrapper.m_Player_SelectNextTarget;
+
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -445,6 +508,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Block.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
                 @Block.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
                 @Block.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+
+                @CombactAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCombactAbility;
+                @CombactAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCombactAbility;
+                @CombactAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCombactAbility;
+                @ExplorationAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplorationAbility;
+                @ExplorationAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplorationAbility;
+                @ExplorationAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnExplorationAbility;
+
                 @Target.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
                 @Target.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
                 @Target.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTarget;
@@ -454,6 +525,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @SelectNextTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectNextTarget;
                 @SelectNextTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectNextTarget;
                 @SelectNextTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectNextTarget;
+
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -473,6 +545,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Block.started += instance.OnBlock;
                 @Block.performed += instance.OnBlock;
                 @Block.canceled += instance.OnBlock;
+
+                @CombactAbility.started += instance.OnCombactAbility;
+                @CombactAbility.performed += instance.OnCombactAbility;
+                @CombactAbility.canceled += instance.OnCombactAbility;
+                @ExplorationAbility.started += instance.OnExplorationAbility;
+                @ExplorationAbility.performed += instance.OnExplorationAbility;
+                @ExplorationAbility.canceled += instance.OnExplorationAbility;
+
                 @Target.started += instance.OnTarget;
                 @Target.performed += instance.OnTarget;
                 @Target.canceled += instance.OnTarget;
@@ -482,6 +562,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @SelectNextTarget.started += instance.OnSelectNextTarget;
                 @SelectNextTarget.performed += instance.OnSelectNextTarget;
                 @SelectNextTarget.canceled += instance.OnSelectNextTarget;
+
             }
         }
     }
@@ -511,8 +592,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnRoll(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnBlock(InputAction.CallbackContext context);
+
+        void OnCombactAbility(InputAction.CallbackContext context);
+        void OnExplorationAbility(InputAction.CallbackContext context);
+
         void OnTarget(InputAction.CallbackContext context);
         void OnSelectPrevTarget(InputAction.CallbackContext context);
         void OnSelectNextTarget(InputAction.CallbackContext context);
+
     }
 }

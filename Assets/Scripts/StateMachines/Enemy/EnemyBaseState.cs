@@ -13,6 +13,7 @@ namespace TheNecromancers.StateMachine.Enemy
             this.stateMachine = stateMachine;
         }
 
+
         protected void Move(float deltaTime)
         {
             Move(Vector3.zero, deltaTime);
@@ -35,6 +36,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
             stateMachine.Agent.velocity = stateMachine.Controller.velocity;
         }
+
 
         protected void MoveTo(Vector3 position, float deltaTime)
         {

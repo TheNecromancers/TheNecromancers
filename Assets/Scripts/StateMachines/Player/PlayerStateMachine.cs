@@ -14,6 +14,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public Health Health { get; private set; }
         [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
         [field: SerializeField] public Targeter Targeter { get; private set; }
+        [field: SerializeField] public AbilitySystemManager AbilitySystemManager { get; private set; }
 
         [field: Header("Movement Settings")]
         [field: SerializeField] public float MovementSpeed { get; private set; }
@@ -32,12 +33,15 @@ namespace TheNecromancers.StateMachine.Player
         public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
+
         private void Start()
         {
+            InputManager.InteractEvent += OnInteract;
+            InputManager.CombactAbilityEvent += OnCombactAbility;
+            InputManager.ExplorationAbilityEvent += OnExplorationAbility;
             WeaponRightHand?.Equip(RightHandHolder.transform);
             WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
             WeaponLeftHand?.Equip(LeftHandHolder.transform);
-
             MainCameraTransform = Camera.main.transform;
             SwitchState(new PlayerLocomotionState(this));
         }
@@ -59,6 +63,15 @@ namespace TheNecromancers.StateMachine.Player
             SwitchState(new PlayerDeadState(this));
         }
 
+        private void OnDisable()
+        {
+            Health.OnTakeDamage -= HandleTakeDamage;
+            Health.OnDie -= HandleDie;
+            InputManager.InteractEvent -= OnInteract;
+            InputManager.CombactAbilityEvent -= OnCombactAbility;
+            InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
+        }
+        
         void HandleInteract()
         {
             if (InteractionDetector.CurrentTarget != null)
@@ -90,11 +103,26 @@ namespace TheNecromancers.StateMachine.Player
             Health.SetInvulnerable(true);
         }
 
+    void OnCombactAbility()
+    {
+        if (AbilitySystemManager != null)
+        {
+            AbilitySystemManager.OnCombactAbility(transform.position);
+        }
+    }
+
+    void OnExplorationAbility()
+    {
+        if (AbilitySystemManager != null)
+        {
+            AbilitySystemManager.OnExplorationAbility();
+
+    }
         void OnEndParry()
         {
             Debug.Log("End Parry");
             LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
             Health.SetInvulnerable(false);
         }
-    }
+    
 }

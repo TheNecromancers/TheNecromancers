@@ -534,7 +534,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2147483647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1451,12 +1451,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7567206026013558717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41eda590696eea64e824aa058b469393, type: 3}
+  m_Script: {fileID: 11500000, guid: 704419d4c5acf674bb258c55a0d55448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxRange: 30
+  AbilityController: {fileID: 4089100477650147375}
+  MinHeight: 0
+  MaxHeight: 0
+  MaxRange: 90
   MinRange: 15
-  MaxIntensity: 30
+  MaxIntensity: 90
   MinIntensity: 15
   ModifierSpeed: 50
   Timer: 1

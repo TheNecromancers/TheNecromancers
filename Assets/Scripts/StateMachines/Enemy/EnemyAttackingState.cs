@@ -20,6 +20,8 @@ namespace TheNecromancers.StateMachine.Enemy
         public override void Tick(float deltaTime)
         {
             Move(deltaTime);
+            FaceToPlayer(deltaTime);
+
 
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) {
                 return; }
