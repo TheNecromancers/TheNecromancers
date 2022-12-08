@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheNecromancers.StateMachine.Player;
 using UnityEditor;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 [CreateAssetMenu(fileName ="New Inventory Object", menuName ="Inventory System/Inventory")]
 
@@ -16,7 +18,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     private void OnEnable()
     {
 #if UNITY_EDITOR
-        database = (ItemDatabaseObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/Database.asset", 
+        database = (ItemDatabaseObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/ItemsDatabase.asset", 
             typeof(ItemDatabaseObject));
 #else
     database = Resources.Load<ItemDatabaseObject>("Database");
@@ -38,14 +40,25 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     public void Save()
     {
-        string saveData = JsonUtility.ToJson(this, true);
         // da fare evitare di usare il Binary formatter !
+        string saveData = JsonUtility.ToJson(this, true);
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        bf.Serialize(file, saveData);
+        file.Close();
 
     }
 
     public void Load()
     {
-        // da fare 
+        // da fare evitando di usare il Binary formatter !
+        if (File.Exists(string.Concat(Application.persistentDataPath, savePath))) 
+        { 
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+            file.Close();
+        }
     }
 
     public void OnAfterDeserialize()
