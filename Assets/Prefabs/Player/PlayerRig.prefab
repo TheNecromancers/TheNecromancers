@@ -1468,7 +1468,9 @@ MonoBehaviour:
   ExplorationImages:
   - {fileID: 436052034478752610}
   - {fileID: 4808405627058523121}
-  RepulsionImages: []
+  RepulsionImages:
+  - {fileID: 3712837111674713169}
+  - {fileID: 6071096462682135128}
   ExplorationBrightColor: {r: 0.05490196, g: 0.43137255, b: 1, a: 1}
   ExplorationDarkColor: {r: 0.12941177, g: 0.25490198, b: 0.44313726, a: 1}
   RepulsionBrightColor: {r: 0.8666667, g: 0.05882353, b: 0.05882353, a: 1}
