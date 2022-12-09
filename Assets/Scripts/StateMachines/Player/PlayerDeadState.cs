@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -17,6 +18,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeduration);
             Debug.Log("Player è morto");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public override void Tick(float deltaTime)
