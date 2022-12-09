@@ -95,7 +95,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
 
 
-    public void OnTarget(InputAction.CallbackContext context)
+    public void OnSelectTarget(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
         TargetEvent?.Invoke();

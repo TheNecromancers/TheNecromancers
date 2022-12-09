@@ -36,7 +36,6 @@ namespace TheNecromancers.StateMachine.Player
 
         private void Start()
         {
-            InputManager.InteractEvent += OnInteract;
             InputManager.CombactAbilityEvent += OnCombactAbility;
             InputManager.ExplorationAbilityEvent += OnExplorationAbility;
             WeaponRightHand?.Equip(RightHandHolder.transform);
@@ -52,11 +51,6 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.InteractEvent += HandleInteract;
         }
 
-        private void OnDisable()
-        {
-            Health.OnDie -= HandleDie;
-            InputManager.InteractEvent -= HandleInteract;
-        }
 
         private void HandleDie()
         {
@@ -65,11 +59,10 @@ namespace TheNecromancers.StateMachine.Player
 
         private void OnDisable()
         {
-            Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDie -= HandleDie;
-            InputManager.InteractEvent -= OnInteract;
             InputManager.CombactAbilityEvent -= OnCombactAbility;
             InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
+            InputManager.InteractEvent -= HandleInteract;
         }
         
         void HandleInteract()
@@ -113,10 +106,10 @@ namespace TheNecromancers.StateMachine.Player
 
     void OnExplorationAbility()
     {
-        if (AbilitySystemManager != null)
-        {
-            AbilitySystemManager.OnExplorationAbility();
-
+            if (AbilitySystemManager != null)
+            {
+                AbilitySystemManager.OnExplorationAbility();
+            }
     }
         void OnEndParry()
         {
@@ -124,5 +117,5 @@ namespace TheNecromancers.StateMachine.Player
             LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
             Health.SetInvulnerable(false);
         }
-    
+    }
 }
