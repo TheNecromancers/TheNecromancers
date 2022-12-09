@@ -16709,6 +16709,10 @@ PrefabInstance:
       value: 1.7770492
       objectReference: {fileID: 0}
     - target: {fileID: 7567206025322239335, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567206025322239335, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: <WeaponLeftHand>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 7b0334a50e8a52349a39addbda4226e1, type: 2}

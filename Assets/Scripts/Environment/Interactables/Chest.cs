@@ -5,8 +5,6 @@ using TheNecromancers.StateMachine.Player;
 
 public class Chest : MonoBehaviour, IInteractable
 {
-
-
     private bool isInteractable = true;
     public bool IsInteractable => isInteractable;
     [SerializeField] ItemObject item;
