@@ -18,6 +18,10 @@ namespace TheNecromancers.Combat
         [Tooltip("Percentage on MaxHealth")]
         [SerializeField] int HealthPercentage;
 
+        [Header("Light Settings (Player Only)")]
+        public bool AmIPlayer;
+        [SerializeField] HealthLightManager HealthLightManager;
+
         private int health;
         private bool isInvulnerable;
 
@@ -29,6 +33,8 @@ namespace TheNecromancers.Combat
         private void Start()
         {
             health = MaxHealth;
+            if(AmIPlayer)
+                HealthLightManager.ChangeLightAccordingToHealth(health, MaxHealth);
         }
 
         public void SetInvulnerable(bool value)
@@ -50,7 +56,8 @@ namespace TheNecromancers.Combat
             health = Mathf.Max(health - damage, 0);
 
             OnTakeDamage?.Invoke();
-
+            if(AmIPlayer)
+                HealthLightManager.ChangeLightAccordingToHealth(health, MaxHealth);
             if (health == 0)
             {
                 OnDie?.Invoke();
@@ -69,6 +76,13 @@ namespace TheNecromancers.Combat
             isInvulnerable = true;
             await Task.Delay(TimeInvulnerableInMs);
             isInvulnerable = false;
+        }
+
+        public void RestoreLife()
+        {
+            health = MaxHealth;
+            if (AmIPlayer)
+                HealthLightManager.RestoreLifeColors();
         }
     }
 }
