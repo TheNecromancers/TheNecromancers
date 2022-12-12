@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace TheNecromancers.Gameplay.Player
@@ -6,30 +7,44 @@ namespace TheNecromancers.Gameplay.Player
     {
         [field: SerializeField] public LayerMask LayerToInteract { get; private set; }
         [field: SerializeField] public float InteractionRange { get; private set; }
-        [field: SerializeField] public Collider[] colliders { get; private set; }
+        [field: SerializeField] public Collider[] Colliders { get; private set; }
+
+        [SerializeField] GameObject InteractionText;
+
+        public event Action<bool> OnCurrentInteraction;
 
         public IInteractable CurrentTarget;
 
         private void Update()
         {
             DetectInteractable();
+
+            if(CurrentTarget != null)
+            {
+                InteractionText.SetActive(CurrentTarget.IsInteractable);
+            }
+            else
+            {
+                InteractionText.SetActive(false);
+            }
         }
 
         private void DetectInteractable()
         {
-            colliders = Physics.OverlapSphere(transform.position, InteractionRange, LayerToInteract);
+            Colliders = Physics.OverlapSphere(transform.position, InteractionRange, LayerToInteract);
 
-            if(colliders.Length <= 0) { OnCurrentTargetExit(ref CurrentTarget); return; }
+            if(Colliders.Length <= 0) { OnCurrentTargetExit(ref CurrentTarget); return; }
 
-            for (int i = 0; i < colliders.Length; i++)
+            for (int i = 0; i < Colliders.Length; i++)
             {
-                if (colliders[i] != null)
+                if (Colliders[i] != null)
                 {
-                    if (colliders[i].TryGetComponent(out IInteractable interactable))
+                    if (Colliders[i].TryGetComponent(out IInteractable interactable))
                     {
-                        if (CheckDistanceSqr(transform.position, colliders[i].transform.position, InteractionRange))
+                        if (CheckDistanceSqr(transform.position, Colliders[i].transform.position, InteractionRange))
                         {
-                            Debug.Log("Nearest object to interact " + colliders[i].name);
+                            if(!interactable.IsInteractable) { return; }
+
                             if (interactable == CurrentTarget) { return; }
                             else if (CurrentTarget != null)
                             {
@@ -63,7 +78,6 @@ namespace TheNecromancers.Gameplay.Player
             {
                 currentTarget.OnEndHover();
                 currentTarget = null;
-                Debug.Log("Current target OnTargetExit: " + currentTarget);
             }
         }
 

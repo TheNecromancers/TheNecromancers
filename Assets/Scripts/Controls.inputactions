@@ -327,6 +327,17 @@
                     "action": "SelectTarget",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fc5848f9-ea21-4cac-8eb7-2c2469fa75e9",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "SelectTarget",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
