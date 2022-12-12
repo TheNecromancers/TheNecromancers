@@ -1102,7 +1102,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1914022, y: 1}
+    m_SensorSize: {x: 2.0707068, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2019,9 +2019,7 @@ MonoBehaviour:
   MinHeight: 3.8
   MaxHeight: 6
   MaxRange: 70
-  MinRange: 15
   MaxIntensity: 80
-  MinIntensity: 15
   ModifierSpeed: 4
   TimerAfterReachingMax: 2
   ExplorationCooldown: 6
@@ -2067,6 +2065,7 @@ MonoBehaviour:
     Color: {r: 1, g: 0, b: 0, a: 1}
     Range: 10
     Intensity: 10
+  TransitionSpeed: 4
 --- !u!1 &7567206026606520360
 GameObject:
   m_ObjectHideFlags: 0

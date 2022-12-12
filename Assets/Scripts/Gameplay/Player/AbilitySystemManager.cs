@@ -12,10 +12,10 @@ public class AbilitySystemManager : MonoBehaviour
     [SerializeField] float MaxHeight;
 
     [SerializeField] float MaxRange;
-    [SerializeField] float MinRange;
+    private float MinRange;
 
     [SerializeField] float MaxIntensity;
-    [SerializeField] float MinIntensity;
+    private float MinIntensity;
 
     [SerializeField] float ModifierSpeed;
     [SerializeField] float TimerAfterReachingMax;
@@ -47,8 +47,8 @@ public class AbilitySystemManager : MonoBehaviour
 
     private void Start()
     {
-        Light.range = MinRange;
-        Light.intensity = MinIntensity;
+        //Light.range = MinRange;
+        //Light.intensity = MinIntensity;
         Light.transform.localPosition = new Vector3(Light.transform.localPosition.x, MinHeight, Light.transform.localPosition.z);
         explorationRunning = false;
         repulsionRunning = false;
@@ -57,6 +57,7 @@ public class AbilitySystemManager : MonoBehaviour
     {
         if (!repulsionRunning)
         {
+            MinIntensity = Light.intensity;
             repulsionRunning = true;
             StartCoroutine(RepulseEnemies(playerPosition));
         }
@@ -119,6 +120,8 @@ public class AbilitySystemManager : MonoBehaviour
     {
         if (!explorationRunning)
         {
+            MinRange = Light.range;
+            MinIntensity = Light.intensity;
             CalculateWeights();
             explorationRunning = true;
             StartCoroutine(ExpandLight());

@@ -16129,6 +16129,26 @@ PrefabInstance:
       propertyPath: <LayerToInteract>k__BackingField.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 7567206026013558719, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_Range
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567206026013558719, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567206026013558719, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567206026013558719, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567206026013558719, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
+      propertyPath: m_Intensity
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8119700665412292303, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.18

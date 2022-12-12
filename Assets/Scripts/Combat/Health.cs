@@ -32,9 +32,7 @@ namespace TheNecromancers.Combat
 
         private void Start()
         {
-            health = MaxHealth;
-            if(AmIPlayer)
-                HealthLightManager.ChangeLightAccordingToHealth(health, MaxHealth);
+            RestoreLife();
         }
 
         public void SetInvulnerable(bool value)

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -15,7 +16,9 @@ public class ColorHealthLevel
 public class HealthLightManager : MonoBehaviour
 {
     [SerializeField] ColorHealthLevel[] colorHealthLevels;
+    [SerializeField] float TransitionSpeed;
     Light Light;
+
     private void Awake()
     {
         Light = GetComponent<Light>();
@@ -29,29 +32,73 @@ public class HealthLightManager : MonoBehaviour
         {
             if (currPercentage > chl.Percentage)
             {
-                Debug.Log("Entering coroutine");
-                StartCoroutine(ChangeLightValuesOverTime(chl));
+                StartCoroutine(ChangeRangeOverTime(chl.Range, false));
+                StartCoroutine(ChangeIntensityOverTime(chl.Intensity, false));
+                StartCoroutine(ChangeColorOverTime(chl.Color));
                 break;
             }
         }
     }
 
-    private IEnumerator ChangeLightValuesOverTime(ColorHealthLevel chl)
+
+    private IEnumerator ChangeColorOverTime(Color targetColor)
     {
-        /*Debug.Log("Changing Stuffs!");
-        Mathf.Lerp(Light.range, chl.Range, Time.deltaTime);
-        Mathf.Lerp(Light.intensity, chl.Intensity, Time.deltaTime);
-        Color.Lerp(Light.color, chl.Color, Mathf.PingPong(Time.deltaTime, 1));*/
-        Light.range = chl.Range;
-        Light.intensity = chl.Intensity;
-        Light.color = chl.Color;
-        yield return null;
+        float timeLeft = 1.0f;
+        while (timeLeft >= Time.deltaTime)
+        {
+            Light.color = Color.Lerp(Light.color, targetColor, Time.deltaTime / timeLeft);
+            timeLeft -= Time.deltaTime;
+            yield return null;
+        }
+    }
+
+    private IEnumerator ChangeIntensityOverTime(float targetIntensity, bool increment)
+    {
+        if (increment)
+        {
+            while (Light.intensity <= targetIntensity)
+            {
+                Light.intensity += TransitionSpeed * Time.deltaTime;
+                yield return null;
+            }
+        }
+        else
+        {
+            while (Light.intensity >= targetIntensity)
+            {
+                Light.intensity -= TransitionSpeed * Time.deltaTime;
+                yield return null;
+            }
+        }
+        Light.intensity = targetIntensity;
+
+    }
+
+    private IEnumerator ChangeRangeOverTime(float targetRange, bool increment)
+    {
+        if (increment)
+        {
+            while (Light.range <= targetRange)
+            {
+                Light.range += TransitionSpeed * Time.deltaTime;
+                yield return null;
+            }
+        }
+        else
+        {
+            while (Light.range >= targetRange)
+            {
+                Light.range -= TransitionSpeed * Time.deltaTime;
+                yield return null;
+            }
+        }
+        Light.range = targetRange;
     }
 
     public void RestoreLifeColors()
     {
-        Light.range = colorHealthLevels[0].Range;
-        Light.intensity = colorHealthLevels[0].Intensity;
-        Light.color = colorHealthLevels[0].Color;
+        StartCoroutine(ChangeRangeOverTime(colorHealthLevels[0].Range, true));
+        StartCoroutine(ChangeIntensityOverTime(colorHealthLevels[0].Intensity, true));
+        StartCoroutine(ChangeColorOverTime(colorHealthLevels[0].Color));
     }
 }
