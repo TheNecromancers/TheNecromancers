@@ -4,7 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour, Controls.IPlayerActions
+public class InputManager : MonoBehaviour, Controls.IPlayerActions , Controls.IUIControlsActions
 {
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
@@ -13,7 +13,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     public event Action RollEvent;
     public event Action InteractEvent;
-
     public event Action TargetEvent;
     public event Action NextTargetEvent;
     public event Action PrevTargetEvent;
@@ -28,8 +27,9 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
         controls = new Controls();
         controls.Player.SetCallbacks(this);
-
         controls.Player.Enable();
+        controls.UIControls.SetCallbacks(this);
+        controls.UIControls.Enable();
     }
 
     private void OnDestroy()
@@ -105,9 +105,35 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
         NextTargetEvent?.Invoke();
     }
 
-    public void OnInventoryInteraction(InputAction.CallbackContext context)
+/*     public void OnInventoryInteraction(InputAction.CallbackContext context)
+    {
+
+        if (!context.performed) { return; }
+        InventoryEvent?.Invoke();
+        if(controls.Player.enabled)
+        {
+            controls.Player.Disable();
+            controls.UIControls.Enable();
+        }
+        else if(!controls.Player.enabled)
+        {
+            controls.Player.Enable();
+            controls.UIControls.Disable();
+        }
+    } */
+    public void OnUIInventoryInteraction(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
         InventoryEvent?.Invoke();
+
+        if(controls.Player.enabled)
+        {
+            controls.Player.Disable();
+        }
+        else
+        {
+            controls.Player.Enable();
+
+        }
     }
 }

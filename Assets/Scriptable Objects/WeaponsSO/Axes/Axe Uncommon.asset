@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Axe Uncommon
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 0}
+  itemPrefab: {fileID: 0}
   type: 1
   description: 
-  WeaponPrefab: {fileID: 9162375442657660279, guid: 552b940b43d22d5478cd4c41df4266fd, type: 3}
   <Damage>k__BackingField: 30
   <Knockback>k__BackingField: 5
+  <WeaponType>k__BackingField: 1

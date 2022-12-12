@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TheNecromancers.StateMachine.Player;
+using TheNecromancers.Combat;
+
 public class InventoryManager : MonoBehaviour
 
 {
@@ -10,8 +12,17 @@ public class InventoryManager : MonoBehaviour
     public PlayerStateMachine playerStateMachine { get;  set; }
     public DisplayInventory displayInventory { get;  set; }
 
+    public delegate void SlotSlectionDelegate(ItemObject _item);
+    public SlotSlectionDelegate ItemSelectionDelegate;
 
-
+    private void OnEnable() 
+        {
+            ItemSelectionDelegate +=UseItem;
+        }
+    private void OnDisable() 
+        {
+            ItemSelectionDelegate -= UseItem;
+        }       
     public void UseItem(ItemObject _item)
         {
             if(_item is WeaponSO)
@@ -28,14 +39,14 @@ public class InventoryManager : MonoBehaviour
     {   
 
         //inventoryObject.AddItem(weapon,-1);
-        playerStateMachine.OnWeaponChanged(weapon);
-
+        
         if(weapon.WeaponType == WeaponType.LeftHand)
         {
             //inventoryObject.AddItem(playerStateMachine.WeaponLeftHand,1);
             Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
-            Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
-
+            GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
+            playerStateMachine.WeaponLeftHand =weapon;
+            Debug.Log("equipped"+weapon+ "on left hand");
             
             
         }
@@ -43,10 +54,12 @@ public class InventoryManager : MonoBehaviour
         {
             //inventoryObject.AddItem(playerStateMachine.WeaponRightHand,1);
             Destroy(playerStateMachine.RightHandHolder.transform.GetChild(0).gameObject);
-            Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
-
-
+            GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
+            playerStateMachine.WeaponRightHand =weapon;
+            playerStateMachine.WeaponLogic = _newWeapon.GetComponent<WeaponLogic>();
+            Debug.Log("equipped"+weapon+ "on right hand");
         }
+
     }
     public void Unequip()
     {

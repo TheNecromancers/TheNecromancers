@@ -76,15 +76,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "InventoryInteraction",
-                    "type": "Button",
-                    "id": "6267d067-c16f-4f6d-9f2e-46df8e46adeb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -285,15 +276,32 @@
                     "action": "SelectPrevTarget",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "UIControls",
+            "id": "15d8e90a-be37-49dc-a486-9f6736196e05",
+            "actions": [
+                {
+                    "name": "UIInventoryInteraction",
+                    "type": "Button",
+                    "id": "74b69a81-3a9c-4aa8-b8cb-d786c571e3df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "03607adb-19a4-4a18-96de-2a9b6baf99ee",
+                    "id": "6f7a324c-2349-4240-b67d-f301d8450496",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mouse & Keyboard",
-                    "action": "InventoryInteraction",
+                    "groups": "",
+                    "action": "UIInventoryInteraction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

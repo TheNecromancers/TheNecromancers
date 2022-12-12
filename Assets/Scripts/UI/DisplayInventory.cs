@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class DisplayInventory : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DisplayInventory : MonoBehaviour
     public int X_Start;
     public int Y_Start;
     public InventoryObject inventory;
+    public GameObject inventoryCanvas;
     public int X_Space_Between_Items;
     public int ColumnNumber;
     public int Y_Space_Between_Items;
@@ -17,14 +19,16 @@ public class DisplayInventory : MonoBehaviour
     public ItemObject selectedItem=null;
     public Button useButton;
     public InventoryManager inventoryManager;
+    public GameObject inventoryCamera;
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
+        inventoryCanvas.SetActive(false);
         CreateDisplay();
-        gameObject.SetActive(false);
-        useButton.onClick.AddListener(SubmitUse);
+        useButton.onClick.AddListener(()=> inventoryManager.ItemSelectionDelegate(selectedItem));
         
     }
 
@@ -70,29 +74,29 @@ public class DisplayInventory : MonoBehaviour
         
     }
 
-
-    public void SubmitUse()
+    public void GetItem(ItemObject _item)
     {
-        inventoryManager.UseItem(selectedItem);
+        selectedItem = _item;
     }
 
     public void HandleInventoryInteraction()
     {
-        if(this.isActiveAndEnabled)
+        if(inventoryCanvas.activeInHierarchy)
         {
-            gameObject.SetActive(false);
-            
+            inventoryCanvas.SetActive(false);
+            inventoryCamera.SetActive(false);
             Cursor.visible=false;
             Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale=1;
+            //Time.timeScale=1;
             selectedItem =null;
         }
         else
         {
-            gameObject.SetActive(true);
+            inventoryCanvas.SetActive(true);
+            inventoryCamera.SetActive(true);
             Cursor.visible=true;
             Cursor.lockState = CursorLockMode.None;
-            Time.timeScale=0;
+            //Time.timeScale=0;
             UpdateDisplay();
         }
     }

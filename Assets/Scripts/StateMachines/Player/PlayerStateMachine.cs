@@ -27,14 +27,16 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public float RollDuration { get; private set; }
 
         [field: Header("Attack Settings")]
-        [field: SerializeField] public WeaponSO WeaponRightHand { get; private set; } = null;
-        [field: SerializeField] public WeaponSO WeaponLeftHand { get; private set; } = null;
+        [field: SerializeField] public WeaponSO WeaponRightHand { get;  set; } = null;
+        [field: SerializeField] public WeaponSO WeaponLeftHand { get;  set; } = null;
         [field: SerializeField] public Attack[] Attacks { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
-        public WeaponLogic WeaponLogic { get; private set; } = null;
+        public WeaponLogic WeaponLogic { get; set; } = null;
 
         public Transform MainCameraTransform { get; private set; }
+
+
 
         private void Start()
         {
@@ -56,12 +58,17 @@ namespace TheNecromancers.StateMachine.Player
             Health.OnDie += HandleDie;
             InputManager.InteractEvent += HandleInteract;
             InputManager.InventoryEvent += InventoryUIManager.HandleInventoryInteraction;
+
+
+            //InventoryManager.ItemSelectionDelegate += OnWeaponChanged;
         }
 
         private void OnDisable()
         {
             Health.OnDie -= HandleDie;
             InputManager.InteractEvent -= HandleInteract;
+
+            //InventoryManager.ItemSelectionDelegate -= OnWeaponChanged;
         }
 
         private void HandleDie()
@@ -81,19 +88,24 @@ namespace TheNecromancers.StateMachine.Player
         {
             inventoryObject.Container.Clear();
         }
-
-        public void OnWeaponChanged(WeaponSO _weapon)
+/* 
+        public void EquipmentChange(WeaponSO _weapon)
         {
-            WeaponLogic = _weapon.itemPrefab.GetComponent<WeaponLogic>();
+
+
+            Debug.Log("weapon changed");
             if(_weapon.WeaponType == WeaponType.LeftHand)
             {
+                
                 WeaponLeftHand = _weapon;
             }
             else if(_weapon.WeaponType == WeaponType.RightHand)
             {
                 WeaponRightHand = _weapon;
+                WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+                
             }
-        }
+        } */
 
     }
 }

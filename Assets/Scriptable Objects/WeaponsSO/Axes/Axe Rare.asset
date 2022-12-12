@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Axe Rare
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 0}
+  itemPrefab: {fileID: 0}
   type: 1
   description: 
-  WeaponPrefab: {fileID: 2484979932111627691, guid: b5be03d104f81f145afd4d6d13be5337, type: 3}
   <Damage>k__BackingField: 100
   <Knockback>k__BackingField: 6
+  <WeaponType>k__BackingField: 1
