@@ -3029,7 +3029,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4275371654261168742}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -10207,7 +10207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2259268124239658867, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4253946885823285550, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: m_Enabled
@@ -10291,7 +10291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4752420593708762084, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8107348714503583257, guid: 78db436ee26f60d418dfab87c0f4cc34, type: 3}
       propertyPath: InteractionText
