@@ -6,7 +6,6 @@ using UnityEngine;
 public class Torch : MonoBehaviour, IInteractable
 {
     [SerializeField] GameObject Light;
-    [SerializeField] GameObject InteractiveText;
     [SerializeField] GameObject ConsumeText;
 
     private bool isInteractable = true;
@@ -18,7 +17,6 @@ public class Torch : MonoBehaviour, IInteractable
         if (!isInteractable && !isConsumable) return;
         if (isInteractable)
         {
-            InteractiveText.SetActive(true);
             print(gameObject.name + " OnStartHover");
         }else if (isConsumable)
         {
@@ -34,7 +32,6 @@ public class Torch : MonoBehaviour, IInteractable
             isInteractable = false;
             isConsumable = true;
             Light.SetActive(true);
-            InteractiveText.SetActive(false);
             print("Interact with" + gameObject.name);
         }
         else if (isConsumable)
@@ -58,7 +55,6 @@ public class Torch : MonoBehaviour, IInteractable
         if (!isInteractable && !isConsumable) return;
         if (isInteractable)
         {
-            InteractiveText.SetActive(false);
             print(gameObject.name + " OnEndHover");
         }
         else if (isConsumable)

@@ -27,8 +27,6 @@ public class Door : MonoBehaviour, IInteractable
     public void OnStartHover()
     {
         if (!isInteractable) return;
-
-        print(gameObject.name + " OnStartHover");
     }
 
     public void OnInteract()
@@ -44,7 +42,5 @@ public class Door : MonoBehaviour, IInteractable
     public void OnEndHover()
     {
         if (!isInteractable) return;
-
-        print(gameObject.name + " OnEndHover");
     }
 }
