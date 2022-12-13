@@ -9,24 +9,13 @@ namespace TheNecromancers.Gameplay.Player
         [field: SerializeField] public float InteractionRange { get; private set; }
         [field: SerializeField] public Collider[] Colliders { get; private set; }
 
-        [SerializeField] GameObject InteractionText;
-
-        public event Action<bool> OnCurrentInteraction;
+        public event Action<IInteractable> OnCurrentInteraction;
 
         public IInteractable CurrentTarget;
 
         private void Update()
         {
             DetectInteractable();
-
-            if(CurrentTarget != null)
-            {
-                InteractionText.SetActive(CurrentTarget.IsInteractable);
-            }
-            else
-            {
-                InteractionText.SetActive(false);
-            }
         }
 
         private void DetectInteractable()
@@ -50,12 +39,15 @@ namespace TheNecromancers.Gameplay.Player
                             {
                                 CurrentTarget.OnEndHover();
                                 CurrentTarget = interactable;
+                                OnCurrentInteraction?.Invoke(CurrentTarget);
+
                                 CurrentTarget.OnStartHover();
                                 return;
                             }
                             else
                             {
                                 CurrentTarget = interactable;
+                                OnCurrentInteraction?.Invoke(CurrentTarget);
                                 CurrentTarget.OnStartHover();
                             }
                         }
@@ -78,6 +70,7 @@ namespace TheNecromancers.Gameplay.Player
             {
                 currentTarget.OnEndHover();
                 currentTarget = null;
+                OnCurrentInteraction?.Invoke(null);
             }
         }
 

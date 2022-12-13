@@ -1,24 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using TheNecromancers.Gameplay.Player;
+using TMPro;
 using UnityEngine;
-
 
 namespace TheNecromancers.UI.Player
 {
     public class InteractionDetectorPresenter : MonoBehaviour
     {
-        [SerializeField] InteractionDetector interactionDetector;
+        [SerializeField] InteractionDetector InteractionDetector;
+        [SerializeField] TextMeshProUGUI InteractionText;
 
-        private void Start()
+        private void OnEnable()
         {
-            interactionDetector.OnCurrentInteraction += UpdateUI;
-            UpdateUI(false);
+            InteractionDetector.OnCurrentInteraction += UpdateUI;
+            UpdateUI(InteractionDetector.CurrentTarget);
         }
 
-        private void UpdateUI(bool value)
+        private void UpdateUI(IInteractable CurrentTarget)
         {
-            gameObject.SetActive(value);
+            if (CurrentTarget != null)
+            {
+                InteractionText.enabled = CurrentTarget.IsInteractable;
+            }
+            else
+            {
+                InteractionText.enabled = false;
+            }
         }
     }
 }
