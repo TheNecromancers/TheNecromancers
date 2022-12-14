@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using TheNecromancers.Gameplay.AI;
 using TheNecromancers.Combat;
-using UnityEditorInternal;
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -16,6 +15,7 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public NavMeshAgent Agent { get; private set; }
         [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
         [field: SerializeField] public ParticleFXManager ParticleFXManager { get; private set; }
+        [field: SerializeField] public ComicBubblePresenter ComicBubbleManager { get; private set; }
         [field: SerializeField] public Target Target { get; private set; }
 
         [field: Header("Movement")]

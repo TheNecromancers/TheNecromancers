@@ -13,8 +13,9 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Enter()
         {
-
             suspicionTime = stateMachine.SuspicionTime;
+
+            stateMachine.ComicBubbleManager.ShowComicBubble(suspicionTime, eComicIcon.QuestionMark);
         }
 
         public override void Tick(float deltaTime)
@@ -31,6 +32,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
             if (suspicionTime < 0)
             {
+                stateMachine.ComicBubbleManager.ShowComicBubble(eComicIcon.BackToMark);
+
                 if (stateMachine.PatrolPath != null)
                 {
                     stateMachine.SwitchState(new EnemyPatrolState(stateMachine));
@@ -38,7 +41,7 @@ namespace TheNecromancers.StateMachine.Enemy
                 }
                 else
                 {
-                    // back to initial pos
+                    // back to initial position
                     FaceTo(stateMachine.InitialPosition, deltaTime);
                     MoveTo(stateMachine.InitialPosition, deltaTime);
 
@@ -57,6 +60,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Exit()
         {
+            stateMachine.ComicBubbleManager.HideComicBubble();
             ResetAgentPath();
         }
     }
