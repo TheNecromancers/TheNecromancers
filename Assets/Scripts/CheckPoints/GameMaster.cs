@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
-    private static GameMaster instance;
+    public static GameMaster instance;
 
     public Vector3 lastCheckPointPos;
 
@@ -22,4 +22,5 @@ public class GameMaster : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
