@@ -32,7 +32,11 @@ namespace TheNecromancers.Gameplay.Player
                     {
                         if (CheckDistanceSqr(transform.position, Colliders[i].transform.position, InteractionRange))
                         {
-                            if(!interactable.IsInteractable) { return; }
+                            if(!interactable.IsInteractable) 
+                            { 
+                                OnCurrentInteraction?.Invoke(null); 
+                                return; 
+                            }
 
                             if (interactable == CurrentTarget) { return; }
                             else if (CurrentTarget != null)
