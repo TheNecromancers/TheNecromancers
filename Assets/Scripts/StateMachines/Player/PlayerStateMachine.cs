@@ -15,6 +15,9 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public InteractionDetector InteractionDetector { get; private set; }
         [field: SerializeField] public Targeter Targeter { get; private set; }
         [field: SerializeField] public AbilitySystemManager AbilitySystemManager { get; private set; }
+        [field: SerializeField] public InventoryObject inventoryObject { get; private set; }
+        [field: SerializeField] public DisplayInventory InventoryUIManager { get; private set; }
+        [field: SerializeField] public InventoryManager InventoryManager { get; private set; }
 
         [field: Header("Movement Settings")]
         [field: SerializeField] public float MovementSpeed { get; private set; }
@@ -24,16 +27,20 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public float RollDuration { get; private set; }
 
         [field: Header("Attack Settings")]
-        [field: SerializeField] public WeaponSO WeaponRightHand { get; private set; } = null;
-        [field: SerializeField] public WeaponSO WeaponLeftHand { get; private set; } = null;
+        [field: SerializeField] public WeaponSO WeaponRightHand { get;  set; } = null;
+        [field: SerializeField] public WeaponSO WeaponLeftHand { get;  set; } = null;
         [field: SerializeField] public Attack[] Attacks { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
-        public WeaponLogic WeaponLogic { get; private set; } = null;
+        public WeaponLogic WeaponLogic { get;  set; } = null;
         public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
-
+        private void Awake() 
+        {
+            InventoryUIManager = FindObjectOfType<DisplayInventory>();
+            InventoryManager = gameObject.GetComponent<InventoryManager>();
+        }
         private void Start()
         {
             InputManager.CombactAbilityEvent += OnCombactAbility;
@@ -43,12 +50,19 @@ namespace TheNecromancers.StateMachine.Player
             WeaponLeftHand?.Equip(LeftHandHolder.transform);
             MainCameraTransform = Camera.main.transform;
             SwitchState(new PlayerLocomotionState(this));
+            InventoryManager.inventoryObject = inventoryObject;
+            InventoryManager.displayInventory = InventoryUIManager;
+            InventoryManager.playerStateMachine = this;
+            inventoryObject.playerStateMachine=gameObject.GetComponent<PlayerStateMachine>();
+
         }
 
         private void OnEnable()
         {
             Health.OnDie += HandleDie;
             InputManager.InteractEvent += HandleInteract;
+            InputManager.InteractEvent += HandleInteract;
+            InputManager.InventoryEvent += InventoryUIManager.HandleInventoryInteraction;
         }
 
 
@@ -63,6 +77,8 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.CombactAbilityEvent -= OnCombactAbility;
             InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
             InputManager.InteractEvent -= HandleInteract;
+            InputManager.InteractEvent -= HandleInteract;
+            InputManager.InventoryEvent -= InventoryUIManager.HandleInventoryInteraction;
         }
         
         void HandleInteract()
@@ -117,5 +133,29 @@ namespace TheNecromancers.StateMachine.Player
             LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
             Health.SetInvulnerable(false);
         }
+
+        private void OnApplicationQuit() 
+        {
+            inventoryObject.Container.Clear();
+        }
+
+        /* 
+        public void EquipmentChange(WeaponSO _weapon)
+        {
+
+
+            Debug.Log("weapon changed");
+            if(_weapon.WeaponType == WeaponType.LeftHand)
+            {
+                
+                WeaponLeftHand = _weapon;
+            }
+            else if(_weapon.WeaponType == WeaponType.RightHand)
+            {
+                WeaponRightHand = _weapon;
+                WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+                
+            }
+        } */
     }
 }

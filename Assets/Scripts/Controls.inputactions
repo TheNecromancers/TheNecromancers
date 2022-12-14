@@ -340,6 +340,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UIControls",
+            "id": "7cc67bbf-23a9-44f4-8056-5cbe62984d80",
+            "actions": [
+                {
+                    "name": "UIInventoryInteraction",
+                    "type": "Button",
+                    "id": "ebd23cbf-08c0-4072-9a39-70093948ce21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e7cc4d63-d484-4ce6-aead-2830f4ed6ef5",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UIInventoryInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

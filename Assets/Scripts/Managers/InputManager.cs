@@ -4,10 +4,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour, Controls.IPlayerActions
+public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUIControlsActions
 {
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
+    public bool isInventoryOpened{ get; private set; }
 
     public event Action RollEvent;
     public event Action InteractEvent;
@@ -20,6 +21,8 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     public event Action TargetEvent;
     public event Action NextTargetEvent;
     public event Action PrevTargetEvent;
+    
+    public event Action InventoryEvent;
 
 
     private Controls controls;
@@ -31,13 +34,14 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
         controls = new Controls();
         controls.Player.SetCallbacks(this);
-
         controls.Player.Enable();
-    }
+        controls.UIControls.SetCallbacks(this);
+        controls.UIControls.Enable();    }
 
     private void OnDestroy()
     {
         controls.Player.Disable();
+        controls.UIControls.Disable();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -118,6 +122,21 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
     {
         if (!context.performed) { return; }
         NextTargetEvent?.Invoke();
+    }
+    public void OnUIInventoryInteraction(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        InventoryEvent?.Invoke();
+
+        if(controls.Player.enabled)
+        {
+            controls.Player.Disable();
+        }
+        else
+        {
+            controls.Player.Enable();
+
+        }
     }
 
 }
