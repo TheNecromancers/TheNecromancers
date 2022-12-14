@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad5f85b3e4682574b87637f415874ce3, type: 3}
   m_Name: Axe Common
   m_EditorClassIdentifier: 
-  WeaponPrefab: {fileID: 4214597414847622612, guid: f72b1b99abb06314b9a8320e46b73577, type: 3}
+  inventoryPrefab: {fileID: 6882000034666161159, guid: f3eece0b711836542a18a21eada80d10, type: 3}
+  itemPrefab: {fileID: 4214597414847622612, guid: f72b1b99abb06314b9a8320e46b73577, type: 3}
+  type: 1
+  description: 
+  WeaponPrefab: {fileID: 0}
   <Damage>k__BackingField: 20
-  <Knockback>k__BackingField: 5
+  <Knockbacks>k__BackingField:
+  - 0
+  - 0
+  - 5
+  <WeaponType>k__BackingField: 1

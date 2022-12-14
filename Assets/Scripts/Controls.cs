@@ -362,6 +362,34 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UIControls"",
+            ""id"": ""03465fa6-8c8d-4856-90db-36158f627c9c"",
+            ""actions"": [
+                {
+                    ""name"": ""UIInventoryInteraction"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed5fcd51-beef-4d85-aa3e-c1e0d74854ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4110ccb1-3fde-4fd4-9bb1-728bc14e582b"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UIInventoryInteraction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -406,6 +434,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_SelectNextTarget = m_Player.FindAction("SelectNextTarget", throwIfNotFound: true);
         m_Player_SelectPrevTarget = m_Player.FindAction("SelectPrevTarget", throwIfNotFound: true);
         m_Player_SelectTarget = m_Player.FindAction("SelectTarget", throwIfNotFound: true);
+        // UIControls
+        m_UIControls = asset.FindActionMap("UIControls", throwIfNotFound: true);
+        m_UIControls_UIInventoryInteraction = m_UIControls.FindAction("UIInventoryInteraction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -566,6 +597,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UIControls
+    private readonly InputActionMap m_UIControls;
+    private IUIControlsActions m_UIControlsActionsCallbackInterface;
+    private readonly InputAction m_UIControls_UIInventoryInteraction;
+    public struct UIControlsActions
+    {
+        private @Controls m_Wrapper;
+        public UIControlsActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @UIInventoryInteraction => m_Wrapper.m_UIControls_UIInventoryInteraction;
+        public InputActionMap Get() { return m_Wrapper.m_UIControls; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIControlsActions set) { return set.Get(); }
+        public void SetCallbacks(IUIControlsActions instance)
+        {
+            if (m_Wrapper.m_UIControlsActionsCallbackInterface != null)
+            {
+                @UIInventoryInteraction.started -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIInventoryInteraction;
+                @UIInventoryInteraction.performed -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIInventoryInteraction;
+                @UIInventoryInteraction.canceled -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIInventoryInteraction;
+            }
+            m_Wrapper.m_UIControlsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @UIInventoryInteraction.started += instance.OnUIInventoryInteraction;
+                @UIInventoryInteraction.performed += instance.OnUIInventoryInteraction;
+                @UIInventoryInteraction.canceled += instance.OnUIInventoryInteraction;
+            }
+        }
+    }
+    public UIControlsActions @UIControls => new UIControlsActions(this);
     private int m_MouseKeyboardSchemeIndex = -1;
     public InputControlScheme MouseKeyboardScheme
     {
@@ -596,5 +660,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnSelectNextTarget(InputAction.CallbackContext context);
         void OnSelectPrevTarget(InputAction.CallbackContext context);
         void OnSelectTarget(InputAction.CallbackContext context);
+    }
+    public interface IUIControlsActions
+    {
+        void OnUIInventoryInteraction(InputAction.CallbackContext context);
     }
 }
