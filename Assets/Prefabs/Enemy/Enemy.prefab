@@ -481,6 +481,7 @@ MonoBehaviour:
   <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
   <AttackRange>k__BackingField: 2.1
   <AttackRate>k__BackingField: 1.25
+  <AttackForce>k__BackingField: 5
   <RightHandHolder>k__BackingField: {fileID: 3671347887418839197}
   <StunDuration>k__BackingField: 1.75
 --- !u!143 &3281762963110296119

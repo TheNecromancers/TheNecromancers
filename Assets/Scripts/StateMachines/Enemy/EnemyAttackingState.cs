@@ -1,3 +1,4 @@
+using TheNecromancers.Combat;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Enemy
@@ -8,6 +9,9 @@ namespace TheNecromancers.StateMachine.Enemy
         private const float TransitionDuration = 0.1f;
 
         float timeBetweenAttacks = 0f;
+
+        private bool alreadyAppliedForce;
+        private Vector3 direction;
 
         public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
 
@@ -24,6 +28,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
 
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) {
+                TryApplyForce();
                 return; }
 
             timeBetweenAttacks += deltaTime;
@@ -38,6 +43,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
             FaceToPlayer(deltaTime);
 
+      
+
             if (IsPlayingAnimation(stateMachine.Animator, "Attack")) { return; }
 
 
@@ -47,6 +54,15 @@ namespace TheNecromancers.StateMachine.Enemy
                 return;
             }
 
+        }
+
+        private void TryApplyForce()
+        {
+            if (alreadyAppliedForce) { return; }
+
+            stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * stateMachine.AttackForce);
+          
+            alreadyAppliedForce = true;
         }
 
         public override void Exit() { }
