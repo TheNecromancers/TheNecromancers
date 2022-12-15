@@ -27,6 +27,7 @@ namespace TheNecromancers.StateMachine.Enemy
         protected void MoveToPlayer(float deltaTime)
         {
             Move(deltaTime);
+
             if (stateMachine.Agent.isOnNavMesh)
             {
                 stateMachine.Agent.destination = stateMachine.Player.transform.position;
@@ -120,6 +121,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         protected void ResetAgentPath()
         {
+            Move(0); // Avoid NavAgent Path error
+
             stateMachine.Agent.velocity = Vector3.zero;
             stateMachine.Agent.ResetPath();
         }

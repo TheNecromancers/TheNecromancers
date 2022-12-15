@@ -24,7 +24,7 @@ namespace TheNecromancers.StateMachine.Enemy
         public override void Tick(float deltaTime)
         {
             Move(deltaTime);
-            FaceToPlayer(deltaTime);
+            //FaceToPlayer(deltaTime);
 
 
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) {
@@ -42,8 +42,6 @@ namespace TheNecromancers.StateMachine.Enemy
             timeBetweenAttacks = 0f;
 
             FaceToPlayer(deltaTime);
-
-      
 
             if (IsPlayingAnimation(stateMachine.Animator, "Attack")) { return; }
 
