@@ -82,19 +82,19 @@ namespace TheNecromancers.StateMachine.Enemy
 
         protected bool IsInViewRange()
         {
-            Vector3 toTarget = stateMachine.Player.transform.position - stateMachine.transform.position;
+            Vector3 toPlayer = stateMachine.Player.transform.position - stateMachine.transform.position;
 
-            Vector3 localDirection = stateMachine.transform.InverseTransformDirection(toTarget);
+            Vector3 localDirection = stateMachine.transform.InverseTransformDirection(toPlayer);
 
             RaycastHit hit;
 
-            Debug.DrawRay(stateMachine.transform.position + Vector3.up, toTarget + Vector3.up, Color.red);
+            Debug.DrawRay(stateMachine.transform.position + Vector3.up, toPlayer + Vector3.up, Color.red);
 
             float angle = Mathf.Atan2(localDirection.z, localDirection.x) * Mathf.Rad2Deg - 90;
 
             if (angle < stateMachine.ViewAngle && angle > -stateMachine.ViewAngle)
             {
-                if (Physics.Raycast(stateMachine.transform.position + (Vector3.up / 2), toTarget + Vector3.up, out hit, Mathf.Infinity))
+                if (Physics.Raycast(stateMachine.transform.position + (Vector3.up / 2), toPlayer + Vector3.up, out hit, Mathf.Infinity))
                 {
                     if (hit.collider.TryGetComponent<PlayerStateMachine>(out PlayerStateMachine Player))
                     {

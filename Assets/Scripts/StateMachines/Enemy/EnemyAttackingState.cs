@@ -26,7 +26,6 @@ namespace TheNecromancers.StateMachine.Enemy
             Move(deltaTime);
             //FaceToPlayer(deltaTime);
 
-
             if (stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f && stateMachine.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f) {
                 TryApplyForce();
                 return; }
@@ -51,7 +50,6 @@ namespace TheNecromancers.StateMachine.Enemy
                 stateMachine.SwitchState(new EnemyChasingState(stateMachine));
                 return;
             }
-
         }
 
         private void TryApplyForce()
