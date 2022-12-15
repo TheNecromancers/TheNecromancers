@@ -34,7 +34,8 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions
 
     private void OnDestroy()
     {
-        controls.Player.Disable();
+        // The player not longer destroyed
+        // controls.Player.Disable();
     }
 
     public void OnMove(InputAction.CallbackContext context)

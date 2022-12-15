@@ -4,23 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameMaster : MonoBehaviour
+public class GameMaster : MonoSingleton<GameMaster>
 {
-    public static GameMaster instance;
-
-    public Vector3 lastCheckPointPos;
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance); 
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
 }

@@ -1,6 +1,8 @@
 using UnityEngine;
 using TheNecromancers.Gameplay.Player;
 using TheNecromancers.Combat;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -17,7 +19,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public InventoryObject inventoryObject { get; private set; }
         [field: SerializeField] public DisplayInventory InventoryUIManager { get; private set; }
         [field: SerializeField] public InventoryManager InventoryManager { get; private set; }
-        
+
 
         [field: Header("Movement Settings")]
         [field: SerializeField] public float MovementSpeed { get; private set; }
@@ -47,12 +49,12 @@ namespace TheNecromancers.StateMachine.Player
 
             MainCameraTransform = Camera.main.transform;
             SwitchState(new PlayerLocomotionState(this));
-            inventoryObject.playerStateMachine=gameObject.GetComponent<PlayerStateMachine>();
+            inventoryObject.playerStateMachine = gameObject.GetComponent<PlayerStateMachine>();
         }
 
         private void OnEnable()
         {
-            
+
             Health.OnDie += HandleDie;
             InputManager.InteractEvent += HandleInteract;
             InputManager.InventoryEvent += InventoryUIManager.HandleInventoryInteraction;
@@ -67,6 +69,7 @@ namespace TheNecromancers.StateMachine.Player
         private void HandleDie()
         {
             SwitchState(new PlayerDeadState(this));
+            StartCoroutine(Respawn());
         }
 
         void HandleInteract()
@@ -76,8 +79,7 @@ namespace TheNecromancers.StateMachine.Player
                 InteractionDetector.CurrentTarget.OnInteract();
             }
         }
-
-        private void OnApplicationQuit() 
+        private void OnApplicationQuit()
         {
             inventoryObject.Container.Clear();
         }
@@ -85,15 +87,29 @@ namespace TheNecromancers.StateMachine.Player
         public void OnWeaponChanged(WeaponSO _weapon)
         {
             WeaponLogic = _weapon.itemPrefab.GetComponent<WeaponLogic>();
-            if(_weapon.WeaponType == WeaponType.LeftHand)
+            if (_weapon.WeaponType == WeaponType.LeftHand)
             {
                 WeaponLeftHand = _weapon;
             }
-            else if(_weapon.WeaponType == WeaponType.RightHand)
+            else if (_weapon.WeaponType == WeaponType.RightHand)
             {
                 WeaponRightHand = _weapon;
             }
         }
 
+        IEnumerator Respawn()
+        {
+            yield return new WaitForSeconds(2f);
+
+            Health.Heal(10);
+
+            SwitchState(new PlayerLocomotionState(this));
+
+            Controller.enabled = false;
+            transform.position = GameManager.Instance.LastCheckPointPos;
+            Controller.enabled = true;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }

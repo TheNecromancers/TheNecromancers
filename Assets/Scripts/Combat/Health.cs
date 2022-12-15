@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.Rendering;
 
 namespace TheNecromancers.Combat
 {
@@ -48,6 +49,11 @@ namespace TheNecromancers.Combat
             }
 
             Debug.Log("Current health " + health + " damage received " + damage);
+        }
+
+        public void Heal(int heal)
+        {
+            health = heal;
         }
 
         IEnumerator HandleInvulnerable()

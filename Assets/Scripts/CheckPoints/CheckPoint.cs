@@ -5,17 +5,11 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-
-    //private void Start()
-    //{
-    //    gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
-    //}
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            GameMaster.instance.lastCheckPointPos = transform.position;
+            GameManager.Instance.LastCheckPointPos = transform.position;
             Debug.Log("Entrato");
         }
     }
