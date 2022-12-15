@@ -99,6 +99,8 @@ namespace TheNecromancers.StateMachine.Player
 
         IEnumerator Respawn()
         {
+            inventoryObject.Save();
+
             yield return new WaitForSeconds(2f);
 
             Health.Heal(10);
@@ -110,6 +112,8 @@ namespace TheNecromancers.StateMachine.Player
             Controller.enabled = true;
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            inventoryObject.Load();
         }
     }
 }
