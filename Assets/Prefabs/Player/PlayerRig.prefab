@@ -1109,7 +1109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4275371654385497879}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 6.1237245, y: 7.4000006, z: -8.253724}
+  m_LocalPosition: {x: 6.123724, y: 7.4000015, z: -8.253724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1275,7 +1275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4275371654698336982}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 6.1237245, y: 7.4000006, z: -8.253724}
+  m_LocalPosition: {x: 6.123724, y: 7.4000015, z: -8.253724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2264,7 +2264,7 @@ MonoBehaviour:
   <WeaponLeftHand>k__BackingField: {fileID: 11400000, guid: 7b0334a50e8a52349a39addbda4226e1, type: 2}
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
-    <TransitionDuration>k__BackingField: 0.5
+    <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.7
     <Force>k__BackingField: 3
