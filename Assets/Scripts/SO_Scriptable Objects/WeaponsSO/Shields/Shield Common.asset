@@ -16,6 +16,7 @@ MonoBehaviour:
   itemPrefab: {fileID: 4101988474563711924, guid: 060698a2584f77e4ab1402ce2c4e9191, type: 3}
   type: 1
   description: 
+  WeaponPrefab: {fileID: 4101988474563711924, guid: 060698a2584f77e4ab1402ce2c4e9191, type: 3}
   <Damage>k__BackingField: 0
-  <Knockback>k__BackingField: 0
+  <Knockbacks>k__BackingField: []
   <WeaponType>k__BackingField: 0
