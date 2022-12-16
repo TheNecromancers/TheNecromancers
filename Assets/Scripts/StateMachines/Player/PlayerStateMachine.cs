@@ -16,7 +16,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public Targeter Targeter { get; private set; }
         [field: SerializeField] public AbilitySystemManager AbilitySystemManager { get; private set; }
         [field: SerializeField] public InventoryObject inventoryObject { get; private set; }
-        [field: SerializeField] public DisplayInventory InventoryUIManager { get; private set; }
+        [field: SerializeField] public DisplayInventory DisplayInventory { get; private set; }
         [field: SerializeField] public InventoryManager InventoryManager { get; private set; }
 
         [field: Header("Movement Settings")]
@@ -36,19 +36,16 @@ namespace TheNecromancers.StateMachine.Player
         public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
-        private void Awake()
-        {
-            InventoryUIManager = FindObjectOfType<DisplayInventory>();
-            InventoryManager = gameObject.GetComponent<InventoryManager>();
-        }
         private void Start()
         {
-            WeaponRightHand?.Equip(RightHandHolder.transform);
-            WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
-            WeaponLeftHand?.Equip(LeftHandHolder.transform);
             MainCameraTransform = Camera.main.transform;
+
+            //WeaponRightHand?.Equip(RightHandHolder.transform);
+            //WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+            //WeaponLeftHand?.Equip(LeftHandHolder.transform);
+
             InventoryManager.inventoryObject = inventoryObject;
-            InventoryManager.displayInventory = InventoryUIManager;
+            InventoryManager.displayInventory = DisplayInventory;
             InventoryManager.playerStateMachine = this;
             inventoryObject.playerStateMachine = gameObject.GetComponent<PlayerStateMachine>();
 
@@ -60,11 +57,10 @@ namespace TheNecromancers.StateMachine.Player
             Health.OnDie += HandleDie;
             InputManager.InteractEvent += HandleInteract;
             InputManager.InteractEvent += HandleInteract;
-            InputManager.InventoryEvent += InventoryUIManager.HandleInventoryInteraction;
+            InputManager.InventoryEvent += DisplayInventory.HandleInventoryInteraction;
             InputManager.CombactAbilityEvent += OnCombactAbility;
             InputManager.ExplorationAbilityEvent += OnExplorationAbility;
         }
-
 
         private void HandleDie()
         {
@@ -78,7 +74,7 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
             InputManager.InteractEvent -= HandleInteract;
             InputManager.InteractEvent -= HandleInteract;
-            InputManager.InventoryEvent -= InventoryUIManager.HandleInventoryInteraction;
+            InputManager.InventoryEvent -= DisplayInventory.HandleInventoryInteraction;
         }
 
         void HandleInteract()
@@ -108,10 +104,12 @@ namespace TheNecromancers.StateMachine.Player
         void OnStartParry()
         {
             Debug.Log("Start Parry");
-            LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
-            Health.SetInvulnerable(true);
+            if (HaveShield())
+            {
+                LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
+                Health.SetInvulnerable(true);
+            }
         }
-
         void OnCombactAbility()
         {
             if (AbilitySystemManager != null)
@@ -130,8 +128,16 @@ namespace TheNecromancers.StateMachine.Player
         void OnEndParry()
         {
             Debug.Log("End Parry");
-            LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
-            Health.SetInvulnerable(false);
+            if (HaveShield())
+            {
+                LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
+                Health.SetInvulnerable(false);
+            }
+        }
+
+        public bool HaveShield()
+        {
+            return LeftHandHolder != null && WeaponLeftHand != null;
         }
 
         private void OnApplicationQuit()

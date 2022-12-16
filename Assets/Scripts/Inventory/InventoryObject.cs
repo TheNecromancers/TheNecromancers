@@ -3,26 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheNecromancers.StateMachine.Player;
 
-[CreateAssetMenu(fileName ="New Inventory Object", menuName ="Inventory System/Inventory")]
+[CreateAssetMenu(fileName = "New Inventory Object", menuName = "Inventory System/Inventory")]
 
 public class InventoryObject : ScriptableObject
 {
-
     public List<InventorySlot> Container = new List<InventorySlot>();
     public PlayerStateMachine playerStateMachine { get; set; }
     public void AddItem(ItemObject _item, int _amount)
     {
         bool hasItem = false;
-        for(int i =0; i<Container.Count; i++)
+        for (int i = 0; i < Container.Count; i++)
         {
-            if(Container[i].item ==_item)
+            if (Container[i].item == _item)
             {
                 Container[i].AddAmount(_amount);
                 hasItem = true;
                 break;
             }
         }
-        if(!hasItem)
+        if (!hasItem)
         {
             Container.Add(new InventorySlot(_item, _amount));
         }
@@ -37,13 +36,11 @@ public class InventorySlot
     public InventorySlot(ItemObject _item, int _amount)
     {
         item = _item;
-        amount=_amount;
+        amount = _amount;
     }
 
     public void AddAmount(int value)
     {
-        amount+= value;
+        amount += value;
     }
-
-    
 }

@@ -34,7 +34,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             movement = CalculateMovement();
 
-            if (stateMachine.InputManager.IsAttacking)
+            if (stateMachine.InputManager.IsAttacking && CanAttack())
             {
                 stateMachine.SwitchState(new PlayerMeleeAttackState(stateMachine, 0, movement));
                 return;
@@ -96,12 +96,6 @@ namespace TheNecromancers.StateMachine.Player
         void OnRoll()
         {
             stateMachine.SwitchState(new PlayerRollState(stateMachine, movement));
-            return;
-        }
-        void OnBlock()
-        {
-            Debug.Log("Blocco!");
-            stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
             return;
         }
 

@@ -77,5 +77,18 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.Health.SetInvulnerable();
             stateMachine.SwitchState(new PlayerImpactState(stateMachine));
         }
+
+        protected bool CanAttack()
+        {
+            return stateMachine.WeaponRightHand != null && stateMachine.RightHandHolder != null;
+        }
+
+        protected void OnBlock()
+        {
+            if (!stateMachine.HaveShield()) { return; }
+
+            stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+            return;
+        }
     }
 }
