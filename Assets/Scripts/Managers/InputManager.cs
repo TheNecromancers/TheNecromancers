@@ -1,4 +1,3 @@
-using ClipperLib;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -21,9 +20,8 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
     public event Action TargetEvent;
     public event Action NextTargetEvent;
     public event Action PrevTargetEvent;
-    
-    public event Action InventoryEvent;
 
+    public event Action InventoryEvent;
 
     private Controls controls;
 
@@ -97,8 +95,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
         ExplorationAbilityEvent?.Invoke();
     }
 
-
-
     public void OnSelectTarget(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
@@ -111,7 +107,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
         yield return new WaitForSeconds(0.1f);
         IsAttacking = false;
     }
-
     public void OnSelectPrevTarget(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
@@ -135,7 +130,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
         else
         {
             controls.Player.Enable();
-
         }
     }
 

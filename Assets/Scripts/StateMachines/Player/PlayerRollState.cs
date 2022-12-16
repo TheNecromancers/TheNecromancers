@@ -7,8 +7,6 @@ namespace TheNecromancers.StateMachine.Player
     public class PlayerRollState : PlayerBaseState
     {
         private readonly int DashBlendTreeHash = Animator.StringToHash("Roll");
-        private readonly int DirXHash = Animator.StringToHash("DirX");
-        private readonly int DirYHash = Animator.StringToHash("DirY");
 
         private const float CrossFadeDuration = 0.3f;
 
@@ -44,7 +42,6 @@ namespace TheNecromancers.StateMachine.Player
             }
 
             Move(direction.normalized * stateMachine.RollForce, deltaTime);
-
             FaceMovementDirection(direction, deltaTime);
         }
 

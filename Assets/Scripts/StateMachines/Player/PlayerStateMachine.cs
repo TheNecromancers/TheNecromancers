@@ -73,31 +73,6 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.InventoryEvent -= DisplayInventory.HandleInventoryInteraction;
         }
 
-
-        //Animations Events
-        void OnStartAttackAnim()
-        {
-        }
-
-        void OnHitAnim()
-        {
-            WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
-        }
-
-        void OnEndAttackAnim()
-        {
-            WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
-        }
-
-        void OnStartParry()
-        {
-            Debug.Log("Start Parry");
-            if (HaveShield())
-            {
-                LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
-                Health.SetInvulnerable(true);
-            }
-        }
         void OnCombactAbility()
         {
             if (AbilitySystemManager != null)
@@ -113,9 +88,31 @@ namespace TheNecromancers.StateMachine.Player
                 AbilitySystemManager.OnExplorationAbility();
             }
         }
+
+        //Animations Events
+        void OnStartAttackAnim() { }
+
+        void OnHitAnim()
+        {
+            WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+        }
+
+        void OnEndAttackAnim()
+        {
+            WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
+        }
+
+        void OnStartParry()
+        {
+            if (HaveShield())
+            {
+                LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
+                Health.SetInvulnerable(true);
+            }
+        }
+
         void OnEndParry()
         {
-            Debug.Log("End Parry");
             if (HaveShield())
             {
                 LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;

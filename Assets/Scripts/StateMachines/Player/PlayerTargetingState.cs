@@ -18,16 +18,16 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Enter()
         {
-            stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, CrossFadeDuration);
-            
-            stateMachine.InputManager.RollEvent += OnRoll;
             stateMachine.InputManager.BlockEvent += OnBlock;
+            stateMachine.InputManager.RollEvent += OnRoll;
 
             stateMachine.InputManager.TargetEvent += OnTarget;
             stateMachine.InputManager.NextTargetEvent += OnNextTarget;
             stateMachine.InputManager.PrevTargetEvent += OnPrevTarget;
 
             stateMachine.Health.OnTakeDamage += HandleTakeDamage;
+
+            stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, CrossFadeDuration);
         }
 
         public override void Tick(float deltaTime)
@@ -58,8 +58,8 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Exit()
         {
-            stateMachine.InputManager.RollEvent -= OnRoll;
             stateMachine.InputManager.BlockEvent -= OnBlock;
+            stateMachine.InputManager.RollEvent -= OnRoll;
 
             stateMachine.InputManager.TargetEvent -= OnTarget;
             stateMachine.InputManager.NextTargetEvent -= OnNextTarget;
