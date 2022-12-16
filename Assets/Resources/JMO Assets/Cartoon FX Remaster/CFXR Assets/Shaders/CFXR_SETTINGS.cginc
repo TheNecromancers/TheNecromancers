@@ -9,7 +9,7 @@
 
 
 /* Uncomment this line if you want to globally disable soft particles */
-// #define GLOBAL_DISABLE_SOFT_PARTICLES
+#define GLOBAL_DISABLE_SOFT_PARTICLES
 
 /* Uncomment this line to do Soft Particles depth calculation in Orthographic mode */
 #define SOFT_PARTICLES_ORTHOGRAPHIC
