@@ -127,6 +127,7 @@ namespace TheNecromancers.StateMachine.Enemy
         void OnHitAnim()
         {
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
+            ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.HitParticleFX);
         }
 
         void OnEndAttackAnim()

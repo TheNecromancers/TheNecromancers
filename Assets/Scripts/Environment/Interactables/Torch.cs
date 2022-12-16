@@ -8,8 +8,8 @@ public class Torch : MonoBehaviour, IInteractable
     [SerializeField] GameObject Light;
     [SerializeField] GameObject ConsumeText;
 
-    private bool isInteractable = true;
     private bool isConsumable = false;
+    private bool isInteractable = true;
     public bool IsInteractable => isInteractable;
 
     public void OnStartHover()
@@ -18,7 +18,8 @@ public class Torch : MonoBehaviour, IInteractable
         if (isInteractable)
         {
             print(gameObject.name + " OnStartHover");
-        }else if (isConsumable)
+        }
+        else if (isConsumable)
         {
             ConsumeText.SetActive(true);
             print(gameObject.name + " OnStartHover");
@@ -39,8 +40,8 @@ public class Torch : MonoBehaviour, IInteractable
             isConsumable = false;
             Light.SetActive(false);
             ConsumeText.SetActive(false);
-            Health[] dummies = (Health[]) GameObject.FindObjectsOfType(typeof(Health));
-            foreach(Health dummy in dummies)
+            Health[] dummies = (Health[])GameObject.FindObjectsOfType(typeof(Health));
+            foreach (Health dummy in dummies)
             {
                 if (dummy.AmIPlayer)
                 {

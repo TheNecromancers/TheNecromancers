@@ -5,8 +5,6 @@ using TheNecromancers.StateMachine.Player;
 
 public class Chest : MonoBehaviour, IInteractable
 {
-
-
     private bool isInteractable = true;
     public bool IsInteractable => isInteractable;
     [SerializeField] ItemObject item;
@@ -18,7 +16,7 @@ public class Chest : MonoBehaviour, IInteractable
     {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-  
+
     public void OnInteract()
     {
         if (!isInteractable) return;
@@ -26,17 +24,16 @@ public class Chest : MonoBehaviour, IInteractable
         AddItemToInventory(player.GetComponent<PlayerStateMachine>().inventoryObject);
         InteractiveText.SetActive(false);
         print("Interact with " + gameObject.name);
-        isInteractable =false;
+        isInteractable = false;
     }
 
-        public void OnStartHover()
+    public void OnStartHover()
     {
         if (!isInteractable) return;
 
         InteractiveText.SetActive(true);
         print(gameObject.name + " OnStartHover");
     }
-
 
     public void OnEndHover()
     {
@@ -50,6 +47,4 @@ public class Chest : MonoBehaviour, IInteractable
     {
         inventory.AddItem(item, 1);
     }
-
-
 }

@@ -17,8 +17,6 @@ namespace TheNecromancers.UI.Player
 
         private void UpdateUI(IInteractable CurrentTarget)
         {
-            Debug.Log("IsInteractable? " + CurrentTarget?.IsInteractable);
-
             if (CurrentTarget != null)
             {
                 InteractionText.enabled = CurrentTarget.IsInteractable;

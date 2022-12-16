@@ -27,34 +27,32 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public float RollDuration { get; private set; }
 
         [field: Header("Attack Settings")]
-        [field: SerializeField] public WeaponSO WeaponRightHand { get;  set; } = null;
-        [field: SerializeField] public WeaponSO WeaponLeftHand { get;  set; } = null;
+        [field: SerializeField] public WeaponSO WeaponRightHand { get; set; } = null;
+        [field: SerializeField] public WeaponSO WeaponLeftHand { get; set; } = null;
         [field: SerializeField] public Attack[] Attacks { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
-        public WeaponLogic WeaponLogic { get;  set; } = null;
+        public WeaponLogic WeaponLogic { get; set; } = null;
         public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
-        private void Awake() 
+        private void Awake()
         {
             InventoryUIManager = FindObjectOfType<DisplayInventory>();
             InventoryManager = gameObject.GetComponent<InventoryManager>();
         }
         private void Start()
         {
-            InputManager.CombactAbilityEvent += OnCombactAbility;
-            InputManager.ExplorationAbilityEvent += OnExplorationAbility;
             WeaponRightHand?.Equip(RightHandHolder.transform);
             WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
             WeaponLeftHand?.Equip(LeftHandHolder.transform);
             MainCameraTransform = Camera.main.transform;
-            SwitchState(new PlayerLocomotionState(this));
             InventoryManager.inventoryObject = inventoryObject;
             InventoryManager.displayInventory = InventoryUIManager;
             InventoryManager.playerStateMachine = this;
-            inventoryObject.playerStateMachine=gameObject.GetComponent<PlayerStateMachine>();
+            inventoryObject.playerStateMachine = gameObject.GetComponent<PlayerStateMachine>();
 
+            SwitchState(new PlayerLocomotionState(this));
         }
 
         private void OnEnable()
@@ -63,6 +61,8 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.InteractEvent += HandleInteract;
             InputManager.InteractEvent += HandleInteract;
             InputManager.InventoryEvent += InventoryUIManager.HandleInventoryInteraction;
+            InputManager.CombactAbilityEvent += OnCombactAbility;
+            InputManager.ExplorationAbilityEvent += OnExplorationAbility;
         }
 
 
@@ -80,7 +80,7 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.InteractEvent -= HandleInteract;
             InputManager.InventoryEvent -= InventoryUIManager.HandleInventoryInteraction;
         }
-        
+
         void HandleInteract()
         {
             if (InteractionDetector.CurrentTarget != null)
@@ -112,21 +112,21 @@ namespace TheNecromancers.StateMachine.Player
             Health.SetInvulnerable(true);
         }
 
-    void OnCombactAbility()
-    {
-        if (AbilitySystemManager != null)
+        void OnCombactAbility()
         {
-            AbilitySystemManager.OnCombactAbility(transform.position);
+            if (AbilitySystemManager != null)
+            {
+                AbilitySystemManager.OnCombactAbility(transform.position);
+            }
         }
-    }
 
-    void OnExplorationAbility()
-    {
+        void OnExplorationAbility()
+        {
             if (AbilitySystemManager != null)
             {
                 AbilitySystemManager.OnExplorationAbility();
             }
-    }
+        }
         void OnEndParry()
         {
             Debug.Log("End Parry");
@@ -134,7 +134,7 @@ namespace TheNecromancers.StateMachine.Player
             Health.SetInvulnerable(false);
         }
 
-        private void OnApplicationQuit() 
+        private void OnApplicationQuit()
         {
             inventoryObject.Container.Clear();
         }

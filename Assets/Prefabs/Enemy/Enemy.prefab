@@ -613,8 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904d152f69a09774189aff0b465e7441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackParticleFX: {fileID: 5880797563127281583, guid: 265d3a5ba69981a4698ceabcedf368b0, type: 3}
-  HitParticleFX: {fileID: 0}
+  AttackParticleFX: {fileID: 9090141108332099919, guid: b4b17e5a44aaf884fae873ba7d2c797e, type: 3}
+  HitParticleFX: {fileID: 6703250321131892297, guid: 2b987d41506d172419fa18578f6ac380, type: 3}
 --- !u!1 &3567506295157669460
 GameObject:
   m_ObjectHideFlags: 0
