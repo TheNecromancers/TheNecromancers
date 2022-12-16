@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TheNecromancers.Gameplay.Player;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Player
@@ -37,7 +38,7 @@ namespace TheNecromancers.StateMachine.Player
             return forward * stateMachine.InputManager.MovementValue.y + right * stateMachine.InputManager.MovementValue.x;
         }
 
-      
+
 
         protected void FaceMovementDirection(Vector3 movement, float deltaTime)
         {
@@ -91,6 +92,13 @@ namespace TheNecromancers.StateMachine.Player
             return;
         }
 
-      
+        protected void OnInteract()
+        {
+            if (stateMachine.InteractionDetector.CurrentTarget == null) { return; }
+
+            stateMachine.InteractionDetector.CurrentTarget.OnInteract();
+            stateMachine.SwitchState(new PlayerInteractingState(stateMachine));
+            Debug.Log(stateMachine.InteractionDetector.CurrentTarget);
+        }
     }
 }

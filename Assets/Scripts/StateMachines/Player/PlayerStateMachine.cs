@@ -55,8 +55,6 @@ namespace TheNecromancers.StateMachine.Player
         private void OnEnable()
         {
             Health.OnDie += HandleDie;
-            InputManager.InteractEvent += HandleInteract;
-            InputManager.InteractEvent += HandleInteract;
             InputManager.InventoryEvent += DisplayInventory.HandleInventoryInteraction;
             InputManager.CombactAbilityEvent += OnCombactAbility;
             InputManager.ExplorationAbilityEvent += OnExplorationAbility;
@@ -72,19 +70,9 @@ namespace TheNecromancers.StateMachine.Player
             Health.OnDie -= HandleDie;
             InputManager.CombactAbilityEvent -= OnCombactAbility;
             InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
-            InputManager.InteractEvent -= HandleInteract;
-            InputManager.InteractEvent -= HandleInteract;
             InputManager.InventoryEvent -= DisplayInventory.HandleInventoryInteraction;
         }
 
-        void HandleInteract()
-        {
-            if (InteractionDetector.CurrentTarget != null)
-            {
-                InteractionDetector.CurrentTarget.OnInteract();
-                SwitchState(new PlayerInteractingState(this));
-            }
-        }
 
         //Animations Events
         void OnStartAttackAnim()

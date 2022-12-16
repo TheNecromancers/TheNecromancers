@@ -28,7 +28,7 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Exit()
         {
-
+            stateMachine.InteractionDetector.CurrentTarget = null;
         }
     }
 }

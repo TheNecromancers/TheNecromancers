@@ -23,6 +23,7 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.InputManager.RollEvent += OnRoll;
             stateMachine.InputManager.TargetEvent += OnTarget;
             stateMachine.InputManager.BlockEvent += OnBlock;
+            stateMachine.InputManager.InteractEvent += OnInteract;
 
             stateMachine.Health.OnTakeDamage += HandleTakeDamage;
         }
@@ -54,6 +55,8 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.InputManager.RollEvent -= OnRoll;
             stateMachine.InputManager.TargetEvent -= OnTarget;
             stateMachine.InputManager.BlockEvent -= OnBlock;
+            stateMachine.InputManager.InteractEvent -= OnInteract;
+
 
             stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
