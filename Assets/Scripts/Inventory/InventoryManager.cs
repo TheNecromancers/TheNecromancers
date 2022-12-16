@@ -5,9 +5,7 @@ using TheNecromancers.StateMachine.Player;
 using TheNecromancers.Combat;
 
 public class InventoryManager : MonoBehaviour
-
 {
-
     public InventoryObject inventoryObject { get; set; }
     public PlayerStateMachine playerStateMachine { get; set; }
     public DisplayInventory displayInventory { get; set; }
@@ -27,33 +25,29 @@ public class InventoryManager : MonoBehaviour
     {
         if (_item is WeaponSO)
         {
-
             WeaponSO _tempSO = (WeaponSO)_item;
             Debug.Log(_tempSO.itemPrefab);
 
             Equip(_tempSO);
-
         }
     }
     public void Equip(WeaponSO weapon)
     {
-
         //inventoryObject.AddItem(weapon,-1);
 
         if (weapon.WeaponType == WeaponType.LeftHand)
         {
             //inventoryObject.AddItem(playerStateMachine.WeaponLeftHand,1);
-            if (playerStateMachine.RightHandHolder.transform.childCount > 0)
+            if (playerStateMachine.LeftHandHolder.transform.childCount > 0)
             {
-                Destroy(playerStateMachine.RightHandHolder.transform.GetChild(0).gameObject);
+                Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
             }
 
             GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
             playerStateMachine.WeaponLeftHand = weapon;
             Debug.Log("equipped" + weapon + "on left hand");
-
-
         }
+
         if (weapon.WeaponType == WeaponType.RightHand)
         {
             //inventoryObject.AddItem(playerStateMachine.WeaponRightHand, 1);

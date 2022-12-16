@@ -90,5 +90,7 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
             return;
         }
+
+      
     }
 }

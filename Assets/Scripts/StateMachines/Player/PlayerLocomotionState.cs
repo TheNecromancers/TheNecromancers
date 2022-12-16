@@ -37,7 +37,6 @@ namespace TheNecromancers.StateMachine.Player
                 return;
             }
 
-
             Move(movement * stateMachine.MovementSpeed, deltaTime);
 
             if (stateMachine.InputManager.MovementValue == Vector2.zero)
@@ -59,7 +58,6 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
 
-    
 
         void OnRoll()
         {
@@ -67,11 +65,12 @@ namespace TheNecromancers.StateMachine.Player
             return;
         }
 
-        private void OnTarget()
+        protected void OnTarget()
         {
             if (!stateMachine.Targeter.SelectTarget()) { return; }
 
             stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
+
     }
 }
