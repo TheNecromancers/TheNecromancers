@@ -12,7 +12,7 @@
 // #define GLOBAL_DISABLE_SOFT_PARTICLES
 
 /* Uncomment this line to do Soft Particles depth calculation in Orthographic mode */
-// #define SOFT_PARTICLES_ORTHOGRAPHIC
+#define SOFT_PARTICLES_ORTHOGRAPHIC
 
 /* Change this value if you want to globally scale the HDR effects */
 #define GLOBAL_HDR_MULTIPLIER 1
