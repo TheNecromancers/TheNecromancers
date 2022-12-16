@@ -27,6 +27,9 @@ namespace TheNecromancers.StateMachine.Player
 
             stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRightHand.Damage, stateMachine.WeaponRightHand.Knockbacks[attackIndex]);
 
+            stateMachine.RightHandHolder.transform.GetChild(0).transform.localRotation = 
+                Quaternion.Euler(0, -90f, 0);
+
             stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
         }
 
@@ -63,6 +66,10 @@ namespace TheNecromancers.StateMachine.Player
         public override void Exit()
         {
             stateMachine.InputManager.TargetEvent -= OnTarget;
+
+            stateMachine.RightHandHolder.transform.GetChild(0).transform.localRotation = 
+                Quaternion.Euler(0, 90f, 0);
+
         }
 
         private void TryApplyForce()
