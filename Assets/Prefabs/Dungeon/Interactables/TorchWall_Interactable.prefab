@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Light: {fileID: 1207705135918564861}
-  InteractiveText: {fileID: 1207705136954260174}
   ConsumeText: {fileID: 2438821082886507082}
 --- !u!65 &2371078702537333519
 BoxCollider:
@@ -466,10 +465,5 @@ Transform:
 --- !u!224 &1207705135967807484 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2872812130881824521, guid: 1825effc36f07184a9664f0fcb169cd0, type: 3}
-  m_PrefabInstance: {fileID: 3971301883290730741}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1207705136954260174 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2872812131843111483, guid: 1825effc36f07184a9664f0fcb169cd0, type: 3}
   m_PrefabInstance: {fileID: 3971301883290730741}
   m_PrefabAsset: {fileID: 0}

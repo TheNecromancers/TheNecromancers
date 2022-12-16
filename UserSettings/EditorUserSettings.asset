@@ -6,16 +6,22 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
-      value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
+      value: 53520d5257575b5a550c0f7342715d44404e4f7d747e20632f2f4b66e6b1326a
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 0205020455050c0f095a0f2316725944474e492e74707362787c4f6ae0e5376e
+      value: 5305555052020c5a0f5758701670074444151b7c7e7b7164747e4a66bbb6603c
       flags: 0
     RecentlyUsedSceneGuid-2:
-      value: 555550500651500d0b5f557545705b444f4f4e7c7f7e7e682b7a1f36e4b6616c
+      value: 0205020455050c0f095a0f2316725944474e492e74707362787c4f6ae0e5376e
       flags: 0
     RecentlyUsedSceneGuid-3:
+      value: 555550500651500d0b5f557545705b444f4f4e7c7f7e7e682b7a1f36e4b6616c
+      flags: 0
+    RecentlyUsedSceneGuid-4:
       value: 5107565f04530b0d5f5e5d7340220c44464e1b2b787825342e7c4436e6b96469
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5a5757560101590a5d0c0e24427b5d44434e4c7a7b7a23677f2b4565b7b5353a
       flags: 0
   m_VCAutomaticAdd: 1
   m_VCDebugCom: 0
