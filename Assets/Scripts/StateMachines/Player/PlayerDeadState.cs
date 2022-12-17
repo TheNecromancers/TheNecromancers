@@ -15,17 +15,13 @@ namespace TheNecromancers.StateMachine.Player
 
         public override void Enter()
         {
-            stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeduration);
             Debug.Log("Player è morto");
+            stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeduration);
         }
 
-        public override void Tick(float deltaTime)
-        {
-        }
+        public override void Tick(float deltaTime) { }
 
-        public override void Exit()
-        {
-        }
+        public override void Exit() { }
 
     }
 }

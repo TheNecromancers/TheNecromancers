@@ -1342,7 +1342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4104028584055099846}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 10.463725, y: 6.150001, z: 3.9662764}
+  m_LocalPosition: {x: 6.1237245, y: 6.3400006, z: -6.123724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1397,6 +1397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4104028584140096231}
+  - component: {fileID: 1949849538}
   m_Layer: 0
   m_Name: PlayerRig
   m_TagString: Untagged
@@ -1423,6 +1424,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1949849538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104028584140096230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6746a619122cf74e9d542ab44b2f102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4104028584141709696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,7 +1542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4104028584176067591}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 10.463725, y: 6.150001, z: 3.9662764}
+  m_LocalPosition: {x: 6.1237245, y: 6.3400006, z: -6.123724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1799,7 +1812,7 @@ GameObject:
   - component: {fileID: 4104028583555521704}
   - component: {fileID: 493982408608715275}
   m_Layer: 5
-  m_Name: InventoryScreen
+  m_Name: Display Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1943,7 +1956,7 @@ GameObject:
   - component: {fileID: 4388233961190388373}
   - component: {fileID: 4388233961190388372}
   m_Layer: 5
-  m_Name: Inventory Canvas
+  m_Name: InventoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3337,7 +3350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7684625680737355378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.34, y: 1.15, z: 10.09}
+  m_LocalPosition: {x: 0, y: 1.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3373,15 +3386,15 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 4104028584024974727}
   <AbilitySystemManager>k__BackingField: {fileID: 2790162575705944131}
   <inventoryObject>k__BackingField: {fileID: 11400000, guid: c0508c6c3ca3f4441a3410f0062c7362, type: 2}
-  <InventoryUIManager>k__BackingField: {fileID: 0}
+  <DisplayInventory>k__BackingField: {fileID: 4388233960594917731}
   <InventoryManager>k__BackingField: {fileID: 261590991303474203}
   <MovementSpeed>k__BackingField: 4.8
   <TargetingMovementSpeed>k__BackingField: 3.5
   <RotationSpeed>k__BackingField: 8
   <RollForce>k__BackingField: 6
   <RollDuration>k__BackingField: 0.7
-  <WeaponRightHand>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
-  <WeaponLeftHand>k__BackingField: {fileID: 11400000, guid: 7b0334a50e8a52349a39addbda4226e1, type: 2}
+  <WeaponRightHand>k__BackingField: {fileID: 0}
+  <WeaponLeftHand>k__BackingField: {fileID: 0}
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1

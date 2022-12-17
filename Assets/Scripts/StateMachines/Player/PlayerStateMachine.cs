@@ -1,6 +1,8 @@
 using UnityEngine;
 using TheNecromancers.Gameplay.Player;
 using TheNecromancers.Combat;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -36,6 +38,9 @@ namespace TheNecromancers.StateMachine.Player
         public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
+        public Vector3 LastSpawnPosition { get => lastSpawnPosition; set { lastSpawnPosition = value; }  }
+        private Vector3 lastSpawnPosition;
+
         private void Start()
         {
             MainCameraTransform = Camera.main.transform;
@@ -63,6 +68,7 @@ namespace TheNecromancers.StateMachine.Player
         private void HandleDie()
         {
             SwitchState(new PlayerDeadState(this));
+            StartCoroutine(Respawn());
         }
 
         private void OnDisable()
@@ -87,6 +93,30 @@ namespace TheNecromancers.StateMachine.Player
             {
                 AbilitySystemManager.OnExplorationAbility();
             }
+        }
+
+        IEnumerator Respawn()
+        {
+           // inventoryObject.Save();
+
+            yield return new WaitForSeconds(2f);
+
+            Health.RestoreLife();
+
+            SwitchState(new PlayerLocomotionState(this));
+
+            Controller.enabled = false;
+            transform.position = lastSpawnPosition;
+            Controller.enabled = true;
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+          //  inventoryObject.Load();
+        }
+
+        public bool HaveShield()
+        {
+            return LeftHandHolder != null && WeaponLeftHand != null;
         }
 
         //Animations Events
@@ -120,11 +150,6 @@ namespace TheNecromancers.StateMachine.Player
             }
         }
 
-        public bool HaveShield()
-        {
-            return LeftHandHolder != null && WeaponLeftHand != null;
-        }
-
         private void OnApplicationQuit()
         {
             inventoryObject.Container.Clear();
@@ -133,8 +158,6 @@ namespace TheNecromancers.StateMachine.Player
         /* 
         public void EquipmentChange(WeaponSO _weapon)
         {
-
-
             Debug.Log("weapon changed");
             if(_weapon.WeaponType == WeaponType.LeftHand)
             {
@@ -145,7 +168,6 @@ namespace TheNecromancers.StateMachine.Player
             {
                 WeaponRightHand = _weapon;
                 WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
-                
             }
         } */
     }

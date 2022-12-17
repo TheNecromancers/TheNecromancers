@@ -38,8 +38,9 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
 
     private void OnDestroy()
     {
-        controls.Player.Disable();
-        controls.UIControls.Disable();
+        // The player not longer destroyed
+        //controls.Player.Disable();
+        //controls.UIControls.Disable();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -79,7 +80,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
 
         InteractEvent?.Invoke();
     }
-
 
     public void OnCombactAbility(InputAction.CallbackContext context)
     {
