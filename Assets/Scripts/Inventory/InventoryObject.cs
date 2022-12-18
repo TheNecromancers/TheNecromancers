@@ -13,7 +13,7 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 {
     public string savePath;
     private ItemDatabaseObject database;
-    public List<InventorySlot> Container = new List<InventorySlot>();
+    public List<InventorySlot> Container = new();
     public PlayerStateMachine playerStateMachine { get; set; }
 
     private void OnEnable()
@@ -23,45 +23,36 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
             typeof(ItemDatabaseObject));
 #else
     database = Resources.Load<ItemDatabaseObject>("Database");
-
 #endif
     }
-
+    
     public void AddItem(ItemObject _item, int _amount)
     {
-        //bool hasItem = false;
         for (int i = 0; i < Container.Count; i++)
         {
             if (Container[i].item == _item)
             {
                 Container[i].AddAmount(_amount);
-                //hasItem = true;
-                return; //break
+                return; 
             }
         }
-        //if (!hasItem)
-        //{
-            Container.Add(new InventorySlot(database.GedId[_item], _item, _amount));
-        //}
+        Container.Add(new InventorySlot(database.GedId[_item], _item, _amount));
     }
 
     public void Save()
     {
-        // da fare evitare di usare il Binary formatter !
         string saveData = JsonUtility.ToJson(this, true);
-        BinaryFormatter bf = new BinaryFormatter();
+        BinaryFormatter bf = new();
         FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
         bf.Serialize(file, saveData);
         file.Close();
-
     }
 
     public void Load()
     {
-        // da fare evitando di usare il Binary formatter !
         if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
         {
-            BinaryFormatter bf = new BinaryFormatter();
+            BinaryFormatter bf = new();
             FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
             JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
             file.Close();

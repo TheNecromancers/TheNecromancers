@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TheNecromancers.StateMachine.Player;
+using Unity.XR.GoogleVr;
 
 public class Chest : MonoBehaviour, IInteractable
 {
+    
     private bool isInteractable = true;
     public bool IsInteractable => isInteractable;
     [SerializeField] ItemObject item;
@@ -15,7 +17,7 @@ public class Chest : MonoBehaviour, IInteractable
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    }
+    } 
 
     public void OnInteract()
     {
@@ -24,6 +26,7 @@ public class Chest : MonoBehaviour, IInteractable
         AddItemToInventory(player.GetComponent<PlayerStateMachine>().inventoryObject);
         InteractiveText.SetActive(false);
         print("Interact with " + gameObject.name);
+
         isInteractable = false;
     }
 
