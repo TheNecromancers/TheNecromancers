@@ -97,7 +97,7 @@ namespace TheNecromancers.StateMachine.Player
 
         IEnumerator Respawn()
         {
-           // inventoryObject.Save();
+            inventoryObject.Save();
 
             yield return new WaitForSeconds(2f);
 
@@ -111,7 +111,7 @@ namespace TheNecromancers.StateMachine.Player
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-          //  inventoryObject.Load();
+            inventoryObject.Load();
         }
 
         public bool HaveShield()
