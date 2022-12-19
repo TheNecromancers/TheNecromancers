@@ -42,7 +42,8 @@ namespace TheNecromancers.StateMachine.Player
         public Vector3 LastSpawnPosition { get => lastSpawnPosition; set { lastSpawnPosition = value; } }
         private Vector3 lastSpawnPosition;
 
-        //public List<Chest> chests;
+        public List<Chest> chests;
+
 
         private void Start()
         {
@@ -59,9 +60,6 @@ namespace TheNecromancers.StateMachine.Player
 
             SwitchState(new PlayerLocomotionState(this));
 
-            //SearchChest();
-
-
         }
 
         private void OnEnable()
@@ -70,29 +68,31 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.InventoryEvent += DisplayInventory.HandleInventoryInteraction;
             InputManager.CombactAbilityEvent += OnCombactAbility;
             InputManager.ExplorationAbilityEvent += OnExplorationAbility;
-            //InputManager.ResetInventoryChestEvent += OnResetInventoryChest;
+            InputManager.ResetInventoryChestEvent += OnResetInventoryChest;
         }
 
-        //void SearchChest()
-        //{
-        //    var Chests = FindObjectsOfType<Chest>();
-        //    for (int f = 0; f < Chests.Length; f++)
-        //    {
-        //        chests.Add(Chests[f]);
-        //    }
-        //}
+        void SearchChest()
+        {
+            var Chests = FindObjectsOfType<Chest>();
+            for (int f = 0; f < Chests.Length; f++)
+            {
+                chests.Add(Chests[f]);
+            }
+        }
 
-        //void OnResetInventoryChest()
-        //{
-        //    Debug.Log("Reset");
-        //    inventoryObject.Container.Clear();
+        void OnResetInventoryChest()
+        {
+            Debug.Log("Reset");
+            inventoryObject.Container.Clear();
 
-        //    for (int i = 0; i < chests.Count; i++)
-        //    {
-        //        chests[i].ResetChest();
-        //    }
+            SearchChest();
 
-        //}
+            for (int i = 0; i < chests.Count; i++)
+            {
+                chests[i].ResetChest();
+            }
+
+        }
 
         private void HandleDie()
         {

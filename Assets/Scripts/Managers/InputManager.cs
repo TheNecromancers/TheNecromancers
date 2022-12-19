@@ -138,8 +138,8 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
 
     public void OnResetInvetoryChest(InputAction.CallbackContext context)
     {
-        //if (!context.performed) { return; }
+        if (!context.performed) { return; }
 
-        //ResetInventoryChestEvent?.Invoke();
+        ResetInventoryChestEvent?.Invoke();
     }
 }

@@ -79,8 +79,8 @@ public class Chest : MonoBehaviour, IInteractable
         }
     }
 
-    //public void ResetChest()
-    //{
-    //    isInteractable = true;
-    //}
+    public void ResetChest()
+    {
+        isInteractable = true;
+    }
 }
