@@ -353,6 +353,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ResetInvetoryChest",
+                    "type": "Button",
+                    "id": "096a08c4-f421-44eb-9441-b0bc75a93827",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -375,6 +384,17 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "UIInventoryInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cedab102-a64a-4c04-a885-db100b1d68c7",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "ResetInvetoryChest",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

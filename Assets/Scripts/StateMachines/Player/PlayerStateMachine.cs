@@ -3,6 +3,7 @@ using TheNecromancers.Gameplay.Player;
 using TheNecromancers.Combat;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -38,8 +39,10 @@ namespace TheNecromancers.StateMachine.Player
         public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
-        public Vector3 LastSpawnPosition { get => lastSpawnPosition; set { lastSpawnPosition = value; }  }
+        public Vector3 LastSpawnPosition { get => lastSpawnPosition; set { lastSpawnPosition = value; } }
         private Vector3 lastSpawnPosition;
+
+        //public List<Chest> chests;
 
         private void Start()
         {
@@ -55,6 +58,10 @@ namespace TheNecromancers.StateMachine.Player
             inventoryObject.playerStateMachine = gameObject.GetComponent<PlayerStateMachine>();
 
             SwitchState(new PlayerLocomotionState(this));
+
+            //SearchChest();
+
+
         }
 
         private void OnEnable()
@@ -63,7 +70,29 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.InventoryEvent += DisplayInventory.HandleInventoryInteraction;
             InputManager.CombactAbilityEvent += OnCombactAbility;
             InputManager.ExplorationAbilityEvent += OnExplorationAbility;
+            //InputManager.ResetInventoryChestEvent += OnResetInventoryChest;
         }
+
+        //void SearchChest()
+        //{
+        //    var Chests = FindObjectsOfType<Chest>();
+        //    for (int f = 0; f < Chests.Length; f++)
+        //    {
+        //        chests.Add(Chests[f]);
+        //    }
+        //}
+
+        //void OnResetInventoryChest()
+        //{
+        //    Debug.Log("Reset");
+        //    inventoryObject.Container.Clear();
+
+        //    for (int i = 0; i < chests.Count; i++)
+        //    {
+        //        chests[i].ResetChest();
+        //    }
+
+        //}
 
         private void HandleDie()
         {
@@ -77,6 +106,7 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.CombactAbilityEvent -= OnCombactAbility;
             InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
             InputManager.InventoryEvent -= DisplayInventory.HandleInventoryInteraction;
+            //InputManager.ResetInventoryChestEvent -= OnResetInventoryChest;
         }
 
         void OnCombactAbility()
@@ -150,10 +180,10 @@ namespace TheNecromancers.StateMachine.Player
             }
         }
 
-        private void OnApplicationQuit()
-        {
-            inventoryObject.Container.Clear();
-        }
+        //private void OnApplicationQuit()
+        //{
+        //    inventoryObject.Container.Clear();
+        //}
 
         /* 
         public void EquipmentChange(WeaponSO _weapon)

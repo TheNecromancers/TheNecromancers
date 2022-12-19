@@ -13,8 +13,6 @@ public class ItemDisplayed : MonoBehaviour
 
     private void Awake() 
     {
-
-
         itemButton = gameObject.GetComponent<Button>();
         itemButton.onClick.AddListener(()=> displayInventory.GetItem(item));
     }

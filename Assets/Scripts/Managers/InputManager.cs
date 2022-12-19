@@ -22,8 +22,11 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
     public event Action PrevTargetEvent;
 
     public event Action InventoryEvent;
+    public event Action ResetInventoryChestEvent;
 
     private Controls controls;
+
+   
 
     private void Start()
     {
@@ -133,4 +136,10 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
         }
     }
 
+    public void OnResetInvetoryChest(InputAction.CallbackContext context)
+    {
+        //if (!context.performed) { return; }
+
+        //ResetInventoryChestEvent?.Invoke();
+    }
 }
