@@ -13,14 +13,12 @@ public class Chest : MonoBehaviour, IInteractable
     public bool IsInteractable => isInteractable;
     public string savePath;
     [SerializeField] ItemObject item;
-    /*[SerializeField]*/ GameObject InteractiveText;
 
     GameObject player;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        InteractiveText = this.transform.GetChild(0).gameObject;
         Load();
     }
 
@@ -29,7 +27,6 @@ public class Chest : MonoBehaviour, IInteractable
         if (!isInteractable) return;
 
         AddItemToInventory(player.GetComponent<PlayerStateMachine>().inventoryObject);
-        InteractiveText.SetActive(false);
         print("Interact with " + gameObject.name);
 
         isInteractable = false;
@@ -40,7 +37,6 @@ public class Chest : MonoBehaviour, IInteractable
     {
         if (!isInteractable) return;
 
-        InteractiveText.SetActive(true);
         print(gameObject.name + " OnStartHover");
 
     }
@@ -49,7 +45,6 @@ public class Chest : MonoBehaviour, IInteractable
     {
         if (!isInteractable) return;
 
-        InteractiveText.SetActive(false);
         print(gameObject.name + " OnEndHover");
 
     }
