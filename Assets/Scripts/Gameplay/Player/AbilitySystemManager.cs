@@ -32,9 +32,10 @@ public class AbilitySystemManager : MonoBehaviour
     [SerializeField] float Radius;
     [SerializeField] float KnockbackForce;
 
-
     private bool repulsionRunning;
     private bool explorationRunning;
+    private bool repulsionOnCD;
+    private bool explorationOnCD;
     private float intensityWeight;
     private float heightWeight;
     private float rangeWeight;
@@ -52,10 +53,12 @@ public class AbilitySystemManager : MonoBehaviour
         Light.transform.localPosition = new Vector3(Light.transform.localPosition.x, MinHeight, Light.transform.localPosition.z);
         explorationRunning = false;
         repulsionRunning = false;
+        repulsionOnCD = false;
+        explorationOnCD = false;
     }
     public void OnCombactAbility(Vector3 playerPosition)
     {
-        if (!repulsionRunning)
+        if (!repulsionRunning && !repulsionOnCD && !explorationRunning)
         {
             MinIntensity = Light.intensity;
             repulsionRunning = true;
@@ -112,13 +115,15 @@ public class AbilitySystemManager : MonoBehaviour
         }
         yield return new WaitForSeconds(0.5f);
         Light.intensity = MinIntensity;
+        repulsionRunning = false;
+        repulsionOnCD = true;
         yield return StartCoroutine(CooldownRepulsionAbility());
 
     }
 
     public void OnExplorationAbility()
     {
-        if (!explorationRunning)
+        if (!explorationRunning && !explorationOnCD && !repulsionRunning)
         {
             MinRange = Light.range;
             MinIntensity = Light.intensity;
@@ -133,7 +138,7 @@ public class AbilitySystemManager : MonoBehaviour
         AbilityController.UseRepulsionAbility(RepulsionCooldown);
         Debug.Log("Started Cooldown of " + RepulsionCooldown + " Seconds");
         yield return new WaitForSeconds(RepulsionCooldown);
-        repulsionRunning = false;
+        repulsionOnCD = false;
         Debug.Log("Ended Cooldown. Repulsion Ability Available.");
     }
 
@@ -142,7 +147,7 @@ public class AbilitySystemManager : MonoBehaviour
         AbilityController.UseExplorationAbility(ExplorationCooldown);
         Debug.Log("Started Cooldown of " + ExplorationCooldown + " Seconds");
         yield return new WaitForSeconds(ExplorationCooldown);
-        explorationRunning = false;
+        explorationOnCD = false;
         Debug.Log("Ended Cooldown. Exploration Ability Available.");
     }
 
@@ -171,6 +176,8 @@ public class AbilitySystemManager : MonoBehaviour
         }
         Light.range = Mathf.Clamp(Light.range, MinRange, MaxRange);
         Light.intensity = Mathf.Clamp(Light.intensity, MinIntensity, MaxIntensity);
+        explorationRunning = false;
+        explorationOnCD = true;
         yield return StartCoroutine(CooldownExplorationAbility()); 
 
     }
