@@ -30,6 +30,7 @@ public class DisplayInventory : MonoBehaviour
     void Start()
     {
         InventoryCanvas.SetActive(false);
+        InventoryCamera.SetActive(false);
         CreateDisplay();
         UseButton.onClick.AddListener(() => InventoryManager.ItemSelectionDelegate(selectedItem));
 

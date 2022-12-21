@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 [System.Serializable]
 public class ColorHealthLevel
@@ -11,12 +12,15 @@ public class ColorHealthLevel
     public Color Color;
     public float Range;
     public float Intensity;
+    public float PlayerIntensity;
 }
 
 public class HealthLightManager : MonoBehaviour
 {
     [SerializeField] ColorHealthLevel[] colorHealthLevels;
     [SerializeField] float TransitionSpeed;
+    [SerializeField] Light DirectionalLightOnPlayer;
+    [SerializeField] float PlayerIntensityWhenDeath;
     Light Light;
 
     private void Awake()
@@ -33,8 +37,9 @@ public class HealthLightManager : MonoBehaviour
             if (currPercentage > chl.Percentage)
             {
                 StartCoroutine(ChangeRangeOverTime(chl.Range, false));
-                StartCoroutine(ChangeIntensityOverTime(chl.Intensity, false));
+                StartCoroutine(ChangeIntensityOverTime(Light,chl.Intensity, false));
                 StartCoroutine(ChangeColorOverTime(chl.Color));
+                StartCoroutine(ChangeIntensityOverTime(DirectionalLightOnPlayer, chl.PlayerIntensity, false));
                 break;
             }
         }
@@ -52,7 +57,7 @@ public class HealthLightManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ChangeIntensityOverTime(float targetIntensity, bool increment)
+    private IEnumerator ChangeIntensityOverTime(Light Light,float targetIntensity, bool increment)
     {
         if (increment)
         {
@@ -94,11 +99,16 @@ public class HealthLightManager : MonoBehaviour
         }
         Light.range = targetRange;
     }
+    public void ChangePlayerIlluminationToDeath()
+    {
+        StartCoroutine(ChangeIntensityOverTime(DirectionalLightOnPlayer, PlayerIntensityWhenDeath, false));
+    }
 
     public void RestoreLifeColors()
     {
         StartCoroutine(ChangeRangeOverTime(colorHealthLevels[0].Range, true));
-        StartCoroutine(ChangeIntensityOverTime(colorHealthLevels[0].Intensity, true));
+        StartCoroutine(ChangeIntensityOverTime(Light,colorHealthLevels[0].Intensity, true));
         StartCoroutine(ChangeColorOverTime(colorHealthLevels[0].Color));
+        StartCoroutine(ChangeIntensityOverTime(DirectionalLightOnPlayer, colorHealthLevels[0].PlayerIntensity, true));
     }
 }

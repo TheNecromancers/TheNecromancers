@@ -82,5 +82,11 @@ namespace TheNecromancers.Combat
             if (AmIPlayer)
                 HealthLightManager.RestoreLifeColors();
         }
+
+        public void ChangePlayerIlluminationToDeath()
+        {
+            if (AmIPlayer)
+                HealthLightManager.ChangePlayerIlluminationToDeath();
+        }
     }
 }

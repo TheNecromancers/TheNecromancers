@@ -1542,7 +1542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4104028584176067591}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 6.1237245, y: 6.3400006, z: -6.123724}
+  m_LocalPosition: {x: 6.123725, y: 6.0900006, z: -23.293726}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3302,23 +3302,30 @@ MonoBehaviour:
     Color: {r: 0.9882353, g: 0.972549, b: 0.7294118, a: 1}
     Range: 20
     Intensity: 25
+    PlayerIntensity: 2
   - Percentage: 75
     Color: {r: 0.99607843, g: 0.84705883, b: 0.35686275, a: 1}
     Range: 20
     Intensity: 20
+    PlayerIntensity: 1.5
   - Percentage: 50
     Color: {r: 0.9882353, g: 0.72156864, b: 0.16078432, a: 1}
     Range: 15
     Intensity: 15
+    PlayerIntensity: 1
   - Percentage: 25
     Color: {r: 0.9490196, g: 0.49019608, b: 0.078431375, a: 1}
     Range: 10
     Intensity: 10
+    PlayerIntensity: 0.7
   - Percentage: 10
     Color: {r: 0.87058824, g: 0.3529412, b: 0.09803922, a: 1}
     Range: 10
     Intensity: 5
+    PlayerIntensity: 0.35
   TransitionSpeed: 4
+  DirectionalLightOnPlayer: {fileID: 4104028583854947308}
+  PlayerIntensityWhenDeath: 0.1
 --- !u!1 &7684625680737355378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3416,6 +3423,7 @@ MonoBehaviour:
     <ForceTime>k__BackingField: 0.1
   <RightHandHolder>k__BackingField: {fileID: 8493035885526396127}
   <LeftHandHolder>k__BackingField: {fileID: 1652417492903794154}
+  chests: []
 --- !u!114 &7684625680737355382
 MonoBehaviour:
   m_ObjectHideFlags: 0
