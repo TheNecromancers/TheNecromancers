@@ -15,31 +15,31 @@ public class Torch : MonoBehaviour, IInteractable
     public void OnStartHover()
     {
         if (!isInteractable && !isConsumable) return;
-        if (isInteractable)
+        if (isInteractable && !isConsumable)
         {
             print(gameObject.name + " OnStartHover");
         }
-        else if (isConsumable)
+        else if (isInteractable && isConsumable)
         {
-            ConsumeText.SetActive(true);
+            //ConsumeText.SetActive(true);
             print(gameObject.name + " OnStartHover");
         }
     }
     public void OnInteract()
     {
         if (!isInteractable && !isConsumable) return;
-        if (isInteractable)
+        if (isInteractable && !isConsumable)
         {
-            isInteractable = false;
             isConsumable = true;
             Light.SetActive(true);
             print("Interact with" + gameObject.name);
         }
-        else if (isConsumable)
+        else if (isInteractable && isConsumable)
         {
+            isInteractable = false;
             isConsumable = false;
             Light.SetActive(false);
-            ConsumeText.SetActive(false);
+            //ConsumeText.SetActive(false);
             Health[] dummies = (Health[])GameObject.FindObjectsOfType(typeof(Health));
             foreach (Health dummy in dummies)
             {
@@ -54,13 +54,13 @@ public class Torch : MonoBehaviour, IInteractable
     public void OnEndHover()
     {
         if (!isInteractable && !isConsumable) return;
-        if (isInteractable)
+        if (isInteractable && !isConsumable)
         {
             print(gameObject.name + " OnEndHover");
         }
-        else if (isConsumable)
+        else if (isInteractable && isConsumable)
         {
-            ConsumeText.SetActive(false);
+            //ConsumeText.SetActive(false);
             print(gameObject.name + " OnStartHover");
         }
     }
