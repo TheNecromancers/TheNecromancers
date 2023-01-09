@@ -9,11 +9,27 @@ namespace TheNecromancers.Combat
     {
         private Camera mainCamera;
         private List<Target> targets = new List<Target>();
-        public Target CurrentTarget { get; private set; }
-
+        [field: SerializeField] public Target CurrentTarget { get; private set; }
+        [SerializeField] Transform TargetVFX;
+        Transform TargetObj;
         private void Start()
         {
             mainCamera = Camera.main;
+            TargetObj = Instantiate(TargetVFX, transform.position, Quaternion.identity);
+            TargetObj.gameObject.SetActive(false);
+        }
+
+        private void Update()
+        {
+            if(CurrentTarget != null)
+            {
+                TargetObj.gameObject.SetActive(true);
+                TargetObj.position = CurrentTarget.GetComponent<Transform>().position;
+            }
+            else
+            {
+                TargetObj.gameObject.SetActive(false);
+            }
         }
 
         private void OnTriggerEnter(Collider other)

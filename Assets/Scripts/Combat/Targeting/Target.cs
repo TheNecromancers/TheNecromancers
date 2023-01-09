@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using UnityEngine.UI;
 
 namespace TheNecromancers.Combat
 {
