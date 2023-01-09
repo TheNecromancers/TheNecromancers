@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TheNecromancers.Gameplay.AI;
 using TheNecromancers.Combat;
-using UnityEditorInternal;
+
 
 namespace TheNecromancers.StateMachine.Enemy
 {
@@ -112,7 +112,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         protected void HandleTakeParry()
         {
-            Debug.Log("nemico parriato");
+            ParticleFXManager.PlayParticleFX(transform.position + Vector3.up * 2, ParticleFXManager.ParryParticleFX);
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
 
             SwitchState(new EnemyStunState(this));

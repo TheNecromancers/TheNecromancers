@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ParticleFXManager : MonoBehaviour
 {
-    public GameObject AttackParticleFX;
-    public GameObject HitParticleFX;
+    [field: SerializeField] public GameObject AttackParticleFX { get; set; }
+    [field: SerializeField] public GameObject HitParticleFX { get; set; }
+    [field: SerializeField] public GameObject ParryParticleFX { get; set; }
 
     public void PlayParticleFX(Vector3 position, GameObject effect)
     {
