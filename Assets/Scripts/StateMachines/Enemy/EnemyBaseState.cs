@@ -80,6 +80,16 @@ namespace TheNecromancers.StateMachine.Enemy
             stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, stateMachine.RotationSpeed * deltaTime);
         }
 
+        protected void FaceForward(float deltaTime)
+        {
+            if (stateMachine.Agent.velocity.sqrMagnitude > Mathf.Epsilon)
+            {
+                var targetRotation = Quaternion.LookRotation(stateMachine.Agent.velocity.normalized);
+
+                stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, stateMachine.RotationSpeed * deltaTime);
+            }
+        }
+
         protected bool IsInViewRange()
         {
             Vector3 toPlayer = stateMachine.Player.transform.position - stateMachine.transform.position;

@@ -25,6 +25,8 @@ public class EnemyPresenter : MonoBehaviour
     public async void ShowQuestionMark(int duration = 1)
     {
         QuestionMark.enabled = true;
+        ExclamationMark.enabled = false;
+
         await Task.Delay(duration * 1000);
         QuestionMark.enabled = false;
     }
@@ -32,6 +34,8 @@ public class EnemyPresenter : MonoBehaviour
     public async void ShowExclamationMark(int duration = 1)
     {
         ExclamationMark.enabled = true;
+        QuestionMark.enabled = false;
+
         await Task.Delay(duration * 1000);
         ExclamationMark.enabled = false;
     }

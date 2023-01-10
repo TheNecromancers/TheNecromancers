@@ -32,7 +32,7 @@ namespace TheNecromancers.StateMachine.Enemy
             }
 
             MoveToPlayer(deltaTime);
-            FaceToPlayer(deltaTime);
+            FaceForward(deltaTime);
 
             stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
         }

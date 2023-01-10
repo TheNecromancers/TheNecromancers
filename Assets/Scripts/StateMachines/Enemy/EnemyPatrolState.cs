@@ -52,7 +52,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
             nextPosition = GetCurrentWaypoint();
 
-            FaceTo(nextPosition, deltaTime);
+
+            FaceForward(deltaTime);
             MoveTo(nextPosition, deltaTime);
 
             stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);

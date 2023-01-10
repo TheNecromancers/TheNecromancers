@@ -39,7 +39,7 @@ namespace TheNecromancers.StateMachine.Enemy
                 else
                 {
                     // back to initial pos
-                    FaceTo(stateMachine.InitialPosition, deltaTime);
+                    FaceForward(deltaTime);
                     MoveTo(stateMachine.InitialPosition, deltaTime);
 
                     stateMachine.Animator.SetFloat(SpeedHash, 1f, AnimatorDumpTime, deltaTime);
