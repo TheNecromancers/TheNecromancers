@@ -19,5 +19,10 @@ namespace TheNecromancers.StateMachine
             currentState = newState;
             currentState?.Enter();
         }
+
+        public void StartCoroutine(IEnumerable method)
+        {
+            StartCoroutine(method);
+        }
     }
 }

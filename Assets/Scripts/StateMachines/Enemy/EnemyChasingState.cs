@@ -15,6 +15,7 @@ namespace TheNecromancers.StateMachine.Enemy
         public override void Enter()
         {
             stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
+            stateMachine.EnemyPresenter.ShowExclamationMark();
         }
 
         public override void Tick(float deltaTime)

@@ -13,8 +13,8 @@ namespace TheNecromancers.StateMachine.Enemy
 
         public override void Enter()
         {
-
             suspicionTime = stateMachine.SuspicionTime;
+            stateMachine.EnemyPresenter.ShowQuestionMark((int)suspicionTime);
         }
 
         public override void Tick(float deltaTime)

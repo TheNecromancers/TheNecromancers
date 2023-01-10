@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using TheNecromancers.Gameplay.AI;
@@ -16,6 +17,7 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public NavMeshAgent Agent { get; private set; }
         [field: SerializeField] public CooldownManager CooldownManager { get; private set; }
         [field: SerializeField] public ParticleFXManager ParticleFXManager { get; private set; }
+        [field: SerializeField] public EnemyPresenter EnemyPresenter { get; private set; }
         [field: SerializeField] public Target Target { get; private set; }
 
         [field: Header("Movement")]
@@ -99,7 +101,7 @@ namespace TheNecromancers.StateMachine.Enemy
             }
         }
 
-        protected void HandleTakeDamage()
+        private void HandleTakeDamage()
         {
             HitsDamageTaked++;
 
@@ -110,7 +112,7 @@ namespace TheNecromancers.StateMachine.Enemy
             }
         }
 
-        protected void HandleTakeParry()
+        private void HandleTakeParry()
         {
             ParticleFXManager.PlayParticleFX(transform.position + Vector3.up * 2, ParticleFXManager.ParryParticleFX);
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
@@ -119,22 +121,21 @@ namespace TheNecromancers.StateMachine.Enemy
         }
 
         // Animations Events
-        void OnStartAttackAnim()
+        private void OnStartAttackAnim()
         {
             ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
         }
 
-        void OnHitAnim()
+        private void OnHitAnim()
         {
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
            // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.HitParticleFX);
         }
 
-        void OnEndAttackAnim()
+        private void OnEndAttackAnim()
         {
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
         }
-
 
         private void OnDrawGizmosSelected()
         {
