@@ -19,6 +19,8 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public ParticleFXManager ParticleFXManager { get; private set; }
         [field: SerializeField] public EnemyPresenter EnemyPresenter { get; private set; }
         [field: SerializeField] public Target Target { get; private set; }
+        [field: Header("Data")]
+        [field: SerializeField] public AudioClips AudioClips { get; private set; }
 
         [field: Header("Movement")]
         [field: SerializeField] public float MovementSpeed { get; private set; }
@@ -114,6 +116,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void HandleTakeParry()
         {
+            AudioManager.Instance.PlayRandomClip(AudioClips.Parry);
             ParticleFXManager.PlayParticleFX(transform.position + Vector3.up * 2, ParticleFXManager.ParryParticleFX);
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
 
@@ -124,6 +127,7 @@ namespace TheNecromancers.StateMachine.Enemy
         private void OnStartAttackAnim()
         {
             ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
+            AudioManager.Instance.PlayRandomClip(AudioClips.Attacks);
         }
 
         private void OnHitAnim()

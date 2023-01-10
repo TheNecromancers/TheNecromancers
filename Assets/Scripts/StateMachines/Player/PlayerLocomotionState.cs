@@ -48,6 +48,7 @@ namespace TheNecromancers.StateMachine.Player
 
             stateMachine.Animator.SetFloat(SpeedHash, stateMachine.Controller.velocity.magnitude, AnimatorDumpTime, deltaTime);
             FaceMovementDirection(movement, deltaTime);
+            AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.Footsteps);
         }
 
         public override void Exit()

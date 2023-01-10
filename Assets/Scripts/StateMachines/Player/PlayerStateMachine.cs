@@ -21,6 +21,8 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public InventoryObject inventoryObject { get; private set; }
         [field: SerializeField] public DisplayInventory DisplayInventory { get; private set; }
         [field: SerializeField] public InventoryManager InventoryManager { get; private set; }
+        [field: Header("Data")]
+        [field: SerializeField] public AudioClips AudioClips { get; private set; }
 
         [field: Header("Movement Settings")]
         [field: SerializeField] public float MovementSpeed { get; private set; }
@@ -144,13 +146,16 @@ namespace TheNecromancers.StateMachine.Player
             inventoryObject.Load();
         }
 
-        public bool HaveShield()
+        public bool HasShield()
         {
             return LeftHandHolder != null && WeaponLeftHand != null;
         }
 
         //Animations Events
-        void OnStartAttackAnim() { }
+        void OnStartAttackAnim() 
+        {
+            AudioManager.Instance.PlayRandomClip(AudioClips.Attacks);
+        }
 
         void OnHitAnim()
         {
@@ -164,7 +169,7 @@ namespace TheNecromancers.StateMachine.Player
 
         void OnStartParry()
         {
-            if (HaveShield())
+            if (HasShield())
             {
                 LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = true;
                 Health.SetInvulnerable(true);
@@ -173,7 +178,7 @@ namespace TheNecromancers.StateMachine.Player
 
         void OnEndParry()
         {
-            if (HaveShield())
+            if (HasShield())
             {
                 LeftHandHolder.transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
                 Health.SetInvulnerable(false);

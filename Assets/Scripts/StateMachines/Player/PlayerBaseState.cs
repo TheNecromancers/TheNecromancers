@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TheNecromancers.Gameplay.Player;
 using UnityEngine;
 
 namespace TheNecromancers.StateMachine.Player
@@ -37,8 +34,6 @@ namespace TheNecromancers.StateMachine.Player
 
             return forward * stateMachine.InputManager.MovementValue.y + right * stateMachine.InputManager.MovementValue.x;
         }
-
-
 
         protected void FaceMovementDirection(Vector3 movement, float deltaTime)
         {
@@ -86,7 +81,7 @@ namespace TheNecromancers.StateMachine.Player
 
         protected void OnBlock()
         {
-            if (!stateMachine.HaveShield()) { return; }
+            if (!stateMachine.HasShield()) { return; }
 
             stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
             return;

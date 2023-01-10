@@ -470,6 +470,7 @@ MonoBehaviour:
   <ParticleFXManager>k__BackingField: {fileID: 1988756925}
   <EnemyPresenter>k__BackingField: {fileID: 9191474745338654886}
   <Target>k__BackingField: {fileID: 906169957689159010}
+  <AudioClips>k__BackingField: {fileID: 11400000, guid: 88e1464e697854742bb708edb973ff5e, type: 2}
   <MovementSpeed>k__BackingField: 2.8
   <RotationSpeed>k__BackingField: 8
   <PlayerChasingRange>k__BackingField: 10

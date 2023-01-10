@@ -7,33 +7,32 @@ namespace TheNecromancers.Combat
 {
     public class Targeter : MonoBehaviour
     {
+        [SerializeField] private Transform TargetIndicator;
+
         private Camera mainCamera;
         private List<Target> targets = new List<Target>();
-        [field: SerializeField] public Target CurrentTarget { get; private set; }
-        [SerializeField] Transform TargetVFX;
-        Transform TargetObj;
-        Transform CurrentTargetTransform;
+        public Target CurrentTarget { get; private set; }
+        private Transform currentTargetTransform;
 
         private void Start()
         {
             mainCamera = Camera.main;
-            TargetObj = Instantiate(TargetVFX, transform.position, Quaternion.identity);
-            TargetObj.gameObject.SetActive(false);
+            TargetIndicator.gameObject.SetActive(false);
         }
 
         private void Update()
         {
             if (CurrentTarget != null)
             {
-                if (CurrentTargetTransform != null)
+                if (currentTargetTransform != null)
                 {
-                    TargetObj.gameObject.SetActive(true);
-                    TargetObj.position = CurrentTargetTransform.position;
+                    TargetIndicator.gameObject.SetActive(true);
+                    TargetIndicator.position = currentTargetTransform.position;
                 }
             }
             else
             {
-                TargetObj.gameObject.SetActive(false);
+                TargetIndicator.gameObject.SetActive(false);
             }
         }
 
@@ -79,7 +78,7 @@ namespace TheNecromancers.Combat
             if (closestTarget == null) { return false; }
 
             CurrentTarget = closestTarget;
-            UpdateTargetTransform(CurrentTarget);
+            SetTargetIndicator(CurrentTarget);
 
             return true;
         }
@@ -90,12 +89,11 @@ namespace TheNecromancers.Combat
             CurrentTarget = null;
         }
 
-        public void RemoveTarget(Target target)
+        private void RemoveTarget(Target target)
         {
             if (CurrentTarget == target)
             {
                 CurrentTarget = null;
-                UpdateTargetTransform(CurrentTarget);
             }
 
             target.OnDestroyed -= RemoveTarget;
@@ -105,6 +103,8 @@ namespace TheNecromancers.Combat
             {
                 CurrentTarget = targets[0];
             }
+
+            SetTargetIndicator(CurrentTarget);
         }
 
         public void NextTarget()
@@ -112,12 +112,13 @@ namespace TheNecromancers.Combat
             if (targets.IndexOf(CurrentTarget) + 1 == targets.Count) 
             {
                 CurrentTarget = targets[0];
-                UpdateTargetTransform(CurrentTarget);
-                return; 
+            }
+            else
+            {
+                CurrentTarget = targets[targets.IndexOf(CurrentTarget) + 1];
             }
 
-            CurrentTarget = targets[targets.IndexOf(CurrentTarget) + 1];
-            UpdateTargetTransform(CurrentTarget);
+            SetTargetIndicator(CurrentTarget);
 
         }
 
@@ -126,17 +127,18 @@ namespace TheNecromancers.Combat
             if (targets.IndexOf(CurrentTarget) == 0) 
             {
                 CurrentTarget = targets[targets.Count - 1];
-                UpdateTargetTransform(CurrentTarget);
-                return; 
-            };
+            }
+            else
+            {
+                CurrentTarget = targets[targets.IndexOf(CurrentTarget) - 1];
+            }
 
-            CurrentTarget = targets[targets.IndexOf(CurrentTarget) - 1];
-            UpdateTargetTransform(CurrentTarget);
+            SetTargetIndicator(CurrentTarget);
         }
 
-        private void UpdateTargetTransform(Target CurrentTarget)
+        private void SetTargetIndicator(Target CurrentTarget)
         {
-            CurrentTargetTransform = CurrentTarget?.GetComponent<Transform>();
+            currentTargetTransform = CurrentTarget?.GetComponent<Transform>();
         }
     }
 }

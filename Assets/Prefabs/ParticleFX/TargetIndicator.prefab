@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 4867423760222054657}
   - component: {fileID: 4867423760222054716}
   m_Layer: 0
-  m_Name: TargetingVFX
+  m_Name: TargetIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -26,6 +26,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
             if (duration <= 0)
             {
+                // Qui serve uno stato nuovo come "InCombat"
                 stateMachine.GoToGuardPosition();
             }
         }
