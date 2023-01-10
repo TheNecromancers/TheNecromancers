@@ -25,10 +25,11 @@ namespace TheNecromancers.Combat
         {
             if (CurrentTarget != null)
             {
-                TargetObj.gameObject.SetActive(true);
-
                 if (CurrentTargetTransform != null)
+                {
+                    TargetObj.gameObject.SetActive(true);
                     TargetObj.position = CurrentTargetTransform.position;
+                }
             }
             else
             {

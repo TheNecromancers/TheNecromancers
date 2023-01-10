@@ -21,6 +21,7 @@ namespace TheNecromancers.StateMachine.Enemy
         {
             if (IsInViewRange() && IsInChaseRange())
             {
+                stateMachine.EnemyPresenter.ShowExclamationMark();
                 stateMachine.SwitchState(new EnemyChasingState(stateMachine));
                 return;
             }
