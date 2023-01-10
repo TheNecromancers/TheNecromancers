@@ -10329,10 +10329,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4104028584024974727, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
-      propertyPath: TargetVFX
-      value: 
-      objectReference: {fileID: 4867423760222054719, guid: 0161b4a32c0c41341a984ce17d82dc8b, type: 3}
     - target: {fileID: 4104028584140096230, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_Name
       value: PlayerRig

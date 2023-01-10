@@ -1301,6 +1301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c2b38cab6fca547aa8c37d6ef6e8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CurrentTarget>k__BackingField: {fileID: 0}
+  TargetVFX: {fileID: 4867423760222054719, guid: 0161b4a32c0c41341a984ce17d82dc8b, type: 3}
 --- !u!54 &4104028584024974726
 Rigidbody:
   m_ObjectHideFlags: 0

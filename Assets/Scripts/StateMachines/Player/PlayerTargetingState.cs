@@ -101,12 +101,12 @@ namespace TheNecromancers.StateMachine.Player
 
         void OnNextTarget()
         {
-            stateMachine.Targeter.GetNextTarget();
+            stateMachine.Targeter.NextTarget();
         }
         
         void OnPrevTarget()
         {
-            stateMachine.Targeter.GetPrevTarget();
+            stateMachine.Targeter.PrevTarget();
         }
     }
 }

@@ -12,6 +12,8 @@ namespace TheNecromancers.Combat
         [field: SerializeField] public Target CurrentTarget { get; private set; }
         [SerializeField] Transform TargetVFX;
         Transform TargetObj;
+        Transform CurrentTargetTransform;
+
         private void Start()
         {
             mainCamera = Camera.main;
@@ -21,10 +23,12 @@ namespace TheNecromancers.Combat
 
         private void Update()
         {
-            if(CurrentTarget != null)
+            if (CurrentTarget != null)
             {
                 TargetObj.gameObject.SetActive(true);
-                TargetObj.position = CurrentTarget.GetComponent<Transform>().position;
+
+                if (CurrentTargetTransform != null)
+                    TargetObj.position = CurrentTargetTransform.position;
             }
             else
             {
@@ -74,6 +78,7 @@ namespace TheNecromancers.Combat
             if (closestTarget == null) { return false; }
 
             CurrentTarget = closestTarget;
+            UpdateTargetTransform(CurrentTarget);
 
             return true;
         }
@@ -89,6 +94,7 @@ namespace TheNecromancers.Combat
             if (CurrentTarget == target)
             {
                 CurrentTarget = null;
+                UpdateTargetTransform(CurrentTarget);
             }
 
             target.OnDestroyed -= RemoveTarget;
@@ -100,21 +106,36 @@ namespace TheNecromancers.Combat
             }
         }
 
-        public void GetNextTarget()
+        public void NextTarget()
         {
             if (targets.IndexOf(CurrentTarget) + 1 == targets.Count) 
-            { 
+            {
+                CurrentTarget = targets[0];
+                UpdateTargetTransform(CurrentTarget);
                 return; 
             }
 
             CurrentTarget = targets[targets.IndexOf(CurrentTarget) + 1];
+            UpdateTargetTransform(CurrentTarget);
+
         }
 
-        public void GetPrevTarget()
+        public void PrevTarget()
         {
-            if (targets.IndexOf(CurrentTarget) == 0) { return; };
+            if (targets.IndexOf(CurrentTarget) == 0) 
+            {
+                CurrentTarget = targets[targets.Count - 1];
+                UpdateTargetTransform(CurrentTarget);
+                return; 
+            };
 
             CurrentTarget = targets[targets.IndexOf(CurrentTarget) - 1];
+            UpdateTargetTransform(CurrentTarget);
+        }
+
+        private void UpdateTargetTransform(Target CurrentTarget)
+        {
+            CurrentTargetTransform = CurrentTarget?.GetComponent<Transform>();
         }
     }
 }
