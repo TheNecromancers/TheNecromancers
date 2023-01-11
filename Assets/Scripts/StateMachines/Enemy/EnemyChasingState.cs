@@ -26,7 +26,14 @@ namespace TheNecromancers.StateMachine.Enemy
             }
             else if (IsInAttackRange())
             {
-                stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
+                if(stateMachine.IsArcher)
+                {
+                    stateMachine.SwitchState(new EnemyRangedAttackState(stateMachine));
+                }
+                else
+                {
+                    stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
+                }
                 return;
             }
 
@@ -41,12 +48,7 @@ namespace TheNecromancers.StateMachine.Enemy
             ResetAgentPath();
         }
 
-        private bool IsInAttackRange()
-        {
-            if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
-
-            return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.AttackRange);
-        }
+   
     }
 }
 

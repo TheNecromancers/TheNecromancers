@@ -22,11 +22,13 @@ namespace TheNecromancers.Combat
 
         private void Update()
         {
+            Debug.Log("Current Target: " + CurrentTarget);
+            Debug.Log("Current Target Transform: " + currentTargetTransform);
+
             if (CurrentTarget != null)
             {
                 if (currentTargetTransform != null)
                 {
-                    TargetIndicator.gameObject.SetActive(true);
                     TargetIndicator.position = currentTargetTransform.position;
                 }
             }
@@ -139,6 +141,11 @@ namespace TheNecromancers.Combat
         private void SetTargetIndicator(Target CurrentTarget)
         {
             currentTargetTransform = CurrentTarget?.GetComponent<Transform>();
+        }
+
+        public void ShowIndicator()
+        {
+            TargetIndicator.gameObject.SetActive(true);
         }
     }
 }

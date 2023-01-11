@@ -89,6 +89,12 @@ namespace TheNecromancers.StateMachine.Enemy
                 stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation, targetRotation, stateMachine.RotationSpeed * deltaTime);
             }
         }
+        protected bool IsInAttackRange()
+        {
+            if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
+
+            return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.AttackRange);
+        }
 
         protected bool IsInViewRange()
         {
