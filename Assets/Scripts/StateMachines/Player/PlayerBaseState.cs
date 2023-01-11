@@ -60,6 +60,9 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (stateMachine.Targeter.CurrentTarget != null)
             {
+                Debug.Log("Go To Targeting");
+                if (!stateMachine.Targeter.SelectTarget()) { return; }
+
                 stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
             }
             else

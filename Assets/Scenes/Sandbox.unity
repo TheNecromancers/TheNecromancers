@@ -6612,6 +6612,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8337608632950047507, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
+      propertyPath: <IsRanged>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337608632950047507, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: <AttackRate>k__BackingField
       value: 2
       objectReference: {fileID: 0}

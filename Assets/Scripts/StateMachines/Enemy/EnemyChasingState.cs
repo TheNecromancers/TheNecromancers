@@ -26,7 +26,7 @@ namespace TheNecromancers.StateMachine.Enemy
             }
             else if (IsInAttackRange())
             {
-                if(stateMachine.IsArcher)
+                if(stateMachine.IsRanged)
                 {
                     stateMachine.SwitchState(new EnemyRangedAttackState(stateMachine));
                 }

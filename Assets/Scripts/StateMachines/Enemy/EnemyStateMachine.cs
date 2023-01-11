@@ -42,7 +42,7 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public float AttackForce { get; private set; }
         public WeaponLogic WeaponLogic { get; private set; }
         [field: SerializeField] public Transform ProjectileObj { get; private set; }
-        [field: SerializeField] public bool IsArcher { get; private set; }
+        [field: SerializeField] public bool IsRanged { get; private set; }
 
         // [field: SerializeField] public int AttackDamage { get; private set; }
         // [field: SerializeField] public float AttackKnockback { get; private set; }

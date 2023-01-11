@@ -111,6 +111,7 @@ namespace TheNecromancers.Combat
 
         public void NextTarget()
         {
+
             if (targets.IndexOf(CurrentTarget) + 1 == targets.Count) 
             {
                 CurrentTarget = targets[0];
