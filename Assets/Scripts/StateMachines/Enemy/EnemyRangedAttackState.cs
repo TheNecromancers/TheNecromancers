@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EnemyRangedAttackState : EnemyBaseState
 {
+    private readonly int AimHash = Animator.StringToHash("CrossbowAim");
     private readonly int ShootHash = Animator.StringToHash("Shoot");
     private const float TransitionDuration = 0.1f;
 
@@ -15,21 +16,20 @@ public class EnemyRangedAttackState : EnemyBaseState
 
     public override void Enter()
     {
+        nextFire = stateMachine.AttackRate;
+        stateMachine.Animator.CrossFadeInFixedTime(AimHash, TransitionDuration);
     }
 
     public override void Tick(float deltaTime)
     {
         FaceToPlayer(deltaTime);
 
-        if (nextFire > 0)
-        {
-            nextFire -= Time.deltaTime;
-        }
-        else if (nextFire <= 0)
+        if(!stateMachine.CooldownManager.CooldownActive("ProjectileShoot"))
         {
             ShootProjectile();
-            nextFire = stateMachine.AttackRate;
         }
+
+    
 
         if (!IsInAttackRange())
         {
@@ -51,6 +51,7 @@ public class EnemyRangedAttackState : EnemyBaseState
         //Set projectile 
         projectile.transform.SetPositionAndRotation(stateMachine.RightHandHolder.transform.GetChild(0).transform.position, stateMachine.transform.rotation);
         projectile.SetParent(stateMachine.transform);
+        stateMachine.CooldownManager.BeginCooldown("ProjectileShoot", stateMachine.AttackRate);
     }
 
 }

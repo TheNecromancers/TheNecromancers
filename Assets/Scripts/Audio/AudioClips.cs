@@ -8,4 +8,5 @@ public class AudioClips : ScriptableObject
    [SerializeField] public AudioClip[] Attacks;
    [SerializeField] public AudioClip[] Footsteps;
    [SerializeField] public AudioClip[] Parry;
+   [SerializeField] public AudioClip[] Roll;
 }
