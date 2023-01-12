@@ -22,14 +22,15 @@ public class EnemyRangedAttackState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
+        if (IsPlayingAnimation(stateMachine.Animator, "Attack")) return;
+
         FaceToPlayer(deltaTime);
 
-        if(!stateMachine.CooldownManager.CooldownActive("ProjectileShoot"))
+        if (!stateMachine.CooldownManager.CooldownActive("ProjectileShoot"))
         {
             ShootProjectile();
         }
 
-    
 
         if (!IsInAttackRange())
         {
@@ -46,6 +47,7 @@ public class EnemyRangedAttackState : EnemyBaseState
     private void ShootProjectile()
     {
         stateMachine.Animator.PlayInFixedTime(ShootHash, 0, TransitionDuration);
+        //AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.CrossbowShoot);
         Transform projectile = GameObject.Instantiate(stateMachine.ProjectileObj);
 
         //Set projectile 

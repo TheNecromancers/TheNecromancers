@@ -127,6 +127,16 @@ namespace TheNecromancers.StateMachine.Enemy
         }
 
         // Animations Events
+        private void OnStartShootAnim()
+        {
+            ParticleFXManager.PlayParticleFX(transform.position + Vector3.up, ParticleFXManager.AttackParticleFX);
+        }
+
+        private void OnShootAnim()
+        {
+           // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
+        }
+
         private void OnStartAttackAnim()
         {
             ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
