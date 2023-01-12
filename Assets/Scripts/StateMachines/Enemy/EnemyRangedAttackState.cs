@@ -48,12 +48,7 @@ public class EnemyRangedAttackState : EnemyBaseState
     {
         stateMachine.Animator.PlayInFixedTime(ShootHash, 0, TransitionDuration);
         //AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.CrossbowShoot);
-        Transform projectile = GameObject.Instantiate(stateMachine.ProjectileObj);
 
-        //Set projectile 
-        projectile.transform.SetPositionAndRotation(stateMachine.RightHandHolder.transform.GetChild(0).transform.position, stateMachine.transform.rotation);
-        projectile.SetParent(stateMachine.transform);
-        stateMachine.CooldownManager.BeginCooldown("ProjectileShoot", stateMachine.AttackRate);
     }
 
 }

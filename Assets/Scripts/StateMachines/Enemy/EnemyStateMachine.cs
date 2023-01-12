@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TheNecromancers.Gameplay.AI;
 using TheNecromancers.Combat;
+using UnityEditorInternal;
 
 
 namespace TheNecromancers.StateMachine.Enemy
@@ -134,7 +135,13 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void OnShootAnim()
         {
-           // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
+            Transform projectile = GameObject.Instantiate(ProjectileObj);
+
+            //Set projectile 
+            projectile.transform.SetPositionAndRotation(RightHandHolder.transform.GetChild(0).transform.position, transform.rotation);
+            projectile.SetParent(transform);
+            CooldownManager.BeginCooldown("ProjectileShoot", AttackRate);
+            // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
         }
 
         private void OnStartAttackAnim()

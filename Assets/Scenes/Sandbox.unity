@@ -6501,67 +6501,67 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4799567921099745832, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0937949
+      value: 0.10630837
       objectReference: {fileID: 0}
     - target: {fileID: 4799567921099745832, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.6980398
+      value: 0.6968971
       objectReference: {fileID: 0}
     - target: {fileID: 4799567921099745832, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.28642383
+      value: -0.27002403
       objectReference: {fileID: 0}
     - target: {fileID: 4799567921099745832, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.6495416
+      value: 0.65583545
       objectReference: {fileID: 0}
     - target: {fileID: 5225828833313715867, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3183286
+      value: 0.33701095
       objectReference: {fileID: 0}
     - target: {fileID: 5225828833313715867, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.63186026
+      value: 0.62171406
       objectReference: {fileID: 0}
     - target: {fileID: 5225828833313715867, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5880921
+      value: 0.59555393
       objectReference: {fileID: 0}
     - target: {fileID: 5225828833313715867, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.3918766
+      value: -0.38106528
       objectReference: {fileID: 0}
     - target: {fileID: 6397794194307108007, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7758444
+      value: 0.76358193
       objectReference: {fileID: 0}
     - target: {fileID: 6397794194307108007, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0009910874
+      value: 0.002230586
       objectReference: {fileID: 0}
     - target: {fileID: 6397794194307108007, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.55533713
+      value: 0.56532305
       objectReference: {fileID: 0}
     - target: {fileID: 6397794194307108007, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.29944164
+      value: -0.31200564
       objectReference: {fileID: 0}
     - target: {fileID: 6512185528254298592, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9945219
+      value: 0.99603266
       objectReference: {fileID: 0}
     - target: {fileID: 6512185528254298592, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00000008101411
+      value: 0.00056053826
       objectReference: {fileID: 0}
     - target: {fileID: 6512185528254298592, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.10452853
+      value: -0.08898693
       objectReference: {fileID: 0}
     - target: {fileID: 6512185528254298592, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000017029844
+      value: -0.000058918708
       objectReference: {fileID: 0}
     - target: {fileID: 8039473496769983267, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6577,35 +6577,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8039473496769983267, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.12463823
+      value: 0.049144894
       objectReference: {fileID: 0}
     - target: {fileID: 8039473496769983267, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.6562885
+      value: 0.68282557
       objectReference: {fileID: 0}
     - target: {fileID: 8039473496769983267, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5660638
+      value: 0.47752482
       objectReference: {fileID: 0}
     - target: {fileID: 8039473496769983267, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.4830347
+      value: 0.5507305
       objectReference: {fileID: 0}
     - target: {fileID: 8214523686778610773, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99404526
+      value: 0.9960327
       objectReference: {fileID: 0}
     - target: {fileID: 8214523686778610773, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0032358533
+      value: 0.0004184164
       objectReference: {fileID: 0}
     - target: {fileID: 8214523686778610773, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.10447839
+      value: 0.088985614
       objectReference: {fileID: 0}
     - target: {fileID: 8214523686778610773, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.030787077
+      value: 0.0005072293
       objectReference: {fileID: 0}
     - target: {fileID: 8337608632950047507, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: <IsArcher>k__BackingField
@@ -6621,7 +6621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8337608632950047507, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: <AttackRange>k__BackingField
-      value: 7.5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8337608632950047507, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: <CurrentWeapon>k__BackingField
