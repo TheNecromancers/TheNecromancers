@@ -6,9 +6,14 @@ public class WeaponSO : ItemObject
     [field: SerializeField] public int Damage { get; private set; }
     [field: SerializeField] public float[] Knockbacks { get; private set; }
     [field: SerializeField] public WeaponType WeaponType { get; private set; }
+    GameObject currentWeapon;
 
     public void Equip(Transform handHolder)
     {
-        Instantiate(itemPrefab, handHolder);
+        if(handHolder.childCount > 0)
+        {
+            Destroy(currentWeapon.gameObject);
+        }
+        currentWeapon = Instantiate(itemPrefab, handHolder);
     }
 }

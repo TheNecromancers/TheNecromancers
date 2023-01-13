@@ -36,17 +36,11 @@ public class Chest : MonoBehaviour, IInteractable
     public void OnStartHover()
     {
         if (!isInteractable) return;
-
-        print(gameObject.name + " OnStartHover");
-
     }
 
     public void OnEndHover()
     {
         if (!isInteractable) return;
-
-        print(gameObject.name + " OnEndHover");
-
     }
 
     void AddItemToInventory(InventoryObject inventory)

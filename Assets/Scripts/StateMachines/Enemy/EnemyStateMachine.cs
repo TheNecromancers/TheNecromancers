@@ -29,7 +29,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
         [field: Header("Chasing And Patrolling")]
         [field: SerializeField] public float PlayerChasingRange { get; private set; }
-        [field: SerializeField] public float PlayerToNearChasingRange { get; private set; }
+        [field: SerializeField] public float PlayerTooNearChasingRange { get; private set; }
         [field: SerializeField] public float ViewAngle { get; private set; }
         [field: SerializeField] public float SuspicionTime { get; private set; }
         [field: SerializeField] public float DwellTime { get; private set; }
@@ -37,13 +37,17 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public LayerMask PlayerLayerMask { get; private set; }
 
         [field: Header("Attack")]
-        [field: SerializeField] public WeaponSO CurrentWeapon { get; private set; }
-        [field: SerializeField] public float AttackRange { get; private set; }
+        [field: SerializeField] public bool IsRanged { get; private set; }
+        [field: SerializeField] public WeaponSO RangedWeapon { get; private set; }
+        [field: SerializeField] public WeaponSO MeleeWeapon { get; private set; }
+        [field: SerializeField] public float MeleeAttackRange { get; private set; }
+        [field: SerializeField] public float RangedAttackRange { get; private set; }
         [field: SerializeField] public float AttackRate { get; private set; }
         [field: SerializeField] public float AttackForce { get; private set; }
-        public WeaponLogic WeaponLogic { get; private set; }
         [field: SerializeField] public Transform ProjectileObj { get; private set; }
-        [field: SerializeField] public bool IsRanged { get; private set; }
+        public float AttackRange { get; set; }
+        [field: SerializeField] public WeaponSO CurrentWeapon { get; set; }
+        [field: SerializeField] public WeaponLogic WeaponLogic { get; private set; }
 
         // [field: SerializeField] public int AttackDamage { get; private set; }
         // [field: SerializeField] public float AttackKnockback { get; private set; }
@@ -55,10 +59,9 @@ namespace TheNecromancers.StateMachine.Enemy
         public int LastWaypointIndex { get; set; }
         public Vector3 InitialPosition { get; set; }
 
-        private void Awake()
+        private void Awake() 
         {
-            CurrentWeapon?.Equip(RightHandHolder.transform);
-            WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+            SetStartingWeapon();
         }
 
         private void Start()
@@ -68,6 +71,7 @@ namespace TheNecromancers.StateMachine.Enemy
 
             Agent.updatePosition = false;
             Agent.updateRotation = false;
+
 
             GoToGuardPosition();
         }
@@ -105,6 +109,24 @@ namespace TheNecromancers.StateMachine.Enemy
                 SwitchState(new EnemyIdleState(this));
                 return;
             }
+        }
+
+        public void SetStartingWeapon()
+        {
+            CurrentWeapon = IsRanged ? RangedWeapon : MeleeWeapon;
+            AttackRange = IsRanged ? RangedAttackRange : MeleeAttackRange;
+
+            CurrentWeapon?.Equip(RightHandHolder.transform);
+            WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+        }
+
+        public void UpdateEquippedWeapon(bool playerIsTooNear)
+        {
+            CurrentWeapon = playerIsTooNear ? MeleeWeapon : RangedWeapon;
+            AttackRange = playerIsTooNear ? MeleeAttackRange : RangedAttackRange;
+
+            CurrentWeapon?.Equip(RightHandHolder.transform);
+            WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
         }
 
         private void HandleTakeDamage()
@@ -163,13 +185,20 @@ namespace TheNecromancers.StateMachine.Enemy
 
         private void OnDrawGizmosSelected()
         {
+            AttackRange = IsRanged ? RangedAttackRange : MeleeAttackRange;
+
             // Draw Chasing Range
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, PlayerChasingRange);
 
             // Draw Too Near Range
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, PlayerToNearChasingRange);
+            Gizmos.DrawWireSphere(transform.position, PlayerTooNearChasingRange);
+
+            // Draw MeleeAttack Range
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(transform.position, AttackRange);
+
         }
     }
 }

@@ -26,11 +26,13 @@ namespace TheNecromancers.StateMachine.Enemy
             }
             else if (IsInAttackRange())
             {
-                if(stateMachine.IsRanged)
+                stateMachine.UpdateEquippedWeapon(IsTooNearRange());
+
+                if (stateMachine.IsRanged)
                 {
                     stateMachine.SwitchState(new EnemyRangedAttackState(stateMachine));
                 }
-                else
+                else 
                 {
                     stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
                 }

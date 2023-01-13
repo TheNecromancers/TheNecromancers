@@ -13,7 +13,6 @@ namespace TheNecromancers.StateMachine.Enemy
             this.stateMachine = stateMachine;
         }
 
-
         protected void Move(float deltaTime)
         {
             Move(Vector3.zero, deltaTime);
@@ -132,7 +131,7 @@ namespace TheNecromancers.StateMachine.Enemy
         {
             if (stateMachine.Player.GetComponent<Health>().IsDead) { return false; }
 
-            return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.PlayerToNearChasingRange);
+            return CheckDistanceSqr(stateMachine.Player.transform.position, stateMachine.transform.position, stateMachine.PlayerTooNearChasingRange);
         }
 
         protected void ResetAgentPath()

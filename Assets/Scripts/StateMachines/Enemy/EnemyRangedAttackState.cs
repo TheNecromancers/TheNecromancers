@@ -31,6 +31,13 @@ public class EnemyRangedAttackState : EnemyBaseState
             ShootProjectile();
         }
 
+        if (IsTooNearRange())
+        {
+            Debug.Log("Too near!");
+            stateMachine.UpdateEquippedWeapon(IsTooNearRange());
+            stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
+            return;
+        }
 
         if (!IsInAttackRange())
         {

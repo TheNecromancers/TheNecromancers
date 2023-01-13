@@ -196,7 +196,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2255079009420092823}
-  m_LocalRotation: {x: -0.14306226, y: 0.12004888, z: 0.006068361, w: 0.98238724}
+  m_LocalRotation: {x: 0.0004184164, y: 0.088985614, z: 0.0005072293, w: 0.9960327}
   m_LocalPosition: {x: -0, y: 0.7115979, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -473,8 +473,8 @@ MonoBehaviour:
   <AudioClips>k__BackingField: {fileID: 11400000, guid: 88e1464e697854742bb708edb973ff5e, type: 2}
   <MovementSpeed>k__BackingField: 2.8
   <RotationSpeed>k__BackingField: 8
-  <PlayerChasingRange>k__BackingField: 10
-  <PlayerToNearChasingRange>k__BackingField: 2.5
+  <PlayerChasingRange>k__BackingField: 12
+  <PlayerTooNearChasingRange>k__BackingField: 3
   <ViewAngle>k__BackingField: 90
   <SuspicionTime>k__BackingField: 2
   <DwellTime>k__BackingField: 1
@@ -482,10 +482,14 @@ MonoBehaviour:
   <PlayerLayerMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
-  <AttackRange>k__BackingField: 2.1
-  <AttackRate>k__BackingField: 1.25
+  <IsRanged>k__BackingField: 0
+  <RangedWeapon>k__BackingField: {fileID: 11400000, guid: a471c48427fa22f408c752e20f69b979, type: 2}
+  <MeleeWeapon>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
+  <MeleeAttackRange>k__BackingField: 5
+  <RangedAttackRange>k__BackingField: 4
+  <AttackRate>k__BackingField: 3
   <AttackForce>k__BackingField: 5
+  <ProjectileObj>k__BackingField: {fileID: 1336262090902862956, guid: 5490dbe09b29b5941b407dd20a4f0693, type: 3}
   <RightHandHolder>k__BackingField: {fileID: 3671347887418839197}
   <StunDuration>k__BackingField: 1.75
 --- !u!143 &3281762963110296119
@@ -657,8 +661,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3567506295157669460}
-  m_LocalRotation: {x: 0.46874145, y: 0.41949883, z: 0.5938863, w: -0.50159866}
-  m_LocalPosition: {x: 0.15798002, y: 0.68872654, z: -0.066216424}
+  m_LocalRotation: {x: 0.68282557, y: 0.47752482, z: 0.5507305, w: 0.049144894}
+  m_LocalPosition: {x: 0.14, y: 0.69159794, z: 0}
   m_LocalScale: {x: 1.000001, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -690,7 +694,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3671347887418839197}
-  m_LocalRotation: {x: -0.5754687, y: 0.41861796, z: 0.5622266, w: 0.42130274}
+  m_LocalRotation: {x: 0.002230586, y: 0.56532305, z: -0.31200564, w: 0.76358193}
   m_LocalPosition: {x: 3.5527137e-15, y: 0.5509222, z: 0.000000014901172}
   m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
@@ -721,7 +725,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4961313982674411016}
-  m_LocalRotation: {x: -0.01850196, y: 0.16140412, z: -0.0052297194, w: 0.98670113}
+  m_LocalRotation: {x: 0.00056053826, y: -0.08898693, z: -0.000058918708, w: 0.99603266}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1026,7 +1030,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5751355595177999307}
-  m_LocalRotation: {x: 0.6140175, y: -0.24522655, z: 0.6797978, w: 0.31736633}
+  m_LocalRotation: {x: 0.6968971, y: -0.27002403, z: 0.65583545, w: 0.10630837}
   m_LocalPosition: {x: -0.14, y: 0.69159794, z: 0}
   m_LocalScale: {x: 1.000001, y: 1.0000001, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1059,7 +1063,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5890986094109206952}
-  m_LocalRotation: {x: -0.6066169, y: -0.60661674, z: 0.3633401, w: -0.3633401}
+  m_LocalRotation: {x: 0.62171406, y: 0.59555393, z: -0.38106528, w: 0.33701095}
   m_LocalPosition: {x: 3.5527137e-15, y: 0.5509222, z: -0.000000014901163}
   m_LocalScale: {x: 0.9999998, y: 1, z: 0.9999999}
   m_ConstrainProportionsScale: 0

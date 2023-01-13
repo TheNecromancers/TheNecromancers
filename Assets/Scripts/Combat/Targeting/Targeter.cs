@@ -22,9 +22,6 @@ namespace TheNecromancers.Combat
 
         private void Update()
         {
-            Debug.Log("Current Target: " + CurrentTarget);
-            Debug.Log("Current Target Transform: " + currentTargetTransform);
-
             if (CurrentTarget != null)
             {
                 if (currentTargetTransform != null)
