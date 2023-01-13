@@ -38,14 +38,37 @@ public class InventoryManager : MonoBehaviour
         if (weapon.WeaponType == WeaponType.LeftHand)
         {
             //inventoryObject.AddItem(playerStateMachine.WeaponLeftHand,1);
-            if (playerStateMachine.LeftHandHolder.transform.childCount > 0)
+            if (playerStateMachine.LeftHandHolder.transform.childCount == 0)
             {
-                Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
+                GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
+                playerStateMachine.WeaponLeftHand = weapon;
+                Debug.Log("equipped" + weapon + "on left hand");
             }
 
-            GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
-            playerStateMachine.WeaponLeftHand = weapon;
-            Debug.Log("equipped" + weapon + "on left hand");
+            else if(weapon == playerStateMachine.WeaponLeftHand)
+            {
+                return;
+            }
+
+            else if(weapon != playerStateMachine.WeaponLeftHand && inventoryObject.IsInInventory(playerStateMachine.WeaponLeftHand) != -1)
+            {
+                Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
+                GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
+                playerStateMachine.WeaponLeftHand = weapon;
+                Debug.Log("equipped" + weapon + "on left hand");
+            }    
+
+            else if (weapon != playerStateMachine.WeaponLeftHand && inventoryObject.IsInInventory(playerStateMachine.WeaponLeftHand) == -1)
+            {
+                inventoryObject.AddItem(playerStateMachine.WeaponLeftHand,1);
+                Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
+                GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.LeftHandHolder.transform);
+                playerStateMachine.WeaponLeftHand = weapon;
+                Debug.Log("equipped" + weapon + "on left hand");
+            }
+            
+
+
         }
 
         if (weapon.WeaponType == WeaponType.RightHand)
@@ -53,16 +76,49 @@ public class InventoryManager : MonoBehaviour
             //inventoryObject.AddItem(playerStateMachine.WeaponRightHand, 1);
 
             // switch weapons instead of destroy its
-            if(playerStateMachine.RightHandHolder.transform.childCount > 0)
-            {
-                Destroy(playerStateMachine.RightHandHolder.transform.GetChild(0).gameObject);
+
+                if(playerStateMachine.RightHandHolder.transform.childCount == 0)
+                {
+                    GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
+                    playerStateMachine.WeaponRightHand = weapon;
+                    playerStateMachine.WeaponLogic = _newWeapon.GetComponent<WeaponLogic>();
+                    Debug.Log("equipped" + weapon + "on right hand");
+                }
+                
+                else if(weapon == playerStateMachine.WeaponRightHand)
+                {
+                    return;
+                }
+
+                else if(weapon != playerStateMachine.WeaponRightHand && inventoryObject.IsInInventory(playerStateMachine.WeaponRightHand) != -1)
+                {
+                    Destroy(playerStateMachine.RightHandHolder.transform.GetChild(0).gameObject);
+                    GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
+                    playerStateMachine.WeaponRightHand = weapon;
+                    playerStateMachine.WeaponLogic = _newWeapon.GetComponent<WeaponLogic>();
+                    Debug.Log("equipped" + weapon + "on right hand");
+                }
+                
+                else if (weapon != playerStateMachine.WeaponRightHand && inventoryObject.IsInInventory(playerStateMachine.WeaponRightHand) == -1)
+                {
+                    inventoryObject.AddItem(playerStateMachine.WeaponRightHand,1);
+                    Destroy(playerStateMachine.RightHandHolder.transform.GetChild(0).gameObject);
+                    GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
+                    playerStateMachine.WeaponRightHand = weapon;
+                    playerStateMachine.WeaponLogic = _newWeapon.GetComponent<WeaponLogic>();
+                    Debug.Log("equipped" + weapon + "on right hand");
+                }
+
+                
+                
+                
             }
 
-            GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
+            /* GameObject _newWeapon = Instantiate(weapon.itemPrefab, playerStateMachine.RightHandHolder.transform);
             playerStateMachine.WeaponRightHand = weapon;
             playerStateMachine.WeaponLogic = _newWeapon.GetComponent<WeaponLogic>();
-            Debug.Log("equipped" + weapon + "on right hand");
-        }
+            Debug.Log("equipped" + weapon + "on right hand"); */
+        
 
     }
     public void Unequip()

@@ -25,7 +25,32 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     database = Resources.Load<ItemDatabaseObject>("Database");
 #endif
     }
-    
+    public int IsInInventory(ItemObject _item)
+    {   
+        int ItemIndexInContainer = new int();
+
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
+                ItemIndexInContainer = i;
+                break;
+            }
+            else
+            {
+                ItemIndexInContainer = -1 ;
+            }
+        }
+
+        return ItemIndexInContainer;
+    }
+
+    public void DeleteInventoryContainer(int _ContainerIndex)
+    {
+        Container.RemoveAt(_ContainerIndex);
+
+    }
+
     public void AddItem(ItemObject _item, int _amount)
     {
         for (int i = 0; i < Container.Count; i++)
