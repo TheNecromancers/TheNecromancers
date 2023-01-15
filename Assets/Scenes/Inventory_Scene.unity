@@ -1828,7 +1828,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: cdfbd793d4a694c4fa2f414ed2e6f6eb, type: 2}
     - target: {fileID: 316657393, guid: ad5be1d7be2aaee4dbfedff67fc0b1a0, type: 3}
       propertyPath: savePath
-      value: /Chest1.save
+      value: /ChestAxe.save
       objectReference: {fileID: 0}
     - target: {fileID: 6632117757571611652, guid: ad5be1d7be2aaee4dbfedff67fc0b1a0, type: 3}
       propertyPath: m_text
@@ -4606,7 +4606,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
     - target: {fileID: 316657393, guid: ad5be1d7be2aaee4dbfedff67fc0b1a0, type: 3}
       propertyPath: savePath
-      value: /Chest3.save
+      value: /ChestSword.save
       objectReference: {fileID: 0}
     - target: {fileID: 6632117757571611652, guid: ad5be1d7be2aaee4dbfedff67fc0b1a0, type: 3}
       propertyPath: m_text
@@ -7024,7 +7024,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 7b0334a50e8a52349a39addbda4226e1, type: 2}
     - target: {fileID: 316657393, guid: ad5be1d7be2aaee4dbfedff67fc0b1a0, type: 3}
       propertyPath: savePath
-      value: /Chest2.save
+      value: /ChestShield.save
       objectReference: {fileID: 0}
     - target: {fileID: 6632117756618187060, guid: ad5be1d7be2aaee4dbfedff67fc0b1a0, type: 3}
       propertyPath: m_LocalScale.z
