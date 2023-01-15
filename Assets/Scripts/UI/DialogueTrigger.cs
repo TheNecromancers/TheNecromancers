@@ -6,12 +6,18 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Message[] messages;
     public Actor[] actors;
+
+    public void StartDialogue()
+    {
+        DialogueManager.Instance.OpenDialogue(messages, actors);
+    }
 }
 
 [System.Serializable]
 public class Message
 {
     public int actorId;
+    [TextArea]
     public string message;
 }
 
