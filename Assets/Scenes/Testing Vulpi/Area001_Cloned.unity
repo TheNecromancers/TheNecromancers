@@ -184,6 +184,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1207705135918564861, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207705136954260174, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -231,6 +239,14 @@ PrefabInstance:
     - target: {fileID: 2018677774944046614, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: m_Name
       value: TorchWall_Interactable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371078702537333512, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: savePath
+      value: /TorchZone1.save
+      objectReference: {fileID: 0}
+    - target: {fileID: 2371078702537333512, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: isInteractable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
@@ -10234,6 +10250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  isLocked: 1
 --- !u!54 &6742367975022892444
 Rigidbody:
   m_ObjectHideFlags: 0

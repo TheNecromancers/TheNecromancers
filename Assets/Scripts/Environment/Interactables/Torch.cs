@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using TheNecromancers.Combat;
 using UnityEngine;
 
@@ -8,9 +10,20 @@ public class Torch : MonoBehaviour, IInteractable
     [SerializeField] GameObject Light;
     [SerializeField] GameObject ConsumeText;
 
-    private bool isConsumable = false;
-    private bool isInteractable = true;
+    public bool isConsumable = false;
+    public bool isInteractable = true;
     public bool IsInteractable => isInteractable;
+    public string savePath;
+
+    private void Awake()
+    {
+        Load();
+
+        if ((!isInteractable && isConsumable) ^ (isInteractable && isConsumable))
+        {
+            Light.SetActive(true);
+        }
+    }
 
     public void OnStartHover()
     {
@@ -50,6 +63,8 @@ public class Torch : MonoBehaviour, IInteractable
             }
             print("Consumed " + gameObject.name + " to restore life.");
         }
+
+        Save();
     }
     public void OnEndHover()
     {
@@ -64,4 +79,30 @@ public class Torch : MonoBehaviour, IInteractable
             print(gameObject.name + " OnStartHover");
         }
     }
+
+    public void Save()
+    {
+        string saveData = JsonUtility.ToJson(this, true);
+        BinaryFormatter bf = new();
+        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        bf.Serialize(file, saveData);
+        file.Close();
+    }
+
+    public void Load()
+    {
+        if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+        {
+            BinaryFormatter bf = new();
+            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+            file.Close();
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
 }

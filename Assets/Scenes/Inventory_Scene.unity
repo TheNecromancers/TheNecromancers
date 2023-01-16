@@ -7026,6 +7026,10 @@ PrefabInstance:
       propertyPath: savePath
       value: /ChestShield.save
       objectReference: {fileID: 0}
+    - target: {fileID: 316657393, guid: ad5be1d7be2aaee4dbfedff67fc0b1a0, type: 3}
+      propertyPath: isInteractable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6632117756618187060, guid: ad5be1d7be2aaee4dbfedff67fc0b1a0, type: 3}
       propertyPath: m_LocalScale.z
       value: 1

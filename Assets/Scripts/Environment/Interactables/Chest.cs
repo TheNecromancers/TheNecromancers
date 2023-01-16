@@ -8,7 +8,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class Chest : MonoBehaviour, IInteractable
 {
-    
     public bool isInteractable = true;
     public bool IsInteractable => isInteractable;
     public string savePath;
