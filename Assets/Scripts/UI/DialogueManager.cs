@@ -41,8 +41,8 @@ public class DialogueManager : MonoBehaviour
         currentActors = actors;
         activeMessage = 0;
         isActive = true;
-        nextButton.gameObject.SetActive(false);
-        skipButton.gameObject.SetActive(false);
+        nextButton.gameObject.SetActive(true);
+        skipButton.gameObject.SetActive(true);
         Debug.Log("Started conversation! Loaded messages: "+ messages.Length);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -53,28 +53,35 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayMessage()
     {
-        nextButton.gameObject.SetActive(false);
-        skipButton.gameObject.SetActive(false);
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
-        nextButton.gameObject.SetActive(true);
-        skipButton.gameObject.SetActive(true);
-        Actor actorToDisplay = currentActors[messageToDisplay.actorId];
+        //Animation to fadein the text
+        FadeInTextColor(messageText,0.5f);
+         //End Animation
+         Actor actorToDisplay = currentActors[messageToDisplay.actorId];
         actorText.text = actorToDisplay.name;
         actorImage.sprite = actorToDisplay.sprite;
-        AnimateTextColor();
-
+        //Animation to fadein the buttons
+        FadeInButtonColor(nextButton, 0.5f);
+        FadeInButtonColor(skipButton, 0.5f);
     }
 
-    void AnimateTextColor()
+    void FadeInButtonColor(Button btn, float duration)
     {
-        LeanTween.textAlpha(messageText.rectTransform, 0, 0);
-        LeanTween.textAlpha(nextButton.GetComponent<RectTransform>(), 0, 0);
-        LeanTween.textAlpha(skipButton.GetComponent<RectTransform>(), 0, 0);
-        LeanTween.textAlpha(messageText.rectTransform, 1, 0.5f);
-        LeanTween.textAlpha(nextButton.GetComponent<RectTransform>(), 1, 0.5f);
-        LeanTween.textAlpha(skipButton.GetComponent<RectTransform>(), 1, 0.5f);
+        var btnColor = btn.image.color;
+        var fadeoutBtnColor = btnColor;
+        fadeoutBtnColor.a = 0;
+        LeanTween.value(skipButton.gameObject, a => btn.image.color = a, fadeoutBtnColor, btnColor, duration);
     }
+
+    void FadeInTextColor(TMP_Text txt, float duration)
+    {
+        var color = messageText.color;
+        var fadeoutColor = color;
+        fadeoutColor.a = 0;
+        LeanTween.value(txt.gameObject, a => txt.color = a, fadeoutColor, color, 0.5f);
+    }
+
 
     public void NextMessage()
     {
