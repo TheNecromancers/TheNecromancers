@@ -48,7 +48,6 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     public void DeleteInventoryContainer(int _ContainerIndex)
     {
         Container.RemoveAt(_ContainerIndex);
-
     }
 
     public void AddItem(ItemObject _item, int _amount)
@@ -86,12 +85,15 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 
     public void OnAfterDeserialize()
     {
-        for (int i = 0; i < Container.Count; i++)
+        if (File.Exists(savePath))
         {
-            Container[i].item = database.GetItem[Container[i].ID];
+            for (int i = 0; i < Container.Count; i++)
+            {
+                Container[i].item = database.GetItem[Container[i].ID];
+            }
         }
     }
-
+            
     public void OnBeforeSerialize()
     {
     }

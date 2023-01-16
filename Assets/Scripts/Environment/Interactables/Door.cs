@@ -10,18 +10,36 @@ public class Door : MonoBehaviour, IInteractable
     private bool isInteractable = true;
     public bool IsInteractable => isInteractable;
 
-    bool shouldOpen = false;
+    public bool isLocked = true;
+    float rotationDegree;
 
     private void Update()
     {
-       if (shouldOpen) Open();
+        if (!isLocked) Open();
+    }
+
+    private void Start()
+    {
+        if (transform.eulerAngles.y == 180f)
+        {
+            rotationDegree = 20f;
+        }
+        else
+        {
+            rotationDegree = 160f;
+        }
     }
 
     void Open()
     {
-        transform.rotation = Quaternion.Lerp(
-            transform.rotation,
-            Quaternion.Euler(transform.rotation.x, -180f, transform.rotation.z), Time.deltaTime * speed);
+        transform.localRotation = Quaternion.Lerp(
+        transform.localRotation,
+        Quaternion.Euler(transform.localRotation.x,
+        rotationDegree, 
+        transform.localRotation.z), 
+        Time.deltaTime * speed); 
+    
+
     }
 
     public void OnStartHover()
@@ -33,7 +51,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (!isInteractable) return;
 
-        shouldOpen = true;
+        isLocked = false;
         isInteractable = false;
 
         print("Interact with " + gameObject.name);
