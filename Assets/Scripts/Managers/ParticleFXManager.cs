@@ -6,10 +6,11 @@ public class ParticleFXManager : MonoBehaviour
     [field: SerializeField] public GameObject HitParticleFX { get; set; }
     [field: SerializeField] public GameObject ParryParticleFX { get; set; }
 
-    public void PlayParticleFX(Vector3 position, GameObject effect)
+    public void PlayParticleFX(Vector3 position, GameObject effect, float duration = 1)
     {
         var fx = Instantiate(effect, position, Quaternion.identity);
         fx.transform.parent = gameObject.transform;
         fx.GetComponent<ParticleSystem>().Play();
+        Destroy(fx, duration);
     }
 }

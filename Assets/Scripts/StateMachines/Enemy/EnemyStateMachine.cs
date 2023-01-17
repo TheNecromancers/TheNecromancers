@@ -121,7 +121,7 @@ namespace TheNecromancers.StateMachine.Enemy
         private void HandleTakeParry()
         {
             AudioManager.Instance.PlayRandomClip(AudioClips.Parry);
-            ParticleFXManager.PlayParticleFX(transform.position + Vector3.up * 2, ParticleFXManager.ParryParticleFX);
+            ParticleFXManager.PlayParticleFX(transform.position + Vector3.up, ParticleFXManager.ParryParticleFX, StunDuration);
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
 
             SwitchState(new EnemyStunState(this));

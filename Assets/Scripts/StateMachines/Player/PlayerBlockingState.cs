@@ -19,6 +19,11 @@ namespace TheNecromancers.StateMachine.Player
         {
             Move(deltaTime);
 
+            if(stateMachine.Targeter.CurrentTarget != null)
+            {
+                FaceOnTarget(deltaTime);
+            }
+
             remainingBlockTime -= deltaTime;
 
             if (remainingBlockTime <= 0f)
