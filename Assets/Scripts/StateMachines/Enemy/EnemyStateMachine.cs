@@ -131,6 +131,7 @@ namespace TheNecromancers.StateMachine.Enemy
         private void OnStartShootAnim()
         {
             ParticleFXManager.PlayParticleFX(transform.position + Vector3.up, ParticleFXManager.AttackParticleFX);
+
         }
 
         private void OnShootAnim()
@@ -142,6 +143,9 @@ namespace TheNecromancers.StateMachine.Enemy
             projectile.SetParent(transform);
             CooldownManager.BeginCooldown("ProjectileShoot", AttackRate);
             // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
+
+            //AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.CrossbowShoot);
+
         }
 
         private void OnStartAttackAnim()
@@ -154,6 +158,7 @@ namespace TheNecromancers.StateMachine.Enemy
         {
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
            // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.HitParticleFX);
+           // TODO Play clip for attack slash
         }
 
         private void OnEndAttackAnim()

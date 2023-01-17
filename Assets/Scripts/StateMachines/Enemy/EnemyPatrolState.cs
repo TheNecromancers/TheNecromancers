@@ -29,7 +29,7 @@ namespace TheNecromancers.StateMachine.Enemy
             {
                 if (IsInViewRange() || IsTooNearRange())
                 {
-                    stateMachine.EnemyPresenter.ShowExclamationMark();
+                    // stateMachine.EnemyPresenter.ShowExclamationMark();
                     stateMachine.SwitchState(new EnemyChasingState(stateMachine));
                     return;
                 }

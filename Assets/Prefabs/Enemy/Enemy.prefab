@@ -486,6 +486,8 @@ MonoBehaviour:
   <AttackRange>k__BackingField: 2.1
   <AttackRate>k__BackingField: 1.25
   <AttackForce>k__BackingField: 5
+  <ProjectileObj>k__BackingField: {fileID: 0}
+  <IsRanged>k__BackingField: 0
   <RightHandHolder>k__BackingField: {fileID: 3671347887418839197}
   <StunDuration>k__BackingField: 1.75
 --- !u!143 &3281762963110296119
@@ -619,7 +621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AttackParticleFX>k__BackingField: {fileID: 1146535727276281307, guid: 4ce1b313e6b5532478d3c3eaebfab97d, type: 3}
   <HitParticleFX>k__BackingField: {fileID: 0}
-  <ParryParticleFX>k__BackingField: {fileID: 7452375980551584275, guid: dc2a478a90581474c9ffef0f9e7e2dfc, type: 3}
+  <ParryParticleFX>k__BackingField: {fileID: 5659291355382750488, guid: b3db7d4d711f94d4796743baa5ba7a38, type: 3}
 --- !u!114 &9191474745338654886
 MonoBehaviour:
   m_ObjectHideFlags: 0

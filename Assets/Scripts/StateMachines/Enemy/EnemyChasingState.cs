@@ -14,6 +14,11 @@ namespace TheNecromancers.StateMachine.Enemy
         public EnemyChasingState(EnemyStateMachine stateMachine) : base(stateMachine) { }
         public override void Enter()
         {
+            if(!IsTooNearRange())
+            {
+                stateMachine.EnemyPresenter.ShowExclamationMark();
+            }
+
             stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
         }
 

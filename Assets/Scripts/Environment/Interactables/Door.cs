@@ -13,22 +13,33 @@ public class Door : MonoBehaviour, IInteractable
     public bool isLocked = true;
     float rotationDegree;
 
+    private void Start()
+    {
+        Debug.Log(transform.eulerAngles.y);
+        switch (transform.eulerAngles.y)
+        {
+            case -90:
+                rotationDegree = -120f;
+                break;
+            case 90f:
+                rotationDegree = 20f;
+                break;
+            case 0:
+                rotationDegree = 160f;
+                break;
+            case -180:
+                rotationDegree = 160f;
+                break;
+            default:
+                break;
+        }
+    }
+
     private void Update()
     {
         if (!isLocked) Open();
     }
-
-    private void Start()
-    {
-        if (transform.eulerAngles.y == 180f)
-        {
-            rotationDegree = 20f;
-        }
-        else
-        {
-            rotationDegree = 160f;
-        }
-    }
+  
 
     void Open()
     {
@@ -38,8 +49,6 @@ public class Door : MonoBehaviour, IInteractable
         rotationDegree, 
         transform.localRotation.z), 
         Time.deltaTime * speed); 
-    
-
     }
 
     public void OnStartHover()
@@ -53,8 +62,6 @@ public class Door : MonoBehaviour, IInteractable
 
         isLocked = false;
         isInteractable = false;
-
-        print("Interact with " + gameObject.name);
     }
 
     public void OnEndHover()

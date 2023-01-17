@@ -31,13 +31,11 @@ public class EnemyRangedAttackState : EnemyBaseState
             ShootProjectile();
         }
 
-
         if (!IsInAttackRange())
         {
             stateMachine.SwitchState(new EnemyChasingState(stateMachine));
             return;
         }
-
     }
 
     public override void Exit()
@@ -47,8 +45,5 @@ public class EnemyRangedAttackState : EnemyBaseState
     private void ShootProjectile()
     {
         stateMachine.Animator.PlayInFixedTime(ShootHash, 0, TransitionDuration);
-        //AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.CrossbowShoot);
-
     }
-
 }
