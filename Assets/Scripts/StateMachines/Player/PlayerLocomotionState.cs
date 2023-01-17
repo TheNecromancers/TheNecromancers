@@ -13,6 +13,9 @@ namespace TheNecromancers.StateMachine.Player
 
         Vector3 movement;
 
+        float nextStep;
+        float stepRate = 0.35f;
+
         public PlayerLocomotionState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
         public override void Enter()
@@ -48,7 +51,8 @@ namespace TheNecromancers.StateMachine.Player
 
             stateMachine.Animator.SetFloat(SpeedHash, stateMachine.Controller.velocity.magnitude, AnimatorDumpTime, deltaTime);
             FaceMovementDirection(movement, deltaTime);
-            AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.Footsteps);
+
+            PlayFootSteps();
         }
 
         public override void Exit()
@@ -62,6 +66,16 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.Health.OnTakeDamage -= HandleTakeDamage;
         }
 
+        void PlayFootSteps()
+        {
+            // TODO delay for playing sound
+
+            if (Time.fixedTime > nextStep)
+            {
+                nextStep = Time.fixedTime + stepRate;
+                AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.Footsteps);
+            }
+        }
 
         void OnRoll()
         {
@@ -77,5 +91,6 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
 
+       
     }
 }
