@@ -85,6 +85,7 @@ public class DialogueManager : MonoBehaviour
 
     public void NextMessage()
     {
+        Debug.Log("Next Message");
         activeMessage++;
         if(activeMessage < currentMessages.Length)
         {
@@ -99,6 +100,7 @@ public class DialogueManager : MonoBehaviour
 
     public void SkipMessages()
     {
+        Debug.Log("Skip Message");
         activeMessage = currentMessages.Length;
         EndConversation();
     }
