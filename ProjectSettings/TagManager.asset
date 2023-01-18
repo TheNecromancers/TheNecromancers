@@ -7,6 +7,11 @@ TagManager:
   - Enemy
   - FxTemporaire
   - Shield
+  - VolumeSlider
+  - BrightnessSlider
+  - ContrastSlider
+  - MuteButton
+  - DefaultButton
   layers:
   - Default
   - TransparentFX

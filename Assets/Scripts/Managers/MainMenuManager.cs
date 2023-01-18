@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class MainMenuManager : MonoBehaviour
 {
     [field: SerializeField]public GameObject MainScreen;
     [field: SerializeField]public GameObject SettingsScreen;
     [field: SerializeField]public GameObject CreditsScreen;
+    private Controls controls;
 
     
 
     private void Awake() 
     {
+            SettingsManager.Instance.FindObjects();
             Controls controls = new Controls();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -49,11 +52,13 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        
+            controls = new Controls();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            controls.Player.Disable();
+            controls.UIControls.Disable();
     }
 
     // Update is called once per frame
