@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour, IInteractable
 {
-    [SerializeField] GameObject Light;
+    [SerializeField] Light Light;
     [SerializeField] GameObject ConsumeText;
 
     public bool isConsumable = false;
@@ -19,9 +19,11 @@ public class Torch : MonoBehaviour, IInteractable
     {
         Load();
 
+        Light = GetComponentInChildren(typeof(Light),true) as Light;
+
         if ((!isInteractable && isConsumable) ^ (isInteractable && isConsumable))
         {
-            Light.SetActive(true);
+            Light.gameObject.SetActive(true);
         }
     }
 
@@ -44,14 +46,14 @@ public class Torch : MonoBehaviour, IInteractable
         if (isInteractable && !isConsumable)
         {
             isConsumable = true;
-            Light.SetActive(true);
+            Light.gameObject.SetActive(true);
             print("Interact with" + gameObject.name);
         }
         else if (isInteractable && isConsumable)
         {
             isInteractable = false;
             isConsumable = false;
-            Light.SetActive(false);
+            Light.gameObject.SetActive(false);
             //ConsumeText.SetActive(false);
             Health[] dummies = (Health[])GameObject.FindObjectsOfType(typeof(Health));
             foreach (Health dummy in dummies)

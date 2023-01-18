@@ -127,6 +127,13 @@ namespace TheNecromancers.StateMachine.Player
             }
         }
 
+        public void SetPlayerPosition(Vector3 position)
+        {
+            Controller.enabled= false;
+            transform.position = position;
+            Controller.enabled = true;
+        }
+
         IEnumerator Respawn()
         {
             inventoryObject.Save();
