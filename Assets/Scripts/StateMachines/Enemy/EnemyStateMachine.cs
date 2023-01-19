@@ -41,6 +41,7 @@ namespace TheNecromancers.StateMachine.Enemy
         [field: SerializeField] public float AttackRange { get; private set; }
         [field: SerializeField] public float AttackRate { get; private set; }
         [field: SerializeField] public float AttackForce { get; private set; }
+        [field: SerializeField] public Transform SlashVFX { get; private set; }
         public WeaponLogic WeaponLogic { get; private set; }
         [field: SerializeField] public Transform ProjectileObj { get; private set; }
         [field: SerializeField] public bool IsRanged { get; private set; }
@@ -152,13 +153,20 @@ namespace TheNecromancers.StateMachine.Enemy
         {
             ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
             AudioManager.Instance.PlayRandomClip(AudioClips.Attacks);
+        
         }
 
         private void OnHitAnim()
         {
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = true;
-           // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.HitParticleFX);
-           // TODO Play clip for attack slash
+
+            Vector3 spawnPos = transform.position + (transform.forward * 1.5f) + Vector3.up;
+            var slashvfx = Instantiate(SlashVFX, spawnPos, RightHandHolder.transform.rotation);
+            slashvfx.SetParent(transform);
+            Destroy(slashvfx, 1);
+
+            // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.HitParticleFX);
+       
         }
 
         private void OnEndAttackAnim()

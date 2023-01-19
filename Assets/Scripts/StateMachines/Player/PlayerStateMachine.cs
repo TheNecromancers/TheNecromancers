@@ -162,8 +162,8 @@ namespace TheNecromancers.StateMachine.Player
         //Animations Events
         void OnStartAttackAnim() 
         {
-            Vector3 spawnPos = transform.position + (transform.forward * 1.5f) + Vector3.up;
             AudioManager.Instance.PlayRandomClip(AudioClips.Attacks);
+            Vector3 spawnPos = transform.position + (transform.forward * 1.5f) + Vector3.up;
             var slashvfx = Instantiate(SlashVFX, spawnPos, RightHandHolder.transform.rotation);
             slashvfx.transform.SetParent(transform);
             Destroy(slashvfx, 1);

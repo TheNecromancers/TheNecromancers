@@ -486,6 +486,7 @@ MonoBehaviour:
   <AttackRange>k__BackingField: 2.1
   <AttackRate>k__BackingField: 1.25
   <AttackForce>k__BackingField: 5
+  <SlashVFX>k__BackingField: {fileID: 3662496979572467538, guid: 60d310309985b9d4e9917e6e851e63c9, type: 3}
   <ProjectileObj>k__BackingField: {fileID: 0}
   <IsRanged>k__BackingField: 0
   <RightHandHolder>k__BackingField: {fileID: 3671347887418839197}
