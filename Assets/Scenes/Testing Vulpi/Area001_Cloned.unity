@@ -362,6 +362,10 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 7684625680737355383, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: savePath
+      value: /Player.save
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684625680737355383, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: <AudioClips>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 2121c535752c5a54b80a0a9a09cb915c, type: 2}
@@ -1488,7 +1492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3281762963110296113, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3281762963110296113, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalRotation.w

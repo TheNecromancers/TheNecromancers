@@ -4,6 +4,8 @@ using TheNecromancers.Combat;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -36,17 +38,40 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public WeaponSO WeaponLeftHand { get; set; } = null;
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
-        [field: SerializeField] public GameObject SlashVFX { get; private set; }
+        //[field: SerializeField] public GameObject SlashVFX { get; private set; }
         public WeaponLogic WeaponLogic { get; set; } = null;
         public Attack[] Attacks { get; set; }
 
         public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
+        [field: Header("Persistence")]
+
+        public string savePath;
         public Vector3 LastSpawnPosition { get => lastSpawnPosition; set { lastSpawnPosition = value; } }
         private Vector3 lastSpawnPosition;
 
         public List<Chest> chests;
+
+        private void Awake()
+        {
+            //For persistence
+            Load();
+
+            //DisplayInventory = GetComponentInParent<DisplayInventory>();
+
+            InputManager = GetComponent<InputManager>();
+            Controller = GetComponent<CharacterController>();
+            Animator = GetComponent<Animator>();
+            ForceReceiver= GetComponent<ForceReceiver>();
+            Health = GetComponent<Health>();
+            AbilitySystemManager = GetComponentInChildren<AbilitySystemManager>();
+
+            InteractionDetector = GetComponentInChildren<InteractionDetector>();
+            Targeter = GetComponentInChildren<Targeter>();
+            InventoryManager = GetComponentInChildren<InventoryManager>();
+            //RightHandHolder = 
+        }
 
 
         private void Start()
@@ -56,7 +81,10 @@ namespace TheNecromancers.StateMachine.Player
             if (WeaponRightHand != null || WeaponLeftHand != null)
             {
                 WeaponRightHand?.Equip(RightHandHolder.transform);
+<<<<<<< Updated upstream
                 Attacks = WeaponRightHand.Attacks;
+=======
+>>>>>>> Stashed changes
                 WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
                 WeaponLeftHand?.Equip(LeftHandHolder.transform);
             }
@@ -169,9 +197,15 @@ namespace TheNecromancers.StateMachine.Player
         {
             AudioManager.Instance.PlayRandomClip(AudioClips.Attacks);
             Vector3 spawnPos = transform.position + (transform.forward * 1.5f) + Vector3.up;
+<<<<<<< Updated upstream
             var slashvfx = Instantiate(SlashVFX, spawnPos, RightHandHolder.transform.rotation);
             slashvfx.transform.SetParent(transform);
             Destroy(slashvfx.gameObject, 1);
+=======
+            //var slashvfx = Instantiate(SlashVFX, spawnPos, RightHandHolder.transform.rotation);
+            //slashvfx.transform.SetParent(transform);
+            //Destroy(slashvfx, 1);
+>>>>>>> Stashed changes
         }
 
         void OnHitAnim()
@@ -202,10 +236,30 @@ namespace TheNecromancers.StateMachine.Player
             }
         }
 
-        //private void OnApplicationQuit()
-        //{
-        //    inventoryObject.Container.Clear();
-        //}
+        public void Save()
+        {
+            string saveData = JsonUtility.ToJson(this, true);
+            BinaryFormatter bf = new();
+            FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+            bf.Serialize(file, saveData);
+            file.Close();
+        }
+
+        public void Load()
+        {
+            if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+            {
+                BinaryFormatter bf = new();
+                FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+                JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+                file.Close();
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            Save();
+        }
 
         /* 
         public void EquipmentChange(WeaponSO _weapon)
