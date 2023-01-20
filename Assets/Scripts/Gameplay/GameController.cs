@@ -7,23 +7,30 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] GameObject player;
     [SerializeField] DialogueTrigger afterFirstAreaDialogue;
-    Light playerLight;
+    Light[] playerLight;
     private void Awake()
     {
         if(player != null)
         {
-            playerLight = player.GetComponentInChildren<Light>();
+            playerLight = player.GetComponentsInChildren<Light>();
         }
     }
 
     private void Start()
     {
-        playerLight.gameObject.SetActive(false);
+        foreach(Light light in playerLight)
+        {
+           light.gameObject.SetActive(false);
+        }
+        
     }
 
     public void AfterFirstAreaInitialDialogue()
     {
-        playerLight.gameObject.SetActive(true);
+        foreach (Light light in playerLight)
+        {
+            light.gameObject.SetActive(true);
+        }
         afterFirstAreaDialogue.StartDialogue();
     }
 }

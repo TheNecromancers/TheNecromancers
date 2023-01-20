@@ -2795,11 +2795,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.6462755
+      value: -11.646276
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.0900006
+      value: 6.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2855,11 +2855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584176067586, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.6462755
+      value: -11.646276
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584176067586, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.0900006
+      value: 6.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584176067586, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2870,8 +2870,16 @@ PrefabInstance:
       value: -17.77
       objectReference: {fileID: 0}
     - target: {fileID: 7684625680737355379, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684625680737355379, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.z
       value: -19.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7684625680737355381, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_Center.y
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7684625680737355383, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: <AudioClips>k__BackingField

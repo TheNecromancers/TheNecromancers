@@ -5,14 +5,20 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing Vulpi/Area001_Cloned.unity
     guid: a0297b799e15b7648a28ee75f1afbde2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing Vulpi/Area002_Cloned.unity
     guid: 6a106374b932c284187b8b89eddafe84
   - enabled: 1
-    path: Assets/Scenes/Testing Vulpi/Loading.unity
+    path: Assets/Scenes/Levels/Loading.unity
     guid: 1c1e8b5e07d2b2d4fb0f4e02d4f1dd0a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Area001.unity
+    guid: 20326783cbcc42d419970cf780fd4745
+  - enabled: 1
+    path: Assets/Scenes/Levels/Area002.unity
+    guid: 5fdb849831dd0a4458b5b27de41ed144
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5216de4682138dd4e9ca56bf82eb885d, type: 2}
