@@ -38,7 +38,7 @@ namespace TheNecromancers.StateMachine.Player
         [field: SerializeField] public WeaponSO WeaponLeftHand { get; set; } = null;
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
-        //[field: SerializeField] public GameObject SlashVFX { get; private set; }
+        [field: SerializeField] public GameObject SlashVFX { get; private set; }
         public WeaponLogic WeaponLogic { get; set; } = null;
         public Attack[] Attacks { get; set; }
 
@@ -81,10 +81,7 @@ namespace TheNecromancers.StateMachine.Player
             if (WeaponRightHand != null || WeaponLeftHand != null)
             {
                 WeaponRightHand?.Equip(RightHandHolder.transform);
-<<<<<<< Updated upstream
                 Attacks = WeaponRightHand.Attacks;
-=======
->>>>>>> Stashed changes
                 WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
                 WeaponLeftHand?.Equip(LeftHandHolder.transform);
             }
@@ -197,15 +194,9 @@ namespace TheNecromancers.StateMachine.Player
         {
             AudioManager.Instance.PlayRandomClip(AudioClips.Attacks);
             Vector3 spawnPos = transform.position + (transform.forward * 1.5f) + Vector3.up;
-<<<<<<< Updated upstream
             var slashvfx = Instantiate(SlashVFX, spawnPos, RightHandHolder.transform.rotation);
             slashvfx.transform.SetParent(transform);
             Destroy(slashvfx.gameObject, 1);
-=======
-            //var slashvfx = Instantiate(SlashVFX, spawnPos, RightHandHolder.transform.rotation);
-            //slashvfx.transform.SetParent(transform);
-            //Destroy(slashvfx, 1);
->>>>>>> Stashed changes
         }
 
         void OnHitAnim()
