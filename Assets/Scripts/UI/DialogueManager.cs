@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     Actor[] currentActors;
     int activeMessage = 0;
     bool isActive = false;
+    UnityEvent EndDialogueEvent;
 
     public static DialogueManager Instance
     {
@@ -35,8 +37,9 @@ public class DialogueManager : MonoBehaviour
     {
         _instance = this;
     }
-    public void OpenDialogue(Message[] messages, Actor[] actors)
+    public void OpenDialogue(Message[] messages, Actor[] actors, UnityEvent OnEndDialogue)
     {
+        EndDialogueEvent = OnEndDialogue;
         currentMessages = messages;
         currentActors = actors;
         activeMessage = 0;
@@ -111,6 +114,8 @@ public class DialogueManager : MonoBehaviour
         isActive = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        if (EndDialogueEvent != null)
+            EndDialogueEvent.Invoke();
     }
 
     private void Start()

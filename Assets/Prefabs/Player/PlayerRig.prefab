@@ -1381,7 +1381,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9477612, y: 1}
+    m_SensorSize: {x: 1.856889, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1544,7 +1544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4104028584176067591}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: 8.1037245, y: 6.0900006, z: -3.563724}
+  m_LocalPosition: {x: -10.376276, y: 6.0900006, z: -29.003725}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3188,9 +3188,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
-  m_Intensity: 15
-  m_Range: 10
+  m_Color: {r: 0.9882353, g: 0.9716981, b: 0.7294118, a: 1}
+  m_Intensity: 25
+  m_Range: 20
   m_SpotAngle: 150
   m_InnerSpotAngle: 1
   m_CookieSize: 10
@@ -3288,6 +3288,7 @@ MonoBehaviour:
     m_Bits: 256
   Radius: 10
   KnockbackForce: 20
+  Light: {fileID: 7684625679845758127}
 --- !u!114 &590263320433376508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3329,6 +3330,7 @@ MonoBehaviour:
   TransitionSpeed: 4
   DirectionalLightOnPlayer: {fileID: 4104028583854947308}
   PlayerIntensityWhenDeath: 0.1
+  Light: {fileID: 7684625679845758127}
 --- !u!1 &7684625680737355378
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,28 +3408,10 @@ MonoBehaviour:
   <RollDuration>k__BackingField: 0.7
   <WeaponRightHand>k__BackingField: {fileID: 11400000, guid: 0203a163560333c49948bb5d9d5ce643, type: 2}
   <WeaponLeftHand>k__BackingField: {fileID: 11400000, guid: 0203a163560333c49948bb5d9d5ce643, type: 2}
-  <Attacks>k__BackingField:
-  - <AnimationName>k__BackingField: Attack1
-    <TransitionDuration>k__BackingField: 0.1
-    <ComboStateIndex>k__BackingField: 1
-    <ComboAttackTime>k__BackingField: 0.7
-    <Force>k__BackingField: 3
-    <ForceTime>k__BackingField: 0.1
-  - <AnimationName>k__BackingField: Attack2
-    <TransitionDuration>k__BackingField: 0.1
-    <ComboStateIndex>k__BackingField: 2
-    <ComboAttackTime>k__BackingField: 0.7
-    <Force>k__BackingField: 3
-    <ForceTime>k__BackingField: 0.1
-  - <AnimationName>k__BackingField: Attack3
-    <TransitionDuration>k__BackingField: 0.1
-    <ComboStateIndex>k__BackingField: -1
-    <ComboAttackTime>k__BackingField: 0.5
-    <Force>k__BackingField: 4
-    <ForceTime>k__BackingField: 0.1
   <RightHandHolder>k__BackingField: {fileID: 8493035885526396127}
   <LeftHandHolder>k__BackingField: {fileID: 1652417492903794154}
   <SlashVFX>k__BackingField: {fileID: 6445826192643391251, guid: 19ad1952919114446ab32647516f23c6, type: 3}
+  savePath: 
   chests: []
 --- !u!114 &7684625680737355382
 MonoBehaviour:

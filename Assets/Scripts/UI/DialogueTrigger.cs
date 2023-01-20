@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueTrigger : MonoBehaviour
 {
     public Message[] messages;
     public Actor[] actors;
+    [SerializeField] UnityEvent OnEndDialogue;
 
     public void StartDialogue()
     {
-        DialogueManager.Instance.OpenDialogue(messages, actors);
+        DialogueManager.Instance.OpenDialogue(messages, actors,OnEndDialogue);
     }
 }
 

@@ -39,11 +39,11 @@ public class AbilitySystemManager : MonoBehaviour
     private float intensityWeight;
     private float heightWeight;
     private float rangeWeight;
-    Light Light;
+    [SerializeField] Light Light;
 
     private void Awake()
     {
-        Light = GetComponent<Light>();
+        //Light = GetComponent<Light>();
     }
 
     private void Start()

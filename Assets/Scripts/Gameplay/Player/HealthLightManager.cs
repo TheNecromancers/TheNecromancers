@@ -21,11 +21,11 @@ public class HealthLightManager : MonoBehaviour
     [SerializeField] float TransitionSpeed;
     [SerializeField] Light DirectionalLightOnPlayer;
     [SerializeField] float PlayerIntensityWhenDeath;
-    Light Light;
+    [SerializeField] Light Light;
 
     private void Awake()
     {
-        Light = GetComponent<Light>();
+        //Light = GetComponent<Light>();
     }
 
     public void ChangeLightAccordingToHealth(int currHealth, int maxHealth)
