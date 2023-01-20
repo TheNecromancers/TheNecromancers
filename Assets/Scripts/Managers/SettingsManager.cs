@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class SettingsManager : MonoSingleton<SettingsManager>
 {
 
 
-    [field:SerializeField, Range(-1,1)] float volumeValue;
-    float defaultVolumeValue =0;
+    [field:SerializeField, Range(0,1)] float volumeValue;
+    float defaultVolumeValue =0.5f;
     [field:SerializeField, Range(-1,1)]  float postExposureValue;
     float defaultPostExposureValue =0;
     [field:SerializeField, Range(-25,25)] float contrastValue;
@@ -18,6 +19,7 @@ public class SettingsManager : MonoSingleton<SettingsManager>
 
     [field:SerializeField] Sprite audioActiveSprite;
     [field:SerializeField] Sprite audioInactiveSprite;
+    [field:SerializeField] AudioMixer masterMixer;
 
 
     private Slider VolumeSlider;
@@ -27,17 +29,24 @@ public class SettingsManager : MonoSingleton<SettingsManager>
     private Button DefaultButton;
     private Controls controls;
     private Volume globalVolume;
+    private AudioManager audioManager;
+
     
 
     override public void Awake() 
     {
-        LoadPrefs();
+        //LoadPrefs();
 
+    } 
+    private void Start() 
+    {
+        LoadPrefs();
     }
 
     public void FindObjects()
     {
         globalVolume =FindObjectOfType<Volume>();
+        audioManager = AudioManager.Instance;
 
         DefaultButton = GameObject.FindGameObjectWithTag("DefaultButton").GetComponent<Button>();
         DefaultButton.onClick.AddListener(SetDefaults);
@@ -63,9 +72,10 @@ public class SettingsManager : MonoSingleton<SettingsManager>
     }
     public void ChangeVolume(float _value)
     {
+        masterMixer.SetFloat("MasterVolume",Mathf.Log10(_value)*20);
         PlayerPrefs.SetFloat("VolumeValue",_value);
         volumeValue =_value;
-        if(_value ==-1)
+        if(_value == 0.0001f)
         {
             MuteButton.image.sprite =audioInactiveSprite;
         }
@@ -122,8 +132,8 @@ public class SettingsManager : MonoSingleton<SettingsManager>
         if(MuteButton.image.sprite == audioActiveSprite)
         {
             MuteButton.image.sprite =audioInactiveSprite;
-            volumeValue = -1;
-            VolumeSlider.value=-1;
+            volumeValue = 0.0001f;
+            VolumeSlider.value=0.0001f;
         }
         else
         {

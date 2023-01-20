@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1536502769245986187}
-  - component: {fileID: 7898088062258612429}
+  - component: {fileID: 1794214149}
   m_Layer: 0
   m_Name: PlayerPrefManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7898088062258612429
+--- !u!114 &1794214149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6664541742476246510}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c246d4dfba8c8d4689290409f58b8d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 98a85b75dd03ca1418aeaae397599e73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   volumeValue: 0
   postExposureValue: 0
   contrastValue: 0
+  audioActiveSprite: {fileID: 21300000, guid: d3c8582f510fc724f8573985bb9c337e, type: 3}
+  audioInactiveSprite: {fileID: 21300000, guid: 3fd0c13759b961148909a11552c0b89f, type: 3}
+  masterMixer: {fileID: 24100000, guid: ca03c6bd83cd8aa42a6f6f26e422b7f0, type: 2}
