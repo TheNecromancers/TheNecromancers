@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +8,14 @@ public static class Loader {
     private class LoadingMonoBehaviour : MonoBehaviour { }
 
     public enum Scene {
-        Area001_Cloned,
-        Area002_Cloned,
-        Area003_Cloned,
-        Area004_Cloned,
+        Area001,
+        Area002, 
+        Area003, 
+        Area004,
+        Area_Boss,
+        First_Area,
+        HUB_1,
+        MainMenu,
         Loading
     }
 

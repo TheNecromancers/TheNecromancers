@@ -9,7 +9,7 @@ public class Area01Trigger : AreaTrigger
     {
         if (other.TryGetComponent(out PlayerStateMachine Player))
         {
-            Loader.Load(Loader.Scene.Area001_Cloned);
+            Loader.Load(Loader.Scene.Area001);
             Player.SetPlayerPosition(PlayerPos);
         }
     }

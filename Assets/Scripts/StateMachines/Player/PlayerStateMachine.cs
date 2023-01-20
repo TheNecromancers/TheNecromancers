@@ -55,22 +55,26 @@ namespace TheNecromancers.StateMachine.Player
 
         private void Awake()
         {
-            //For persistence
+            //For persistence 
             Load();
 
-            //DisplayInventory = GetComponentInParent<DisplayInventory>();
+            DisplayInventory = FindObjectOfType<DisplayInventory>();
 
             InputManager = GetComponent<InputManager>();
             Controller = GetComponent<CharacterController>();
             Animator = GetComponent<Animator>();
             ForceReceiver= GetComponent<ForceReceiver>();
             Health = GetComponent<Health>();
-            AbilitySystemManager = GetComponentInChildren<AbilitySystemManager>();
 
+            AbilitySystemManager = GetComponentInChildren<AbilitySystemManager>();
             InteractionDetector = GetComponentInChildren<InteractionDetector>();
             Targeter = GetComponentInChildren<Targeter>();
             InventoryManager = GetComponentInChildren<InventoryManager>();
-            //RightHandHolder = 
+
+            RightHandHolder = GameObject.FindGameObjectWithTag("RightSlot");
+            LeftHandHolder = GameObject.FindGameObjectWithTag("LeftSlot");
+
+            //Da inserire anche la traccia audio e l'inventario 
         }
 
 

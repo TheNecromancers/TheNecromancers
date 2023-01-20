@@ -261,6 +261,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1652417492903794154, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_TagString
+      value: LeftSlot
+      objectReference: {fileID: 0}
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.1237245
@@ -369,6 +373,10 @@ PrefabInstance:
       propertyPath: <AudioClips>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 2121c535752c5a54b80a0a9a09cb915c, type: 2}
+    - target: {fileID: 8493035885526396127, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_TagString
+      value: RightSlot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
 --- !u!1001 &237431071

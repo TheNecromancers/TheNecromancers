@@ -32,11 +32,6 @@ namespace TheNecromancers.Combat
 
         private void Start()
         {
-            //if (AmIPlayer == false)
-            //{
-            //    RestoreLife();
-            //}
-
             RestoreLife();
         }
 

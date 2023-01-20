@@ -12,6 +12,8 @@ TagManager:
   - ContrastSlider
   - MuteButton
   - DefaultButton
+  - LeftSlot
+  - RightSlot
   layers:
   - Default
   - TransparentFX
