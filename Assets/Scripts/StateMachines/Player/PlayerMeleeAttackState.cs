@@ -15,7 +15,7 @@ namespace TheNecromancers.StateMachine.Player
         public PlayerMeleeAttackState(PlayerStateMachine stateMachine, int attackIndex, Vector3 direction) : base(stateMachine)
         {
             this.attackIndex = attackIndex;
-            this.attack = stateMachine.Attacks[attackIndex];
+            this.attack = stateMachine.WeaponRightHand.Attacks[attackIndex];
             this.direction = direction;
         }
 
@@ -25,6 +25,7 @@ namespace TheNecromancers.StateMachine.Player
 
             direction = CalculateMovement();
 
+            stateMachine.Attacks = stateMachine.WeaponRightHand.Attacks;
             stateMachine.WeaponLogic.SetAttack(stateMachine.WeaponRightHand.Damage, stateMachine.WeaponRightHand.Knockbacks[attackIndex]);
 
             stateMachine.RightHandHolder.transform.GetChild(0).transform.localRotation = 

@@ -1381,7 +1381,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0703669, y: 1}
+    m_SensorSize: {x: 1.9477612, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1544,7 +1544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4104028584176067591}
   m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -10.376276, y: 6.0900006, z: -29.003725}
+  m_LocalPosition: {x: 8.1037245, y: 6.0900006, z: -3.563724}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3398,7 +3398,7 @@ MonoBehaviour:
   <inventoryObject>k__BackingField: {fileID: 11400000, guid: c0508c6c3ca3f4441a3410f0062c7362, type: 2}
   <DisplayInventory>k__BackingField: {fileID: 4388233960594917731}
   <InventoryManager>k__BackingField: {fileID: 261590991303474203}
-  <AudioClips>k__BackingField: {fileID: 0}
+  <AudioClips>k__BackingField: {fileID: 11400000, guid: 2121c535752c5a54b80a0a9a09cb915c, type: 2}
   <MovementSpeed>k__BackingField: 4.8
   <TargetingMovementSpeed>k__BackingField: 3.5
   <RotationSpeed>k__BackingField: 8
@@ -3427,6 +3427,7 @@ MonoBehaviour:
     <ForceTime>k__BackingField: 0.1
   <RightHandHolder>k__BackingField: {fileID: 8493035885526396127}
   <LeftHandHolder>k__BackingField: {fileID: 1652417492903794154}
+  <SlashVFX>k__BackingField: {fileID: 6445826192643391251, guid: 19ad1952919114446ab32647516f23c6, type: 3}
   chests: []
 --- !u!114 &7684625680737355382
 MonoBehaviour:

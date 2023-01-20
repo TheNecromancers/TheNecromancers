@@ -163,7 +163,7 @@ namespace TheNecromancers.StateMachine.Enemy
             Vector3 spawnPos = transform.position + (transform.forward * 1.5f) + Vector3.up;
             var slashvfx = Instantiate(SlashVFX, spawnPos, RightHandHolder.transform.rotation);
             slashvfx.SetParent(transform);
-            Destroy(slashvfx, 1);
+            Destroy(slashvfx.gameObject, 1);
 
             // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.HitParticleFX);
        

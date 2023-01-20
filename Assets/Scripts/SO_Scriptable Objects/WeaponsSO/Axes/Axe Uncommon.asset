@@ -17,5 +17,24 @@ MonoBehaviour:
   type: 1
   description: 
   <Damage>k__BackingField: 30
-  <Knockback>k__BackingField: 5
+  <Knockbacks>k__BackingField: []
   <WeaponType>k__BackingField: 1
+  <Attacks>k__BackingField:
+  - <AnimationName>k__BackingField: Attack1
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 1
+    <ComboAttackTime>k__BackingField: 0.7
+    <Force>k__BackingField: 3
+    <ForceTime>k__BackingField: 0.1
+  - <AnimationName>k__BackingField: Attack2
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 2
+    <ComboAttackTime>k__BackingField: 0.7
+    <Force>k__BackingField: 3
+    <ForceTime>k__BackingField: 0.1
+  - <AnimationName>k__BackingField: AxeAttack3
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: -1
+    <ComboAttackTime>k__BackingField: 0.5
+    <Force>k__BackingField: 4
+    <ForceTime>k__BackingField: 0.1

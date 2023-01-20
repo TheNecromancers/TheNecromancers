@@ -16,10 +16,28 @@ MonoBehaviour:
   itemPrefab: {fileID: 4214597414847622612, guid: f72b1b99abb06314b9a8320e46b73577, type: 3}
   type: 1
   description: 
-  WeaponPrefab: {fileID: 4214597414847622612, guid: f72b1b99abb06314b9a8320e46b73577, type: 3}
-  <Damage>k__BackingField: 20
+  <Damage>k__BackingField: 25
   <Knockbacks>k__BackingField:
   - 0
   - 0
   - 5
   <WeaponType>k__BackingField: 1
+  <Attacks>k__BackingField:
+  - <AnimationName>k__BackingField: Attack1
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 1
+    <ComboAttackTime>k__BackingField: 0.7
+    <Force>k__BackingField: 3
+    <ForceTime>k__BackingField: 0.1
+  - <AnimationName>k__BackingField: Attack2
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 2
+    <ComboAttackTime>k__BackingField: 0.7
+    <Force>k__BackingField: 3
+    <ForceTime>k__BackingField: 0.1
+  - <AnimationName>k__BackingField: AxeAttack3
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: -1
+    <ComboAttackTime>k__BackingField: 0.5
+    <Force>k__BackingField: 4
+    <ForceTime>k__BackingField: 0.1

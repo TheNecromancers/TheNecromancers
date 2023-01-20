@@ -34,11 +34,12 @@ namespace TheNecromancers.StateMachine.Player
         [field: Header("Attack Settings")]
         [field: SerializeField] public WeaponSO WeaponRightHand { get; set; } = null;
         [field: SerializeField] public WeaponSO WeaponLeftHand { get; set; } = null;
-        [field: SerializeField] public Attack[] Attacks { get; private set; }
         [field: SerializeField] public GameObject RightHandHolder { get; private set; }
         [field: SerializeField] public GameObject LeftHandHolder { get; private set; }
         [field: SerializeField] public GameObject SlashVFX { get; private set; }
         public WeaponLogic WeaponLogic { get; set; } = null;
+        public Attack[] Attacks { get; set; }
+
         public WeaponLogic ShieldLogic { get; private set; } = null;
         public Transform MainCameraTransform { get; private set; }
 
@@ -52,9 +53,13 @@ namespace TheNecromancers.StateMachine.Player
         {
             MainCameraTransform = Camera.main.transform;
 
-            //WeaponRightHand?.Equip(RightHandHolder.transform);
-            //WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
-            //WeaponLeftHand?.Equip(LeftHandHolder.transform);
+            if (WeaponRightHand != null || WeaponLeftHand != null)
+            {
+                WeaponRightHand?.Equip(RightHandHolder.transform);
+                Attacks = WeaponRightHand.Attacks;
+                WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
+                WeaponLeftHand?.Equip(LeftHandHolder.transform);
+            }
 
             InventoryManager.inventoryObject = inventoryObject;
             InventoryManager.displayInventory = DisplayInventory;
@@ -166,7 +171,7 @@ namespace TheNecromancers.StateMachine.Player
             Vector3 spawnPos = transform.position + (transform.forward * 1.5f) + Vector3.up;
             var slashvfx = Instantiate(SlashVFX, spawnPos, RightHandHolder.transform.rotation);
             slashvfx.transform.SetParent(transform);
-            Destroy(slashvfx, 1);
+            Destroy(slashvfx.gameObject, 1);
         }
 
         void OnHitAnim()
