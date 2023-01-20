@@ -20,13 +20,13 @@ MonoBehaviour:
   <Knockbacks>k__BackingField: []
   <WeaponType>k__BackingField: 1
   <Attacks>k__BackingField:
-  - <AnimationName>k__BackingField: Attack1
+  - <AnimationName>k__BackingField: AxeAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.7
     <Force>k__BackingField: 3
     <ForceTime>k__BackingField: 0.1
-  - <AnimationName>k__BackingField: Attack2
+  - <AnimationName>k__BackingField: AxeAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
     <ComboAttackTime>k__BackingField: 0.7
