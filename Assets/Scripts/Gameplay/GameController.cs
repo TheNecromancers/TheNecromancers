@@ -8,19 +8,28 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] DialogueTrigger afterFirstAreaDialogue;
     Light[] playerLight;
+    AbilityVisualController playerAVC;
     private void Awake()
     {
         if(player != null)
         {
             playerLight = player.GetComponentsInChildren<Light>();
+            playerAVC = player.GetComponentInChildren<AbilityVisualController>();
         }
     }
 
     private void Start()
     {
-        foreach(Light light in playerLight)
+        if (playerLight != null)
         {
-           light.gameObject.SetActive(false);
+            foreach (Light light in playerLight)
+            {
+                light.gameObject.SetActive(false);
+            }
+        }
+        if(playerAVC != null)
+        {
+            playerAVC.ToggleOffImages();
         }
         
     }
@@ -31,6 +40,13 @@ public class GameController : MonoBehaviour
         {
             light.gameObject.SetActive(true);
         }
+        playerAVC.ToggleOnImages();
         afterFirstAreaDialogue.StartDialogue();
+    }
+
+    public void AfterNarratorDialogue()
+    {
+        Loader.Load(Loader.Scene.First_Area);
+        //Player.SetPlayerPosition(new Vector3(-16.5f, 1.09f, -22.88f));
     }
 }

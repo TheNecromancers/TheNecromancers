@@ -15,14 +15,7 @@ public class AbilityVisualController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Image im in ExplorationImages)
-        {
-            im.color = ExplorationBrightColor;
-        }
-        foreach (Image im in RepulsionImages)
-        {
-            im.color = RepulsionBrightColor;
-        }
+        ToggleOnImages();
     }
 
     public void UseExplorationAbility(float _abilityCooldown)
@@ -60,5 +53,29 @@ public class AbilityVisualController : MonoBehaviour
             yield return null;
         }
         RechargeImages[1].color = BrightColor;
+    }
+
+    public void ToggleOffImages()
+    {
+        foreach (Image im in ExplorationImages)
+        {
+            im.color = new Color(1,1,1,0);
+        }
+        foreach (Image im in RepulsionImages)
+        {
+            im.color = new Color(1, 1, 1, 0);
+        }
+    }
+
+    public void ToggleOnImages()
+    {
+        foreach (Image im in ExplorationImages)
+        {
+            im.color = ExplorationBrightColor;
+        }
+        foreach (Image im in RepulsionImages)
+        {
+            im.color = RepulsionBrightColor;
+        }
     }
 }
