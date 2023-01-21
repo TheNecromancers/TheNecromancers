@@ -26,8 +26,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
 
     private Controls controls;
 
-   
-
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
