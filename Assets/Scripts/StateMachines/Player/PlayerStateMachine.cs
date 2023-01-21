@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -75,6 +76,18 @@ namespace TheNecromancers.StateMachine.Player
             LeftHandHolder = GameObject.FindGameObjectWithTag("LeftSlot");
 
             //Da inserire anche la traccia audio e l'inventario 
+            #if UNITY_EDITOR
+            inventoryObject = (InventoryObject)AssetDatabase.LoadAssetAtPath("Assets/Scripts/SO_Scriptable Objects/InventorySO/Resources/Empty Inventory.asset",
+                typeof(InventoryObject));
+            AudioClips = (AudioClips)AssetDatabase.LoadAssetAtPath("Assets/Scripts/SO_Scriptable Objects/AudioSO/Resources/PlayerAudioData.asset",
+                typeof(AudioClips));
+            SlashVFX = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Resources/slash5-HungNguyen/prefab/slash/white-yellow bolder.prefab",
+                typeof(GameObject));
+            #else
+                inventoryObject = Resources.Load<InventoryObject>("Empty Inventory");
+                AudioClips = Resources.Load<AudioClips>("PlayerAudioData");
+                SlashVFX = Resources.Load<GameObject>("slash5-HungNguyen/prefab/slash/white-yellow bolder");
+            #endif
         }
 
 
