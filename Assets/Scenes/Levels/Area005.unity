@@ -4319,6 +4319,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6085550849407731061, guid: d9fdc24279e282342b4ab2c518428d2d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 6085550849407731061, guid: d9fdc24279e282342b4ab2c518428d2d, type: 3}
       propertyPath: m_Name
       value: Scene004_Trigger
       objectReference: {fileID: 0}
