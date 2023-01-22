@@ -12,6 +12,7 @@ public static class Loader {
         Area002, 
         Area003, 
         Area004,
+        Area005,
         Area_Boss,
         First_Area,
         HUB_1,
