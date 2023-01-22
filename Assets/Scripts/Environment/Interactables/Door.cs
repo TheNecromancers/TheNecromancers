@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +14,13 @@ public class Door : MonoBehaviour, IInteractable
 
     public bool isLocked = true;
     float rotationDegree;
+
+    public string savePath;
+
+    private void Awake()
+    {
+        Load();
+    }
 
     private void Start()
     {
@@ -48,7 +57,8 @@ public class Door : MonoBehaviour, IInteractable
         Quaternion.Euler(transform.localRotation.x,
         rotationDegree, 
         transform.localRotation.z), 
-        Time.deltaTime * speed); 
+        Time.deltaTime * speed);
+        Save();
     }
 
     public void OnStartHover()
@@ -67,5 +77,30 @@ public class Door : MonoBehaviour, IInteractable
     public void OnEndHover()
     {
         if (!isInteractable) return;
+    }
+
+    public void Save()
+    {
+        string saveData = JsonUtility.ToJson(this, true);
+        BinaryFormatter bf = new();
+        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        bf.Serialize(file, saveData);
+        file.Close();
+    }
+
+    public void Load()
+    {
+        if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+        {
+            BinaryFormatter bf = new();
+            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+            file.Close();
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        Save();
     }
 }

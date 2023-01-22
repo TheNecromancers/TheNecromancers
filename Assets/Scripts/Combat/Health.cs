@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
 using System.Threading.Tasks;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace TheNecromancers.Combat
 {
@@ -22,7 +24,7 @@ namespace TheNecromancers.Combat
         public bool AmIPlayer;
         [SerializeField] HealthLightManager HealthLightManager;
 
-        private int health;
+        public int health;
         private bool isInvulnerable;
 
         public event Action OnTakeDamage;
@@ -30,9 +32,19 @@ namespace TheNecromancers.Combat
 
         public bool IsDead => health == 0;
 
+        public string savePath;
+
         private void Start()
         {
-            RestoreLife();
+            if (AmIPlayer)
+            {
+                Load();
+                HealthLightManager.ChangeLightAccordingToHealth(health, MaxHealth);
+            }
+            else
+            {
+                RestoreLife();
+            }
         }
 
         public void SetInvulnerable(bool value)
@@ -62,6 +74,8 @@ namespace TheNecromancers.Combat
             }
 
             Debug.Log(gameObject.name + " Current health " + health + " damage received " + damage);
+
+            Save();
         }
 
         async void HandleInvulnerable()
@@ -88,5 +102,31 @@ namespace TheNecromancers.Combat
             if (AmIPlayer)
                 HealthLightManager.ChangePlayerIlluminationToDeath();
         }
+
+        public void Save()
+        {
+            string saveData = JsonUtility.ToJson(this, true);
+            BinaryFormatter bf = new();
+            FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+            bf.Serialize(file, saveData);
+            file.Close();
+        }
+
+        public void Load()
+        {
+            if (File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+            {
+                BinaryFormatter bf = new();
+                FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open);
+                JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+                file.Close();
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            Save();
+        }
+
     }
 }

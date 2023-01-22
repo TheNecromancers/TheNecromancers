@@ -1037,6 +1037,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2790162575917754605, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: savePath
+      value: /PlayerHealth.save
+      objectReference: {fileID: 0}
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.896276
@@ -1206,6 +1210,10 @@ PrefabInstance:
     - target: {fileID: 3281762963110296113, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281762963110296123, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
+      propertyPath: savePath
+      value: /EnemyHealth1.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
@@ -5343,6 +5351,10 @@ PrefabInstance:
     - target: {fileID: 8291084908679624339, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_Name
       value: Area2NoiseDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624429, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: savePath
+      value: /Dialogue1.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
@@ -14038,6 +14050,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 499606208753426595}
     m_Modifications:
+    - target: {fileID: 6593066171746003696, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
+      propertyPath: savePath
+      value: /Door2.save
+      objectReference: {fileID: 0}
     - target: {fileID: 7465646542212300781, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
       propertyPath: m_Name
       value: GearDoor
@@ -14658,6 +14674,10 @@ PrefabInstance:
     - target: {fileID: 8291084908679624339, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_Name
       value: Area2InitialDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624429, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: savePath
+      value: /Dialogue2.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
@@ -17112,6 +17132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   isLocked: 1
+  savePath: /Door1.save
 --- !u!54 &6742367975022892444
 Rigidbody:
   m_ObjectHideFlags: 0
