@@ -16926,6 +16926,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5284261142852397416, guid: 44781599fcd6f45479ac981a4c971ae7, type: 3}
+      propertyPath: PlayerPos.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284261142852397416, guid: 44781599fcd6f45479ac981a4c971ae7, type: 3}
+      propertyPath: PlayerPos.y
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5284261142852397416, guid: 44781599fcd6f45479ac981a4c971ae7, type: 3}
+      propertyPath: PlayerPos.z
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 5366240866607435383, guid: 44781599fcd6f45479ac981a4c971ae7, type: 3}
       propertyPath: m_Icon
       value: 
