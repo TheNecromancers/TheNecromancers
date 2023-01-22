@@ -18,7 +18,7 @@ MonoBehaviour:
   description: 
   <Damage>k__BackingField: 30
   <Knockbacks>k__BackingField: []
-  <WeaponType>k__BackingField: 1
+  <WeaponType>k__BackingField: 2
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: AxeAttack1
     <TransitionDuration>k__BackingField: 0.1

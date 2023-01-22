@@ -10,8 +10,9 @@ public enum ItemType
 }
 public enum WeaponType
 {
-    LeftHand,
-    RightHand,
+    Sword,
+    Shield,
+    Axe
 }
 [CreateAssetMenu(fileName = "Item", menuName = "Items/New Item", order = 0)]
 public class ItemObject : ScriptableObject

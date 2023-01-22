@@ -21,7 +21,7 @@ MonoBehaviour:
   - 2
   - 2
   - 2
-  <WeaponType>k__BackingField: 1
+  <WeaponType>k__BackingField: 0
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
     <TransitionDuration>k__BackingField: 0.1

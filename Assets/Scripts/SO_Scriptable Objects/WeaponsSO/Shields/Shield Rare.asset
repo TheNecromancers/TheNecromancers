@@ -18,4 +18,5 @@ MonoBehaviour:
   description: 
   <Damage>k__BackingField: 0
   <Knockbacks>k__BackingField: []
-  <WeaponType>k__BackingField: 0
+  <WeaponType>k__BackingField: 1
+  <Attacks>k__BackingField: []

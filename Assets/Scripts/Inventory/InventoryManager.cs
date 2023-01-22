@@ -35,7 +35,7 @@ public class InventoryManager : MonoBehaviour
     {
         //inventoryObject.AddItem(weapon,-1);
 
-        if (weapon.WeaponType == WeaponType.LeftHand)
+        if (weapon.WeaponType == WeaponType.Shield)
         {
             //inventoryObject.AddItem(playerStateMachine.WeaponLeftHand,1);
             if (playerStateMachine.LeftHandHolder.transform.childCount == 0)
@@ -71,7 +71,7 @@ public class InventoryManager : MonoBehaviour
 
         }
 
-        if (weapon.WeaponType == WeaponType.RightHand)
+        if (weapon.WeaponType == WeaponType.Sword ||weapon.WeaponType == WeaponType.Axe)
         {
             //inventoryObject.AddItem(playerStateMachine.WeaponRightHand, 1);
 

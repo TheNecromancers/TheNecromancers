@@ -16,7 +16,7 @@ MonoBehaviour:
   Container:
   - ID: 3
     item: {fileID: 11400000, guid: 7b0334a50e8a52349a39addbda4226e1, type: 2}
-    amount: 1
+    amount: 2
   - ID: 6
     item: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
     amount: 1
@@ -25,4 +25,7 @@ MonoBehaviour:
     amount: 1
   - ID: 4
     item: {fileID: 11400000, guid: b361652ecff398a4389cbf6e9e8d8c28, type: 2}
+    amount: 1
+  - ID: 9
+    item: {fileID: 11400000, guid: a8e722f3761f7e74c8d6ed11e70f24fd, type: 2}
     amount: 1
