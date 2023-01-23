@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using TheNecromancers.Gameplay.AI;
 using TheNecromancers.Combat;
-using UnityEditorInternal;
+//using UnityEditorInternal;
 
 
 namespace TheNecromancers.StateMachine.Enemy

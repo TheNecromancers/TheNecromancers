@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.ShaderGraph;
+//using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -19,7 +19,7 @@ public class DialogueManager : MonoBehaviour
     Message[] currentMessages;
     Actor[] currentActors;
     int activeMessage = 0;
-    bool isActive = false;
+    //bool isActive = false;
     UnityEvent EndDialogueEvent;
 
     public static DialogueManager Instance
@@ -44,7 +44,7 @@ public class DialogueManager : MonoBehaviour
         currentMessages = messages;
         currentActors = actors;
         activeMessage = 0;
-        isActive = true;
+        //isActive = true;
         nextButton.gameObject.SetActive(true);
         skipButton.gameObject.SetActive(true);
         Debug.Log("Started conversation! Loaded messages: "+ messages.Length);
@@ -124,7 +124,7 @@ public class DialogueManager : MonoBehaviour
             playerInput.EnablePlayerControls();
         }
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
-        isActive = false;
+        //isActive = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         if (EndDialogueEvent != null)
