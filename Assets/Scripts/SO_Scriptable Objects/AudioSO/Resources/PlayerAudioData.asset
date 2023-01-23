@@ -46,5 +46,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  PowerUp1: []
-  PowerUp2: []
+  PowerUp1:
+  - {fileID: 8300000, guid: a1bd00979b98b4a409bf6f221de4daec, type: 3}
+  PowerUp2:
+  - {fileID: 8300000, guid: 29980a02942ed8948b746e54618b916f, type: 3}

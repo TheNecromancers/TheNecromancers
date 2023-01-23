@@ -27,9 +27,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ac5dd169c51c37243b6c93374f182e72, type: 3}
   - {fileID: 8300000, guid: 68168faffff8f464aab918450ff6c7cb, type: 3}
   - {fileID: 8300000, guid: fddf0ebbc8de2ff4191433291d8b76db, type: 3}
-  Parry: []
+  Parry:
+  - {fileID: 8300000, guid: 419dbcd6aa15ef343b831aab894876d5, type: 3}
   Roll: []
-  CrossbowShoot: []
+  CrossbowShoot:
+  - {fileID: 8300000, guid: 1b4e188f85257654890c1a3b47ae43c7, type: 3}
+  - {fileID: 8300000, guid: ceec695b78fb4dc448e422182111db50, type: 3}
   Death:
   - {fileID: 8300000, guid: cdaf0e40c289aa240979f668059730f2, type: 3}
   BodyDrop:
