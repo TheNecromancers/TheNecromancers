@@ -13,16 +13,38 @@ MonoBehaviour:
   m_Name: PlayerAudioData
   m_EditorClassIdentifier: 
   Attacks:
-  - {fileID: 8300000, guid: 37a27c8f6579d3a42a974461643a598a, type: 3}
-  - {fileID: 8300000, guid: 326bb5921c4f72b4db0b76bb0e4ff628, type: 3}
+  - {fileID: 8300000, guid: de2c601f2c345654c844696263a30cbe, type: 3}
+  - {fileID: 8300000, guid: 561b6efe1b8d1bf49a2e831499fae2c6, type: 3}
+  - {fileID: 8300000, guid: 6cb32df3f46067446b9eed6189fc0ee9, type: 3}
+  - {fileID: 8300000, guid: 6d0a089d41455d24aad3f2e8eb10ee2d, type: 3}
+  - {fileID: 8300000, guid: 6b8fbb0a8328e1f46bed1158bd483c70, type: 3}
+  - {fileID: 8300000, guid: cf90df87f90e2814eabcaaf1e0a62d94, type: 3}
+  - {fileID: 8300000, guid: 5bc55a69b648e604eafc15d6c0b7f333, type: 3}
   Footsteps:
-  - {fileID: 8300000, guid: 4d4b417f12da5104e957d5d505e8ca7c, type: 3}
-  - {fileID: 8300000, guid: a20dbae61cfe09b4b9c09e5856058265, type: 3}
-  - {fileID: 8300000, guid: d6cbe09aaeed9e54a892757bc2d1dbd4, type: 3}
-  - {fileID: 8300000, guid: bcc5cdddb41ffbe459ef8e52769d4a56, type: 3}
-  - {fileID: 8300000, guid: b84a5301c800bb346afbb1511ebc6724, type: 3}
-  - {fileID: 8300000, guid: fc08df7ce08b1904b80a5b37bf655208, type: 3}
-  - {fileID: 8300000, guid: 6575ab179ff3e9a4883f805f71e0af07, type: 3}
-  - {fileID: 8300000, guid: 5adbb3420279cd74db36e7d3d5197690, type: 3}
-  - {fileID: 8300000, guid: 7757baddb69d16d4795e89f880a7103d, type: 3}
-  - {fileID: 8300000, guid: 6ed2b632c4094274e95dc97f954a0cac, type: 3}
+  - {fileID: 8300000, guid: f46542f487cf32e49abee70cc6cfa5b8, type: 3}
+  - {fileID: 8300000, guid: b45db89bbb821ba419e8582a89f20b17, type: 3}
+  - {fileID: 8300000, guid: fb53186ab55989d438084c7cd50ee854, type: 3}
+  - {fileID: 8300000, guid: ac5dd169c51c37243b6c93374f182e72, type: 3}
+  - {fileID: 8300000, guid: 68168faffff8f464aab918450ff6c7cb, type: 3}
+  - {fileID: 8300000, guid: fddf0ebbc8de2ff4191433291d8b76db, type: 3}
+  Parry:
+  - {fileID: 8300000, guid: 419dbcd6aa15ef343b831aab894876d5, type: 3}
+  Roll:
+  - {fileID: 8300000, guid: 3dd8a4f3b9b92d7408b793accc629b95, type: 3}
+  - {fileID: 8300000, guid: b7b4a7f44f6d0c34e92f076098e07de6, type: 3}
+  - {fileID: 8300000, guid: 9acc7546c98a1654da4547a5cf5e705d, type: 3}
+  CrossbowShoot:
+  - {fileID: 8300000, guid: 1b4e188f85257654890c1a3b47ae43c7, type: 3}
+  - {fileID: 8300000, guid: ceec695b78fb4dc448e422182111db50, type: 3}
+  Death:
+  - {fileID: 8300000, guid: cdaf0e40c289aa240979f668059730f2, type: 3}
+  BodyDrop: []
+  Hurt:
+  - {fileID: 8300000, guid: 4fbae12241c159147a89917fd2bd5dc5, type: 3}
+  - {fileID: 8300000, guid: 3bf738bd225da46448eb77e2d31923fc, type: 3}
+  EnemyGroan:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PowerUp1: []
+  PowerUp2: []
