@@ -20,6 +20,8 @@ namespace TheNecromancers.StateMachine.Enemy
             }
 
             stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, CrossFadeduration);
+            AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.EnemyGroan);
+
         }
 
         public override void Tick(float deltaTime)

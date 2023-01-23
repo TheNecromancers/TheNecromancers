@@ -17,6 +17,8 @@ namespace TheNecromancers.StateMachine.Enemy
             GameObject.Destroy(stateMachine.Target);
             //GameObject.Destroy(stateMachine.gameObject, 5f);
             stateMachine.gameObject.SetActive(false);
+
+            AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.EnemyGroan);
         }
 
         public override void Tick(float deltaTime) { }

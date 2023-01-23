@@ -21,8 +21,9 @@ namespace TheNecromancers.StateMachine.Player
         public override void Enter()
         {
             stateMachine.Animator.CrossFadeInFixedTime(DashBlendTreeHash, CrossFadeDuration);
-
             remainingRollTime = stateMachine.RollDuration;
+
+            AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.Roll);
         }
 
         public override void Tick(float deltaTime)

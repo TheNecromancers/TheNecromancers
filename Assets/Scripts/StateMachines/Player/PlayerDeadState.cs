@@ -17,6 +17,8 @@ namespace TheNecromancers.StateMachine.Player
         {
             Debug.Log("Player è morto");
             stateMachine.Animator.CrossFadeInFixedTime(DieHash, CrossFadeduration);
+
+            AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.BodyDrop);
         }
 
         public override void Tick(float deltaTime) { }

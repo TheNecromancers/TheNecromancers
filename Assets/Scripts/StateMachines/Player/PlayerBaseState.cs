@@ -73,6 +73,7 @@ namespace TheNecromancers.StateMachine.Player
         protected void HandleTakeDamage()
         {
             stateMachine.Health.SetInvulnerable();
+            AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.Hurt);
             stateMachine.SwitchState(new PlayerImpactState(stateMachine));
         }
 

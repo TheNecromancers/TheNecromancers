@@ -117,6 +117,8 @@ namespace TheNecromancers.StateMachine.Enemy
                 SwitchState(new EnemyStunState(this));
                 HitsDamageTaked = 0;
             }
+
+            AudioManager.Instance.PlayRandomClip(AudioClips.Hurt);
         }
 
         private void HandleTakeParry()
@@ -124,6 +126,8 @@ namespace TheNecromancers.StateMachine.Enemy
             AudioManager.Instance.PlayRandomClip(AudioClips.Parry);
             ParticleFXManager.PlayParticleFX(transform.position + Vector3.up, ParticleFXManager.ParryParticleFX, StunDuration);
             WeaponLogic.GetComponent<CapsuleCollider>().enabled = false;
+
+            AudioManager.Instance.PlayRandomClip(AudioClips.Parry);
 
             SwitchState(new EnemyStunState(this));
         }
@@ -145,7 +149,7 @@ namespace TheNecromancers.StateMachine.Enemy
             CooldownManager.BeginCooldown("ProjectileShoot", AttackRate);
             // ParticleFXManager.PlayParticleFX(RightHandHolder.transform.position, ParticleFXManager.AttackParticleFX);
 
-            //AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.CrossbowShoot);
+            AudioManager.Instance.PlayRandomClip(AudioClips.CrossbowShoot);
 
         }
 
