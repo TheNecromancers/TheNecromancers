@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
+using UnityEditorInternal;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -163,6 +164,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (AbilitySystemManager != null)
             {
+                AudioManager.Instance.PlayRandomClip(AudioClips.PowerUp2);
                 AbilitySystemManager.OnCombactAbility(transform.position);
             }
         }
@@ -171,6 +173,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (AbilitySystemManager != null)
             {
+                AudioManager.Instance.PlayRandomClip(AudioClips.PowerUp1);
                 AbilitySystemManager.OnExplorationAbility();
             }
         }
