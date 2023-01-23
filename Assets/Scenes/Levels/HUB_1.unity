@@ -590,7 +590,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -650,11 +650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[0].name
-      value: Fallen Friend
+      value: Lawrence
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[1].name
-      value: Squire
+      value: Matthias
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[2].name
@@ -674,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[0].message
-      value: 'Are you [INSERT NAME HERE]? Are you alive?! '
+      value: 'Are you Lawrence? Are you alive?! '
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[1].actorId
@@ -748,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[9].message
-      value: Come on [INSERT NAME HERE]! You can find a way!
+      value: Come on Matthias! You can find a way!
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[10].message
@@ -812,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[20].message
-      value: 'Thanks [INSERT NAME HERE] '
+      value: Thanks, Lawrence
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[21].actorId
@@ -853,6 +853,10 @@ PrefabInstance:
     - target: {fileID: 8291084908679624339, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_Name
       value: FallenFriendDialogueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624429, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: savePath
+      value: /FallenFriendDialogue.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
@@ -2803,7 +2807,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 847730186}
     m_Modifications:
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2823,7 +2827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2843,15 +2847,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2911,6 +2915,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 2121c535752c5a54b80a0a9a09cb915c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+--- !u!4 &180385038 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+  m_PrefabInstance: {fileID: 180385037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &182344622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fd8f5bc11b0289948b50da67132110ce, type: 3}
@@ -11114,9 +11123,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 180385038}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &849322399
 PrefabInstance:
@@ -12642,7 +12652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3281762963110296113, guid: 71176779bccd8eb46bd822efc547f699, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 3281762963110296113, guid: 71176779bccd8eb46bd822efc547f699, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19638,7 +19648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19690,7 +19700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[0].name
-      value: Fallen Friend
+      value: Lawrence
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[1].name
@@ -19883,6 +19893,10 @@ PrefabInstance:
     - target: {fileID: 8291084908679624339, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_Name
       value: HubEnteringDialogueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624429, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: savePath
+      value: /HubEnteringDialogue.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
@@ -22108,7 +22122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1681644106
 GameObject:

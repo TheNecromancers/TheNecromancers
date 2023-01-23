@@ -408,15 +408,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.123724
+      value: 7.9037247
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.000002
+      value: 8.150003
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.3762817
+      value: 76.09628
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096230, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_Name
@@ -428,7 +428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -436,7 +436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 68
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584140096231, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -468,27 +468,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584176067586, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.123724
+      value: 7.9037247
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584176067586, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.000002
+      value: 8.150003
       objectReference: {fileID: 0}
     - target: {fileID: 4104028584176067586, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.3762817
+      value: 76.09628
       objectReference: {fileID: 0}
     - target: {fileID: 7684625680737355379, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13
+      value: 1.78
       objectReference: {fileID: 0}
     - target: {fileID: 7684625680737355379, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 3.15
       objectReference: {fileID: 0}
     - target: {fileID: 7684625680737355379, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.5
+      value: 82.22
       objectReference: {fileID: 0}
     - target: {fileID: 7684625680737355379, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7742,6 +7742,300 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1854862273
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 83.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: actors.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: actors.Array.data[0].name
+      value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: actors.Array.data[1].name
+      value: Matthias
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: actors.Array.data[2].name
+      value: Lantern
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: actors.Array.data[0].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4c31959ec9bc7394fbfa12b22465c882, type: 3}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: actors.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b5d1adbc49aabdb4e9cffa087011de76, type: 3}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: actors.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4c31959ec9bc7394fbfa12b22465c882, type: 3}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[0].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[0].message
+      value: Oh no...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[1].actorId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[1].message
+      value: Is he one of your friend?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[2].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[2].message
+      value: Unfortunately, yes...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[3].actorId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[3].message
+      value: I'm sorry
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[4].actorId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[4].message
+      value: Look at these arrows, this is surely work of an archer. Be careful
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[5].actorId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[5].message
+      value: 'Also, this axe could be useful. With this you may be able to hit more
+        enemies at the same time. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[6].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[6].message
+      value: Sure, it will help
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[7].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[7].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[8].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[8].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[9].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[9].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[10].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[10].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[11].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[11].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[12].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[12].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[13].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[13].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[14].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[14].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[15].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[15].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[16].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[16].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[17].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[17].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[18].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[18].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[19].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[19].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[20].actorId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[20].message
+      value: 'Thanks [INSERT NAME HERE] '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: OnEndDialogue.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: OnEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: OnEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: OnEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: OnEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AfterFirstAreaInitialDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: OnEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: OnEndDialogue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624339, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 8291084908679624339, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: m_Name
+      value: Area5InitialDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624429, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: savePath
+      value: /Area5Dialogue1.save
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
 --- !u!4 &1927350321 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2317576605586290934, guid: 5adaedd4c0081614da171fecdf6bbd37, type: 3}

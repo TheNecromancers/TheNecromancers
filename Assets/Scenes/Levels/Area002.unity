@@ -5124,7 +5124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[1].name
-      value: Squire
+      value: Matthias
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[2].name
@@ -5354,7 +5354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624429, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: savePath
-      value: /Dialogue1.save
+      value: /Area2Dialogue2.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
@@ -14449,7 +14449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[1].name
-      value: Squire
+      value: Matthias
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[2].name
@@ -14677,7 +14677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624429, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: savePath
-      value: /Dialogue2.save
+      value: /Area2Dialogue1.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
