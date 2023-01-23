@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -49,6 +50,11 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("Started conversation! Loaded messages: "+ messages.Length);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        InputManager playerInput = FindObjectOfType<InputManager>();
+        if(playerInput != null)
+        {
+            playerInput.DisablePlayerControls();
+        }
         DisplayMessage();
         //Animation duration and Scale of the box for the dialogue
         backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
@@ -72,6 +78,7 @@ public class DialogueManager : MonoBehaviour
     void FadeInButtonColor(Button btn, float duration)
     {
         var btnColor = btn.image.color;
+        btnColor.a = 1;
         var fadeoutBtnColor = btnColor;
         fadeoutBtnColor.a = 0;
         LeanTween.value(skipButton.gameObject, a => btn.image.color = a, fadeoutBtnColor, btnColor, duration);
@@ -80,6 +87,7 @@ public class DialogueManager : MonoBehaviour
     void FadeInTextColor(TMP_Text txt, float duration)
     {
         var color = messageText.color;
+        color.a = 1;
         var fadeoutColor = color;
         fadeoutColor.a = 0;
         LeanTween.value(txt.gameObject, a => txt.color = a, fadeoutColor, color, 0.5f);
@@ -110,6 +118,11 @@ public class DialogueManager : MonoBehaviour
 
     private void EndConversation()
     {
+        InputManager playerInput = FindObjectOfType<InputManager>();
+        if (playerInput != null)
+        {
+            playerInput.EnablePlayerControls();
+        }
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
         isActive = false;
         Cursor.visible = false;

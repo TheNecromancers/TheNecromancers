@@ -134,6 +134,16 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
         }
     }
 
+    public void DisablePlayerControls()
+    {
+        controls.Player.Disable();
+    }
+
+    public void EnablePlayerControls()
+    {
+        controls.Player.Enable();
+    }
+
     public void OnResetInvetoryChest(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
