@@ -15,7 +15,8 @@ namespace TheNecromancers.StateMachine.Enemy
             stateMachine.WeaponLogic.gameObject.SetActive(false);
             stateMachine.Controller.enabled = false;
             GameObject.Destroy(stateMachine.Target);
-            GameObject.Destroy(stateMachine.gameObject, 5f);
+            //GameObject.Destroy(stateMachine.gameObject, 5f);
+            stateMachine.gameObject.SetActive(false);
         }
 
         public override void Tick(float deltaTime) { }
