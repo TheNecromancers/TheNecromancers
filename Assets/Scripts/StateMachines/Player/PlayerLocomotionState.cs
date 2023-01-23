@@ -14,7 +14,7 @@ namespace TheNecromancers.StateMachine.Player
         Vector3 movement;
 
         float nextStep;
-        float stepRate = 0.35f;
+        float stepRate = 0.6f;
 
         public PlayerLocomotionState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
