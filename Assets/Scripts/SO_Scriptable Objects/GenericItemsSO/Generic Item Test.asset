@@ -15,4 +15,4 @@ MonoBehaviour:
   inventoryPrefab: {fileID: 6882000034666161159, guid: 95713909902817d419a71defb8f1c784, type: 3}
   itemPrefab: {fileID: 100000, guid: 0dbe52e7e22a05648ad36efdc78ea7e7, type: 3}
   type: 2
-  description: 
+  description: Test Description For Item

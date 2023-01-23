@@ -19,10 +19,14 @@ public class DisplayInventory : MonoBehaviour
     [SerializeField] GameObject InventoryCamera;
     [SerializeField] GameObject InventoryCanvas;
     [SerializeField] GameObject ItemInventory;
-    [SerializeField] GameObject Scrollsinventory;
+    [SerializeField] GameObject ScrollsInventory;
+    [SerializeField] GameObject ItemDescriptionCanvas;
+    [SerializeField] TMP_Text ItemName;
+    [SerializeField] TMP_Text ItemDescription;
     [SerializeField] Button UseButton;
     [SerializeField] Button InventoryButton;
     [SerializeField] Button ScrollsButton;
+    [SerializeField] Button BackButton;
 
 
     private void Awake()
@@ -39,6 +43,7 @@ public class DisplayInventory : MonoBehaviour
         UseButton.onClick.AddListener(() => InventoryManager.ItemSelectionDelegate(selectedItem));
         InventoryButton.onClick.AddListener(ShowInventoryDisplay);
         ScrollsButton.onClick.AddListener(ShowScrollsDisplay);
+        BackButton.onClick.AddListener(ShowScrollsDisplay);
 
     }
 
@@ -58,7 +63,7 @@ public class DisplayInventory : MonoBehaviour
             }
             else
             {
-                GameObject obj = Instantiate(inventory.Container[i].item.inventoryPrefab, Vector3.zero, Quaternion.identity, Scrollsinventory.transform);
+                GameObject obj = Instantiate(inventory.Container[i].item.inventoryPrefab, Vector3.zero, Quaternion.identity, ScrollsInventory.transform);
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                 itemsDisplayed.Add(inventory.Container[i], obj);
                 obj.GetComponent<ItemDisplayed>().displayInventory = this;
@@ -89,7 +94,7 @@ public class DisplayInventory : MonoBehaviour
                 }
                 else
                 {
-                    var obj = Instantiate(inventory.Container[i].item.inventoryPrefab, Vector3.zero, Quaternion.identity, Scrollsinventory.transform);
+                    var obj = Instantiate(inventory.Container[i].item.inventoryPrefab, Vector3.zero, Quaternion.identity, ScrollsInventory.transform);
                     obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                     itemsDisplayed.Add(inventory.Container[i], obj);
                     obj.GetComponent<ItemDisplayed>().displayInventory = this;
@@ -132,11 +137,30 @@ public class DisplayInventory : MonoBehaviour
     public void ShowInventoryDisplay()
     {
         ItemInventory.SetActive(true);
-        Scrollsinventory.SetActive(false);
+        ScrollsInventory.SetActive(false);
+        ItemDescriptionCanvas.SetActive(false);
+        BackButton.gameObject.SetActive(false);
+        UseButton.gameObject.SetActive(true);
     }
         public void ShowScrollsDisplay()
     {
         ItemInventory.SetActive(false);
-        Scrollsinventory.SetActive(true);
+        ScrollsInventory.SetActive(true);
+        ItemDescriptionCanvas.SetActive(false);
+        BackButton.gameObject.SetActive(false);
+        UseButton.gameObject.SetActive(true);
     }
+
+    public void ShowItemDescription(string _ItemName, string _ItemDescription)
+    {
+
+        ItemDescriptionCanvas.SetActive(true);
+        BackButton.gameObject.SetActive(true);
+        UseButton.gameObject.SetActive(false);
+        ItemName.text = _ItemName;
+        ItemDescription.text =_ItemDescription;
+
+
+    }
+
 }

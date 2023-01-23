@@ -30,6 +30,10 @@ public class InventoryManager : MonoBehaviour
 
             Equip(_tempSO);
         }
+        else if(_item.type == ItemType.Default)
+        {
+            displayInventory.ShowItemDescription(_item.name,_item.description);
+        }
     }
     public void Equip(WeaponSO weapon)
     {

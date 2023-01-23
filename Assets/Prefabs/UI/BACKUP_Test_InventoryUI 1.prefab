@@ -767,7 +767,7 @@ GameObject:
   - component: {fileID: 8097261607222943659}
   - component: {fileID: 8097261607222943658}
   m_Layer: 5
-  m_Name: Test_InventoryUI
+  m_Name: BACKUP_Test_InventoryUI 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
