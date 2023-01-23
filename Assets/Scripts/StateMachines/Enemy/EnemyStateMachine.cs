@@ -118,7 +118,7 @@ namespace TheNecromancers.StateMachine.Enemy
                 HitsDamageTaked = 0;
             }
 
-            AudioManager.Instance.PlayRandomClip(AudioClips.Hurt);
+           // AudioManager.Instance.PlayRandomClip(AudioClips.Hurt); non lo abbiamo
         }
 
         private void HandleTakeParry()

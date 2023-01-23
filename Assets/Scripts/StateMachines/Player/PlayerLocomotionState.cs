@@ -68,8 +68,6 @@ namespace TheNecromancers.StateMachine.Player
 
         void PlayFootSteps()
         {
-            // TODO delay for playing sound
-
             if (Time.fixedTime > nextStep)
             {
                 nextStep = Time.fixedTime + stepRate;

@@ -14,6 +14,9 @@ namespace TheNecromancers.StateMachine.Player
         float forwardAmount;
         float rightAmount;
 
+        float nextStep;
+        float stepRate = 0.7f;
+
         public PlayerTargetingState(PlayerStateMachine stateMachine) : base(stateMachine) { }
 
         public override void Enter()
@@ -52,6 +55,7 @@ namespace TheNecromancers.StateMachine.Player
 
             Move(movement * stateMachine.TargetingMovementSpeed, deltaTime);
 
+            PlayFootSteps();
             UpdateAnimator();
             FaceOnTarget(deltaTime);
         }
@@ -91,6 +95,15 @@ namespace TheNecromancers.StateMachine.Player
         {
             stateMachine.Animator.SetFloat(TargetingForwardHash, forwardAmount);
             stateMachine.Animator.SetFloat(TargetingRightHash, rightAmount);
+        }
+
+        void PlayFootSteps()
+        {
+            if (Time.fixedTime > nextStep)
+            {
+                nextStep = Time.fixedTime + stepRate;
+                AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.Footsteps);
+            }
         }
 
         void OnRoll()
