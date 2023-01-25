@@ -4,9 +4,14 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - audioActiveSprite: {instanceID: 0}
-  - audioInactiveSprite: {instanceID: 0}
+  - audioActiveSprite: {fileID: 21300000, guid: d3c8582f510fc724f8573985bb9c337e, type: 3}
+  - audioInactiveSprite: {fileID: 21300000, guid: 3fd0c13759b961148909a11552c0b89f, type: 3}
   - masterMixer: {fileID: 24100000, guid: ca03c6bd83cd8aa42a6f6f26e422b7f0, type: 2}
+  - VolumeSlider: {instanceID: 0}
+  - BrightnessSlider: {instanceID: 0}
+  - ContrastSlider: {instanceID: 0}
+  - MuteButton: {instanceID: 0}
+  - DefaultButton: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

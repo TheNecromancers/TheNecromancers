@@ -5,8 +5,9 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
-public class SettingsManager : MonoSingleton<SettingsManager>
+public class SettingsManager : MonoBehaviour
 {
 
 
@@ -17,52 +18,60 @@ public class SettingsManager : MonoSingleton<SettingsManager>
     [field:SerializeField, Range(-25,25)] float contrastValue;
     float defaultContrastValue =0;
 
+
     [field:SerializeField] Sprite audioActiveSprite;
     [field:SerializeField] Sprite audioInactiveSprite;
     [field:SerializeField] AudioMixer masterMixer;
 
 
-    private Slider VolumeSlider;
-    private Slider BrightnessSlider;
-    private Slider ContrastSlider;
-    private Button MuteButton;
-    private Button DefaultButton;
-    private Controls controls;
+    [field: SerializeField] private Slider VolumeSlider;
+    [field: SerializeField] private Slider BrightnessSlider;
+    [field: SerializeField] private Slider ContrastSlider;
+    [field: SerializeField] private Button MuteButton;
+    [field: SerializeField] private Button DefaultButton;
+    [field: SerializeField] private Controls controls;
     private Volume globalVolume;
     private AudioManager audioManager;
 
     
 
-    override public void Awake() 
+    public void Awake() 
     {
         //LoadPrefs();
+        FindObjects();
 
     } 
     private void Start() 
     {
         LoadPrefs();
+        
     }
 
+    private void OnEnable() 
+    {
+        
+    }
     public void FindObjects()
     {
-        globalVolume =FindObjectOfType<Volume>();
+        //globalVolume =MonoGlobalVolume.Instance.gameObject.GetComponent<Volume>();
+        globalVolume = FindObjectOfType<Volume>();
         audioManager = AudioManager.Instance;
 
-        DefaultButton = GameObject.FindGameObjectWithTag("DefaultButton").GetComponent<Button>();
+        /* DefaultButton = GameObject.FindGameObjectWithTag("DefaultButton").GetComponent<Button>(); */
         DefaultButton.onClick.AddListener(SetDefaults);
 
-        MuteButton = GameObject.FindGameObjectWithTag("MuteButton").GetComponent<Button>();
+        /* MuteButton = GameObject.FindGameObjectWithTag("MuteButton").GetComponent<Button>(); */
         MuteButton.onClick.AddListener(MuteUnmuteAudio);
 
-        VolumeSlider = GameObject.FindGameObjectWithTag("VolumeSlider").GetComponent<Slider>();
+        /* VolumeSlider = GameObject.FindGameObjectWithTag("VolumeSlider").GetComponent<Slider>(); */
 
         VolumeSlider.onValueChanged.AddListener(delegate{ChangeVolume(VolumeSlider.value);});
         VolumeSlider.onValueChanged.AddListener(delegate{debugDelegate();});
 
-        BrightnessSlider = GameObject.FindGameObjectWithTag("BrightnessSlider").GetComponent<Slider>();
+        /* BrightnessSlider = GameObject.FindGameObjectWithTag("BrightnessSlider").GetComponent<Slider>(); */
         BrightnessSlider.onValueChanged.AddListener(ChangeBrightness);
 
-        ContrastSlider = GameObject.FindGameObjectWithTag("ContrastSlider").GetComponent<Slider>();
+        /* ContrastSlider = GameObject.FindGameObjectWithTag("ContrastSlider").GetComponent<Slider>(); */
         ContrastSlider.onValueChanged.AddListener(delegate{ChangeContrast(ContrastSlider.value);});
     }
 

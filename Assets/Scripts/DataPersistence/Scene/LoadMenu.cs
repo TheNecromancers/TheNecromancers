@@ -18,7 +18,7 @@ public class LoadMenu : MonoSingleton<LoadMenu>
     public void ChangedActiveScene(Scene current, Scene next)
     {
         Debug.Log(next.name);
-        if (current.name != "Loading")
+        if (next.name != "MainMenu")
         {
             CurrentNameScene = SceneManager.GetActiveScene().name;
             CurrentScene = SceneManager.GetActiveScene();
@@ -28,7 +28,7 @@ public class LoadMenu : MonoSingleton<LoadMenu>
         Save();
     }
 
-    private void OnClickBotton()
+    public void OnClickBotton()
     {
         SceneManager.LoadScene(CurrentNameScene);
     }
@@ -55,8 +55,12 @@ public class LoadMenu : MonoSingleton<LoadMenu>
 
     private void OnApplicationQuit()
     {
-        CurrentScene = SceneManager.GetActiveScene();
-        CurrentNameScene = CurrentScene.name;
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            CurrentScene = SceneManager.GetActiveScene();
+            CurrentNameScene = CurrentScene.name;
+        }
+
         Save();
     }
 }

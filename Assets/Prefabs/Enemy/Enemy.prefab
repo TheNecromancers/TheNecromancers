@@ -584,6 +584,8 @@ MonoBehaviour:
   HealthPercentage: 0
   AmIPlayer: 0
   HealthLightManager: {fileID: 0}
+  health: 0
+  savePath: /DefaultEnemyHealth.save
 --- !u!114 &6422003366852383218
 MonoBehaviour:
   m_ObjectHideFlags: 0

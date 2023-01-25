@@ -4,25 +4,41 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
     [field: SerializeField]public GameObject MainScreen;
     [field: SerializeField]public GameObject SettingsScreen;
     [field: SerializeField]public GameObject CreditsScreen;
+    [field: SerializeField]public Button LoadGameButton;
     private Controls controls;
+    private InputManager inputManager;
 
     
 
     private void Awake() 
     {
-            SettingsManager.Instance.FindObjects();
-            Controls controls = new Controls();
+
+            inputManager =FindObjectOfType<InputManager>();
+            LoadGameButton.onClick.AddListener(LoadMenu.Instance.OnClickBotton);
+            LoadGameButton.onClick.AddListener(OnLoadGame);
+            controls = new Controls();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             controls.Player.Disable();
-            controls.UIControls.Disable();    
+            controls.UIControls.Disable();
             OpenMainMenu();
+    }
+
+    public void OnLoadGame()
+    {
+        if(inputManager != null)
+        {
+            inputManager.EnablePlayerControls();
+            inputManager.EnableUIControls();
+        }
+
     }
 
     public void OpenMainMenu()
@@ -48,8 +64,17 @@ public class MainMenuManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        //UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
+    public void StartNewGame()
+    {
+        if(inputManager != null)
+        {
+            inputManager.EnablePlayerControls();
+            inputManager.EnableUIControls();
+        }
 
+        SceneManager.LoadScene("Introduction");
     }
 
     void Start()
@@ -59,6 +84,7 @@ public class MainMenuManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             controls.Player.Disable();
             controls.UIControls.Disable();
+
     }
 
     // Update is called once per frame

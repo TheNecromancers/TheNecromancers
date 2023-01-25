@@ -377,6 +377,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""UIPauseMenuInteraction"",
+                    ""type"": ""Button"",
+                    ""id"": ""274b10f1-0163-46fb-b047-9a1a2bfd00fe"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""ResetInvetoryChest"",
                     ""type"": ""Button"",
                     ""id"": ""096a08c4-f421-44eb-9441-b0bc75a93827"",
@@ -417,6 +426,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Mouse & Keyboard"",
                     ""action"": ""ResetInvetoryChest"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67333497-ed96-40ff-8446-6a5cfed7f50a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""UIPauseMenuInteraction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29f26bbb-7450-434f-bed2-db330ba115fd"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""UIPauseMenuInteraction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -468,6 +499,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         // UIControls
         m_UIControls = asset.FindActionMap("UIControls", throwIfNotFound: true);
         m_UIControls_UIInventoryInteraction = m_UIControls.FindAction("UIInventoryInteraction", throwIfNotFound: true);
+        m_UIControls_UIPauseMenuInteraction = m_UIControls.FindAction("UIPauseMenuInteraction", throwIfNotFound: true);
         m_UIControls_ResetInvetoryChest = m_UIControls.FindAction("ResetInvetoryChest", throwIfNotFound: true);
     }
 
@@ -634,12 +666,14 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UIControls;
     private IUIControlsActions m_UIControlsActionsCallbackInterface;
     private readonly InputAction m_UIControls_UIInventoryInteraction;
+    private readonly InputAction m_UIControls_UIPauseMenuInteraction;
     private readonly InputAction m_UIControls_ResetInvetoryChest;
     public struct UIControlsActions
     {
         private @Controls m_Wrapper;
         public UIControlsActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @UIInventoryInteraction => m_Wrapper.m_UIControls_UIInventoryInteraction;
+        public InputAction @UIPauseMenuInteraction => m_Wrapper.m_UIControls_UIPauseMenuInteraction;
         public InputAction @ResetInvetoryChest => m_Wrapper.m_UIControls_ResetInvetoryChest;
         public InputActionMap Get() { return m_Wrapper.m_UIControls; }
         public void Enable() { Get().Enable(); }
@@ -653,6 +687,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @UIInventoryInteraction.started -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIInventoryInteraction;
                 @UIInventoryInteraction.performed -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIInventoryInteraction;
                 @UIInventoryInteraction.canceled -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIInventoryInteraction;
+                @UIPauseMenuInteraction.started -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIPauseMenuInteraction;
+                @UIPauseMenuInteraction.performed -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIPauseMenuInteraction;
+                @UIPauseMenuInteraction.canceled -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnUIPauseMenuInteraction;
                 @ResetInvetoryChest.started -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnResetInvetoryChest;
                 @ResetInvetoryChest.performed -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnResetInvetoryChest;
                 @ResetInvetoryChest.canceled -= m_Wrapper.m_UIControlsActionsCallbackInterface.OnResetInvetoryChest;
@@ -663,6 +700,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @UIInventoryInteraction.started += instance.OnUIInventoryInteraction;
                 @UIInventoryInteraction.performed += instance.OnUIInventoryInteraction;
                 @UIInventoryInteraction.canceled += instance.OnUIInventoryInteraction;
+                @UIPauseMenuInteraction.started += instance.OnUIPauseMenuInteraction;
+                @UIPauseMenuInteraction.performed += instance.OnUIPauseMenuInteraction;
+                @UIPauseMenuInteraction.canceled += instance.OnUIPauseMenuInteraction;
                 @ResetInvetoryChest.started += instance.OnResetInvetoryChest;
                 @ResetInvetoryChest.performed += instance.OnResetInvetoryChest;
                 @ResetInvetoryChest.canceled += instance.OnResetInvetoryChest;
@@ -704,6 +744,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     public interface IUIControlsActions
     {
         void OnUIInventoryInteraction(InputAction.CallbackContext context);
+        void OnUIPauseMenuInteraction(InputAction.CallbackContext context);
         void OnResetInvetoryChest(InputAction.CallbackContext context);
     }
 }

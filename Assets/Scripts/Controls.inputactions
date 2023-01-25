@@ -355,6 +355,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "UIPauseMenuInteraction",
+                    "type": "Button",
+                    "id": "274b10f1-0163-46fb-b047-9a1a2bfd00fe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "ResetInvetoryChest",
                     "type": "Button",
                     "id": "096a08c4-f421-44eb-9441-b0bc75a93827",
@@ -395,6 +404,28 @@
                     "processors": "",
                     "groups": "Mouse & Keyboard",
                     "action": "ResetInvetoryChest",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67333497-ed96-40ff-8446-6a5cfed7f50a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "UIPauseMenuInteraction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29f26bbb-7450-434f-bed2-db330ba115fd",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "UIPauseMenuInteraction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

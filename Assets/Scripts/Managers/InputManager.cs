@@ -23,6 +23,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
 
     public event Action InventoryEvent;
     public event Action ResetInventoryChestEvent;
+    public event Action PauseMenuEvent;
 
     private Controls controls;
 
@@ -143,11 +144,24 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
     {
         controls.Player.Enable();
     }
+    public void DisableUIControls()
+    {
+        controls.UIControls.Disable();
+    }
+        public void EnableUIControls()
+    {
+        controls.UIControls.Enable();
+    }
 
     public void OnResetInvetoryChest(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
 
         ResetInventoryChestEvent?.Invoke();
+    }
+
+    public void OnUIPauseMenuInteraction(InputAction.CallbackContext context)
+    {
+        PauseMenuEvent?.Invoke();
     }
 }
