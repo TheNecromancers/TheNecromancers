@@ -14,21 +14,17 @@ public class GameController : MonoBehaviour
     public PlayerStateMachine playerStateMachine;
     private void Awake()
     {
-
-        player = FindObjectOfType<PlayerStateMachine>().gameObject;
+        //player = FindObjectOfType<PlayerStateMachine>().gameObject;
 
         if(player != null)
         {  
             playerLight = player.GetComponentsInChildren<Light>();
             playerAVC = player.GetComponentInChildren<AbilityVisualController>();
         }
-        
-
     }
 
     private void Start()
     {
-
         if (playerLight != null)
         {
             foreach (Light light in playerLight)
@@ -36,6 +32,7 @@ public class GameController : MonoBehaviour
                 light.gameObject.SetActive(false);
             }
         }
+
         if(playerAVC != null)
         {
             playerAVC.ToggleOffImages();
@@ -55,23 +52,23 @@ public class GameController : MonoBehaviour
 
     public void AfterFirstAreaInitialDialogue()
     {
-
-
         foreach (Light light in playerLight)
         {
-            light.gameObject.SetActive(true);
+            if (light != null)
+            {
+                light.gameObject.SetActive(true);
+            }
         }
 
         playerAVC.ToggleOnImages();
         afterFirstAreaDialogue.StartDialogue();
-
-        
     }
 
     public void AfterNarratorDialogue()
     {
         Loader.Load(Loader.Scene.First_Area);
-        playerStateMachine = player.GetComponentInChildren<PlayerStateMachine>();
+
+        playerStateMachine = FindObjectOfType<PlayerStateMachine>();
 
         if(playerStateMachine != null)
         {
