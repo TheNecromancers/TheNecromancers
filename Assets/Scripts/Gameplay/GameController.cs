@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TheNecromancers.Combat;
+using TheNecromancers.StateMachine.Gameplay.Triggers;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -31,7 +32,17 @@ public class GameController : MonoBehaviour
         {
             playerAVC.ToggleOffImages();
         }
-        
+
+        DialogueTriggerZone Dz = FindObjectOfType<DialogueTriggerZone>();
+
+        if (Dz == null && playerLight!=null)
+        {
+            foreach (Light light in playerLight)
+            {
+                light.gameObject.SetActive(true);
+            }
+            playerAVC.ToggleOnImages();
+        }
     }
 
     public void AfterFirstAreaInitialDialogue()

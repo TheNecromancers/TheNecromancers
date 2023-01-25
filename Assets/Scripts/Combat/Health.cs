@@ -22,6 +22,7 @@ namespace TheNecromancers.Combat
 
         [Header("Light Settings (Player Only)")]
         public bool AmIPlayer;
+        //Da settare in codice Awake
         [SerializeField] HealthLightManager HealthLightManager;
 
         public int health;
@@ -39,6 +40,7 @@ namespace TheNecromancers.Combat
             if (AmIPlayer)
             {
                 Load();
+                HealthLightManager = GetComponentInChildren<HealthLightManager>();
                 HealthLightManager.ChangeLightAccordingToHealth(health, MaxHealth);
             }
             else
@@ -95,6 +97,7 @@ namespace TheNecromancers.Combat
             health = MaxHealth;
             if (AmIPlayer)
                 HealthLightManager.RestoreLifeColors();
+            Save();
         }
 
         public void ChangePlayerIlluminationToDeath()

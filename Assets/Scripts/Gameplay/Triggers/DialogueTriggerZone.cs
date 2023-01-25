@@ -15,8 +15,8 @@ namespace TheNecromancers.StateMachine.Gameplay.Triggers
 
         private void Awake()
         {
-            trigger = GetComponent<DialogueTrigger>();
             Load();
+            trigger = GetComponent<DialogueTrigger>();
 
             if (isTriggered)
             {
