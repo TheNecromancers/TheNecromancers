@@ -49,6 +49,10 @@ public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
     {
         Container.RemoveAt(_ContainerIndex);
     }
+    public void ClearInventory()
+    {
+        Container.Clear();
+    }
 
     public void AddItem(ItemObject _item, int _amount)
     {

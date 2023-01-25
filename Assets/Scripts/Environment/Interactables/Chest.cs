@@ -73,6 +73,9 @@ public class Chest : MonoBehaviour, IInteractable
         }
     }
 
+
+
+    //da togliere
     public void ResetChest()
     {
         isInteractable = true;

@@ -25983,6 +25983,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8429996053980700975, guid: 9a8a1a7a1001b054facd5e5fdf84db3d, type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: c0508c6c3ca3f4441a3410f0062c7362, type: 2}
+    - target: {fileID: 8429996053980700975, guid: 9a8a1a7a1001b054facd5e5fdf84db3d, type: 3}
       propertyPath: LoadGameButton
       value: 
       objectReference: {fileID: 1522696638}

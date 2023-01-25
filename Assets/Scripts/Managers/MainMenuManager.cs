@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MainMenuManager : MonoBehaviour
     [field: SerializeField]public GameObject SettingsScreen;
     [field: SerializeField]public GameObject CreditsScreen;
     [field: SerializeField]public Button LoadGameButton;
+    [field: SerializeField]public InventoryObject Inventory;
     private Controls controls;
     private InputManager inputManager;
 
@@ -73,8 +75,12 @@ public class MainMenuManager : MonoBehaviour
             inputManager.EnablePlayerControls();
             inputManager.EnableUIControls();
         }
-
+        
+        Inventory.ClearInventory();
+        string[] filePaths = Directory.GetFiles(Application.persistentDataPath); 
+        foreach (string filePath in filePaths) File.Delete(filePath);
         SceneManager.LoadScene("Introduction");
+        
     }
 
     void Start()

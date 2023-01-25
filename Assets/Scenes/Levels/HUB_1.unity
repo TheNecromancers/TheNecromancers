@@ -13340,6 +13340,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5988638819357562039, guid: c389bacae139c3c4780c4f2847578152, type: 3}
+      propertyPath: savePath
+      value: /ShieldPickup.save
+      objectReference: {fileID: 0}
     - target: {fileID: 3721908863539972366, guid: c389bacae139c3c4780c4f2847578152, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -15250,6 +15254,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2606241992357173260, guid: d9ce24a7c7e1d0949a323de5b5c4a8a7, type: 3}
+      propertyPath: savePath
+      value: /SwordPickup.save
+      objectReference: {fileID: 0}
     - target: {fileID: 6318434697520294486, guid: d9ce24a7c7e1d0949a323de5b5c4a8a7, type: 3}
       propertyPath: m_Name
       value: Pickappable_sword_common
