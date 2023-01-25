@@ -65,20 +65,31 @@ public class MainMenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                         Application.Quit();
+        #endif
     }
     public void StartNewGame()
     {
+        if (PlayerInstance.Instance is not null)
+        {
+            Destroy(PlayerInstance.Instance.gameObject);
+        }
         if(inputManager != null)
         {
             inputManager.EnablePlayerControls();
             inputManager.EnableUIControls();
         }
-        
-        Inventory.ClearInventory();
-        string[] filePaths = Directory.GetFiles(Application.persistentDataPath); 
-        foreach (string filePath in filePaths) File.Delete(filePath);
+
+        if (Inventory != null)
+        {
+            Inventory.ClearInventory();
+        }
+        //TODO: Fix delete of files, because it crashes from app but not from unity
+        /*string[] filePaths = Directory.GetFiles(Application.persistentDataPath); 
+        foreach (string filePath in filePaths) File.Delete(filePath);*/
         SceneManager.LoadScene("Introduction");
         
     }
