@@ -88,8 +88,8 @@ public class MainMenuManager : MonoBehaviour
             Inventory.ClearInventory();
         }
         //TODO: Fix delete of files, because it crashes from app but not from unity
-        /*string[] filePaths = Directory.GetFiles(Application.persistentDataPath); 
-        foreach (string filePath in filePaths) File.Delete(filePath);*/
+        string[] filePaths = Directory.GetFiles(Application.persistentDataPath); 
+        foreach (string filePath in filePaths) File.Delete(filePath);
         SceneManager.LoadScene("Introduction");
         
     }
