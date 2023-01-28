@@ -77,7 +77,7 @@ public class MainMenuManager : MonoBehaviour
         {
             Destroy(PlayerInstance.Instance.gameObject);
         }
-        if(inputManager != null)
+        if (inputManager != null)
         {
             inputManager.EnablePlayerControls();
             inputManager.EnableUIControls();
@@ -88,8 +88,11 @@ public class MainMenuManager : MonoBehaviour
             Inventory.ClearInventory();
         }
         //TODO: Fix delete of files, because it crashes from app but not from unity
-        string[] filePaths = Directory.GetFiles(Application.persistentDataPath); 
-        foreach (string filePath in filePaths) File.Delete(filePath);
+        if (Directory.Exists(Path.Combine(Application.persistentDataPath, "Data")))
+        {
+            string[] filePaths = Directory.GetFiles(string.Concat(Application.persistentDataPath, "/Data"));
+            foreach (string filePath in filePaths) File.Delete(filePath);
+        }
         SceneManager.LoadScene("Introduction");
         
     }
