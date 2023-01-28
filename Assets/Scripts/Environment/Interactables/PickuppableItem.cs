@@ -10,6 +10,7 @@ public class PickuppableItem : MonoBehaviour, IInteractable
     public bool isInteractable = true;
     public bool IsInteractable => isInteractable;
     [SerializeField] ItemObject item;
+    public string ItemName;
     public string savePath;
 
     GameObject player;
@@ -34,8 +35,14 @@ public class PickuppableItem : MonoBehaviour, IInteractable
 
     public void OnStartHover()
     {
+        
+
         if (!isInteractable) return;
 
+
+        print("questo è il player"+player);
+        print("questo è l'inventario del player memorizzato sull'oggetto interagibile "+player.GetComponent<PlayerStateMachine>().inventoryObject);
+        print("premi e per raccogliere: "+ item+" Scriptable Object, "+ "oggetto all'interno: "+item.itemPrefab);
         print(gameObject.name + " OnStartHover");
 
     }
@@ -48,7 +55,7 @@ public class PickuppableItem : MonoBehaviour, IInteractable
 
     }
 
-    void AddItemToInventory(InventoryObject inventory)
+    public void AddItemToInventory(InventoryObject inventory)
     {
         inventory.AddItem(item, 1);
     }

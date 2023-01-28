@@ -31,7 +31,7 @@ public class DisplayInventory : MonoBehaviour
 
     private void Awake()
     {
-        inventory = PlayerStateMachine.inventoryObject;
+        inventory = Resources.Load<InventoryObject>("Empty Inventory");
     }
 
     // Start is called before the first frame update

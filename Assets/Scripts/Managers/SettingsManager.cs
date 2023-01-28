@@ -39,6 +39,7 @@ public class SettingsManager : MonoBehaviour
     {
         //LoadPrefs();
         FindObjects();
+        print("trovato il global volume "+globalVolume);
 
     } 
     private void Start() 

@@ -13,6 +13,10 @@ public class InventoryManager : MonoBehaviour
     public delegate void SlotSlectionDelegate(ItemObject _item);
     public SlotSlectionDelegate ItemSelectionDelegate;
 
+    private void Awake() 
+    {
+        inventoryObject = Resources.Load<InventoryObject>("Empty Inventory");
+    }
     private void OnEnable()
     {
         ItemSelectionDelegate += UseItem;

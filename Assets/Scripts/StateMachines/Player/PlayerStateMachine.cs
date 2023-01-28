@@ -110,7 +110,8 @@ namespace TheNecromancers.StateMachine.Player
             inventoryObject.playerStateMachine = gameObject.GetComponent<PlayerStateMachine>();
 
             SwitchState(new PlayerLocomotionState(this));
-
+            print("questo è l'inventario del player: "+inventoryObject);
+            print("questo è l'health del player: "+Health);
         }
 
         private void OnEnable()

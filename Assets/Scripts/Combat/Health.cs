@@ -36,18 +36,40 @@ namespace TheNecromancers.Combat
 
         public string savePath;
 
-        private void Start()
+
+        private void Awake() 
         {
             if (AmIPlayer)
             {
+                print("Health Light Manager Prima: "+ HealthLightManager);
                 Load();
                 HealthLightManager = GetComponentInChildren<HealthLightManager>();
                 HealthLightManager.ChangeLightAccordingToHealth(health, MaxHealth);
+                print("Health Light Manager dopo: "+ HealthLightManager);
             }
             else
             {
                 RestoreLife();
             }
+    
+        }
+        private void Start()
+        {
+
+                //spostato in awake perche in build non caricava lo script
+
+/*             if (AmIPlayer)
+            {
+                print("Health Light Manager Prima: "+ HealthLightManager);
+                Load();
+                HealthLightManager = GetComponentInChildren<HealthLightManager>();
+                HealthLightManager.ChangeLightAccordingToHealth(health, MaxHealth);
+                print("Health Light Manager dopo: "+ HealthLightManager);
+            }
+            else
+            {
+                RestoreLife();
+            } */
         }
 
         public void SetInvulnerable(bool value)

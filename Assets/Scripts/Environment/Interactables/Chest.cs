@@ -48,7 +48,7 @@ public class Chest : MonoBehaviour, IInteractable
 
     }
 
-    void AddItemToInventory(InventoryObject inventory)
+    public void AddItemToInventory(InventoryObject inventory)
     {
         inventory.AddItem(item, 1);
     }
