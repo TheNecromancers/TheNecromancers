@@ -94,7 +94,7 @@ public class MainMenuManager : MonoBehaviour
             string[] filePaths = Directory.GetFiles(string.Concat(Application.persistentDataPath, "/Data"));
             foreach (string filePath in filePaths) File.Delete(filePath);
         }
-        SceneManager.LoadScene("Introduction");
+        SceneManager.LoadScene("TutorialCommands");
         
     }
 
