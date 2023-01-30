@@ -76,7 +76,6 @@ namespace TheNecromancers.StateMachine.Player
             RightHandHolder = GameObject.FindGameObjectWithTag("RightSlot");
             LeftHandHolder = GameObject.FindGameObjectWithTag("LeftSlot");
 
-            //Da inserire anche la traccia audio e l'inventario 
             #if UNITY_EDITOR
             inventoryObject = (InventoryObject)AssetDatabase.LoadAssetAtPath("Assets/Scripts/SO_Scriptable Objects/InventorySO/Resources/Empty Inventory.asset",
                 typeof(InventoryObject));
@@ -110,8 +109,6 @@ namespace TheNecromancers.StateMachine.Player
             inventoryObject.playerStateMachine = gameObject.GetComponent<PlayerStateMachine>();
 
             SwitchState(new PlayerLocomotionState(this));
-            print("questo è l'inventario del player: "+inventoryObject);
-            print("questo è l'health del player: "+Health);
         }
 
         private void OnEnable()
