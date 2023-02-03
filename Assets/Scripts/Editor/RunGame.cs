@@ -14,7 +14,7 @@ public class RunGame : Editor
     {
         if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
         {
-            EditorSceneManager.OpenScene("Assets/Scenes/Levels/Introduction.unity");
+            EditorSceneManager.OpenScene("Assets/Scenes/Levels/MainMenu.unity");
             EditorApplication.isPlaying = true;
         }
     }

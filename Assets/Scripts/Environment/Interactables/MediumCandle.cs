@@ -5,9 +5,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TheNecromancers.Combat;
 using UnityEngine;
 
-public class Torch : MonoBehaviour, IInteractable
+public class MediumCandle : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected Light Light;
+    [SerializeField] protected Light[] Light;
     [SerializeField] GameObject ConsumeText;
 
     public bool isConsumable = false;
@@ -19,11 +19,12 @@ public class Torch : MonoBehaviour, IInteractable
     {
         Load();
 
-        Light = GetComponentInChildren(typeof(Light),true) as Light;
+        Light = GetComponentsInChildren(typeof(Light), true) as Light[];
 
         if ((!isInteractable && isConsumable) ^ (isInteractable && isConsumable))
         {
-            Light.gameObject.SetActive(true);
+            foreach(Light l in Light)
+                l.gameObject.SetActive(true);
         }
     }
 
@@ -40,13 +41,14 @@ public class Torch : MonoBehaviour, IInteractable
             print(gameObject.name + " OnStartHover");
         }
     }
-    public void OnInteract()
+    public new void OnInteract()
     {
         if (!isInteractable && !isConsumable) return;
         if (isInteractable && !isConsumable)
         {
             isConsumable = true;
-            Light.gameObject.SetActive(true);
+            foreach (Light l in Light)
+                l.gameObject.SetActive(true);
             print("Interact with" + gameObject.name);
         }
         else if (isInteractable && isConsumable)
@@ -63,16 +65,17 @@ public class Torch : MonoBehaviour, IInteractable
                     }
                     else
                     {
-                        dummy.RestoreLife();
+                        dummy.RestorePartiallyLife(2);
                     }
-                    
+
                 }
             }
             if (!isPlayerMaxHealth)
             {
                 isInteractable = false;
                 isConsumable = false;
-                Light.gameObject.SetActive(false);
+                foreach (Light l in Light)
+                    l.gameObject.SetActive(false);
                 //ConsumeText.SetActive(false);
                 print("Consumed " + gameObject.name + " to restore life.");
             }
@@ -80,6 +83,7 @@ public class Torch : MonoBehaviour, IInteractable
 
         Save();
     }
+
     public void OnEndHover()
     {
         if (!isInteractable && !isConsumable) return;
@@ -124,3 +128,4 @@ public class Torch : MonoBehaviour, IInteractable
     }
 
 }
+

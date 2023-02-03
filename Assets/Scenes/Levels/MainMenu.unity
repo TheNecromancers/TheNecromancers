@@ -19824,6 +19824,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 197556391}
     m_Modifications:
+    - target: {fileID: -6860895033569716450, guid: 82c33bb50f891694a96df903cca9ea3f, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 82c33bb50f891694a96df903cca9ea3f, type: 3}
       propertyPath: m_Name
       value: Candlestick_Small (1)

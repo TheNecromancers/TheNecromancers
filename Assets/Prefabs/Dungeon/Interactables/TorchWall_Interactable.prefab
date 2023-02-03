@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Light: {fileID: 1207705135918564851}
   ConsumeText: {fileID: 2438821082886507082}
-  isConsumable: 0
+  isConsumable: 1
   isInteractable: 1
   savePath: /Torch1.save
 --- !u!65 &2371078702537333519

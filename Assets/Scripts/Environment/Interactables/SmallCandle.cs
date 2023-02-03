@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using TheNecromancers.Combat;
 using UnityEngine;
 
-public class Torch : MonoBehaviour, IInteractable
+public class SmallCandle : MonoBehaviour, IInteractable
 {
     [SerializeField] protected Light Light;
     [SerializeField] GameObject ConsumeText;
@@ -19,7 +19,7 @@ public class Torch : MonoBehaviour, IInteractable
     {
         Load();
 
-        Light = GetComponentInChildren(typeof(Light),true) as Light;
+        Light = GetComponentInChildren(typeof(Light), true) as Light;
 
         if ((!isInteractable && isConsumable) ^ (isInteractable && isConsumable))
         {
@@ -40,7 +40,7 @@ public class Torch : MonoBehaviour, IInteractable
             print(gameObject.name + " OnStartHover");
         }
     }
-    public void OnInteract()
+    public new void OnInteract()
     {
         if (!isInteractable && !isConsumable) return;
         if (isInteractable && !isConsumable)
@@ -63,9 +63,9 @@ public class Torch : MonoBehaviour, IInteractable
                     }
                     else
                     {
-                        dummy.RestoreLife();
+                        dummy.RestorePartiallyLife(1);
                     }
-                    
+
                 }
             }
             if (!isPlayerMaxHealth)
@@ -80,6 +80,7 @@ public class Torch : MonoBehaviour, IInteractable
 
         Save();
     }
+
     public void OnEndHover()
     {
         if (!isInteractable && !isConsumable) return;
@@ -124,3 +125,4 @@ public class Torch : MonoBehaviour, IInteractable
     }
 
 }
+

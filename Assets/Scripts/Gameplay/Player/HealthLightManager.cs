@@ -17,7 +17,7 @@ public class ColorHealthLevel
 
 public class HealthLightManager : MonoBehaviour
 {
-    [SerializeField] ColorHealthLevel[] colorHealthLevels;
+    public ColorHealthLevel[] colorHealthLevels;
     [SerializeField] float TransitionSpeed;
     [SerializeField] Light DirectionalLightOnPlayer;
     [SerializeField] float PlayerIntensityWhenDeath;
@@ -106,9 +106,14 @@ public class HealthLightManager : MonoBehaviour
 
     public void RestoreLifeColors()
     {
-        StartCoroutine(ChangeRangeOverTime(colorHealthLevels[0].Range, true));
-        StartCoroutine(ChangeIntensityOverTime(Light,colorHealthLevels[0].Intensity, true));
-        StartCoroutine(ChangeColorOverTime(colorHealthLevels[0].Color));
-        StartCoroutine(ChangeIntensityOverTime(DirectionalLightOnPlayer, colorHealthLevels[0].PlayerIntensity, true));
+        RestoreLifeColorsToLevel(0);
+    }
+
+    public void RestoreLifeColorsToLevel(int currentIndex)
+    {
+        StartCoroutine(ChangeRangeOverTime(colorHealthLevels[currentIndex].Range, true));
+        StartCoroutine(ChangeIntensityOverTime(Light, colorHealthLevels[currentIndex].Intensity, true));
+        StartCoroutine(ChangeColorOverTime(colorHealthLevels[currentIndex].Color));
+        StartCoroutine(ChangeIntensityOverTime(DirectionalLightOnPlayer, colorHealthLevels[currentIndex].PlayerIntensity, true));
     }
 }

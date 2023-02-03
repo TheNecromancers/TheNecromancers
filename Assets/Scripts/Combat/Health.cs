@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Collections;
 using System;
 using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Microsoft.Cci;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TheNecromancers.Combat
 {
@@ -118,9 +121,41 @@ namespace TheNecromancers.Combat
         public void RestoreLife()
         {
             health = MaxHealth;
+            Debug.Log("New health level:" + health + "/" + MaxHealth);
             if (AmIPlayer)
                 HealthLightManager.RestoreLifeColors();
             Save();
+        }
+
+        public void RestorePartiallyLife(int quantity)
+        {
+            if (AmIPlayer)
+            {
+                int currPercentage = health * 100 / MaxHealth;
+                int currentIndex = 0;
+                for (int i = HealthLightManager.colorHealthLevels.Length-1; i>=0 ; i--)
+                {
+                    if(currPercentage < HealthLightManager.colorHealthLevels[i].Percentage)
+                    {
+                        currentIndex = i;
+                        break;
+                    }
+                }
+                if(quantity == 2)
+                {
+                    currentIndex -= 1;
+                    if (currentIndex < 0) currentIndex = 0;
+                }
+                health = HealthLightManager.colorHealthLevels[currentIndex].Percentage * MaxHealth / 100;
+                Debug.Log("New health level:" + health + "/" + MaxHealth);
+                Debug.Log("New percentage:"+ HealthLightManager.colorHealthLevels[currentIndex].Percentage);
+                HealthLightManager.RestoreLifeColorsToLevel(currentIndex);
+            }
+        }
+
+        public bool AmIMaxHealth()
+        {
+            return health == MaxHealth;
         }
 
         public void ChangePlayerIlluminationToDeath()
