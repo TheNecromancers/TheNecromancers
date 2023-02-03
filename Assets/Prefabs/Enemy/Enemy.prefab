@@ -474,7 +474,7 @@ MonoBehaviour:
   <MovementSpeed>k__BackingField: 2.8
   <RotationSpeed>k__BackingField: 8
   <PlayerChasingRange>k__BackingField: 10
-  <PlayerToNearChasingRange>k__BackingField: 2.5
+  <PlayerToNearChasingRange>k__BackingField: 3
   <ViewAngle>k__BackingField: 90
   <SuspicionTime>k__BackingField: 2
   <DwellTime>k__BackingField: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
-  <AttackRange>k__BackingField: 2.1
+  <AttackRange>k__BackingField: 2.5
   <AttackRate>k__BackingField: 1.25
   <AttackForce>k__BackingField: 5
   <SlashVFX>k__BackingField: {fileID: 3662496979572467538, guid: 60d310309985b9d4e9917e6e851e63c9, type: 3}

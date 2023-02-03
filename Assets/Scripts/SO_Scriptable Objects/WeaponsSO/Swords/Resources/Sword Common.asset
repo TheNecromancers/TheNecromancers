@@ -18,9 +18,9 @@ MonoBehaviour:
   description: 
   <Damage>k__BackingField: 17
   <Knockbacks>k__BackingField:
-  - 2
-  - 2
   - 3
+  - 3
+  - 4
   <WeaponType>k__BackingField: 0
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
