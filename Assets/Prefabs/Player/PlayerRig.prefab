@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_Follow: {fileID: 5937608095658388903}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 10
+    OrthographicSize: 8
     NearClipPlane: -10
     FarClipPlane: 1000
     Dutch: 0
@@ -1498,7 +1498,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4104028583791039661}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40, y: -75, z: 40}
+  m_LocalEulerAnglesHint: {x: 30, y: -45, z: 0}
 --- !u!20 &4104028584176067589
 Camera:
   m_ObjectHideFlags: 0
@@ -1526,7 +1526,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 5.23
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
