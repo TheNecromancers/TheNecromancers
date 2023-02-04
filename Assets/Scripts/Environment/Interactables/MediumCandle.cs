@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class MediumCandle : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected Light[] Light;
+    [SerializeField] Light[] Light;
     [SerializeField] GameObject ConsumeText;
 
     public bool isConsumable = false;
@@ -19,7 +19,7 @@ public class MediumCandle : MonoBehaviour, IInteractable
     {
         Load();
 
-        Light = GetComponentsInChildren(typeof(Light), true) as Light[];
+        Light = GetComponentsInChildren<Light>(true);
 
         if ((!isInteractable && isConsumable) ^ (isInteractable && isConsumable))
         {
@@ -31,6 +31,12 @@ public class MediumCandle : MonoBehaviour, IInteractable
     public void OnStartHover()
     {
         if (!isInteractable && !isConsumable) return;
+        //outline the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
+        }
         if (isInteractable && !isConsumable)
         {
             print(gameObject.name + " OnStartHover");
@@ -41,7 +47,7 @@ public class MediumCandle : MonoBehaviour, IInteractable
             print(gameObject.name + " OnStartHover");
         }
     }
-    public new void OnInteract()
+    public void OnInteract()
     {
         if (!isInteractable && !isConsumable) return;
         if (isInteractable && !isConsumable)
@@ -87,6 +93,12 @@ public class MediumCandle : MonoBehaviour, IInteractable
     public void OnEndHover()
     {
         if (!isInteractable && !isConsumable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
         if (isInteractable && !isConsumable)
         {
             print(gameObject.name + " OnEndHover");

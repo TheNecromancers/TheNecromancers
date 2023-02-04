@@ -64,6 +64,12 @@ public class Door : MonoBehaviour, IInteractable
     public void OnStartHover()
     {
         if (!isInteractable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
+        }
     }
 
     public void OnInteract()
@@ -77,6 +83,12 @@ public class Door : MonoBehaviour, IInteractable
     public void OnEndHover()
     {
         if (!isInteractable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
     }
 
     public void Save()

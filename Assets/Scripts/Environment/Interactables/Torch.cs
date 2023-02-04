@@ -30,6 +30,12 @@ public class Torch : MonoBehaviour, IInteractable
     public void OnStartHover()
     {
         if (!isInteractable && !isConsumable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
+        }
         if (isInteractable && !isConsumable)
         {
             print(gameObject.name + " OnStartHover");
@@ -83,6 +89,12 @@ public class Torch : MonoBehaviour, IInteractable
     public void OnEndHover()
     {
         if (!isInteractable && !isConsumable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
         if (isInteractable && !isConsumable)
         {
             print(gameObject.name + " OnEndHover");

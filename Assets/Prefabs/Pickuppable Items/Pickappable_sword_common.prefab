@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5525752441839848323}
   - component: {fileID: 432555032608000089}
   - component: {fileID: -2606241992357173260}
+  - component: {fileID: 8693775182871029116}
   m_Layer: 7
   m_Name: Pickappable_sword_common
   m_TagString: Untagged
@@ -115,3 +116,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   item: {fileID: 11400000, guid: b5ced46be1f1de740bfa184a7d52c273, type: 2}
+  ItemName: 
+  savePath: 
+--- !u!114 &8693775182871029116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6318434697520294486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 1, a: 0}
+  outlineWidth: 2.5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

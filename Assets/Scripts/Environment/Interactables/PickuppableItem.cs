@@ -38,6 +38,12 @@ public class PickuppableItem : MonoBehaviour, IInteractable
         
 
         if (!isInteractable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
+        }
 
 
         print("questo è il player"+player);
@@ -50,6 +56,12 @@ public class PickuppableItem : MonoBehaviour, IInteractable
     public void OnEndHover()
     {
         if (!isInteractable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
 
         print(gameObject.name + " OnEndHover");
 

@@ -14,12 +14,13 @@ GameObject:
   - component: {fileID: 3918751411058678635}
   - component: {fileID: 2006967413325246030}
   - component: {fileID: 2924627994821820466}
+  - component: {fileID: 5037721145527012344}
   m_Layer: 0
   m_Name: Candlestick_Small_Interactable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3918751411058313036
 Transform:
@@ -133,6 +134,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.8484728, y: 1.9339345, z: 5.0102}
   m_Center: {x: 0.16613026, y: 0.015785, z: 0.23038307}
+--- !u!114 &5037721145527012344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918751411058678636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0, b: 1, a: 0}
+  outlineWidth: 4
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5712316411707296396
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +169,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 0
 --- !u!4 &49959119944469078
 Transform:
@@ -160,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5712316411707296396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.005, y: 0.586, z: -0}
+  m_LocalPosition: {x: 0.005, y: 0.7, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -276,7 +295,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7653689897396450664
 Transform:

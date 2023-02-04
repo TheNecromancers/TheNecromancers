@@ -17,7 +17,7 @@ public class PauseMenuManager : MonoBehaviour
     [field: SerializeField]public Button ExitGameButton;
     [field: SerializeField]public Button BackButton;
 
-    private Controls controls;
+    //private Controls controls;
     private InputManager inputManager;
 
     private void OnEnable() 
@@ -48,7 +48,6 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OpenOptionMenu()
     {
-        Controls controls = new Controls();
 
         if(!MenuContainer.activeSelf)
             
@@ -57,8 +56,11 @@ public class PauseMenuManager : MonoBehaviour
             ShowPauseScreen();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            controls = new Controls();
-            controls.Player.Disable();
+            InputManager playerInput = FindObjectOfType<InputManager>();
+            if (playerInput != null)
+            {
+                playerInput.DisablePlayerControls();
+            }
         }
         else
         {
@@ -67,7 +69,11 @@ public class PauseMenuManager : MonoBehaviour
             SettingsScreen.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            controls.Player.Enable();
+            InputManager playerInput = FindObjectOfType<InputManager>();
+            if (playerInput != null)
+            {
+                playerInput.EnablePlayerControls();
+            }
 
         }
     }

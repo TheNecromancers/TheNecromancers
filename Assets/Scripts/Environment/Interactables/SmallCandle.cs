@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SmallCandle : MonoBehaviour, IInteractable
 {
-    [SerializeField] protected Light Light;
+    [SerializeField] Light Light;
     [SerializeField] GameObject ConsumeText;
 
     public bool isConsumable = false;
@@ -30,6 +30,12 @@ public class SmallCandle : MonoBehaviour, IInteractable
     public void OnStartHover()
     {
         if (!isInteractable && !isConsumable) return;
+        //outline the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r,outline.OutlineColor.g,outline.OutlineColor.b,1);
+        }
         if (isInteractable && !isConsumable)
         {
             print(gameObject.name + " OnStartHover");
@@ -40,7 +46,7 @@ public class SmallCandle : MonoBehaviour, IInteractable
             print(gameObject.name + " OnStartHover");
         }
     }
-    public new void OnInteract()
+    public void OnInteract()
     {
         if (!isInteractable && !isConsumable) return;
         if (isInteractable && !isConsumable)
@@ -84,6 +90,12 @@ public class SmallCandle : MonoBehaviour, IInteractable
     public void OnEndHover()
     {
         if (!isInteractable && !isConsumable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
         if (isInteractable && !isConsumable)
         {
             print(gameObject.name + " OnEndHover");
@@ -91,7 +103,7 @@ public class SmallCandle : MonoBehaviour, IInteractable
         else if (isInteractable && isConsumable)
         {
             //ConsumeText.SetActive(false);
-            print(gameObject.name + " OnStartHover");
+            print(gameObject.name + " OnEndHover");
         }
     }
 
