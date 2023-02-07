@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4345055867949948100}
   m_Layer: 0
   m_Name: Scene001_Trigger
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPos: {x: 0, y: 0, z: 0}
+  EnemiesManager: {fileID: 0}
 --- !u!65 &4345055867949948100
 BoxCollider:
   m_ObjectHideFlags: 0

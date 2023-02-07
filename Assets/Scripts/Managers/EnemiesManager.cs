@@ -7,24 +7,40 @@ public class EnemiesManager : MonoBehaviour
 {
     public EnemyStateMachine[] Enemies;
 
-    public int nonActive;
+    public GameObject[] Triggers;
+    public bool IsCompleted;
 
+    public int nonActive;
     public string savePath;
+
+    public int enemies;
 
     private void Start()
     {
         Load();
 
         Enemies = FindObjectsOfType<EnemyStateMachine>(true);
+        Triggers = GameObject.FindGameObjectsWithTag("Trigger");
 
         if (Enemies.Length == nonActive)
         {
             Reset();
             nonActive = 0;
+            IsCompleted = true;
         }
         else
         {
             nonActive = 0;
+            IsCompleted = false;
+        }
+
+        if (IsCompleted)
+        {
+            ActiveTriggers();
+        }
+        else if (!IsCompleted)
+        {
+            DisableTrigger();
         }
     }
 
@@ -33,6 +49,22 @@ public class EnemiesManager : MonoBehaviour
         for(int x = 0; x < Enemies.Length; x++)
         {
             Enemies[x].gameObject.SetActive(false);
+        }
+    }
+
+    public void ActiveTriggers()
+    {
+        for (int y = 0; y < Triggers.Length; y++)
+        {
+            Triggers[y].gameObject.SetActive(true);
+        }
+    }
+
+    public void DisableTrigger()
+    {
+        for (int z = 0; z < Triggers.Length; z++)
+        {
+            Triggers[z].gameObject.SetActive(false);
         }
     }
 
@@ -50,6 +82,29 @@ public class EnemiesManager : MonoBehaviour
         }
 
         Save();
+    }
+
+    private void Update()
+    {
+        if (!IsCompleted)
+        {
+            for (int i = 0; i < Enemies.Length; i++)
+            {
+                if (Enemies[i].gameObject.activeSelf == false)
+                {
+                    enemies += 1;
+                }
+            }
+
+            if (Enemies.Length == enemies)
+            {
+                ActiveTriggers();
+                IsCompleted = true;
+            }
+
+            enemies = 0;
+            
+        }
     }
 
     public void Save()
