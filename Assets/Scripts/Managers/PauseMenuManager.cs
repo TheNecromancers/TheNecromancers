@@ -56,11 +56,6 @@ public class PauseMenuManager : MonoBehaviour
             ShowPauseScreen();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            InputManager playerInput = FindObjectOfType<InputManager>();
-            if (playerInput != null)
-            {
-                playerInput.DisablePlayerControls();
-            }
         }
         else
         {
@@ -69,11 +64,6 @@ public class PauseMenuManager : MonoBehaviour
             SettingsScreen.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            InputManager playerInput = FindObjectOfType<InputManager>();
-            if (playerInput != null)
-            {
-                playerInput.EnablePlayerControls();
-            }
 
         }
     }

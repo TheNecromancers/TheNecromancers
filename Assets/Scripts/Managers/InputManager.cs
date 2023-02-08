@@ -7,7 +7,8 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
 {
     public Vector2 MovementValue { get; private set; }
     public bool IsAttacking { get; private set; }
-    public bool isInventoryOpened{ get; private set; }
+    private bool isInventoryOpened{ get; set; } =false;
+    private bool isPauseMenuOpened{ get; set; } =false;
 
     public event Action RollEvent;
     public event Action InteractEvent;
@@ -122,17 +123,26 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
     }
     public void OnUIInventoryInteraction(InputAction.CallbackContext context)
     {
-        if (!context.performed) { return; }
-        InventoryEvent?.Invoke();
+        if(!isPauseMenuOpened)
+        {
+            
 
-        if(controls.Player.enabled)
-        {
-            controls.Player.Disable();
+            if (!context.performed) { return; }
+            {
+                isInventoryOpened = !isInventoryOpened;
+                InventoryEvent?.Invoke();
+
+                if(controls.Player.enabled)
+                {
+                    controls.Player.Disable();
+                }
+                else
+                {
+                    controls.Player.Enable();
+                }
+            }
         }
-        else
-        {
-            controls.Player.Enable();
-        }
+
     }
 
     public void DisablePlayerControls()
@@ -162,6 +172,23 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
 
     public void OnUIPauseMenuInteraction(InputAction.CallbackContext context)
     {
-        PauseMenuEvent?.Invoke();
+        if(!isInventoryOpened)
+        {
+            if (!context.performed) { return; }
+            {
+                isPauseMenuOpened = !isPauseMenuOpened;
+                PauseMenuEvent?.Invoke();
+        
+                if(controls.Player.enabled)
+                {
+                    controls.Player.Disable();
+                }
+                else
+                {
+                    controls.Player.Enable();
+                }
+            }
+        }
+
     }
 }
