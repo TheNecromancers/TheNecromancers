@@ -5,77 +5,57 @@ using UnityEngine.UI;
 
 public class AbilityVisualController : MonoBehaviour
 {
-    [SerializeField] List<Image> ExplorationImages;
-    [SerializeField] List<Image> RepulsionImages;
-    [SerializeField] Color ExplorationBrightColor;
-    [SerializeField] Color ExplorationDarkColor;
-    [SerializeField] Color RepulsionBrightColor;
-    [SerializeField] Color RepulsionDarkColor;
+    [SerializeField] GameObject ExplorationAbilityParent;
+    [SerializeField] GameObject RepulsionAbilityParent;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        ToggleOnImages();
-    }
 
     public void UseExplorationAbility(float _abilityCooldown)
     {
-        foreach (Image im in ExplorationImages)
+        if (ExplorationAbilityParent.activeInHierarchy)
         {
-            im.color = new Color(ExplorationDarkColor.r, ExplorationDarkColor.g, ExplorationDarkColor.b, 0);
+            Image[] ExplorationImages = ExplorationAbilityParent.GetComponentsInChildren<Image>();
+            if(ExplorationImages.Length > 1)
+            {
+                ExplorationImages[1].fillAmount = 0;
+                StartCoroutine(RechargeGraphically(ExplorationImages[1], _abilityCooldown));
+            }
         }
-        StartCoroutine(RechargeGraphically(ExplorationImages, ExplorationDarkColor, ExplorationBrightColor, _abilityCooldown));
+        
+        
     }
 
     public void UseRepulsionAbility(float _abilityCooldown)
     {
-        foreach (Image im in RepulsionImages)
+        if (ExplorationAbilityParent.activeInHierarchy)
         {
-            im.color = new Color(RepulsionDarkColor.r, RepulsionDarkColor.g, RepulsionDarkColor.b, 0);
+            Image[] RepulsionImages = RepulsionAbilityParent.GetComponentsInChildren<Image>();
+            if (RepulsionImages.Length > 1)
+            {
+                RepulsionImages[1].fillAmount = 0;
+                StartCoroutine(RechargeGraphically(RepulsionImages[1], _abilityCooldown));
+            }
         }
-        StartCoroutine(RechargeGraphically(RepulsionImages, RepulsionDarkColor, RepulsionBrightColor, _abilityCooldown));
     }
 
-    IEnumerator RechargeGraphically(List<Image> RechargeImages, Color RechargeColor, Color BrightColor, float _abilityCooldown)
+    IEnumerator RechargeGraphically(Image RechargeImage, float _abilityCooldown)
     {
-        float elapsedTime = 0;
-        while(elapsedTime < _abilityCooldown/2)
+        while(RechargeImage.fillAmount < 1)
         {
-            RechargeImages[0].color = new Color(RechargeColor.r, RechargeColor.g, RechargeColor.b, RechargeColor.a / 2 + (elapsedTime / (_abilityCooldown / 2) * RechargeColor.a / 2));
-            elapsedTime += Time.deltaTime;
+            RechargeImage.fillAmount += 1 / _abilityCooldown * Time.deltaTime;
+            if (RechargeImage.fillAmount >= 1) RechargeImage.fillAmount = 1;
             yield return null;
         }
-        RechargeImages[0].color = BrightColor;
-        while (elapsedTime >= _abilityCooldown / 2 && elapsedTime < _abilityCooldown)
-        {
-            RechargeImages[1].color = new Color(RechargeColor.r, RechargeColor.g, RechargeColor.b, RechargeColor.a / 2 + (elapsedTime / (_abilityCooldown ) * RechargeColor.a / 2));
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-        RechargeImages[1].color = BrightColor;
     }
 
     public void ToggleOffImages()
     {
-        foreach (Image im in ExplorationImages)
-        {
-            im.color = new Color(1,1,1,0);
-        }
-        foreach (Image im in RepulsionImages)
-        {
-            im.color = new Color(1, 1, 1, 0);
-        }
+        ExplorationAbilityParent.SetActive(false);
+        RepulsionAbilityParent.SetActive(false);
     }
 
     public void ToggleOnImages()
     {
-        foreach (Image im in ExplorationImages)
-        {
-            im.color = ExplorationBrightColor;
-        }
-        foreach (Image im in RepulsionImages)
-        {
-            im.color = RepulsionBrightColor;
-        }
+        ExplorationAbilityParent.SetActive(true);
+        RepulsionAbilityParent.SetActive(true);
     }
 }
