@@ -56,7 +56,7 @@ public class DisplayInventory : MonoBehaviour
             if(inventory.Container[i].item.type == ItemType.Equipment)
             {
                 GameObject obj = Instantiate(inventory.Container[i].item.inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
-                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                //obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                 itemsDisplayed.Add(inventory.Container[i], obj);
                 obj.GetComponent<ItemDisplayed>().displayInventory = this;
                 obj.GetComponent<ItemDisplayed>().item = inventory.Container[i].item;
@@ -64,7 +64,7 @@ public class DisplayInventory : MonoBehaviour
             else
             {
                 GameObject obj = Instantiate(inventory.Container[i].item.inventoryPrefab, Vector3.zero, Quaternion.identity, ScrollsInventory.transform);
-                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                //obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                 itemsDisplayed.Add(inventory.Container[i], obj);
                 obj.GetComponent<ItemDisplayed>().displayInventory = this;
                 obj.GetComponent<ItemDisplayed>().item = inventory.Container[i].item;
@@ -79,7 +79,7 @@ public class DisplayInventory : MonoBehaviour
         {
             if (itemsDisplayed.ContainsKey(inventory.Container[i]))
             {
-                itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                //itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
 
             }
             else
@@ -87,7 +87,7 @@ public class DisplayInventory : MonoBehaviour
                 if(inventory.Container[i].item.type == ItemType.Equipment)
                 {
                     var obj = Instantiate(inventory.Container[i].item.inventoryPrefab, Vector3.zero, Quaternion.identity, transform);
-                    obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                    //obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                     itemsDisplayed.Add(inventory.Container[i], obj);
                     obj.GetComponent<ItemDisplayed>().displayInventory = this;
                     obj.GetComponent<ItemDisplayed>().item = inventory.Container[i].item;
@@ -95,7 +95,7 @@ public class DisplayInventory : MonoBehaviour
                 else
                 {
                     var obj = Instantiate(inventory.Container[i].item.inventoryPrefab, Vector3.zero, Quaternion.identity, ScrollsInventory.transform);
-                    obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                    //obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
                     itemsDisplayed.Add(inventory.Container[i], obj);
                     obj.GetComponent<ItemDisplayed>().displayInventory = this;
                     obj.GetComponent<ItemDisplayed>().item = inventory.Container[i].item;
