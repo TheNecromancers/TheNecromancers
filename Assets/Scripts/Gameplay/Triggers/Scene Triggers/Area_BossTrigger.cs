@@ -9,8 +9,23 @@ public class Area_BossTrigger : AreaTrigger
     {
         if (other.TryGetComponent(out PlayerStateMachine Player))
         {
-            Loader.Load(Loader.Scene.Area_Boss);
-            Player.SetPlayerPosition(PlayerPos);
+            StartCoroutine(Transition(Player));
         }
     }
+
+    public override IEnumerator Transition(PlayerStateMachine player)
+    {
+        TransitionOff = GameObject.FindGameObjectWithTag("Transition");
+        TransitionOff.GetComponentInChildren<Animator>().SetTrigger("Start");
+
+        yield return new WaitForSeconds(0.6f);
+
+
+        Loader.Load(Loader.Scene.Area_Boss);
+        player.SetPlayerPosition(PlayerPos);
+    }
+
+
+
+
 }

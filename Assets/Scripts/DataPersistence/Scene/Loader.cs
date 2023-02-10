@@ -20,6 +20,7 @@ public static class Loader {
         Loading
     }
 
+    public static GameObject TransitionOff;
     private static Action onLoaderCallback;
     private static AsyncOperation loadingAsyncOperation;
 
@@ -41,14 +42,6 @@ public static class Loader {
 
         while (!loadingAsyncOperation.isDone) {
             yield return null;
-        }
-    }
-
-    public static float GetLoadingProgress() {
-        if (loadingAsyncOperation != null) {
-            return loadingAsyncOperation.progress;
-        } else {
-            return 1f;
         }
     }
 
