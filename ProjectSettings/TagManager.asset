@@ -17,6 +17,8 @@ TagManager:
   - RightSlotEnemies
   - Trigger
   - Transition
+  - CompanionAnchor
+  - Lantern
   layers:
   - Default
   - TransparentFX

@@ -46,7 +46,7 @@ namespace TheNecromancers.Combat
             {
                 print("Health Light Manager Prima: "+ HealthLightManager);
                 Load();
-                HealthLightManager = GetComponentInChildren<HealthLightManager>();
+                HealthLightManager = GameObject.FindGameObjectWithTag("Lantern").GetComponentInChildren<HealthLightManager>();
                 HealthLightManager.ChangeLightAccordingToHealth(health, MaxHealth);
                 print("Health Light Manager dopo: "+ HealthLightManager);
             }

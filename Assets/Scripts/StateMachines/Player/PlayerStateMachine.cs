@@ -68,7 +68,7 @@ namespace TheNecromancers.StateMachine.Player
             ForceReceiver= GetComponent<ForceReceiver>();
             Health = GetComponent<Health>();
 
-            AbilitySystemManager = GetComponentInChildren<AbilitySystemManager>();
+            AbilitySystemManager = GameObject.FindGameObjectWithTag("Lantern").GetComponentInChildren<AbilitySystemManager>();
             InteractionDetector = GetComponentInChildren<InteractionDetector>();
             Targeter = GetComponentInChildren<Targeter>();
             InventoryManager = GetComponentInChildren<InventoryManager>();
