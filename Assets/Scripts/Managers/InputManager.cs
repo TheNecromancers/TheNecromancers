@@ -126,7 +126,6 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
         if(!isPauseMenuOpened)
         {
             
-
             if (!context.performed) { return; }
             {
                 isInventoryOpened = !isInventoryOpened;
@@ -172,7 +171,11 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
 
     public void OnUIPauseMenuInteraction(InputAction.CallbackContext context)
     {
-        if(!isInventoryOpened)
+        if(isInventoryOpened)
+        {
+            OnUIInventoryInteraction(context);
+        }
+        else if(!isInventoryOpened)
         {
             if (!context.performed) { return; }
             {
