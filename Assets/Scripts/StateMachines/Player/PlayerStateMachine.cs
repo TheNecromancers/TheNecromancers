@@ -162,8 +162,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (AbilitySystemManager != null)
             {
-                AudioManager.Instance.PlayRandomClip(AudioClips.PowerUp2);
-                AbilitySystemManager.OnCombactAbility(transform.position);
+                AbilitySystemManager.OnCombactAbility(transform.position, AudioClips.PowerUp2);
             }
         }
 
@@ -171,8 +170,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (AbilitySystemManager != null)
             {
-                AudioManager.Instance.PlayRandomClip(AudioClips.PowerUp1);
-                AbilitySystemManager.OnExplorationAbility();
+                AbilitySystemManager.OnExplorationAbility(AudioClips.PowerUp1);
             }
         }
 

@@ -56,12 +56,13 @@ public class AbilitySystemManager : MonoBehaviour
         repulsionOnCD = false;
         explorationOnCD = false;
     }
-    public void OnCombactAbility(Vector3 playerPosition)
+    public void OnCombactAbility(Vector3 playerPosition, AudioClip[] abilitySound)
     {
         if (!repulsionRunning && !repulsionOnCD && !explorationRunning)
         {
             MinIntensity = Light.intensity;
             repulsionRunning = true;
+            AudioManager.Instance.PlayRandomClip(abilitySound);
             StartCoroutine(RepulseEnemies(playerPosition));
         }
     }
@@ -121,7 +122,7 @@ public class AbilitySystemManager : MonoBehaviour
 
     }
 
-    public void OnExplorationAbility()
+    public void OnExplorationAbility(AudioClip[] abilitySound)
     {
         if (!explorationRunning && !explorationOnCD && !repulsionRunning)
         {
@@ -129,6 +130,7 @@ public class AbilitySystemManager : MonoBehaviour
             MinIntensity = Light.intensity;
             CalculateWeights();
             explorationRunning = true;
+            AudioManager.Instance.PlayRandomClip(abilitySound);
             StartCoroutine(ExpandLight());
         }  
     }
