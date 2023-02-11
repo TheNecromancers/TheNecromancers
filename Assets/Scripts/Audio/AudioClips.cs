@@ -16,5 +16,6 @@ public class AudioClips : ScriptableObject
    [SerializeField] public AudioClip[] EnemyGroan;
    [SerializeField] public AudioClip[] PowerUp1;
    [SerializeField] public AudioClip[] PowerUp2;
+   [SerializeField] public AudioClip[] AbilityInCD;
 
 }

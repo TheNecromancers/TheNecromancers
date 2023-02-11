@@ -162,7 +162,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (AbilitySystemManager != null)
             {
-                AbilitySystemManager.OnCombactAbility(transform.position, AudioClips.PowerUp2);
+                AbilitySystemManager.OnCombactAbility(transform.position, AudioClips.PowerUp2, AudioClips.AbilityInCD);
             }
         }
 
@@ -170,7 +170,7 @@ namespace TheNecromancers.StateMachine.Player
         {
             if (AbilitySystemManager != null)
             {
-                AbilitySystemManager.OnExplorationAbility(AudioClips.PowerUp1);
+                AbilitySystemManager.OnExplorationAbility(AudioClips.PowerUp1, AudioClips.AbilityInCD);
             }
         }
 

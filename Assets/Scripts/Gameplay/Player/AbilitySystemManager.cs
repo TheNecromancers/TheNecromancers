@@ -56,8 +56,13 @@ public class AbilitySystemManager : MonoBehaviour
         repulsionOnCD = false;
         explorationOnCD = false;
     }
-    public void OnCombactAbility(Vector3 playerPosition, AudioClip[] abilitySound)
+    public void OnCombactAbility(Vector3 playerPosition, AudioClip[] abilitySound, AudioClip[] cooldownSound)
     {
+        if(repulsionOnCD)
+        {
+            AudioManager.Instance.PlayRandomClip(cooldownSound);
+
+        }
         if (!repulsionRunning && !repulsionOnCD && !explorationRunning)
         {
             MinIntensity = Light.intensity;
@@ -122,8 +127,13 @@ public class AbilitySystemManager : MonoBehaviour
 
     }
 
-    public void OnExplorationAbility(AudioClip[] abilitySound)
+    public void OnExplorationAbility(AudioClip[] abilitySound, AudioClip[] cooldownSound)
     {
+        if(explorationOnCD)
+        {
+            AudioManager.Instance.PlayRandomClip(cooldownSound);
+        }
+
         if (!explorationRunning && !explorationOnCD && !repulsionRunning)
         {
             MinRange = Light.range;
