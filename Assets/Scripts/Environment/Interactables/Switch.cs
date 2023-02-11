@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Door : MonoBehaviour, IInteractable
+public class Switch : MonoBehaviour, IInteractable
 {
-    [SerializeField] float speed = 5f;
-
-    private bool isInteractable = true;
     public bool IsInteractable => isInteractable;
-
-    public bool IsASwitchDoor = false;
-    public bool isLocked = true;
-    float rotationDegree;
-
+    public bool isInteractable = true;
     public string savePath;
+
+    public GameObject RelatedDoor;
+  
+    public float rotationDegree;
+    [SerializeField] float Speed = 5f; 
 
     private void Awake()
     {
@@ -25,71 +23,61 @@ public class Door : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        Debug.Log(transform.eulerAngles.y);
-        switch (transform.eulerAngles.y)
+        // non funziona da fixare
+        switch (transform.eulerAngles.x)
         {
-            case -90:
-                rotationDegree = -120f;
+            case -50:
+                rotationDegree = 50f; 
                 break;
-            case 90f:
-                rotationDegree = 20f;
+
+            case 50:
+                rotationDegree = -50f;
                 break;
-            case 0:
-                rotationDegree = 160f;
-                break;
-            case -180:
-                rotationDegree = 160f;
-                break;
+
             default:
                 break;
         }
     }
 
-    private void Update()
-    {
-        if (!isLocked) Open();
-    }
-  
-
-    void Open()
-    {
-        transform.localRotation = Quaternion.Lerp(
-        transform.localRotation,
-        Quaternion.Euler(transform.localRotation.x,
-        rotationDegree, 
-        transform.localRotation.z), 
-        Time.deltaTime * speed);
-        Save();
-    }
-
-    public void OnStartHover()
-    {
-        if (!isInteractable ^ IsASwitchDoor) return;
-        //remove outline of the object
-        Outline outline = GetComponent<Outline>();
-        if (outline != null)
-        {
-            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
-        }
-    }
-
-    public void OnInteract()
-    {
-        if (!isInteractable ^ IsASwitchDoor) return;
-
-        isLocked = false;
-        isInteractable = false;
-    }
-
     public void OnEndHover()
     {
-        if (!isInteractable ^ IsASwitchDoor) return;
+        if (!isInteractable) return;
+
         //remove outline of the object
         Outline outline = GetComponent<Outline>();
         if (outline != null)
         {
             outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
         }
+    }
+
+    public void OnInteract()
+    {
+        if (isInteractable)
+        {
+            // Da fixare non ruota help!
+            transform.localRotation = Quaternion.Lerp(transform.localRotation,
+                Quaternion.Euler(rotationDegree,
+                transform.localRotation.y, transform.localRotation.z),
+                Time.deltaTime * Speed);
+           
+
+            RelatedDoor.GetComponent<Door>().isLocked = false;
+
+        }
+        Save();
+    }
+
+    public void OnStartHover()
+    {
+        if (!isInteractable) return;
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
+        }
+
     }
 
     public void Save()
@@ -120,4 +108,5 @@ public class Door : MonoBehaviour, IInteractable
     {
         Save();
     }
+
 }

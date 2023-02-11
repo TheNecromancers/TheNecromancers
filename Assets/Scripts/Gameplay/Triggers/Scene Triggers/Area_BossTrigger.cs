@@ -24,8 +24,4 @@ public class Area_BossTrigger : AreaTrigger
         Loader.Load(Loader.Scene.Area_Boss);
         player.SetPlayerPosition(PlayerPos);
     }
-
-
-
-
 }
