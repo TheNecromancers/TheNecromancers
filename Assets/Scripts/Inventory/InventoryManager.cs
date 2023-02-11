@@ -45,6 +45,8 @@ public class InventoryManager : MonoBehaviour
 
         if (weapon.WeaponType == WeaponType.Shield)
         {
+            if (playerStateMachine.WeaponRightHand.WeaponType == WeaponType.Axe) return;
+
             //inventoryObject.AddItem(playerStateMachine.WeaponLeftHand,1);
             if (playerStateMachine.LeftHandHolder.transform.childCount == 0)
             {
@@ -79,9 +81,15 @@ public class InventoryManager : MonoBehaviour
 
         }
 
-        if (weapon.WeaponType == WeaponType.Sword ||weapon.WeaponType == WeaponType.Axe)
+        if (weapon.WeaponType == WeaponType.Sword || weapon.WeaponType == WeaponType.Axe)
         {
             //inventoryObject.AddItem(playerStateMachine.WeaponRightHand, 1);
+            if(weapon.WeaponType == WeaponType.Axe)
+            {
+                // TODO: unequip shield if have axe
+                Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
+                //Unequip();
+            }
 
             // switch weapons instead of destroy its
 
