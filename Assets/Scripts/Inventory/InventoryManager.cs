@@ -86,9 +86,11 @@ public class InventoryManager : MonoBehaviour
             //inventoryObject.AddItem(playerStateMachine.WeaponRightHand, 1);
             if(weapon.WeaponType == WeaponType.Axe)
             {
-                // TODO: unequip shield if have axe
-                Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
-                //Unequip();
+                if(playerStateMachine.LeftHandHolder.transform.childCount > 0)
+                {
+                    Destroy(playerStateMachine.LeftHandHolder.transform.GetChild(0).gameObject);
+                }
+                //Unequip(); not implemented
             }
 
             // switch weapons instead of destroy its
