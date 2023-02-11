@@ -19,6 +19,8 @@ TagManager:
   - Transition
   - Key
   - Axe
+  - CompanionAnchor
+  - Lantern
   layers:
   - Default
   - TransparentFX
