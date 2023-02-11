@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ba63f90d8844c4f4995e182266e20c23, type: 3}
+      propertyPath: m_TagString
+      value: Key
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ba63f90d8844c4f4995e182266e20c23, type: 3}
       propertyPath: m_RootOrder
       value: 0

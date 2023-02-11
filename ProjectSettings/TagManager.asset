@@ -17,6 +17,8 @@ TagManager:
   - RightSlotEnemies
   - Trigger
   - Transition
+  - Key
+  - Axe
   layers:
   - Default
   - TransparentFX

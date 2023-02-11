@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using TheNecromancers.StateMachine.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +14,12 @@ public class Door : MonoBehaviour, IInteractable
     public bool IsInteractable => isInteractable;
 
     public bool IsASwitchDoor = false;
+    public bool IsAKeyDoor = false;
     public bool isLocked = true;
     float rotationDegree;
 
     public string savePath;
+    public GameObject RelatedKey = null;
 
     private void Awake()
     {
@@ -43,11 +46,29 @@ public class Door : MonoBehaviour, IInteractable
             default:
                 break;
         }
+        
+        if (IsAKeyDoor)
+        {
+            RelatedKey = GameObject.FindGameObjectWithTag("Key");
+            if (RelatedKey != null)
+            {
+                isInteractable = false;
+            }
+        }
     }
 
     private void Update()
     {
         if (!isLocked) Open();
+
+        if (IsAKeyDoor)
+        {
+            if (!RelatedKey.gameObject.activeSelf) 
+            {
+                isInteractable = true;
+            }
+        }
+        
     }
   
 
