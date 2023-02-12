@@ -484,7 +484,7 @@ MonoBehaviour:
     m_Bits: 64
   <CurrentWeapon>k__BackingField: {fileID: 11400000, guid: a471c48427fa22f408c752e20f69b979, type: 2}
   <AttackRange>k__BackingField: 8
-  <AttackRate>k__BackingField: 2
+  <AttackRate>k__BackingField: 2.5
   <AttackForce>k__BackingField: -1
   <SlashVFX>k__BackingField: {fileID: 3662496979572467538, guid: 60d310309985b9d4e9917e6e851e63c9, type: 3}
   <ProjectileObj>k__BackingField: {fileID: 1336262090902862956, guid: 5490dbe09b29b5941b407dd20a4f0693, type: 3}
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316eb6c8ae3c0f34caf3329c6f5335d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 70
   TimeInvulnerableInMs: 0
   LowHealthTimeInvulnerableInMs: 0
   HealthPercentage: 0
