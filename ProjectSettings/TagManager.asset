@@ -21,6 +21,7 @@ TagManager:
   - Axe
   - CompanionAnchor
   - Lantern
+  - InvisibleWall
   layers:
   - Default
   - TransparentFX
