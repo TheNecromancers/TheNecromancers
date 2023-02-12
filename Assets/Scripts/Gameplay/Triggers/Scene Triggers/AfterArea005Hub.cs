@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class AfterArea005Hub : AreaTrigger
 {
-    public EnemiesManager EnemiesManager;
-
-    private void Start()
-    {
-        EnemiesManager = FindObjectOfType<EnemiesManager>();
-    }
-
     public override void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out PlayerStateMachine Player))
@@ -29,6 +22,5 @@ public class AfterArea005Hub : AreaTrigger
 
         Loader.Load(Loader.Scene.HUB_After_Area_005);
         player.SetPlayerPosition(PlayerPos);
-        EnemiesManager.EnemiesDead();
     }
 }

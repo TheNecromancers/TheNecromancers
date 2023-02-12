@@ -6,11 +6,11 @@ using UnityEngine;
 public class EnemiesManager : MonoBehaviour
 {
     public EnemyStateMachine[] Enemies;
-
     public GameObject[] Triggers;
+    public GameObject[] InvisibleWalls;
+
     public bool IsCompleted;
 
-    public int nonActive;
     public string savePath;
 
     public int enemies;
@@ -21,22 +21,12 @@ public class EnemiesManager : MonoBehaviour
 
         Enemies = FindObjectsOfType<EnemyStateMachine>(true);
         Triggers = GameObject.FindGameObjectsWithTag("Trigger");
-
-        if (Enemies.Length == nonActive)
-        {
-            Reset();
-            nonActive = 0;
-            IsCompleted = true;
-        }
-        else
-        {
-            nonActive = 0;
-            IsCompleted = false;
-        }
+        InvisibleWalls = GameObject.FindGameObjectsWithTag("InvisibleWall");
 
         if (IsCompleted)
         {
             ActiveTriggers();
+            Reset();
         }
         else if (!IsCompleted)
         {
@@ -56,32 +46,34 @@ public class EnemiesManager : MonoBehaviour
     {
         for (int y = 0; y < Triggers.Length; y++)
         {
-            Triggers[y].gameObject.SetActive(true);
+            Triggers[y].SetActive(true);
         }
+
+        if (InvisibleWalls.Length > 0)
+        {
+            for (int w = 0; w < InvisibleWalls.Length; w++)
+            {
+                InvisibleWalls[w].SetActive(false);
+            }
+        }
+      
     }
 
     public void DisableTrigger()
     {
         for (int z = 0; z < Triggers.Length; z++)
         {
-            Triggers[z].gameObject.SetActive(false);
+            Triggers[z].SetActive(false);
         }
-    }
 
-    public void EnemiesDead()
-    {
-        for (int i = 0; i < Enemies.Length; i++)
+        if (InvisibleWalls.Length> 0)
         {
-            Debug.Log(Enemies[i].gameObject.activeSelf + " active");
-            Debug.Log(Enemies[i].gameObject.activeInHierarchy + " in hierarchy");
-
-            if (Enemies[i].gameObject.activeSelf == false)
+            for (int q = 0; q < InvisibleWalls.Length; q++)
             {
-                nonActive += 1;
+                InvisibleWalls[q].SetActive(true);
             }
         }
 
-        Save();
     }
 
     private void Update()
@@ -100,10 +92,10 @@ public class EnemiesManager : MonoBehaviour
             {
                 ActiveTriggers();
                 IsCompleted = true;
+                Save();
             }
 
             enemies = 0;
-            
         }
     }
 

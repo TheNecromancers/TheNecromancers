@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Area005Trigger : AreaTrigger
 {
-    public EnemiesManager EnemiesManager;
-
     public override void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out PlayerStateMachine Player))
@@ -21,9 +19,6 @@ public class Area005Trigger : AreaTrigger
         TransitionOff.GetComponentInChildren<Animator>().SetTrigger("Start");
 
         yield return new WaitForSeconds(0.6f);
-
-        EnemiesManager = FindObjectOfType<EnemiesManager>();
-        EnemiesManager.EnemiesDead();
         Loader.Load(Loader.Scene.Area005);
         player.SetPlayerPosition(PlayerPos);
     }
