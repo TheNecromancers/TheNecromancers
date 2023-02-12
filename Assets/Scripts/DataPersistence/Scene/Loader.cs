@@ -17,7 +17,8 @@ public static class Loader {
         First_Area,
         HUB_1,
         MainMenu,
-        Loading
+        Loading,
+        HUB_After_Area_005
     }
 
     public static GameObject TransitionOff;

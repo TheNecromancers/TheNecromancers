@@ -22,8 +22,6 @@ public class LoadMenu : MonoSingleton<LoadMenu>
         {
             CurrentNameScene = SceneManager.GetActiveScene().name;
             CurrentScene = SceneManager.GetActiveScene();
-            //CurrentNameScene = current.name;
-            //CurrentScene = current;
         }
         Save();
     }
