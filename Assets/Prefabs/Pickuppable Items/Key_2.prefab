@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: ba63f90d8844c4f4995e182266e20c23, type: 3}
       propertyPath: m_Name
-      value: Key_Golden Variant
+      value: Key_2
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ba63f90d8844c4f4995e182266e20c23, type: 3}
       propertyPath: m_Layer
@@ -128,5 +128,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   item: {fileID: 11400000, guid: a0bf593a471a96b45a8560c1aa951184, type: 2}
-  ItemName: GOLDEN KEY
-  savePath: /GoldenKey1.save
+  ItemName: Rusty Key
+  savePath: /Key_2.save

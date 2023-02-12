@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: ac8910006b2a62947a9342d2b6ddfa2a, type: 3}
       propertyPath: m_Name
-      value: Scroll_Open Variant
+      value: Scroll_2
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ac8910006b2a62947a9342d2b6ddfa2a, type: 3}
       propertyPath: m_Layer
@@ -106,8 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteractable: 1
   item: {fileID: 11400000, guid: e1ef7e15d7f39f14aa9422bb11270733, type: 2}
-  ItemName: SCROLLONE
-  savePath: /SCROLL_ONE.save
+  ItemName: Taste of freedom
+  savePath: /Scroll_2.save
 --- !u!114 &5648173239778498372
 MonoBehaviour:
   m_ObjectHideFlags: 0
