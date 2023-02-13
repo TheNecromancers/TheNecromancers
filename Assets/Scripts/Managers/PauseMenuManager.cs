@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PauseMenuManager : MonoBehaviour
     [field: SerializeField]public GameObject MenuContainer;
     [field: SerializeField]public GameObject MainScreen;
     [field: SerializeField]public GameObject SettingsScreen;
+    [field: SerializeField]public Button ResumeGameButton;
     [field: SerializeField]public Button MainMenuButton;
     [field: SerializeField]public Button LoadGameButton;
     [field: SerializeField]public Button SettingsButton;
@@ -25,6 +27,7 @@ public class PauseMenuManager : MonoBehaviour
         inputManager = FindObjectOfType<InputManager>();
         inputManager.PauseMenuEvent += OpenOptionMenu;
         SettingsButton.onClick.AddListener(ShowSettingsMenu);
+        ResumeGameButton.onClick.AddListener(OpenOptionMenu);
         BackButton.onClick.AddListener(ShowPauseScreen);
         MainMenuButton.onClick.AddListener(GoToMainMenu);
         MainMenuButton.onClick.AddListener(OnMainMenuLoad);
@@ -56,6 +59,7 @@ public class PauseMenuManager : MonoBehaviour
             ShowPauseScreen();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            inputManager.PauseMenuStateChange();
         }
         else
         {
@@ -64,7 +68,7 @@ public class PauseMenuManager : MonoBehaviour
             SettingsScreen.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-
+            inputManager.PauseMenuStateChange();
         }
     }
 

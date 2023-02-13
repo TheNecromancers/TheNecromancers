@@ -128,20 +128,38 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
             
             if (!context.performed) { return; }
             {
-                isInventoryOpened = !isInventoryOpened;
+                InventoryStateChange();
                 InventoryEvent?.Invoke();
-
-                if(controls.Player.enabled)
-                {
-                    controls.Player.Disable();
-                }
-                else
-                {
-                    controls.Player.Enable();
-                }
             }
         }
+    }
+    
+    public void InventoryStateChange()
+    {
+        isInventoryOpened = !isInventoryOpened;
 
+        if(controls.Player.enabled)
+        {
+            DisablePlayerControls();
+        }
+        else
+        {
+            EnablePlayerControls();
+        }
+    }
+
+    public void PauseMenuStateChange()
+    {
+        isPauseMenuOpened = !isPauseMenuOpened;
+                
+        if(controls.Player.enabled)
+        {
+            DisablePlayerControls();
+        }
+        else
+        {
+            EnablePlayerControls();
+        }
     }
 
     public void DisablePlayerControls()
@@ -179,17 +197,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
         {
             if (!context.performed) { return; }
             {
-                isPauseMenuOpened = !isPauseMenuOpened;
                 PauseMenuEvent?.Invoke();
-        
-                if(controls.Player.enabled)
-                {
-                    controls.Player.Disable();
-                }
-                else
-                {
-                    controls.Player.Enable();
-                }
             }
         }
 
