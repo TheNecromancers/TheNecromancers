@@ -4,6 +4,7 @@ using TheNecromancers.Combat;
 using TheNecromancers.StateMachine.Gameplay.Triggers;
 using UnityEngine;
 using TheNecromancers.StateMachine.Player;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GameController : MonoBehaviour
 {
@@ -56,7 +57,12 @@ public class GameController : MonoBehaviour
         {
             if (light != null)
             {
+                //Change light gradually as requested by designers
+                light.intensity = 0;
+                light.range = 0;
                 light.gameObject.SetActive(true);
+                HealthLightManager hlm = light.GetComponent<HealthLightManager>();
+                if (hlm != null) hlm.RestoreLifeColors();
             }
         }
 

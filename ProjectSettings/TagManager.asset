@@ -22,6 +22,7 @@ TagManager:
   - CompanionAnchor
   - Lantern
   - InvisibleWall
+  - TutorialPanel
   layers:
   - Default
   - TransparentFX

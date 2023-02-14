@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 public class RunGame : Editor
 {
-    const string CHEATS_ENABLED = "CheatsEnabled";
 
     [MenuItem("Game/Run Game")]
     static void StartGame()
@@ -19,22 +19,16 @@ public class RunGame : Editor
         }
     }
 
-    /*
-    /// <summary>
-    /// Validating Editor Menu Items
-    /// </summary>
-    [MenuItem("Game/Cheats Enabled")]
-    static void ToggleCheats()
+    [MenuItem("Game/Delete Saved Files")]
+    static void DeleteSavedFiles()
     {
-        EditorPrefs.SetBool(CHEATS_ENABLED, !EditorPrefs.GetBool(CHEATS_ENABLED));
+        if (Directory.Exists(Path.Combine(Application.persistentDataPath, "Data")))
+        {
+            string[] filePaths = Directory.GetFiles(string.Concat(Application.persistentDataPath, "/Data"));
+            foreach (string filePath in filePaths) File.Delete(filePath);
+            Debug.Log("All saved files deleted correctly!");
+        }
     }
 
-    [MenuItem("Game/Cheats Enabled", true)]
-    static bool ValidateToggleCheats()
-    {
-        // Return false if no transform is selected.
-        return EditorPrefs.GetBool(CHEATS_ENABLED);
-    }
-    */
 }
 #endif

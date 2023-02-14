@@ -54,6 +54,7 @@ public class DialogueManager : MonoBehaviour
         if(playerInput != null)
         {
             playerInput.DisablePlayerControls();
+            playerInput.DisableUIControls();
         }
         DisplayMessage();
         //Animation duration and Scale of the box for the dialogue
@@ -122,6 +123,7 @@ public class DialogueManager : MonoBehaviour
         if (playerInput != null)
         {
             playerInput.EnablePlayerControls();
+            playerInput.EnableUIControls();
         }
         backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
         //isActive = false;
