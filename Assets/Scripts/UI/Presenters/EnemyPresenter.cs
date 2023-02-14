@@ -1,11 +1,8 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TheNecromancers.StateMachine.Enemy;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyPresenter : MonoBehaviour
 {
@@ -39,5 +36,6 @@ public class EnemyPresenter : MonoBehaviour
         await Task.Delay(duration * 1000);
         ExclamationMark.enabled = false;
     }
- 
+
+
 }
