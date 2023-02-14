@@ -68,10 +68,13 @@ namespace TheNecromancers.StateMachine.Player
 
         void PlayFootSteps()
         {
-            if (Time.fixedTime > nextStep)
+            if (stateMachine.Controller.velocity.magnitude > 1f)
             {
-                nextStep = Time.fixedTime + stepRate;
-                AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.Footsteps);
+                if (Time.fixedTime > nextStep)
+                {
+                    nextStep = Time.fixedTime + stepRate;
+                    AudioManager.Instance.PlayRandomClip(stateMachine.AudioClips.Footsteps);
+                }
             }
         }
 
@@ -89,6 +92,6 @@ namespace TheNecromancers.StateMachine.Player
             stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
         }
 
-       
+
     }
 }
