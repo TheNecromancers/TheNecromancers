@@ -7219,8 +7219,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages:
+  - actorId: 0
+    message: So that's all you got?
   - actorId: 2
-    message: First wave done
+    message: You are tougher than I expected
   actors:
   - name: Lantern
     sprite: {fileID: 21300000, guid: 4c31959ec9bc7394fbfa12b22465c882, type: 3}
@@ -13346,7 +13348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[2].name
@@ -13362,11 +13364,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[0].message
-      value: Necromancer say
+      value: You again..
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[1].actorId
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[1].message
-      value: Player say
+      value: "I told you\u2026this castle is mine"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[2].actorId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[2].message
+      value: "Not anymore\u2026\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[3].actorId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[3].message
+      value: "Who is that one?\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[4].actorId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[4].message
+      value: "I\u2019m the one that will defeat you\r\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[5].actorId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
+      propertyPath: messages.Array.data[5].message
+      value: Your time is ended!
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624339, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_Name
