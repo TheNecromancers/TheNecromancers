@@ -57,9 +57,10 @@ public class BossSpawnEnemiesState : BossBaseState
         if (stateMachine.transform.GetComponentsInChildren<EnemyStateMachine>().Length <= 0 &&
             !stateMachine.WaitForNextWave)
         {
+            stateMachine.EndFirstWaveDialogue.StartDialogue();
+
             stateMachine.Collider.enabled = true;
             stateMachine.WaitForNextWave = true;
-            stateMachine.EndFirstWaveDialogue.StartDialogue();
         }
     }
 
