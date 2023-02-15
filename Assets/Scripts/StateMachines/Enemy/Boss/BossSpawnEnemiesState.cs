@@ -45,8 +45,12 @@ public class BossSpawnEnemiesState : BossBaseState
                         stateMachine.CurrentEnemies.Add(rangedEnemy);
                     }
                 }
-
                 break;
+
+                case 3:
+                // TODO FINE BOSS FIGHT
+                break;
+
             default:
                 break;
         }
@@ -57,7 +61,17 @@ public class BossSpawnEnemiesState : BossBaseState
         if (stateMachine.transform.GetComponentsInChildren<EnemyStateMachine>().Length <= 0 &&
             !stateMachine.WaitForNextWave)
         {
-            stateMachine.EndFirstWaveDialogue.StartDialogue();
+            switch(stateMachine.CurrentWave)
+            {
+                case 1:
+                    stateMachine.EndFirstWaveDialogue.StartDialogue();
+                    break;
+                case 2:
+                    stateMachine.EndSecondWaveDialogue.StartDialogue();
+                    break;
+                case 3:
+                    break;
+            }
 
             stateMachine.Collider.enabled = true;
             stateMachine.WaitForNextWave = true;

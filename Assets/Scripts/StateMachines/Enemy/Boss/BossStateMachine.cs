@@ -3,6 +3,8 @@ using UnityEngine;
 using TheNecromancers.StateMachine;
 using System;
 using TheNecromancers.Combat;
+using UnityEngine.InputSystem.XR;
+using System.Collections;
 
 public class BossStateMachine : StateMachine
 {
@@ -10,6 +12,7 @@ public class BossStateMachine : StateMachine
     [field: SerializeField] public Transform MeleeEnemy;
     [field: SerializeField] public Transform RangedEnemy;
     [field: SerializeField] public DialogueTrigger EndFirstWaveDialogue;
+    [field: SerializeField] public DialogueTrigger EndSecondWaveDialogue;
     [field: SerializeField] public Health Health;
     [field: SerializeField] public CharacterController Collider;
 
@@ -17,6 +20,10 @@ public class BossStateMachine : StateMachine
 
     public List<Transform> CurrentEnemies;
     public int CurrentWave = 1;
+
+    [SerializeField] Transform PlayerInitialPosition;
+    [SerializeField] Transform PlayerTeleportVFX;
+    public GameObject Player { get; private set; }
 
     private void OnEnable()
     {
@@ -28,6 +35,11 @@ public class BossStateMachine : StateMachine
         Health.OnTakeDamage -= HandleTakeDamage;
     }
 
+    private void Awake()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     private void Start()
     {
         SwitchState(new BossSpawnEnemiesState(this));
@@ -35,18 +47,27 @@ public class BossStateMachine : StateMachine
         Health.enabled = true;
     }
 
-    public void SpawnNextWave()
+    public IEnumerator SpawnNextWave()
     {
+        Player.GetComponent<CharacterController>().enabled = false;
+        Transform teleportFX = Instantiate(PlayerTeleportVFX, PlayerInitialPosition.position, Quaternion.identity);
+        Player.transform.position = PlayerInitialPosition.position;
         WaitForNextWave = false;
-        CurrentWave++;
         CurrentEnemies.Clear();
         Collider.enabled = false;
         SwitchState(new BossSpawnEnemiesState(this));
+        yield return new WaitForSeconds(2.5f);
+        Destroy(teleportFX.gameObject);
+        Player.GetComponent<CharacterController>().enabled = true;
     }
 
     void HandleTakeDamage()
     {
-        Debug.Log("Ho preso danni " + gameObject.name);
-        SpawnNextWave();
+        CurrentWave++;
+
+        if (CurrentWave <= 2)
+            StartCoroutine(SpawnNextWave());
+        else
+            Debug.Log("End Game");
     }
 }
