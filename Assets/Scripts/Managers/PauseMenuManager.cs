@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,8 @@ public class PauseMenuManager : MonoBehaviour
     [field: SerializeField]public GameObject MenuContainer;
     [field: SerializeField]public GameObject MainScreen;
     [field: SerializeField]public GameObject SettingsScreen;
+    [field: SerializeField]public GameObject PauseScreenFirstSelected;
+    [field: SerializeField]public GameObject SettingsScreenFirstSelected;
     [field: SerializeField]public Button ResumeGameButton;
     [field: SerializeField]public Button MainMenuButton;
     [field: SerializeField]public Button LoadGameButton;
@@ -55,6 +58,7 @@ public class PauseMenuManager : MonoBehaviour
         if(!MenuContainer.activeSelf)
             
         {
+
             MenuContainer.SetActive(true);
             ShowPauseScreen();
             Cursor.visible = true;
@@ -74,12 +78,16 @@ public class PauseMenuManager : MonoBehaviour
 
     public void ShowPauseScreen()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(PauseScreenFirstSelected);
         MainScreen.SetActive(true);
         SettingsScreen.SetActive(false);
     }
 
     public void ShowSettingsMenu()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(SettingsScreenFirstSelected);
         MainScreen.SetActive(false);
         SettingsScreen.SetActive(true);
     }
@@ -98,6 +106,41 @@ public class PauseMenuManager : MonoBehaviour
     }
 
 
+    public void PreventDeselection()
+    {
+        GameObject sel;
+        if(MainScreen.activeSelf)
+        {
+            sel = PauseScreenFirstSelected;
+            if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
+            {
+                sel = EventSystem.current.currentSelectedGameObject;
+            }
+            else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(sel);
+            }
+        }
+        else if(SettingsScreen.activeSelf)
+        {
+            sel = SettingsScreenFirstSelected;
+            if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
+            {
+                sel = EventSystem.current.currentSelectedGameObject;
+            }
+            else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(sel);
+            }
+        }
+        else
+        {
+            return;
+        }
+
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,6 +150,9 @@ public class PauseMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(MenuContainer.activeSelf)
+            PreventDeselection();
+        else 
+        return;
     }
 }
