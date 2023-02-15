@@ -2099,6 +2099,9 @@ MonoBehaviour:
   CurrentWave: 1
   PlayerInitialPosition: {fileID: 819848983}
   PlayerTeleportVFX: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+  slowMotionTimeScale: 0.1
+  startTimeScale: 0
+  startFixedDeltaTime: 0
 --- !u!114 &208940048
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,6 +25,13 @@ public class BossStateMachine : StateMachine
     [SerializeField] Transform PlayerTeleportVFX;
     public GameObject Player { get; private set; }
 
+    [SerializeField] float SlowMotionTimeScale = 0.1f;
+    [SerializeField] float SlowMotionDuration = 0.3f;
+
+    float startTimeScale;
+    float startFixedDeltaTime;
+
+
     private void OnEnable()
     {
         Health.OnTakeDamage += HandleTakeDamage;
@@ -45,6 +52,9 @@ public class BossStateMachine : StateMachine
         SwitchState(new BossSpawnEnemiesState(this));
         Collider.enabled = false;
         Health.enabled = true;
+
+        startTimeScale = Time.timeScale;
+        startFixedDeltaTime = Time.fixedDeltaTime;
     }
 
     public IEnumerator SpawnNextWave()
@@ -68,6 +78,18 @@ public class BossStateMachine : StateMachine
         if (CurrentWave <= 2)
             StartCoroutine(SpawnNextWave());
         else
+        {
+            StartCoroutine(SlowMotion());
             Debug.Log("End Game");
+        }
+    }
+
+    IEnumerator SlowMotion()
+    {
+        Time.timeScale = SlowMotionTimeScale;
+        Time.fixedDeltaTime = startFixedDeltaTime * SlowMotionTimeScale;
+        yield return new WaitForSeconds(SlowMotionDuration);
+        Time.timeScale = startTimeScale;
+        Time.fixedDeltaTime = startFixedDeltaTime;
     }
 }
