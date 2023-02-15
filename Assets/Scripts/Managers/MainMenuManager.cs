@@ -6,14 +6,19 @@ using UnityEngine.UI;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.EventSystems;
 
 public class MainMenuManager : MonoBehaviour
 {
     [field: SerializeField]public GameObject MainScreen;
     [field: SerializeField]public GameObject SettingsScreen;
     [field: SerializeField]public GameObject CreditsScreen;
+    [field: SerializeField]public GameObject MainScreenFirstSelected;
+    [field: SerializeField]public GameObject SettingsScreenFirstSelected;
+    [field: SerializeField]public GameObject CreditsScreenFirstSelected;
     [field: SerializeField]public Button LoadGameButton;
     [field: SerializeField]public InventoryObject Inventory;
+
     private Controls controls;
     private InputManager inputManager;
 
@@ -46,6 +51,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenMainMenu()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(MainScreenFirstSelected);
         MainScreen.SetActive(true);
         SettingsScreen.SetActive(false);
         CreditsScreen.SetActive(false);
@@ -53,12 +60,16 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenSettingsScreen()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(SettingsScreenFirstSelected);
         MainScreen.SetActive(false);
         SettingsScreen.SetActive(true);
         CreditsScreen.SetActive(false);
     }
     public void OpenCreditsScreen()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(CreditsScreenFirstSelected);
         MainScreen.SetActive(false);
         SettingsScreen.SetActive(false);
         CreditsScreen.SetActive(true);    
@@ -97,6 +108,71 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene("TutorialCommands");
         
     }
+/*     public class PreventDeselectionGroup : MonoBehaviour
+{
+    EventSystem evt;
+
+    private void Start()
+    {
+        evt = EventSystem.current;
+    }
+
+    GameObject sel;
+
+    private void Update()
+    {
+        if (evt.currentSelectedGameObject != null && evt.currentSelectedGameObject != sel)
+            sel = evt.currentSelectedGameObject;
+        else if (sel != null && evt.currentSelectedGameObject == null)
+            evt.SetSelectedGameObject(sel);
+    }
+} */
+
+    public void PreventDeselection()
+    {
+        GameObject sel;
+        if(MainScreen.activeSelf)
+        {
+            sel = MainScreenFirstSelected;
+            if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
+            {
+                sel = EventSystem.current.currentSelectedGameObject;
+            }
+            else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(sel);
+            }
+        }
+        else if(SettingsScreen.activeSelf)
+        {
+            sel = SettingsScreenFirstSelected;
+            if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
+            {
+                sel = EventSystem.current.currentSelectedGameObject;
+            }
+            else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(sel);
+            }
+        }
+        else if(CreditsScreen.activeSelf)
+        {
+            sel = CreditsScreenFirstSelected;
+            if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
+            {
+                sel = EventSystem.current.currentSelectedGameObject;
+            }
+            else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(sel);
+            }
+        }
+        else
+        {
+            return;
+        }
+
+    }
 
     void Start()
     {
@@ -111,6 +187,6 @@ public class MainMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PreventDeselection();
     }
 }
