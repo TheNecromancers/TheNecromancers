@@ -115,8 +115,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  IsASwitchDoor: 0
+  IsAKeyDoor: 0
   isLocked: 1
   savePath: 
+  RelatedKey: {fileID: 0}
 --- !u!54 &6593066171746003703
 Rigidbody:
   m_ObjectHideFlags: 0

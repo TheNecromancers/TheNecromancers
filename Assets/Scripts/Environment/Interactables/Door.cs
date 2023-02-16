@@ -68,7 +68,6 @@ public class Door : MonoBehaviour, IInteractable
                 isInteractable = true;
             }
         }
-        
     }
   
 

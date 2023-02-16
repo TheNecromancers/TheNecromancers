@@ -24,19 +24,19 @@ public class Switch : MonoBehaviour, IInteractable
     private void Start()
     {
         // non funziona da fixare
-        switch (transform.eulerAngles.x)
-        {
-            case -50:
-                rotationDegree = 50f; 
-                break;
+        //switch (transform.localEulerAngles.x)
+        //{
+        //    case -50:
+        //        rotationDegree = 100f; 
+        //        break;
 
-            case 50:
-                rotationDegree = -50f;
-                break;
+        //    case 50:
+        //        rotationDegree = -100f;
+        //        break;
 
-            default:
-                break;
-        }
+        //    default:
+        //        break;
+        //}
     }
 
     public void OnEndHover()
@@ -56,14 +56,13 @@ public class Switch : MonoBehaviour, IInteractable
         if (isInteractable)
         {
             // Da fixare non ruota help!
-            transform.localRotation = Quaternion.Lerp(transform.localRotation,
-                Quaternion.Euler(rotationDegree,
-                transform.localRotation.y, transform.localRotation.z),
-                Time.deltaTime * Speed);
-           
+            //transform.localRotation = Quaternion.Lerp(transform.localRotation,
+            //    Quaternion.Euler(rotationDegree,
+            //    transform.localRotation.y, transform.localRotation.z),
+            //    Time.deltaTime * Speed);
 
             RelatedDoor.GetComponent<Door>().isLocked = false;
-
+            isInteractable = false;
         }
         Save();
     }
