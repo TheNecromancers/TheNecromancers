@@ -4,6 +4,7 @@ using UnityEngine;
 using TheNecromancers.StateMachine.Player;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System;
 
 public class PickuppableItem : MonoBehaviour, IInteractable
 {
@@ -13,12 +14,14 @@ public class PickuppableItem : MonoBehaviour, IInteractable
     public string ItemName;
     public string savePath;
 
+    public event Action onPickupAction;
     GameObject player;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         Load();
+        if(!isInteractable) gameObject.SetActive(false);
     }
 
     public void OnInteract()
@@ -27,7 +30,7 @@ public class PickuppableItem : MonoBehaviour, IInteractable
 
         AddItemToInventory(player.GetComponent<PlayerStateMachine>().inventoryObject);
         print("Interact with " + gameObject.name);
-
+        if(onPickupAction != null)  onPickupAction();
         isInteractable = false;
         gameObject.SetActive(false);
         Save();

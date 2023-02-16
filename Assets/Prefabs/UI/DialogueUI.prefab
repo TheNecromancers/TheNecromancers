@@ -357,8 +357,8 @@ MonoBehaviour:
   m_text: Lorem ipsum dolor sit amet. Et dolor eligendi quo odio libero ea voluptate
     numquam ex optio sunt.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 75c58a402a1aae74988138b218cbcc89, type: 2}
-  m_sharedMaterial: {fileID: -7029086698634226803, guid: 75c58a402a1aae74988138b218cbcc89, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8faab39d660d8c54e97e41be9dc31236, type: 2}
+  m_sharedMaterial: {fileID: -4488230261659956609, guid: 8faab39d660d8c54e97e41be9dc31236, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

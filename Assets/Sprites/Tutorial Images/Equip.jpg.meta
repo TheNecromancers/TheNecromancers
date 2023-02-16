@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5ff4f74e7810b024e9b0478617900daf
+guid: e9f600ca7934abd43ab321e9ba85427b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,106 +103,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: PC-Commands-Game-NoSfondo_White_0
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 420
-        width: 213
-        height: 135
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a19e63f679f1fe445bd56b925529b99a
-      internalID: 31055089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC-Commands-Game-NoSfondo_White_1
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 336
-        width: 74
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1292647f71be78e44bb9080c5db39f69
-      internalID: -209006501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC-Commands-Game-NoSfondo_White_2
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 244
-        width: 74
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac9aaf50ee79722408ebc1991250fd4d
-      internalID: -935043283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PC-Commands-Game-NoSfondo_White_3
-      rect:
-        serializedVersion: 2
-        x: 734
-        y: 425
-        width: 91
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0797bd7f54473e4a8e1c4f736d321f1
-      internalID: 559293133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7fc2b148f3b3472449824e55059a4f64
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      PC-Commands-Game-NoSfondo_White_3: 559293133
-      PC-Commands-Game-NoSfondo_White_1: -209006501
-      PC-Commands-Game-NoSfondo_White_2: -935043283
-      PC-Commands-Game-NoSfondo_White_0: 1956432294
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

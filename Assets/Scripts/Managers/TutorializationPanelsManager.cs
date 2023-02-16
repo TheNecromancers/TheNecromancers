@@ -38,14 +38,27 @@ public class TutorializationPanelsManager : MonoBehaviour
     
     public void StartPanelWASDMove()
     {
+        StartPanelWithIndex(0);
+    }
+    public void StartPanelInteractions()
+    {
+        StartPanelWithIndex(1);
+    }
+
+    public void StartPanelEquipWeapon()
+    {
+        StartPanelWithIndex(2);
+    }
+    private void StartPanelWithIndex(int index)
+    {
         if(tutorialPanels != null)
         {
-            if (tutorialPanels[0] != null)
+            if (tutorialPanels[index] != null)
             {
-                TutorialInfoSaver tis = tutorialPanels[0].GetComponent<TutorialInfoSaver>();
+                TutorialInfoSaver tis = tutorialPanels[index].GetComponent<TutorialInfoSaver>();
                 if(tis != null && !tis.isTriggered) {
                     tis.PanelOpened();
-                    tutorialPanels[0].gameObject.SetActive(true);
+                    tutorialPanels[index].gameObject.SetActive(true);
                 }
             }
         }
