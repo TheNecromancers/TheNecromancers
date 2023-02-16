@@ -176,7 +176,7 @@ TextureImporter:
         width: 91
         height: 139
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,6 +184,69 @@ TextureImporter:
       bones: []
       spriteID: f0797bd7f54473e4a8e1c4f736d321f1
       internalID: 559293133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC-Commands-Game-NoSfondo_White_4
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 164
+        width: 99
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f35d4b31ab3137408b578f9b1c31b9d
+      internalID: -241705800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC-Commands-Game-NoSfondo_White_5
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 426
+        width: 90
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2981675c531b2e4282890c49c766c0b
+      internalID: -1286022093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC-Commands-Game-NoSfondo_White_6
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 79
+        width: 126
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b448232ea676745a9da2a3fde6f1a6
+      internalID: 1364997854
       vertices: []
       indices: 
       edges: []
@@ -200,9 +263,12 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       PC-Commands-Game-NoSfondo_White_3: 559293133
+      PC-Commands-Game-NoSfondo_White_5: 1338948363
       PC-Commands-Game-NoSfondo_White_1: -209006501
       PC-Commands-Game-NoSfondo_White_2: -935043283
+      PC-Commands-Game-NoSfondo_White_6: 1364997854
       PC-Commands-Game-NoSfondo_White_0: 1956432294
+      PC-Commands-Game-NoSfondo_White_4: -241705800
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

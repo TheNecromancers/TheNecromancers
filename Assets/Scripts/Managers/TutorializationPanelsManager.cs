@@ -49,6 +49,16 @@ public class TutorializationPanelsManager : MonoBehaviour
     {
         StartPanelWithIndex(2);
     }
+
+    public void StartPanelCombact()
+    {
+        StartPanelWithIndex(3);
+    }
+
+    public void StartPanelHealth()
+    {
+        StartPanelWithIndex(4);
+    }
     private void StartPanelWithIndex(int index)
     {
         if(tutorialPanels != null)
