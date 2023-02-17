@@ -5,6 +5,7 @@ using System;
 using TheNecromancers.Combat;
 using UnityEngine.InputSystem.XR;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BossStateMachine : StateMachine
 {
@@ -40,6 +41,8 @@ public class BossStateMachine : StateMachine
     readonly int dance = Animator.StringToHash("Dance");
     readonly int idle = Animator.StringToHash("Idle");
     readonly int dead = Animator.StringToHash("Die");
+
+    [SerializeField] GameObject TransitionOutIn;
 
     private void OnEnable()
     {
@@ -103,18 +106,25 @@ public class BossStateMachine : StateMachine
         {
             Debug.Log("End Game, Necromancer death");
             Animator.CrossFadeInFixedTime(dead, 0.1f);
-
-
             StartCoroutine(SlowMotion());
         }
     }
 
     IEnumerator SlowMotion()
     {
+        Player.GetComponent<CharacterController>().enabled = false;
+
         Time.timeScale = SlowMotionTimeScale;
         Time.fixedDeltaTime = startFixedDeltaTime * SlowMotionTimeScale;
+
         yield return new WaitForSeconds(SlowMotionDuration);
         Time.timeScale = startTimeScale;
         Time.fixedDeltaTime = startFixedDeltaTime;
+        
+        TransitionOutIn.SetActive(true);
+        yield return new WaitForSeconds(3.3f);
+        // Load Final Scene
+        SceneManager.LoadScene("EndScene");
+
     }
 }
