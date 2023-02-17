@@ -8,29 +8,38 @@ using System.Collections;
 
 public class BossStateMachine : StateMachine
 {
+    [field: Header("Minions Spawn")]
     [field: SerializeField] public List<Transform> SpawnPoints;
     [field: SerializeField] public Transform MeleeEnemy;
     [field: SerializeField] public Transform RangedEnemy;
-    [field: SerializeField] public DialogueTrigger EndFirstWaveDialogue;
-    [field: SerializeField] public DialogueTrigger EndSecondWaveDialogue;
-    [field: SerializeField] public Health Health;
-    [field: SerializeField] public CharacterController Collider;
-
-    [field: SerializeField] public bool WaitForNextWave = false;
-
     public List<Transform> CurrentEnemies;
+    [field: SerializeField] public bool WaitForNextWave = false;
     public int CurrentWave = 1;
 
+    [field: Header("Dialagoues")]
+    [field: SerializeField] public DialogueTrigger EndFirstWaveDialogue;
+    [field: SerializeField] public DialogueTrigger EndSecondWaveDialogue;
+
+    [field: Header("Components")]
+    [field: SerializeField] public Health Health;
+    [field: SerializeField] public CharacterController Collider;
+    [field: SerializeField] public Animator Animator;
+
+    [field: Header("Player Settings")]
     [SerializeField] Transform PlayerInitialPosition;
     [SerializeField] Transform PlayerTeleportVFX;
     public GameObject Player { get; private set; }
 
+    [field: Header("Slow Motion")]
     [SerializeField] float SlowMotionTimeScale = 0.1f;
     [SerializeField] float SlowMotionDuration = 0.3f;
 
     float startTimeScale;
     float startFixedDeltaTime;
 
+    readonly int dance = Animator.StringToHash("Dance");
+    readonly int idle = Animator.StringToHash("Idle");
+    readonly int dead = Animator.StringToHash("Die");
 
     private void OnEnable()
     {
@@ -55,20 +64,31 @@ public class BossStateMachine : StateMachine
 
         startTimeScale = Time.timeScale;
         startFixedDeltaTime = Time.fixedDeltaTime;
+
     }
 
     public IEnumerator SpawnNextWave()
     {
+        Animator.CrossFadeInFixedTime(dance, 0.1f);
+
+        // Player controller need is disable for change its position
         Player.GetComponent<CharacterController>().enabled = false;
+
         Transform teleportFX = Instantiate(PlayerTeleportVFX, PlayerInitialPosition.position, Quaternion.identity);
         Player.transform.position = PlayerInitialPosition.position;
         WaitForNextWave = false;
-        CurrentEnemies.Clear();
         Collider.enabled = false;
+
+        CurrentEnemies.Clear();
         SwitchState(new BossSpawnEnemiesState(this));
+       
+
         yield return new WaitForSeconds(2.5f);
         Destroy(teleportFX.gameObject);
+
         Player.GetComponent<CharacterController>().enabled = true;
+        Animator.CrossFadeInFixedTime(idle, 0.1f);
+
     }
 
     void HandleTakeDamage()
@@ -76,11 +96,16 @@ public class BossStateMachine : StateMachine
         CurrentWave++;
 
         if (CurrentWave <= 2)
+        {
             StartCoroutine(SpawnNextWave());
+        }
         else
         {
+            Debug.Log("End Game, Necromancer death");
+            Animator.CrossFadeInFixedTime(dead, 0.1f);
+
+
             StartCoroutine(SlowMotion());
-            Debug.Log("End Game");
         }
     }
 

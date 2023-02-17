@@ -9,6 +9,7 @@ public class BossSpawnEnemiesState : BossBaseState
 
     public override void Enter()
     {
+
         switch (stateMachine.CurrentWave)
         {
             case 1:
