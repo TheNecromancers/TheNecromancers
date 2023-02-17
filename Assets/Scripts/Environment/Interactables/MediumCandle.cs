@@ -83,6 +83,12 @@ public class MediumCandle : MonoBehaviour, IInteractable
                 foreach (Light l in Light)
                     l.gameObject.SetActive(false);
                 //ConsumeText.SetActive(false);
+                //remove outline of the object
+                Outline outline = GetComponent<Outline>();
+                if (outline != null)
+                {
+                    outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+                }
                 print("Consumed " + gameObject.name + " to restore life.");
             }
         }

@@ -239,7 +239,7 @@ TextureImporter:
         width: 126
         height: 67
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,6 +247,48 @@ TextureImporter:
       bones: []
       spriteID: a0b448232ea676745a9da2a3fde6f1a6
       internalID: 1364997854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC-Commands-Game-NoSfondo_White_7
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 156
+        width: 71
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c7f3d74692c1741842251138878069
+      internalID: 1605495194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC-Commands-Game-NoSfondo_White_8
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 73
+        width: 70
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18d83ac0ed2a784388c3ffab32c8605
+      internalID: 2126690635
       vertices: []
       indices: 
       edges: []
@@ -266,6 +308,8 @@ TextureImporter:
       PC-Commands-Game-NoSfondo_White_5: 1338948363
       PC-Commands-Game-NoSfondo_White_1: -209006501
       PC-Commands-Game-NoSfondo_White_2: -935043283
+      PC-Commands-Game-NoSfondo_White_7: 1605495194
+      PC-Commands-Game-NoSfondo_White_8: 2126690635
       PC-Commands-Game-NoSfondo_White_6: 1364997854
       PC-Commands-Game-NoSfondo_White_0: 1956432294
       PC-Commands-Game-NoSfondo_White_4: -241705800
