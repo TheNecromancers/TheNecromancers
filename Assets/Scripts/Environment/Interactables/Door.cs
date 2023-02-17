@@ -25,7 +25,6 @@ public class Door : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        Debug.Log(transform.eulerAngles.y);
         switch (transform.eulerAngles.y)
         {
             case -90:
@@ -60,7 +59,7 @@ public class Door : MonoBehaviour, IInteractable
 
         if (IsAKeyDoor)
         {
-            if (!RelatedKey.gameObject.activeSelf) 
+            if (!RelatedKey.activeSelf) 
             {
                 isInteractable = true;
             }

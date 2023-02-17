@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class Switch : MonoBehaviour, IInteractable
@@ -17,6 +14,7 @@ public class Switch : MonoBehaviour, IInteractable
     private void Awake()
     {
         Load();
+        RelatedDoor = GameObject.FindGameObjectWithTag("Door");
     }
 
     private void Start()
@@ -27,6 +25,21 @@ public class Switch : MonoBehaviour, IInteractable
                 (transform.eulerAngles.x + 100,
                 transform.eulerAngles.y,
                 transform.eulerAngles.z);
+
+            if (TryGetComponent<Outline>(out var outline))
+            {
+                outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+            }
+        }
+    }
+
+    public void OnStartHover()
+    {
+        if (!isInteractable) return;
+        //remove outline of the object
+        if (TryGetComponent<Outline>(out var outline))
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
         }
     }
 
@@ -35,10 +48,9 @@ public class Switch : MonoBehaviour, IInteractable
         if (!isInteractable) return;
 
         //remove outline of the object
-        Outline outline = GetComponent<Outline>();
-        if (outline != null)
+        if (TryGetComponent<Outline>(out var outline))
         {
-            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
         }
     }
 
@@ -53,22 +65,16 @@ public class Switch : MonoBehaviour, IInteractable
 
             RelatedDoor.GetComponent<Door>().isLocked = false;
             isInteractable = false;
+
+            if (TryGetComponent<Outline>(out var outline))
+            {
+                outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+            }
         }
         Save();
     }
 
-    public void OnStartHover()
-    {
-        if (!isInteractable) return;
-        //remove outline of the object
-        Outline outline = GetComponent<Outline>();
-        if (outline != null)
-        {
-            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
-        }
-
-    }
-
+ 
     public void Save()
     {
         string saveData = JsonUtility.ToJson(this, true);

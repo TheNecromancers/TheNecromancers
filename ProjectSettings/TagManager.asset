@@ -23,6 +23,7 @@ TagManager:
   - Lantern
   - InvisibleWall
   - TutorialPanel
+  - Door
   layers:
   - Default
   - TransparentFX

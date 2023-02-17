@@ -4201,6 +4201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GearDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 7465646542212300781, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 7840939940415251799, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
       propertyPath: m_RootOrder
       value: 11
