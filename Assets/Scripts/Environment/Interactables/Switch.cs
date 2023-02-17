@@ -12,9 +12,7 @@ public class Switch : MonoBehaviour, IInteractable
     public string savePath;
 
     public GameObject RelatedDoor;
-  
-    public float rotationDegree;
-    [SerializeField] float Speed = 5f; 
+    [SerializeField] float Speed = 5f;
 
     private void Awake()
     {
@@ -23,20 +21,13 @@ public class Switch : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        // non funziona da fixare
-        //switch (transform.localEulerAngles.x)
-        //{
-        //    case -50:
-        //        rotationDegree = 100f; 
-        //        break;
-
-        //    case 50:
-        //        rotationDegree = -100f;
-        //        break;
-
-        //    default:
-        //        break;
-        //}
+        if (!isInteractable)
+        {
+            transform.eulerAngles = new Vector3
+                (transform.eulerAngles.x + 100,
+                transform.eulerAngles.y,
+                transform.eulerAngles.z);
+        }
     }
 
     public void OnEndHover()
@@ -54,12 +45,11 @@ public class Switch : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         if (isInteractable)
-        {
-            // Da fixare non ruota help!
-            //transform.localRotation = Quaternion.Lerp(transform.localRotation,
-            //    Quaternion.Euler(rotationDegree,
-            //    transform.localRotation.y, transform.localRotation.z),
-            //    Time.deltaTime * Speed);
+        { 
+            transform.eulerAngles = new Vector3
+                (transform.eulerAngles.x + 100,
+                transform.eulerAngles.y,
+                transform.eulerAngles.z);
 
             RelatedDoor.GetComponent<Door>().isLocked = false;
             isInteractable = false;

@@ -3430,6 +3430,10 @@ PrefabInstance:
       value: Switch_Base 1
       objectReference: {fileID: 0}
     - target: {fileID: 8531451421268715820, guid: 5b8574b3815aa5d4e9fac97e2965756a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531451421268715820, guid: 5b8574b3815aa5d4e9fac97e2965756a, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9063079
       objectReference: {fileID: 0}
