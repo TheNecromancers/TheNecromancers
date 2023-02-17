@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TheNecromancers.StateMachine.Player;
 using UnityEngine;
 
@@ -10,7 +9,6 @@ public class HUB_1Trigger : AreaTrigger
         if (other.TryGetComponent(out PlayerStateMachine Player))
         {
             StartCoroutine(Transition(Player));
-            
         }
     }
 
