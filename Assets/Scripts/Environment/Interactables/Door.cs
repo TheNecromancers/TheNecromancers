@@ -79,6 +79,12 @@ public class Door : MonoBehaviour, IInteractable
         rotationDegree, 
         transform.localRotation.z), 
         Time.deltaTime * speed);
+        //remove outline of the object
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
         Save();
     }
 

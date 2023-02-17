@@ -15507,6 +15507,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1738408149186028360, guid: d3a850da94f6c81449d487ac66613c25, type: 3}
   m_PrefabInstance: {fileID: 1227885676}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1228569465 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8429996053980700975, guid: 9a8a1a7a1001b054facd5e5fdf84db3d, type: 3}
+  m_PrefabInstance: {fileID: 2012078729}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b2a4e451a9403a4086954d117765053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1229929899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25551,6 +25562,18 @@ PrefabInstance:
     - target: {fileID: 2639242713076163527, guid: 9a8a1a7a1001b054facd5e5fdf84db3d, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639242713086224136, guid: 9a8a1a7a1001b054facd5e5fdf84db3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1228569465}
+    - target: {fileID: 2639242713086224136, guid: 9a8a1a7a1001b054facd5e5fdf84db3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnLoadGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639242713086224136, guid: 9a8a1a7a1001b054facd5e5fdf84db3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MainMenuManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2639242713096553732, guid: 9a8a1a7a1001b054facd5e5fdf84db3d, type: 3}
       propertyPath: m_AnchorMax.x

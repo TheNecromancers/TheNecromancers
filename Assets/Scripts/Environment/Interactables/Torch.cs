@@ -79,6 +79,12 @@ public class Torch : MonoBehaviour, IInteractable
                 isInteractable = false;
                 isConsumable = false;
                 Light.gameObject.SetActive(false);
+                //remove outline of the object
+                Outline outline = GetComponent<Outline>();
+                if (outline != null)
+                {
+                    outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+                }
                 //ConsumeText.SetActive(false);
                 print("Consumed " + gameObject.name + " to restore life.");
             }
