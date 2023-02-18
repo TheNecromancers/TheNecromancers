@@ -4,7 +4,6 @@ using TheNecromancers.Combat;
 using TheNecromancers.StateMachine.Gameplay.Triggers;
 using UnityEngine;
 using TheNecromancers.StateMachine.Player;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class GameController : MonoBehaviour
 {
