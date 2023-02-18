@@ -138,7 +138,7 @@ public class InputManager : MonoBehaviour, Controls.IPlayerActions, Controls.IUI
     {
         isInventoryOpened = !isInventoryOpened;
 
-        if(controls.Player.enabled)
+        if(isInventoryOpened)
         {
             DisablePlayerControls();
         }

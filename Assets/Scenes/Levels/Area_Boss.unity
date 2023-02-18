@@ -7755,7 +7755,7 @@ MonoBehaviour:
   - name: Squire
     sprite: {fileID: 21300000, guid: b5d1adbc49aabdb4e9cffa087011de76, type: 3}
   - name: Necromancer
-    sprite: {fileID: 21300000, guid: 228eef3547774f34c8982421eda31b64, type: 3}
+    sprite: {fileID: 21300000, guid: a1b8b25c58620b4409c167b4688b10c9, type: 3}
   OnEndDialogue:
     m_PersistentCalls:
       m_Calls: []
@@ -7819,7 +7819,7 @@ MonoBehaviour:
   - name: Squire
     sprite: {fileID: 21300000, guid: b5d1adbc49aabdb4e9cffa087011de76, type: 3}
   - name: Necromancer
-    sprite: {fileID: 21300000, guid: 228eef3547774f34c8982421eda31b64, type: 3}
+    sprite: {fileID: 21300000, guid: a1b8b25c58620b4409c167b4688b10c9, type: 3}
   OnEndDialogue:
     m_PersistentCalls:
       m_Calls: []
@@ -8759,74 +8759,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4083856416139102258, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.23327637
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748767420854867, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748767420854867, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748767420854867, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748767420854867, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748767420854867, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -128
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748767420854867, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768440585990, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 49
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768440585990, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768573652981, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768573652981, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768573652981, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768573652981, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768573652981, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -54.7193
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768573652981, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 40.000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768631834590, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 379.981
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761748768631834590, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 34.998993
-      objectReference: {fileID: 0}
     - target: {fileID: 5761748768652444680, guid: 26e8ddb1daff0d74196fb1dfd86e9a1e, type: 3}
       propertyPath: m_Name
       value: DialogueUI
@@ -14381,7 +14313,7 @@ PrefabInstance:
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: actors.Array.data[2].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 228eef3547774f34c8982421eda31b64, type: 3}
+      objectReference: {fileID: 21300000, guid: a1b8b25c58620b4409c167b4688b10c9, type: 3}
     - target: {fileID: 8291084908679624338, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: messages.Array.data[0].actorId
       value: 2

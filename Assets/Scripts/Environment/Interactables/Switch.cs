@@ -39,7 +39,7 @@ public class Switch : MonoBehaviour, IInteractable
         //remove outline of the object
         if (TryGetComponent<Outline>(out var outline))
         {
-            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
         }
     }
 
@@ -50,7 +50,7 @@ public class Switch : MonoBehaviour, IInteractable
         //remove outline of the object
         if (TryGetComponent<Outline>(out var outline))
         {
-            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 1);
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
         }
     }
 
