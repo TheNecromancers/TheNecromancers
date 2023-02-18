@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7749543478536273862}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Transition
   m_TagString: Transition
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7749543478783439714}
   - component: {fileID: 7749543478783439715}
   - component: {fileID: 7749543478783439716}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CrossFader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 7749543478850064242}
   - component: {fileID: 7749543478850064243}
   - component: {fileID: 7749543478850064244}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

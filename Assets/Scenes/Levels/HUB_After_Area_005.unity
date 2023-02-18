@@ -1913,6 +1913,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3281762963110296123, guid: 5f07d371d881ff349bc1f302a2781f61, type: 3}
+      propertyPath: savePath
+      value: /HubRangedEnemyHealth.save
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f07d371d881ff349bc1f302a2781f61, type: 3}
 --- !u!1001 &118544440
@@ -4125,6 +4129,10 @@ PrefabInstance:
     - target: {fileID: 3281762963110296113, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3281762963110296123, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
+      propertyPath: savePath
+      value: /HubEnemyHealth.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 982152e872380e9499b7b14a0bbf4ff6, type: 3}
@@ -17879,7 +17887,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 799558176349869399, guid: 41c791fc4b601084c84bd79429ab4423, type: 3}
       propertyPath: savePath
-      value: /EnemiesManager.save
+      value: /HubEnemiesManager.save
       objectReference: {fileID: 0}
     - target: {fileID: 7274748080965564247, guid: 41c791fc4b601084c84bd79429ab4423, type: 3}
       propertyPath: m_Name
@@ -21922,6 +21930,10 @@ PrefabInstance:
     - target: {fileID: 7749543478536273863, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
       propertyPath: m_Name
       value: Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749543478850064246, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}

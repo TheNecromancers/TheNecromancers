@@ -26,7 +26,6 @@ public class MainMenuManager : MonoBehaviour
 
     private void Awake() 
     {
-
             Inventory = Resources.Load<InventoryObject>("Empty Inventory");
             inputManager =FindObjectOfType<InputManager>();
             LoadGameButton.onClick.AddListener(LoadMenu.Instance.OnClickBotton);

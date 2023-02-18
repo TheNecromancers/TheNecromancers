@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 171736141}
   - component: {fileID: 171736140}
   - component: {fileID: 171736139}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BlackCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 1320014531}
   - component: {fileID: 1320014533}
   - component: {fileID: 1320014532}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BlackScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

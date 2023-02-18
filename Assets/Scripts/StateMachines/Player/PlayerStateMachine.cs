@@ -117,31 +117,8 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.InventoryEvent += DisplayInventory.HandleInventoryInteraction;
             InputManager.CombactAbilityEvent += OnCombactAbility;
             InputManager.ExplorationAbilityEvent += OnExplorationAbility;
-            InputManager.ResetInventoryChestEvent += OnResetInventoryChest;
         }
 
-        void SearchChest()
-        {
-            var Chests = FindObjectsOfType<Chest>();
-            for (int f = 0; f < Chests.Length; f++)
-            {
-                chests.Add(Chests[f]);
-            }
-        }
-
-        void OnResetInventoryChest()
-        {
-            Debug.Log("Reset");
-            inventoryObject.Container.Clear();
-
-            SearchChest();
-
-            for (int i = 0; i < chests.Count; i++)
-            {
-                chests[i].ResetChest();
-            }
-
-        }
 
         private void HandleDie()
         {
@@ -155,7 +132,6 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.CombactAbilityEvent -= OnCombactAbility;
             InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
             InputManager.InventoryEvent -= DisplayInventory.HandleInventoryInteraction;
-            //InputManager.ResetInventoryChestEvent -= OnResetInventoryChest;
         }
 
         void OnCombactAbility()
@@ -271,21 +247,5 @@ namespace TheNecromancers.StateMachine.Player
         {
             Save();
         }
-
-        /* 
-        public void EquipmentChange(WeaponSO _weapon)
-        {
-            Debug.Log("weapon changed");
-            if(_weapon.WeaponType == WeaponType.LeftHand)
-            {
-                
-                WeaponLeftHand = _weapon;
-            }
-            else if(_weapon.WeaponType == WeaponType.RightHand)
-            {
-                WeaponRightHand = _weapon;
-                WeaponLogic = RightHandHolder.transform.GetComponentInChildren<WeaponLogic>();
-            }
-        } */
     }
 }
