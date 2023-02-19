@@ -3,11 +3,9 @@ using TheNecromancers.Gameplay.Player;
 using TheNecromancers.Combat;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
-//using UnityEditorInternal;
 
 namespace TheNecromancers.StateMachine.Player
 {
@@ -52,8 +50,6 @@ namespace TheNecromancers.StateMachine.Player
         public string savePath;
         public Vector3 LastSpawnPosition { get => lastSpawnPosition; set { lastSpawnPosition = value; } }
         private Vector3 lastSpawnPosition;
-
-        public List<Chest> chests;
 
         private void Awake()
         {
@@ -132,6 +128,11 @@ namespace TheNecromancers.StateMachine.Player
             InputManager.CombactAbilityEvent -= OnCombactAbility;
             InputManager.ExplorationAbilityEvent -= OnExplorationAbility;
             InputManager.InventoryEvent -= DisplayInventory.HandleInventoryInteraction;
+        }
+
+        private void OnDestroy()
+        {
+            Save();
         }
 
         void OnCombactAbility()
