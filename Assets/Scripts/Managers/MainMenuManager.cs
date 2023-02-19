@@ -40,6 +40,12 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnLoadGame()
     {
+        Debug.Log("trovato player"+ PlayerInstance.Instance);
+        if (PlayerInstance.Instance != null)
+        {
+            Debug.Log("dentro al check");
+            Destroy(PlayerInstance.Instance.gameObject);
+        }
         if(inputManager != null)
         {
             inputManager.EnablePlayerControls();
@@ -84,7 +90,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void StartNewGame()
     {
-        if (PlayerInstance.Instance is not null)
+        if (PlayerInstance.Instance != null)
         {
             Destroy(PlayerInstance.Instance.gameObject);
         }

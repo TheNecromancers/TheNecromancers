@@ -55,7 +55,10 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OnMainMenuLoad()
     {
-
+        if (PlayerInstance.Instance.gameObject is not null)
+        {
+            Destroy(PlayerInstance.Instance.gameObject);
+        }
             inputManager.DisablePlayerControls();
             inputManager.DisableUIControls();
             Cursor.visible = true;
