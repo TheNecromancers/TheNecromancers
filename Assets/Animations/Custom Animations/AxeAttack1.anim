@@ -7310,7 +7310,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.4
+  - time: 0.53333336
     functionName: OnHitAnim
     data: 
     objectReferenceParameter: {fileID: 0}

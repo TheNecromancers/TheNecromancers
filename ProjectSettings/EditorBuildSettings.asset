@@ -44,5 +44,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Area_Boss.unity
     guid: 91c30a1b43f6d494fa2ae0668ce1af0b
+  - enabled: 1
+    path: Assets/Scenes/Levels/EndScene.unity
+    guid: 5fdc441feeb4d2849a863fb82e25ad04
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 5216de4682138dd4e9ca56bf82eb885d, type: 2}
