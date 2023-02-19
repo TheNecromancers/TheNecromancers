@@ -4,6 +4,7 @@ using TheNecromancers.Combat;
 using TheNecromancers.StateMachine.Gameplay.Triggers;
 using UnityEngine;
 using TheNecromancers.StateMachine.Player;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -80,5 +81,10 @@ public class GameController : MonoBehaviour
             playerStateMachine.SetPlayerPosition(new Vector3(-16.5f, 5f, -24f));           
         }
 
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
