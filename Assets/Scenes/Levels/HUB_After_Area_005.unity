@@ -866,7 +866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624429, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: savePath
-      value: /FallenFriendDialogue.save
+      value: /FallenFriendDialogueNewHub.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
@@ -2821,6 +2821,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8525295531308429, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8525295531308429, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4104028584055099847, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.298279
@@ -2896,6 +2904,14 @@ PrefabInstance:
     - target: {fileID: 4104028584176067589, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: orthographic size
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675708351627008887, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675708351627008887, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7684625680737355379, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_LocalPosition.x
