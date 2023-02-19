@@ -110,14 +110,21 @@ public class DisplayInventory : MonoBehaviour
     }
     public void PreventDeselection(GameObject sel)
     {
-            if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
-            {
-                sel = EventSystem.current.currentSelectedGameObject;
-            }
-            else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+            if (!EventSystem.current.currentSelectedGameObject.transform.IsChildOf(gameObject.transform))
             {
                 EventSystem.current.SetSelectedGameObject(sel);
+
+                if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
+                {
+                    sel = EventSystem.current.currentSelectedGameObject;
+                }
+                else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+                {
+                    EventSystem.current.SetSelectedGameObject(sel);
+                }
             }
+
+
 
     }
     public void CreateDisplay()

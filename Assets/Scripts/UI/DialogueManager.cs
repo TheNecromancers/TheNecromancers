@@ -124,6 +124,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndConversation()
     {
+        isDisplayingMessage = !isDisplayingMessage;
         EventSystem.current.SetSelectedGameObject(null);
         InputManager playerInput = FindObjectOfType<InputManager>();
         if (playerInput != null)
@@ -155,7 +156,7 @@ public class DialogueManager : MonoBehaviour
     }
     private void Update() 
     {
-        if(isDisplayingMessage)
+        if(isDisplayingMessage && backgroundBox.transform.localScale != Vector3.zero)
         {
             PreventDeselection();
         }
