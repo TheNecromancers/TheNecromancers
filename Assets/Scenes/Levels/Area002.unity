@@ -5525,7 +5525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5648173239778498372, guid: e65ff8b790c16b647ad45604a47746d2, type: 3}
       propertyPath: outlineColor.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648173239778498372, guid: e65ff8b790c16b647ad45604a47746d2, type: 3}
       propertyPath: outlineColor.b
