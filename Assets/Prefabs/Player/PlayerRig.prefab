@@ -3125,7 +3125,7 @@ MonoBehaviour:
   <Targeter>k__BackingField: {fileID: 4104028584024974727}
   <AbilitySystemManager>k__BackingField: {fileID: 2790162575705944131}
   <inventoryObject>k__BackingField: {fileID: 11400000, guid: c0508c6c3ca3f4441a3410f0062c7362, type: 2}
-  <DisplayInventory>k__BackingField: {fileID: 305303363229696738}
+  <DisplayInventory>k__BackingField: {fileID: 0}
   <InventoryManager>k__BackingField: {fileID: 261590991303474203}
   <AudioClips>k__BackingField: {fileID: 11400000, guid: 2121c535752c5a54b80a0a9a09cb915c, type: 2}
   <MovementSpeed>k__BackingField: 4.8
@@ -3863,6 +3863,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 2538941428450047517, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3036096254141240398, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3926,6 +3930,14 @@ PrefabInstance:
     - target: {fileID: 3298380866580616743, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 5.2766
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783187189777006024, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783187189777006024, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4518877362916546629, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4091,6 +4103,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -411
       objectReference: {fileID: 0}
+    - target: {fileID: 7616509863531817583, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: InventoryCamera
+      value: 
+      objectReference: {fileID: 847417552028722715}
+    - target: {fileID: 7616509863531817583, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: InventoryManager
+      value: 
+      objectReference: {fileID: 261590991303474203}
+    - target: {fileID: 7616509863531817583, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: PlayerStateMachine
+      value: 
+      objectReference: {fileID: 7684625680737355383}
     - target: {fileID: 8097261607222943657, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
       propertyPath: m_Name
       value: Test_InventoryUI
@@ -4299,6 +4323,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0.0010375977
       objectReference: {fileID: 0}
+    - target: {fileID: 8394057675474129714, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394057675474129714, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8444288350349281260, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
       propertyPath: m_SizeDelta.x
       value: 120
@@ -4309,17 +4341,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
---- !u!114 &305303363229696738 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8097261607550231645, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
-  m_PrefabInstance: {fileID: 8386801251030492863}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38bffc9c4766a174fb5251445d6cd0af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &305303363708778770 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8097261607222943661, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}

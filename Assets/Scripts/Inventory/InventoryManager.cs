@@ -27,16 +27,21 @@ public class InventoryManager : MonoBehaviour
     }
     public void UseItem(ItemObject _item)
     {
-        if (_item is WeaponSO)
+        if(_item == null)
+        return;
+        else
         {
-            WeaponSO _tempSO = (WeaponSO)_item;
-            Debug.Log(_tempSO.itemPrefab);
-
-            Equip(_tempSO);
-        }
-        else if(_item.type == ItemType.Default)
-        {
-            displayInventory.ShowItemDescription(_item.name,_item.description);
+            if (_item is WeaponSO)
+            {
+                WeaponSO _tempSO = (WeaponSO)_item;
+                Debug.Log(_tempSO.itemPrefab);
+    
+                Equip(_tempSO);
+            }
+            else if(_item.type == ItemType.Default)
+            {
+                displayInventory.ShowItemDescription(_item.descriptionTitle,_item.description);
+            }
         }
     }
     public void Equip(WeaponSO weapon)

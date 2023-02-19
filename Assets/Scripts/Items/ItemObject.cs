@@ -20,6 +20,7 @@ public class ItemObject : ScriptableObject
     public GameObject inventoryPrefab;
     public GameObject itemPrefab;
     public ItemType type;
+    public string descriptionTitle;
     
     [TextArea(15,20)]
     public string description;
