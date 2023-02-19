@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cca894b933a80848b191c413e75aa7a, type: 3}
   m_Name: Scroll_HUB
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 6882000034666161159, guid: e8c39b916dee0184288dfb935347c355, type: 3}
+  inventoryPrefab: {fileID: 6882000034666161159, guid: 571c747137eef8a4bb5b43735e31884d, type: 3}
   itemPrefab: {fileID: 4883379290849355137, guid: 571f5dec7e36f1d44bd714b42ba5c2ee, type: 3}
   type: 2
+  descriptionTitle: 'Finally some food '
   description: "Dear Irenic,\r\nWe finally find a way to have access to the kitchen
     from the guard room.\r\nWe have to thank all these skeletons that arrived at
     the keep\u2026they give me the occasion to break this wall.\r\nNow we can have

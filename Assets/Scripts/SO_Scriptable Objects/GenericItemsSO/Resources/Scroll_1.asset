@@ -15,7 +15,8 @@ MonoBehaviour:
   inventoryPrefab: {fileID: 6882000034666161159, guid: e8c39b916dee0184288dfb935347c355, type: 3}
   itemPrefab: {fileID: 4883379290849355137, guid: 571f5dec7e36f1d44bd714b42ba5c2ee, type: 3}
   type: 2
+  descriptionTitle: 'He bit me! '
   description: "Anna,\r\nThat prisoner is crazy! \r\nHe tried to open the door and
     when I reach him to calm down a bit, he decides to bite me!\r\nI had to block
     the door with a wood axe.\r\nDo not remove it for any reason \r\nIt is really
-    dangerous\r\nTobias\r\n"
+    dangerous\r\nTobias\r"

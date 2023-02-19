@@ -13,6 +13,8 @@ public class PauseMenuManager : MonoBehaviour
     [field: SerializeField]public GameObject MenuContainer;
     [field: SerializeField]public GameObject MainScreen;
     [field: SerializeField]public GameObject SettingsScreen;
+    [field: SerializeField]public GameObject PCControlSchemeScreen;
+    [field: SerializeField]public GameObject GamepadControlSchemeScreen;
     [field: SerializeField]public GameObject PauseScreenFirstSelected;
     [field: SerializeField]public GameObject SettingsScreenFirstSelected;
     [field: SerializeField]public Button ResumeGameButton;
@@ -21,6 +23,10 @@ public class PauseMenuManager : MonoBehaviour
     [field: SerializeField]public Button SettingsButton;
     [field: SerializeField]public Button ExitGameButton;
     [field: SerializeField]public Button BackButton;
+    [field: SerializeField]public Button ControlsButton;
+    [field: SerializeField]public Button GamepadButton;
+    [field: SerializeField]public Button PCSChemeButton;
+
 
     //private Controls controls;
     private InputManager inputManager;
@@ -36,6 +42,11 @@ public class PauseMenuManager : MonoBehaviour
         MainMenuButton.onClick.AddListener(OnMainMenuLoad);
         ExitGameButton.onClick.AddListener(QuitGame);
         LoadGameButton.onClick.AddListener(LoadMenu.Instance.OnClickBotton);
+        ControlsButton.onClick.AddListener(()=> ShowTutorialScreen(GamepadControlSchemeScreen,GamepadButton));
+        GamepadButton.onClick.AddListener(()=>ShowTutorialScreen(PCControlSchemeScreen,PCSChemeButton));
+        PCSChemeButton.onClick.AddListener(ShowSettingsMenu);
+        PCSChemeButton.onClick.AddListener(DisableTutorialScreen);
+        DisableTutorialScreen();
     }
     private void OnDisable() 
     {
@@ -92,6 +103,19 @@ public class PauseMenuManager : MonoBehaviour
         SettingsScreen.SetActive(true);
     }
 
+    public void DisableTutorialScreen()
+    {
+        GamepadControlSchemeScreen.SetActive(false);
+        PCControlSchemeScreen.SetActive(false);
+    }
+    public void ShowTutorialScreen(GameObject screen, Button forcedButtonSelection)
+    {
+        DisableTutorialScreen();
+        screen.SetActive(true);
+        PreventDeselectionForced(forcedButtonSelection.gameObject);
+        
+    }
+
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -106,6 +130,13 @@ public class PauseMenuManager : MonoBehaviour
     }
 
 
+    public void PreventDeselectionForced(GameObject sel)
+    {
+        if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
+            {
+                EventSystem.current.SetSelectedGameObject(sel);
+            }
+    }
     public void PreventDeselection()
     {
         GameObject sel;
@@ -132,6 +163,14 @@ public class PauseMenuManager : MonoBehaviour
             {
                 EventSystem.current.SetSelectedGameObject(sel);
             }
+        }
+        else if(GamepadControlSchemeScreen.activeSelf)
+        {
+            PreventDeselectionForced(GamepadButton.gameObject);
+        }
+        else if(PCControlSchemeScreen.activeSelf)
+        {
+            PreventDeselectionForced(PCSChemeButton.gameObject);
         }
         else
         {

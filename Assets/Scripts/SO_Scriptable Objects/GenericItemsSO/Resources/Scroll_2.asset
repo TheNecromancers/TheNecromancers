@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cca894b933a80848b191c413e75aa7a, type: 3}
   m_Name: Scroll_2
   m_EditorClassIdentifier: 
-  inventoryPrefab: {fileID: 6882000034666161159, guid: e8c39b916dee0184288dfb935347c355, type: 3}
+  inventoryPrefab: {fileID: 6882000034666161159, guid: a12bb01177ee11547a989a00a32308cc, type: 3}
   itemPrefab: {fileID: 4883379290849355137, guid: 571f5dec7e36f1d44bd714b42ba5c2ee, type: 3}
   type: 2
+  descriptionTitle: 'Taste of freedom '
   description: "I cannot stay here any more time!\r\nThis is HELL, not a prison.\r\nI
     have seen that the door of the prison is not fixed correctly. \r\nI can break
     down that door.\r\nWith the invasion of these skeletons, I can also steal the
