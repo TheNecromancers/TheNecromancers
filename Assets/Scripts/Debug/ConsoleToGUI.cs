@@ -6,11 +6,14 @@ public class ConsoleToGUI : MonoBehaviour
     string filename = "";
     bool doShow = false;
     int kChars = 700;
-    void OnEnable() { Application.logMessageReceived += Log; }
-    void OnDisable() { Application.logMessageReceived -= Log; }
+    void OnEnable() { //Application.logMessageReceived += Log;
+                    }
+    void OnDisable() { //Application.logMessageReceived -= Log;
+                       }
 
     //It shows debug text with L key
-    void Update() { if (Input.GetKeyDown(KeyCode.L)) { doShow = !doShow; } }
+    void Update() { //if (Input.GetKeyDown(KeyCode.L)) { doShow = !doShow; }
+                    }
     public void Log(string logString, string stackTrace, LogType type)
     {
         // for onscreen...
