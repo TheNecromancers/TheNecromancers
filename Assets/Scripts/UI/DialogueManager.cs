@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class DialogueManager : MonoBehaviour
     public RectTransform backgroundBox;
     public Button nextButton;
     public Button skipButton;
+    private bool isDisplayingMessage = false;
 
     Message[] currentMessages;
     Actor[] currentActors;
@@ -63,6 +65,9 @@ public class DialogueManager : MonoBehaviour
 
     void DisplayMessage()
     {
+        isDisplayingMessage = !isDisplayingMessage;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(nextButton.gameObject);
         Message messageToDisplay = currentMessages[activeMessage];
         messageText.text = messageToDisplay.message;
         //Animation to fadein the text
@@ -119,6 +124,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndConversation()
     {
+        EventSystem.current.SetSelectedGameObject(null);
         InputManager playerInput = FindObjectOfType<InputManager>();
         if (playerInput != null)
         {
@@ -133,9 +139,26 @@ public class DialogueManager : MonoBehaviour
             EndDialogueEvent.Invoke();
     }
 
+    public void PreventDeselection()
+    {
+
+            if(EventSystem.current.currentSelectedGameObject != nextButton.gameObject && EventSystem.current.currentSelectedGameObject != skipButton.gameObject)
+            {
+                EventSystem.current.SetSelectedGameObject(nextButton.gameObject);
+            }
+
+    }
+
     private void Start()
     {
         backgroundBox.transform.localScale = Vector3.zero;   
+    }
+    private void Update() 
+    {
+        if(isDisplayingMessage)
+        {
+            PreventDeselection();
+        }
     }
 
 }
