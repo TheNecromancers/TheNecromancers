@@ -777,7 +777,7 @@ MonoBehaviour:
     message: He defeated the evil Necromancer, and with the wounded knight, escapes
       from the Keep of the Lost Land.
   - actorId: 0
-    message: "\r\nFrom a squire to a hero, from a hopeless situation to an unexpected
+    message: "\rFrom a squire to a hero, from a hopeless situation to an unexpected
       victory.\r"
   - actorId: 0
     message: Courage and trust; Sometimes they are enough to awaken an extraordinary

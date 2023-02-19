@@ -10372,7 +10372,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 976287770380521153, guid: b68b37e947a75df4ea59cec4caf05905, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 976287770380521153, guid: b68b37e947a75df4ea59cec4caf05905, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10705,6 +10705,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.g
+      value: 0.5764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.59607846
+      objectReference: {fileID: 0}
     - target: {fileID: 8266949716707160795, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
       propertyPath: m_Name
       value: Candlestick_Triple_Interactable (2)
@@ -11566,7 +11582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1570508646943910692, guid: 0de39f5af00669d4fb1fc51a0e7e5d07, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1570508646943910692, guid: 0de39f5af00669d4fb1fc51a0e7e5d07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12542,7 +12558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3281762963110296113, guid: 71176779bccd8eb46bd822efc547f699, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3281762963110296113, guid: 71176779bccd8eb46bd822efc547f699, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17460,7 +17476,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2229101597303663982, guid: d771da52d65e60848b146e9a2bf19b8a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2229101597303663982, guid: d771da52d65e60848b146e9a2bf19b8a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17505,6 +17521,10 @@ PrefabInstance:
     - target: {fileID: 2229101597303894350, guid: d771da52d65e60848b146e9a2bf19b8a, type: 3}
       propertyPath: m_Name
       value: Scroll_HUB
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648173239778498372, guid: d771da52d65e60848b146e9a2bf19b8a, type: 3}
+      propertyPath: outlineColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5648173239778498372, guid: d771da52d65e60848b146e9a2bf19b8a, type: 3}
       propertyPath: outlineColor.b
@@ -19998,7 +20018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 8291084908679624336, guid: e78a7a50d15b4cd499ab03bc7fa8b67c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22204,7 +22224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6221451924245700738, guid: 48b0b08200b37d548813378d9d473c56, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6221451924245700738, guid: 48b0b08200b37d548813378d9d473c56, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23900,6 +23920,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
       propertyPath: outlineColor.b
       value: 0.49803922

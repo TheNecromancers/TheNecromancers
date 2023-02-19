@@ -16783,6 +16783,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.g
+      value: 0.5764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.59607846
+      objectReference: {fileID: 0}
     - target: {fileID: 8266949716707160795, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
       propertyPath: m_Name
       value: Candlestick_Triple_Interactable (2)
@@ -24013,6 +24025,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.g
+      value: 0.5764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.59607846
+      objectReference: {fileID: 0}
     - target: {fileID: 8266949716707160795, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
       propertyPath: m_Name
       value: Candlestick_Triple_Interactable (1)

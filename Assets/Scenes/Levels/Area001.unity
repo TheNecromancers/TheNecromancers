@@ -504,6 +504,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 791265700682321526, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
+      propertyPath: outlineColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 791265700682321526, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: outlineColor.b
       value: 0.49803922
       objectReference: {fileID: 0}
@@ -1602,6 +1606,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 576070781878527991, guid: 0aa1087c9427be342904b3ec8d3c2dd0, type: 3}
+      propertyPath: outlineColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 576070781878527991, guid: 0aa1087c9427be342904b3ec8d3c2dd0, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 576070781878527991, guid: 0aa1087c9427be342904b3ec8d3c2dd0, type: 3}
+      propertyPath: outlineColor.g
+      value: 0.5764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 576070781878527991, guid: 0aa1087c9427be342904b3ec8d3c2dd0, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.59607846
+      objectReference: {fileID: 0}
     - target: {fileID: 3594422487869414239, guid: 0aa1087c9427be342904b3ec8d3c2dd0, type: 3}
       propertyPath: m_Name
       value: Key_2
@@ -2413,6 +2433,10 @@ PrefabInstance:
       value: Scroll_1
       objectReference: {fileID: 0}
     - target: {fileID: 5648173239778498372, guid: eebd1c6e7b9ec134d91849d64a55f592, type: 3}
+      propertyPath: outlineColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5648173239778498372, guid: eebd1c6e7b9ec134d91849d64a55f592, type: 3}
       propertyPath: outlineColor.b
       value: 0.49803922
       objectReference: {fileID: 0}
@@ -2890,6 +2914,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2992976193325264541, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
       propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: outlineColor.a
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
