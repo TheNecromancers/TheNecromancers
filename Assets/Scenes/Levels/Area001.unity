@@ -1608,7 +1608,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 576070781878527991, guid: 0aa1087c9427be342904b3ec8d3c2dd0, type: 3}
       propertyPath: outlineColor.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 576070781878527991, guid: 0aa1087c9427be342904b3ec8d3c2dd0, type: 3}
       propertyPath: outlineColor.b
@@ -2434,7 +2434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5648173239778498372, guid: eebd1c6e7b9ec134d91849d64a55f592, type: 3}
       propertyPath: outlineColor.a
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5648173239778498372, guid: eebd1c6e7b9ec134d91849d64a55f592, type: 3}
       propertyPath: outlineColor.b

@@ -22,6 +22,11 @@ public class PickuppableItem : MonoBehaviour, IInteractable
         player = GameObject.FindGameObjectWithTag("Player");
         Load();
         if(!isInteractable) gameObject.SetActive(false);
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
     }
 
     public void OnInteract()

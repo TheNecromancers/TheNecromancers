@@ -25,6 +25,11 @@ public class Torch : MonoBehaviour, IInteractable
         {
             Light.gameObject.SetActive(true);
         }
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
     }
 
     public void OnStartHover()
