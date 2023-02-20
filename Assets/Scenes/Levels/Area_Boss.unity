@@ -5237,7 +5237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1677617323314533548, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5285,7 +5285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2371078702537333512, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: savePath
-      value: /Torch3.save
+      value: /TorchBossFight.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
@@ -5362,7 +5362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2371078702537333512, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: savePath
-      value: /Torch4.save
+      value: /Torch1BossFight.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
@@ -11263,7 +11263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1583963685
 PrefabInstance:
@@ -13030,7 +13030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2371078702537333512, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: savePath
-      value: /Torch6.save
+      value: /Torch3BossFight.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
@@ -13434,7 +13434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2371078702537333512, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}
       propertyPath: savePath
-      value: /Torch5.save
+      value: /Torch2BossFight.save
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e9c038add0d3d9458fe5bbc848413ac, type: 3}

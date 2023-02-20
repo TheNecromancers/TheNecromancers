@@ -2,7 +2,6 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-
 public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] float speed = 5f;
