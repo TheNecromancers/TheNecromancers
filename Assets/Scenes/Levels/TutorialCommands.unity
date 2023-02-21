@@ -540,11 +540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 1000
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -840,6 +840,10 @@ PrefabInstance:
     - target: {fileID: 515285653977255142, guid: 1b35103c380a3bd4395fdbfd07167855, type: 3}
       propertyPath: m_Name
       value: PanelPCControls
+      objectReference: {fileID: 0}
+    - target: {fileID: 515285653977255142, guid: 1b35103c380a3bd4395fdbfd07167855, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b35103c380a3bd4395fdbfd07167855, type: 3}
