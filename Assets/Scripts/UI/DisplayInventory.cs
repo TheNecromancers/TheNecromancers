@@ -27,9 +27,9 @@ public class DisplayInventory : MonoBehaviour
     [SerializeField] GameObject InventoryLight;
     [SerializeField] GameObject DirectionalLightOnPlayer;
     [SerializeField] GameObject PlayerModel;
+    [SerializeField] GameObject PlayerHead;
     [SerializeField] TMP_Text ItemName;
     [SerializeField] TMP_Text ItemDescription;
-    [SerializeField] Button UseButton;
     [SerializeField] Button InventoryButton;
     [SerializeField] Button ScrollsButton;
     [SerializeField] Button BackButton;
@@ -40,18 +40,19 @@ public class DisplayInventory : MonoBehaviour
     private void Awake()
     {
         inventory = Resources.Load<InventoryObject>("Empty Inventory");
-        DirectionalLightOnPlayer.SetActive(true);
-        InventoryLight.SetActive(false);
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        DirectionalLightOnPlayer.SetActive(true);
+        InventoryLight.SetActive(false);
         MiscItemInInventory = new List<GameObject>();
         InventoryContainer.SetActive(false);
         InventoryCamera.SetActive(false);
         CreateDisplay();
-        UseButton.onClick.AddListener(() => InventoryManager.ItemSelectionDelegate(selectedItem));
+        //UseButton.onClick.AddListener(() => InventoryManager.ItemSelectionDelegate(selectedItem));
         InventoryButton.onClick.AddListener(ShowInventoryDisplay);
         ScrollsButton.onClick.AddListener(ShowScrollsDisplay);
         BackButton.onClick.AddListener(ShowScrollsDisplay);
@@ -135,7 +136,7 @@ public class DisplayInventory : MonoBehaviour
                                 sel != null && EventSystem.current.currentSelectedGameObject != InventoryButton.gameObject
                                             && EventSystem.current.currentSelectedGameObject != ScrollsButton.gameObject
                                             && EventSystem.current.currentSelectedGameObject != InventoryButton.gameObject
-                                            && EventSystem.current.currentSelectedGameObject != UseButton.gameObject
+                                            //&& EventSystem.current.currentSelectedGameObject != UseButton.gameObject
                                             && EventSystem.current.currentSelectedGameObject != BackButton.gameObject
                                             && !EventSystem.current.currentSelectedGameObject.transform.IsChildOf(ItemInventory.transform)
                                             && !EventSystem.current.currentSelectedGameObject.transform.IsChildOf(ScrollsInventory.transform)
@@ -223,6 +224,7 @@ public class DisplayInventory : MonoBehaviour
     {
         if (InventoryContainer.activeInHierarchy)
         {
+
             DirectionalLightOnPlayer.SetActive(true);
             InventoryLight.SetActive(false);
             Lantern.SetActive(true);
@@ -237,8 +239,9 @@ public class DisplayInventory : MonoBehaviour
         }
         else
         {
+            
+            PlayerHead.transform.LookAt(InventoryCamera.transform);
             DirectionalLightOnPlayer.SetActive(false);
-            InventoryLight.SetActive(true);
             Lantern.SetActive(false);
             FacePlayerLight(InventoryLight,PlayerModel);
             Time.timeScale=0;
@@ -246,6 +249,8 @@ public class DisplayInventory : MonoBehaviour
             ShowInventoryDisplay();
             InventoryContainer.SetActive(true);
             InventoryCamera.SetActive(true);
+            InventoryLight.SetActive(true);
+            InventoryLight.GetComponent<Light>().intensity =1;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             UpdateDisplay();
@@ -260,7 +265,7 @@ public class DisplayInventory : MonoBehaviour
         ScrollsInventory.SetActive(false);
         ItemDescriptionCanvas.SetActive(false);
         BackButton.gameObject.SetActive(false);
-        UseButton.gameObject.SetActive(true);
+        //UseButton.gameObject.SetActive(true);
     }
         public void ShowScrollsDisplay()
     {
@@ -271,7 +276,7 @@ public class DisplayInventory : MonoBehaviour
         ScrollsInventory.SetActive(true);
         ItemDescriptionCanvas.SetActive(false);
         BackButton.gameObject.SetActive(false);
-        UseButton.gameObject.SetActive(true);
+        //UseButton.gameObject.SetActive(true);
         scrollbar.value =1f;
     }
 
@@ -280,7 +285,7 @@ public class DisplayInventory : MonoBehaviour
         
         ItemDescriptionCanvas.SetActive(true);
         BackButton.gameObject.SetActive(true);
-        UseButton.gameObject.SetActive(false);
+        //UseButton.gameObject.SetActive(false);
         ItemName.text = _ItemName;
         ItemDescription.text =_ItemDescription;
 

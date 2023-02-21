@@ -18,6 +18,7 @@ public class MainMenuManager : MonoBehaviour
     [field: SerializeField]public GameObject CreditsScreenFirstSelected;
     [field: SerializeField]public Button LoadGameButton;
     [field: SerializeField]public InventoryObject Inventory;
+    [field: SerializeField]public Scrollbar CreditsScrollbar;
 
     private Controls controls;
     private InputManager inputManager;
@@ -73,6 +74,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void OpenCreditsScreen()
     {
+        CreditsScrollbar.value =1f;
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(CreditsScreenFirstSelected);
         MainScreen.SetActive(false);
@@ -114,6 +116,14 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
+    public void AutoScrollCredits()
+    {
+            if(CreditsScrollbar.value>=0f)
+            {
+                CreditsScrollbar.value -=Time.deltaTime*0.05f;
+            }
+    }
+
     public void PreventDeselection()
     {
         GameObject sel;
@@ -143,6 +153,7 @@ public class MainMenuManager : MonoBehaviour
         }
         else if(CreditsScreen.activeSelf)
         {
+            AutoScrollCredits();
             sel = CreditsScreenFirstSelected;
             if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
             {

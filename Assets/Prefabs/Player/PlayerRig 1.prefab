@@ -2254,16 +2254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9481cd47cbc7f6c4ca0cd1ab80f3cc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExplorationImages:
-  - {fileID: 408825486585073778}
-  - {fileID: 4691546777456138465}
-  RepulsionImages:
-  - {fileID: 3470021522372224833}
-  - {fileID: 6332489404094499144}
-  ExplorationBrightColor: {r: 0.05490196, g: 0.43137255, b: 1, a: 1}
-  ExplorationDarkColor: {r: 0.12941177, g: 0.25490198, b: 0.44313726, a: 1}
-  RepulsionBrightColor: {r: 0.8666667, g: 0.05882353, b: 0.05882353, a: 1}
-  RepulsionDarkColor: {r: 0.58431375, g: 0.05882353, b: 0.05882353, a: 1}
+  ExplorationAbilityParent: {fileID: 0}
+  RepulsionAbilityParent: {fileID: 0}
 --- !u!1 &7205042801560961650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,7 +2899,6 @@ MonoBehaviour:
   <LeftHandHolder>k__BackingField: {fileID: 1652417492903794154}
   <SlashVFX>k__BackingField: {fileID: 6445826192643391251, guid: 19ad1952919114446ab32647516f23c6, type: 3}
   savePath: /Player.save
-  chests: []
 --- !u!114 &7684625680737355382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3231,6 +3222,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4104028584140096231}
     m_Modifications:
+    - target: {fileID: 3783187189777006024, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783187189777006024, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8097261607222943657, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
       propertyPath: m_Name
       value: New Test Inventory
@@ -3343,6 +3342,14 @@ PrefabInstance:
       propertyPath: PlayerStateMachine
       value: 
       objectReference: {fileID: 7684625680737355383}
+    - target: {fileID: 8394057675474129714, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394057675474129714, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa5f71e2d3f02c4e916e430e6dd4de0, type: 3}
 --- !u!224 &2597806593997828952 stripped
