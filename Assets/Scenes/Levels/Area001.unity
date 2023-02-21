@@ -2837,6 +2837,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2006967413325246030, guid: bf7a7fc00791eb945a5412768a68fffc, type: 3}
+      propertyPath: savePath
+      value: /Area001SmallCandle1.save
+      objectReference: {fileID: 0}
     - target: {fileID: 3918751411058313036, guid: bf7a7fc00791eb945a5412768a68fffc, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -2915,6 +2919,10 @@ PrefabInstance:
     - target: {fileID: 2992976193325264541, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
       propertyPath: m_Intensity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508986598236444496, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
+      propertyPath: savePath
+      value: /Area001MediumCandle.save
       objectReference: {fileID: 0}
     - target: {fileID: 7826870384515028240, guid: 166c923cf3cec784bb3334492ad07da0, type: 3}
       propertyPath: outlineColor.a

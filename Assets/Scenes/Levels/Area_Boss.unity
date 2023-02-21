@@ -2126,7 +2126,7 @@ MonoBehaviour:
   PlayerTeleportVFX: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
   SlowMotionTimeScale: 0.1
   SlowMotionDuration: 0.4
-  TransitionOutIn: {fileID: 428684953}
+  TransitionOutIn: {fileID: 0}
 --- !u!114 &208940048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3535,76 +3535,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7988995720036899282, guid: 158aeb22f001b28448be0ed5ae66d0bf, type: 3}
   m_PrefabInstance: {fileID: 424075075}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &428684952
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_RootOrder
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273862, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273863, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_Name
-      value: TransitionOut
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478536273863, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7749543478850064244, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: afc933728ed59d840afe1c998e7c3051, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
---- !u!1 &428684953 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7749543478536273863, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
-  m_PrefabInstance: {fileID: 428684952}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &438079476
 GameObject:
@@ -8080,7 +8010,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 799558176349869399, guid: 41c791fc4b601084c84bd79429ab4423, type: 3}
       propertyPath: savePath
-      value: /EnemiesManager
+      value: /AreaBossEnemiesManager
       objectReference: {fileID: 0}
     - target: {fileID: 7274748080965564247, guid: 41c791fc4b601084c84bd79429ab4423, type: 3}
       propertyPath: m_Name
