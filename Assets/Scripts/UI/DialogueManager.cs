@@ -39,6 +39,7 @@ public class DialogueManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        isDisplayingMessage = false;
     }
     public void OpenDialogue(Message[] messages, Actor[] actors, UnityEvent OnEndDialogue)
     {
@@ -124,7 +125,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndConversation()
     {
-        isDisplayingMessage = !isDisplayingMessage;
+        isDisplayingMessage = false;
         EventSystem.current.SetSelectedGameObject(null);
         InputManager playerInput = FindObjectOfType<InputManager>();
         if (playerInput != null)

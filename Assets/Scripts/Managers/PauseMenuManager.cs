@@ -72,7 +72,8 @@ public class PauseMenuManager : MonoBehaviour
         if(!MenuContainer.activeSelf)
             
         {
-
+            Time.timeScale=0;
+            MonoGlobalVolume.Instance.ActivateBlur(true);
             MenuContainer.SetActive(true);
             ShowPauseScreen();
             Cursor.visible = true;
@@ -81,6 +82,8 @@ public class PauseMenuManager : MonoBehaviour
         }
         else
         {
+            Time.timeScale=1;
+            MonoGlobalVolume.Instance.ActivateBlur(false);
             MenuContainer.SetActive(false);
             MainScreen.SetActive(false);
             SettingsScreen.SetActive(false);
@@ -121,6 +124,8 @@ public class PauseMenuManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale =1;
+        MonoGlobalVolume.Instance.ActivateBlur(false);
         SceneManager.LoadScene("MainMenu");
     }
     public void QuitGame()

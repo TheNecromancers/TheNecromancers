@@ -28,6 +28,7 @@ public class LoadMenu : MonoSingleton<LoadMenu>
 
     public void OnClickBotton()
     {
+        Time.timeScale =1;
         SceneManager.LoadScene(CurrentNameScene);
     }
 

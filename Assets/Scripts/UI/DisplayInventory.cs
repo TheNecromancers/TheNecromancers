@@ -30,7 +30,7 @@ public class DisplayInventory : MonoBehaviour
     [SerializeField] Button ScrollsButton;
     [SerializeField] Button BackButton;
     [SerializeField] Scrollbar scrollbar;
-    List<GameObject> MiscItemInInventory;
+    private List<GameObject> MiscItemInInventory;
 
 
     private void Awake()
@@ -54,14 +54,19 @@ public class DisplayInventory : MonoBehaviour
 
     private void Update() 
     {
-        if(InventoryContainer.activeSelf && ItemInventory.activeSelf)
+        if(InventoryContainer.activeSelf && ItemInventory.activeSelf && !ScrollsInventory.activeSelf && !ItemDescriptionCanvas.activeSelf)
         {
             PreventDeselection(InventoryButton.gameObject);
         }
-        else if(InventoryContainer.activeSelf && ScrollsInventory.activeSelf && !ItemDescriptionCanvas.activeSelf)
+        else if(InventoryContainer.activeSelf && !ItemInventory.activeSelf && ScrollsInventory.activeSelf && !ItemDescriptionCanvas.activeSelf)
         {
+            
             if(MiscItemInInventory.Count == 0)
-            return;
+            {
+                PreventDeselection(ScrollsButton.gameObject);
+
+                return;
+            }
             else
             PreventDeselection(ScrollsButton.gameObject);
             if(MiscItemInInventory.Contains(EventSystem.current.currentSelectedGameObject))
@@ -72,7 +77,7 @@ public class DisplayInventory : MonoBehaviour
             return;
 
         }
-        else if(InventoryContainer.activeSelf && ItemDescriptionCanvas.activeSelf)
+        else if(InventoryContainer.activeSelf &&!ItemInventory.activeSelf && !ScrollsInventory.activeSelf && ItemDescriptionCanvas.activeSelf )
         {
             PreventDeselectionForced(BackButton.gameObject);
         }
@@ -108,24 +113,32 @@ public class DisplayInventory : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(sel);
         }
     }
-    public void PreventDeselection(GameObject sel)
+/*         public void PreventDeselection(GameObject sel)
     {
-            if (!EventSystem.current.currentSelectedGameObject.transform.IsChildOf(gameObject.transform))
-            {
-                EventSystem.current.SetSelectedGameObject(sel);
-
-                if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
-                {
-                    sel = EventSystem.current.currentSelectedGameObject;
-                }
-                else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+                if(sel != null && EventSystem.current.currentSelectedGameObject == null)
                 {
                     EventSystem.current.SetSelectedGameObject(sel);
                 }
-            }
 
-
-
+    } */
+    public void PreventDeselection(GameObject sel)
+    {
+                if  (
+                            sel != null && EventSystem.current.currentSelectedGameObject == null
+                        ||  (
+                                sel != null && EventSystem.current.currentSelectedGameObject != InventoryButton.gameObject
+                                            && EventSystem.current.currentSelectedGameObject != ScrollsButton.gameObject
+                                            && EventSystem.current.currentSelectedGameObject != InventoryButton.gameObject
+                                            && EventSystem.current.currentSelectedGameObject != UseButton.gameObject
+                                            && EventSystem.current.currentSelectedGameObject != BackButton.gameObject
+                                            && !EventSystem.current.currentSelectedGameObject.transform.IsChildOf(ItemInventory.transform)
+                                            && !EventSystem.current.currentSelectedGameObject.transform.IsChildOf(ScrollsInventory.transform)
+                            )
+                    
+                    )
+                {
+                    EventSystem.current.SetSelectedGameObject(sel);
+                }
     }
     public void CreateDisplay()
     {
@@ -195,22 +208,24 @@ public class DisplayInventory : MonoBehaviour
     {
         if (InventoryContainer.activeInHierarchy)
         {
+            Time.timeScale=1;
+            MonoGlobalVolume.Instance.ActivateBlur(false);
             ShowInventoryDisplay();
             InventoryContainer.SetActive(false);
             InventoryCamera.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            //Time.timeScale=1;
             selectedItem = null;
         }
         else
         {
+            Time.timeScale=0;
+            MonoGlobalVolume.Instance.ActivateBlur(true);
             ShowInventoryDisplay();
             InventoryContainer.SetActive(true);
             InventoryCamera.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            //Time.timeScale=0;
             UpdateDisplay();
         }
     }
@@ -219,7 +234,6 @@ public class DisplayInventory : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(InventoryButton.gameObject);
-        PreventDeselection(InventoryButton.gameObject);
         ItemInventory.SetActive(true);
         ScrollsInventory.SetActive(false);
         ItemDescriptionCanvas.SetActive(false);
@@ -228,14 +242,15 @@ public class DisplayInventory : MonoBehaviour
     }
         public void ShowScrollsDisplay()
     {
+
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(ScrollsButton.gameObject);
-        PreventDeselection(ScrollsButton.gameObject);
         ItemInventory.SetActive(false);
         ScrollsInventory.SetActive(true);
         ItemDescriptionCanvas.SetActive(false);
         BackButton.gameObject.SetActive(false);
         UseButton.gameObject.SetActive(true);
+        scrollbar.value =1f;
     }
 
     public void ShowItemDescription(string _ItemName, string _ItemDescription)
@@ -243,7 +258,6 @@ public class DisplayInventory : MonoBehaviour
         
         ItemDescriptionCanvas.SetActive(true);
         BackButton.gameObject.SetActive(true);
-        PreventDeselectionForced(BackButton.gameObject);
         UseButton.gameObject.SetActive(false);
         ItemName.text = _ItemName;
         ItemDescription.text =_ItemDescription;
