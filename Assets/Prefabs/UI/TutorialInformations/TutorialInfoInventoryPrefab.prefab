@@ -364,7 +364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e9f600ca7934abd43ab321e9ba85427b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32968ba08ece76c4bb0b81775d5f7d9c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6896c527519212449b5d10b9af6a8c1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2474a6fbf4e4d844981f210b5734a565, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2101,8 +2101,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select the weapon with "Mouse Left Button" and press "USE" to equip the
-    weapon.
+  m_text: "Select the weapon with \"Mouse Left Button\" and double click \nto equip
+    it."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8faab39d660d8c54e97e41be9dc31236, type: 2}
   m_sharedMaterial: {fileID: -4488230261659956609, guid: 8faab39d660d8c54e97e41be9dc31236, type: 2}
