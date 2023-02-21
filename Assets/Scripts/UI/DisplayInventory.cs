@@ -228,7 +228,6 @@ public class DisplayInventory : MonoBehaviour
             DirectionalLightOnPlayer.SetActive(true);
             InventoryLight.SetActive(false);
             Lantern.SetActive(true);
-            Time.timeScale=1;
             MonoGlobalVolume.Instance.ActivateBlur(false);
             ShowInventoryDisplay();
             InventoryContainer.SetActive(false);
@@ -244,7 +243,6 @@ public class DisplayInventory : MonoBehaviour
             DirectionalLightOnPlayer.SetActive(false);
             Lantern.SetActive(false);
             FacePlayerLight(InventoryLight,PlayerModel);
-            Time.timeScale=0;
             MonoGlobalVolume.Instance.ActivateBlur(true);
             ShowInventoryDisplay();
             InventoryContainer.SetActive(true);
@@ -285,6 +283,7 @@ public class DisplayInventory : MonoBehaviour
         
         ItemDescriptionCanvas.SetActive(true);
         BackButton.gameObject.SetActive(true);
+        ScrollsInventory.SetActive(false);
         //UseButton.gameObject.SetActive(false);
         ItemName.text = _ItemName;
         ItemDescription.text =_ItemDescription;
