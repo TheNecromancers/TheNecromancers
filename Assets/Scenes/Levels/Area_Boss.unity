@@ -1764,6 +1764,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.67987657
       objectReference: {fileID: 0}
+    - target: {fileID: 2742128874414903612, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742128874414903612, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2790162575917754605, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: health
       value: 312321321
@@ -1881,6 +1889,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4675708351627008887, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417646159799664582, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417646159799664582, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -2126,7 +2142,7 @@ MonoBehaviour:
   PlayerTeleportVFX: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
   SlowMotionTimeScale: 0.1
   SlowMotionDuration: 0.4
-  TransitionOutIn: {fileID: 0}
+  TransitionOutIn: {fileID: 1970265759}
 --- !u!114 &208940048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14325,6 +14341,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
+--- !u!1 &1970265759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7749543478536273863, guid: d7b5e6cd8d7116a40b59f3ede66b6bf6, type: 3}
+  m_PrefabInstance: {fileID: 1970265758}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976030886
 GameObject:
   m_ObjectHideFlags: 0
