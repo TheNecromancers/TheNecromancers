@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class Barrel : MonoBehaviour
 {
     public string savePath;
     public bool IsDestroyed;
+    [SerializeField]
+    private GameObject VfxOnDestroy;
 
     private void Start()
     {
@@ -21,10 +24,20 @@ public class Barrel : MonoBehaviour
     {
         if (other.CompareTag("Axe"))
         {
-            this.gameObject.SetActive(false);
-            IsDestroyed = true;
-            Save();
+            StartCoroutine(OnBarrelDestroy());
         }
+    }
+
+    private IEnumerator OnBarrelDestroy()
+    {
+        //Play the VFX effect 
+        VfxOnDestroy.GetComponent<ParticleSystem>().Play();
+
+        yield return new WaitForSeconds(0.2f);
+
+        this.gameObject.SetActive(false);
+        IsDestroyed = true;
+        Save();
     }
 
     public void Save()
@@ -55,6 +68,5 @@ public class Barrel : MonoBehaviour
     {
         Save();
     }
-
 
 }

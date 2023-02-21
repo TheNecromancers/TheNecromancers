@@ -130,3 +130,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   savePath: 
+  IsDestroyed: 0
+  VfxOnDestroy: {fileID: 0}
