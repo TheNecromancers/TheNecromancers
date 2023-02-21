@@ -23,6 +23,10 @@ public class DisplayInventory : MonoBehaviour
     [SerializeField] GameObject ScrollsInventory;
     [SerializeField] GameObject ScrollsInventoryContent;
     [SerializeField] GameObject ItemDescriptionCanvas;
+    [SerializeField] GameObject Lantern;
+    [SerializeField] GameObject InventoryLight;
+    [SerializeField] GameObject DirectionalLightOnPlayer;
+    [SerializeField] GameObject PlayerModel;
     [SerializeField] TMP_Text ItemName;
     [SerializeField] TMP_Text ItemDescription;
     [SerializeField] Button UseButton;
@@ -36,6 +40,8 @@ public class DisplayInventory : MonoBehaviour
     private void Awake()
     {
         inventory = Resources.Load<InventoryObject>("Empty Inventory");
+        DirectionalLightOnPlayer.SetActive(true);
+        InventoryLight.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -204,10 +210,22 @@ public class DisplayInventory : MonoBehaviour
         selectedItem = _item;
     }
 
+
+    public void FacePlayerLight(GameObject _facingObj, GameObject target)
+    {
+        if(target != null)
+       {
+            _facingObj.transform.LookAt(target.transform);
+       }
+    }
+
     public void HandleInventoryInteraction()
     {
         if (InventoryContainer.activeInHierarchy)
         {
+            DirectionalLightOnPlayer.SetActive(true);
+            InventoryLight.SetActive(false);
+            Lantern.SetActive(true);
             Time.timeScale=1;
             MonoGlobalVolume.Instance.ActivateBlur(false);
             ShowInventoryDisplay();
@@ -219,6 +237,10 @@ public class DisplayInventory : MonoBehaviour
         }
         else
         {
+            DirectionalLightOnPlayer.SetActive(false);
+            InventoryLight.SetActive(true);
+            Lantern.SetActive(false);
+            FacePlayerLight(InventoryLight,PlayerModel);
             Time.timeScale=0;
             MonoGlobalVolume.Instance.ActivateBlur(true);
             ShowInventoryDisplay();

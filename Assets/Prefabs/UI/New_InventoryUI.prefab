@@ -1425,7 +1425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3298380866580616743
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1944,6 +1944,7 @@ MonoBehaviour:
   ScrollsInventory: {fileID: 3531419456883282336}
   ScrollsInventoryContent: {fileID: 6474286486563177233}
   ItemDescriptionCanvas: {fileID: 7015190096919618892}
+  Lantern: {fileID: 0}
   ItemName: {fileID: 6335334433223518289}
   ItemDescription: {fileID: 8308073516121978161}
   UseButton: {fileID: 2137377652933265591}
