@@ -123,6 +123,10 @@ public class BossStateMachine : StateMachine
         
         TransitionOutIn.SetActive(true);
         yield return new WaitForSeconds(3.3f);
+        if (PlayerInstance.Instance != null)
+        {
+            Destroy(PlayerInstance.Instance.gameObject);
+        }
         // Load Final Scene
         SceneManager.LoadScene("EndScene");
 
