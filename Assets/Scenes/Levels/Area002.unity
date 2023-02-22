@@ -1000,6 +1000,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2742128874414903612, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2742128874414903612, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2790162575917754605, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: savePath
       value: /PlayerHealth.save
@@ -1081,6 +1089,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4675708351627008887, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417646159799664582, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417646159799664582, guid: e8744cb113ace8d40a447b2f8a1dab9a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -14437,6 +14453,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4081825917779126748, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
+      propertyPath: outlineColor.b
+      value: 0.49803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081825917779126748, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
+      propertyPath: outlineColor.g
+      value: 0.5764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081825917779126748, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
+      propertyPath: outlineColor.r
+      value: 0.59607846
+      objectReference: {fileID: 0}
     - target: {fileID: 6593066171746003696, guid: 08141094426100f4f9bbe41f4bdcc71c, type: 3}
       propertyPath: savePath
       value: /Area002Door.save
