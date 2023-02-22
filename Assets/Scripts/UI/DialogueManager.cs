@@ -163,4 +163,12 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy() 
+    {
+        InputManager playerInput = FindObjectOfType<InputManager>();
+        playerInput.EnablePlayerControls();
+        playerInput.EnableUIControls();
+
+    }
+
 }
