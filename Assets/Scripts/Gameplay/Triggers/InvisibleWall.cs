@@ -5,7 +5,7 @@ using UnityEngine;
 public class InvisibleWall : MonoBehaviour
 {
     public string savePath;
-    private bool isDisable = false;
+    public bool isDisable = false;
 
     private void Start()
     {
