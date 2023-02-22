@@ -9,8 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class SettingsManager : MonoBehaviour
 {
-
-
     [field:SerializeField, Range(0,1)] float volumeValue;
     float defaultVolumeValue =0.5f;
     [field:SerializeField, Range(-1,1)]  float postExposureValue;
@@ -48,10 +46,6 @@ public class SettingsManager : MonoBehaviour
         
     }
 
-    private void OnEnable() 
-    {
-        
-    }
     public void FindObjects()
     {
         //globalVolume =MonoGlobalVolume.Instance.gameObject.GetComponent<Volume>();
@@ -151,15 +145,5 @@ public class SettingsManager : MonoBehaviour
             volumeValue = defaultVolumeValue;
             VolumeSlider.value= defaultVolumeValue;
         }
-    }
-
-
-
-
-
-
-    void Update()
-    {
-        
     }
 }
