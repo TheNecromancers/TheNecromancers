@@ -15,6 +15,11 @@ public class Switch : MonoBehaviour, IInteractable
     {
         Load();
         RelatedDoor = GameObject.FindGameObjectWithTag("Door");
+        //remove outline of the object
+        if (TryGetComponent<Outline>(out var outline))
+        {
+            outline.OutlineColor = new Color(outline.OutlineColor.r, outline.OutlineColor.g, outline.OutlineColor.b, 0);
+        }
     }
 
     private void Start()

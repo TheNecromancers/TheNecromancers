@@ -19,4 +19,14 @@ public class WaitingForExplorationGO : MonoBehaviour
         dialogue.StartDialogue();
 
     }
+
+    private void OnDestroy()
+    {
+        inputManager.ExplorationAbilityEvent -= ExplorationListener;
+    }
+
+    private void OnDisable()
+    {
+        inputManager.ExplorationAbilityEvent -= ExplorationListener;
+    }
 }

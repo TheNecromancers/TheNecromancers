@@ -2101,8 +2101,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Select the weapon with \"Mouse Left Button\" and double click \nto equip
-    it."
+  m_text: Select the weapon with "Mouse Left Button" and click to equip it.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8faab39d660d8c54e97e41be9dc31236, type: 2}
   m_sharedMaterial: {fileID: -4488230261659956609, guid: 8faab39d660d8c54e97e41be9dc31236, type: 2}
@@ -2129,7 +2128,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.6
+  m_fontSize: 40.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
