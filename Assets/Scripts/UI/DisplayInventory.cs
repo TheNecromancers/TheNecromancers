@@ -46,7 +46,6 @@ public class DisplayInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DirectionalLightOnPlayer.SetActive(true);
         InventoryLight.SetActive(false);
         MiscItemInInventory = new List<GameObject>();
         InventoryContainer.SetActive(false);
