@@ -19,6 +19,7 @@ public class MainMenuManager : MonoBehaviour
     [field: SerializeField]public Button LoadGameButton;
     [field: SerializeField]public InventoryObject Inventory;
     [field: SerializeField]public Scrollbar CreditsScrollbar;
+    [field: SerializeField]public Scrollbar CreditsScrollbarHandle;
 
     private Controls controls;
     private InputManager inputManager;
@@ -38,13 +39,10 @@ public class MainMenuManager : MonoBehaviour
             controls.UIControls.Disable();
             OpenMainMenu();
     }
-
     public void OnLoadGame()
     {
-        Debug.Log("trovato player"+ PlayerInstance.Instance);
         if (PlayerInstance.Instance != null)
         {
-            Debug.Log("dentro al check");
             Destroy(PlayerInstance.Instance.gameObject);
         }
         if(inputManager != null)
@@ -74,12 +72,13 @@ public class MainMenuManager : MonoBehaviour
     }
     public void OpenCreditsScreen()
     {
-        CreditsScrollbar.value =1f;
+        
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(CreditsScreenFirstSelected);
         MainScreen.SetActive(false);
         SettingsScreen.SetActive(false);
-        CreditsScreen.SetActive(true);    
+        CreditsScreen.SetActive(true);
+        CreditsScrollbar.value =1f;
     }
 
     public void QuitGame()
@@ -116,14 +115,6 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
-    public void AutoScrollCredits()
-    {
-            if(CreditsScrollbar.value>=0f)
-            {
-                CreditsScrollbar.value -=Time.deltaTime*0.05f;
-            }
-    }
-
     public void PreventDeselection()
     {
         GameObject sel;
@@ -153,13 +144,9 @@ public class MainMenuManager : MonoBehaviour
         }
         else if(CreditsScreen.activeSelf)
         {
-            AutoScrollCredits();
             sel = CreditsScreenFirstSelected;
-            if(EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject != sel)
-            {
-                sel = EventSystem.current.currentSelectedGameObject;
-            }
-            else if(sel != null && EventSystem.current.currentSelectedGameObject == null)
+            if(sel != null && EventSystem.current.currentSelectedGameObject == null 
+            ||  sel != null && EventSystem.current.currentSelectedGameObject != sel && EventSystem.current.currentSelectedGameObject != CreditsScrollbar.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(sel);
             }
