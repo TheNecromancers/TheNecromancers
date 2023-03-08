@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cca894b933a80848b191c413e75aa7a, type: 3}
+  m_Name: Scroll_3
+  m_EditorClassIdentifier: 
+  inventoryPrefab: {fileID: 6882000034666161159, guid: 6a5c5f2157c5cef46a347b6dab4679d5, type: 3}
+  itemPrefab: {fileID: 4883379290849355137, guid: 571f5dec7e36f1d44bd714b42ba5c2ee, type: 3}
+  type: 2
+  descriptionTitle: "GUARD\u2019S DAILY ROUTINE "
+  description: "\n\r\n8.00 \u2013 Wake Up\r\n9.00 \u2013 Parapet walk of the cells\r\n12.00
+    \u2013 Lunch\r\n14.00 \u2013 Parapet walk of the cells\r\n18.00 \u2013 Dinner\r\n19.00
+    \u2013 Parapet walk of the cells\r\n20.00 \u2013 Sleep\r\n\r\nFunny huh!? I hate
+    being a guard\u2026\r\nRichard\r\n"

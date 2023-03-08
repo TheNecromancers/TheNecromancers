@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded64357d23a6f74499765f4f45e6c79, type: 3}
+  m_Name: EnemyAudioData
+  m_EditorClassIdentifier: 
+  Attacks:
+  - {fileID: 8300000, guid: de2c601f2c345654c844696263a30cbe, type: 3}
+  - {fileID: 8300000, guid: 561b6efe1b8d1bf49a2e831499fae2c6, type: 3}
+  - {fileID: 8300000, guid: 6cb32df3f46067446b9eed6189fc0ee9, type: 3}
+  - {fileID: 8300000, guid: 6d0a089d41455d24aad3f2e8eb10ee2d, type: 3}
+  - {fileID: 8300000, guid: 6b8fbb0a8328e1f46bed1158bd483c70, type: 3}
+  - {fileID: 8300000, guid: cf90df87f90e2814eabcaaf1e0a62d94, type: 3}
+  - {fileID: 8300000, guid: 5bc55a69b648e604eafc15d6c0b7f333, type: 3}
+  Footsteps:
+  - {fileID: 8300000, guid: f46542f487cf32e49abee70cc6cfa5b8, type: 3}
+  - {fileID: 8300000, guid: b45db89bbb821ba419e8582a89f20b17, type: 3}
+  - {fileID: 8300000, guid: fb53186ab55989d438084c7cd50ee854, type: 3}
+  - {fileID: 8300000, guid: ac5dd169c51c37243b6c93374f182e72, type: 3}
+  - {fileID: 8300000, guid: 68168faffff8f464aab918450ff6c7cb, type: 3}
+  - {fileID: 8300000, guid: fddf0ebbc8de2ff4191433291d8b76db, type: 3}
+  Parry:
+  - {fileID: 8300000, guid: 419dbcd6aa15ef343b831aab894876d5, type: 3}
+  Roll: []
+  CrossbowShoot:
+  - {fileID: 8300000, guid: 1b4e188f85257654890c1a3b47ae43c7, type: 3}
+  - {fileID: 8300000, guid: ceec695b78fb4dc448e422182111db50, type: 3}
+  Death:
+  - {fileID: 8300000, guid: cdaf0e40c289aa240979f668059730f2, type: 3}
+  BodyDrop:
+  - {fileID: 8300000, guid: cdaf0e40c289aa240979f668059730f2, type: 3}
+  Hurt: []
+  EnemyGroan:
+  - {fileID: 8300000, guid: 3c31b5c1416429d4aa310e58fefad757, type: 3}
+  - {fileID: 8300000, guid: b8cd96f4a5ffbb5428f7a5b7f6b3d602, type: 3}
+  - {fileID: 8300000, guid: c202ec53c2c572542a0cca6617af7e7a, type: 3}
+  PowerUp1:
+  - {fileID: 8300000, guid: a1bd00979b98b4a409bf6f221de4daec, type: 3}
+  PowerUp2:
+  - {fileID: 8300000, guid: 29980a02942ed8948b746e54618b916f, type: 3}

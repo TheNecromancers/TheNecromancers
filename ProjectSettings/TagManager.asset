@@ -3,7 +3,27 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - FxTemporaire
+  - Shield
+  - VolumeSlider
+  - BrightnessSlider
+  - ContrastSlider
+  - MuteButton
+  - DefaultButton
+  - LeftSlot
+  - RightSlot
+  - RightSlotEnemies
+  - Trigger
+  - Transition
+  - Key
+  - Axe
+  - CompanionAnchor
+  - Lantern
+  - InvisibleWall
+  - TutorialPanel
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -11,12 +31,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Interactable
+  - Enemy
+  - Weapons
+  - Ground
+  - Walls
   - 
   - 
   - 

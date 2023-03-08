@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad5f85b3e4682574b87637f415874ce3, type: 3}
+  m_Name: Axe Common
+  m_EditorClassIdentifier: 
+  inventoryPrefab: {fileID: 6882000034666161159, guid: f3eece0b711836542a18a21eada80d10, type: 3}
+  itemPrefab: {fileID: 4214597414847622612, guid: f72b1b99abb06314b9a8320e46b73577, type: 3}
+  type: 1
+  description: 
+  <Damage>k__BackingField: 50
+  <Knockbacks>k__BackingField:
+  - 0
+  - 0
+  - 5
+  <WeaponType>k__BackingField: 2
+  <Attacks>k__BackingField:
+  - <AnimationName>k__BackingField: AxeAttack1
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 1
+    <ComboAttackTime>k__BackingField: 0.7
+    <Force>k__BackingField: 3
+    <ForceTime>k__BackingField: 0.1
+  - <AnimationName>k__BackingField: AxeAttack2
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 2
+    <ComboAttackTime>k__BackingField: 0.7
+    <Force>k__BackingField: 3
+    <ForceTime>k__BackingField: 0.1
+  - <AnimationName>k__BackingField: AxeAttack3
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: -1
+    <ComboAttackTime>k__BackingField: 0.5
+    <Force>k__BackingField: 4
+    <ForceTime>k__BackingField: 0.1

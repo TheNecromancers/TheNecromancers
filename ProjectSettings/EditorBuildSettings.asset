@@ -4,5 +4,48 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Levels/MainMenu.unity
+    guid: 708deec40fcd8c649991a48c2750e0c1
+  - enabled: 1
+    path: Assets/Scenes/Levels/TutorialCommands.unity
+    guid: 87fdde640617509479bd50a07166c6ba
+  - enabled: 1
+    path: Assets/Scenes/Levels/Introduction.unity
+    guid: 37ffd66dc649618409ffc9bc18cdffa5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Loading.unity
+    guid: 1c1e8b5e07d2b2d4fb0f4e02d4f1dd0a
+  - enabled: 1
+    path: Assets/Scenes/Levels/First_Area.unity
+    guid: af0f926b8e5bc7447a73e7a5a2f890f2
+  - enabled: 1
+    path: Assets/Scenes/Levels/HUB_1.unity
+    guid: c574e0938f7313e4e99044ba706b2856
+  - enabled: 1
+    path: Assets/Scenes/Levels/Area001.unity
+    guid: 20326783cbcc42d419970cf780fd4745
+  - enabled: 1
+    path: Assets/Scenes/Levels/Area002.unity
+    guid: 5fdb849831dd0a4458b5b27de41ed144
+  - enabled: 1
+    path: Assets/Scenes/Levels/Area003.unity
+    guid: 3d62554ca2e90564888ccfcc33e14898
+  - enabled: 1
+    path: Assets/Scenes/Levels/Area004.unity
+    guid: 4bcf618e90454814e96ce1d5642ede15
+  - enabled: 1
+    path: Assets/Scenes/Levels/Area005.unity
+    guid: 575da9638c744b24d9c36899ef41c4c6
+  - enabled: 1
+    path: Assets/Scenes/Levels/HUB_After_Area_005.unity
+    guid: 9c142efc20b343241a1df1dee615584e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Area_Boss.unity
+    guid: 91c30a1b43f6d494fa2ae0668ce1af0b
+  - enabled: 1
+    path: Assets/Scenes/Levels/EndScene.unity
+    guid: 5fdc441feeb4d2849a863fb82e25ad04
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 5216de4682138dd4e9ca56bf82eb885d, type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cca894b933a80848b191c413e75aa7a, type: 3}
+  m_Name: Scroll_HUB
+  m_EditorClassIdentifier: 
+  inventoryPrefab: {fileID: 6882000034666161159, guid: 571c747137eef8a4bb5b43735e31884d, type: 3}
+  itemPrefab: {fileID: 4883379290849355137, guid: 571f5dec7e36f1d44bd714b42ba5c2ee, type: 3}
+  type: 2
+  descriptionTitle: 'Finally some food '
+  description: "Dear Irenic,\r\nWe finally find a way to have access to the kitchen
+    from the guard room.\r\nWe have to thank all these skeletons that arrived at
+    the keep\u2026they give me the occasion to break this wall.\r\nNow we can have
+    all the food that we want when we want!\r\nYour Caroline\r\n"

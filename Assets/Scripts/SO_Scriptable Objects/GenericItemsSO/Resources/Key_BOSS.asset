@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cca894b933a80848b191c413e75aa7a, type: 3}
+  m_Name: Key_BOSS
+  m_EditorClassIdentifier: 
+  inventoryPrefab: {fileID: 6882000034666161159, guid: 08460ca0abc53494482f57a6a37cc483, type: 3}
+  itemPrefab: {fileID: 7447022692855013307, guid: 6b07ab31d47036645833e234477aa56f, type: 3}
+  type: 2
+  descriptionTitle: Necromancer's Key
+  description: Necromancer's Key
